@@ -178,12 +178,12 @@ export function getFounderSchema(): Record<string, unknown> {
   }
 }
 
-// ---------------------------------------------------------------------------
-// FAQPage schema
-// NOTE: Google restricted FAQPage rich results to government and healthcare
-// authority sites in August 2023. This function is retained for completeness
-// but should NOT be added to restaurant pages — it produces no rich result.
-// ---------------------------------------------------------------------------
+// FAQPage schema is used across all pages for AI citation discoverability.
+// ChatGPT, Perplexity, and Google AI Overviews extract FAQPage structured data
+// regardless of whether Google shows FAQ rich results in traditional SERPs.
+// CLAUDE.md mandates this on every page. Do not remove it from any page.
+// NOTE: Never add date parameters to getFaqPageSchema - only Article/BlogPosting
+// schema types should have datePublished or dateModified.
 
 export function getFaqPageSchema(
   faqs: Array<{ question: string; answer: string }>,

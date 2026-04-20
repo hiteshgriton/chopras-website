@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-data'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
 import { getLocalizedUrl } from '@/lib/utils'
 import JsonLd from '@/components/seo/JsonLd'
-import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/schema'
+import { getBlogPostingSchema, getBreadcrumbSchema, getFaqPageSchema } from '@/lib/schema'
 
 type Props = { params: { locale: Locale; slug: string } }
 
@@ -68,6 +68,9 @@ export default function LocaleBlogPostPage({ params }: Props) {
   return (
     <>
       <JsonLd data={getBlogPostingSchema(post, locale)} />
+      {post.faqs && post.faqs.length > 0 && (
+        <JsonLd data={getFaqPageSchema(post.faqs)} />
+      )}
       <JsonLd data={getBreadcrumbSchema([
         { name: tr.common.nav.home, item: getLocalizedUrl(locale) },
         { name: tr.common.nav.blog, item: getLocalizedUrl(locale, 'blog') },

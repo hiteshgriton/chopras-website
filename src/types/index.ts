@@ -42,6 +42,7 @@ export type BlogPost = {
   content: string
   publishedAt: string
   readingTime: number
+  faqs?: Array<{ question: string; answer: string }>
 }
 
 export type Vacancy = {
