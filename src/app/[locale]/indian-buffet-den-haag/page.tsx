@@ -6,6 +6,7 @@ import { getLocalizedUrl } from '@/lib/utils'
 import { getBreadcrumbSchema, getFaqPageSchema, getLocalRestaurantSchema, getCateringServiceSchema, getDishPageSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
 import FaqAccordion from '@/components/sections/FaqAccordion'
+import EmailLink from '@/components/ui/EmailLink'
 
 type Props = { params: { locale: Locale } }
 
@@ -531,7 +532,7 @@ export default function IndianBuffetPage({ params }: Props) {
                 Buffetten zijn beschikbaar in de privezaal van het restaurant en op uw externe locatie.
                 Open dinsdag tot en met zondag vanaf 16:30.{' '}
                 <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Vraag een buffetofferte aan</Link>{' '}
-                via info@chopras.nl.
+                via <EmailLink />.
               </p>
             ) : (
               <p className="text-[#1A1A1A] text-lg leading-relaxed">
@@ -543,7 +544,7 @@ export default function IndianBuffetPage({ params }: Props) {
                 Buffets are available in the restaurant private hall and at your external venue.
                 Open Tuesday to Sunday from 16:30.{' '}
                 <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Request a buffet quote</Link>{' '}
-                at info@chopras.nl.
+                at <EmailLink />.
               </p>
             )}
           </div>

@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { MapPin, Phone, Mail, Clock, Bus } from 'lucide-react'
 import JsonLd from '@/components/seo/JsonLd'
+import FaqAccordion from '@/components/sections/FaqAccordion'
 import { RESTAURANT } from '@/lib/constants'
 import { getLocalizedUrl } from '@/lib/utils'
-import { getRestaurantSchema, getBreadcrumbSchema, getContactPageSchema } from '@/lib/schema'
+import { getRestaurantSchema, getBreadcrumbSchema, getContactPageSchema, getFaqPageSchema } from '@/lib/schema'
 import ContactForm from '@/components/contact/ContactForm'
 import TrustBar from '@/components/sections/TrustBar'
 import ReservationForm from '@/components/contact/ReservationForm'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
+import EmailLink from '@/components/ui/EmailLink'
 
 type Props = { params: { locale: Locale } }
 
@@ -52,9 +55,57 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+const faqsEn = [
+  {
+    question: 'How do I reserve a table at Chopras Indian Restaurant Den Haag?',
+    answer: 'Use the reservation form at the top of this page, call +31 6 30645930 directly, or email info@chopras.nl. For groups of four or more, a reservation is recommended. For eight or more guests, call the team so the right table configuration can be arranged. Chopras Indian Restaurant at Leyweg 986 Den Haag is open Tuesday to Sunday from 16:30 to 22:30.',
+  },
+  {
+    question: 'Where is Chopras Indian Restaurant located in Den Haag?',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Free parking is available directly on site. By public transport, tram line 2 and several bus routes stop near the Leyweg stop, a short walk from the restaurant. The nearest major green space is the Zuiderpark, five minutes away on foot.',
+  },
+  {
+    question: 'What are the opening hours of Chopras Indian Restaurant Den Haag?',
+    answer: 'Chopras Indian Restaurant Den Haag is open Tuesday to Sunday from 16:30 to 22:30. The restaurant is closed on Monday, every Monday without exception. The kitchen opens at 16:30 only and last orders are taken at 22:00.',
+  },
+  {
+    question: 'How do I get to Chopras Indian Restaurant from Den Haag Centraal?',
+    answer: 'From Den Haag Centraal, take tram line 2 towards Leyenburg and exit at the Leyweg stop. The journey takes approximately 15 minutes. By car from the city centre, follow the Rijswijkseweg south and turn onto Leyweg. Free parking is available on site at Leyweg 986, directly outside the entrance.',
+  },
+  {
+    question: 'Can I book Chopras Indian Restaurant for a private event or catering in Den Haag?',
+    answer: 'Yes. Chopras Indian Restaurant offers a private event space at Leyweg 986 Den Haag for between 25 and 80 guests, with full Indian catering included. The team handles weddings, birthday celebrations, and corporate dinners. Send an enquiry via the contact form on this page or call +31 6 30645930 to discuss your requirements.',
+  },
+]
+
+const faqsNl = [
+  {
+    question: 'Hoe reserveer ik een tafel bij Chopras Indian Restaurant in Den Haag?',
+    answer: 'Gebruik het reserveringsformulier bovenaan deze pagina, bel +31 6 30645930 of stuur een e-mail naar info@chopras.nl. Voor groepen van vier of meer personen wordt een reservering aanbevolen. Voor acht of meer gasten belt u het team zodat de juiste tafelopstelling kan worden geregeld. Chopras Indian Restaurant op Leyweg 986 in Den Haag is open van dinsdag tot en met zondag van 16:30 tot 22:30.',
+  },
+  {
+    question: 'Waar is Chopras Indian Restaurant gevestigd in Den Haag?',
+    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Gratis parkeren is beschikbaar direct op locatie. Met het openbaar vervoer stoppen tramlijn 2 en meerdere buslijnen bij of nabij de halte Leyweg, op loopafstand van het restaurant.',
+  },
+  {
+    question: 'Wat zijn de openingstijden van Chopras Indian Restaurant Den Haag?',
+    answer: 'Chopras Indian Restaurant Den Haag is open van dinsdag tot en met zondag van 16:30 tot 22:30. Het restaurant is gesloten op maandag, elke maandag zonder uitzondering. De keuken opent om 16:30 en de laatste bestelling wordt opgenomen om 22:00.',
+  },
+  {
+    question: 'Hoe kom ik van Den Haag Centraal naar Chopras Indian Restaurant?',
+    answer: 'Neem vanaf Den Haag Centraal tramlijn 2 richting Leyenburg en stap uit bij de halte Leyweg. De rit duurt ongeveer 15 minuten. Met de auto vanuit het centrum volgt u de Rijswijkseweg naar het zuiden en slaat u de Leyweg in. Gratis parkeren is beschikbaar op locatie bij Leyweg 986, direct voor de ingang.',
+  },
+  {
+    question: 'Kan ik Chopras Indian Restaurant boeken voor een privé-evenement of catering in Den Haag?',
+    answer: 'Ja. Chopras Indian Restaurant biedt een evenementenruimte op Leyweg 986 in Den Haag voor 25 tot 80 gasten, inclusief volledig Indiaas catering. Het team verzorgt bruiloften, verjaardagsfeesten en bedrijfsdiners. Stuur een aanvraag via het contactformulier op deze pagina of bel +31 6 30645930 om uw wensen te bespreken.',
+  },
+]
+
 export default function LocaleContactPage({ params }: Props) {
   const { locale } = params
   const tr = getTranslations(locale)
+  const isNl = locale === 'nl'
+  const base = locale === 'nl' ? '/nl' : ''
   const restaurantSchema = getRestaurantSchema(locale)
 
   const breadcrumbSchema = getBreadcrumbSchema([
@@ -65,23 +116,23 @@ export default function LocaleContactPage({ params }: Props) {
   const quickCards = [
     {
       Icon: Phone,
-      title: 'Call Us Directly',
-      body: 'For same-day bookings or urgent enquiries',
-      cta: `Call ${RESTAURANT.contact.phoneDisplay}`,
+      title: isNl ? 'Bel Ons Rechtstreeks' : 'Call Us Directly',
+      body: isNl ? 'Voor reserveringen op dezelfde dag of dringende vragen' : 'For same-day bookings or urgent enquiries',
+      cta: `${isNl ? 'Bel' : 'Call'} ${RESTAURANT.contact.phoneDisplay}`,
       href: `tel:${RESTAURANT.contact.phone}`,
     },
     {
       Icon: Mail,
-      title: 'Send a Message',
-      body: 'We reply within 24 hours',
+      title: isNl ? 'Stuur een Bericht' : 'Send a Message',
+      body: isNl ? 'Wij reageren binnen 24 uur' : 'We reply within 24 hours',
       cta: RESTAURANT.contact.email,
       href: `mailto:${RESTAURANT.contact.email}`,
     },
     {
       Icon: MapPin,
-      title: 'Get Directions',
+      title: isNl ? 'Routebeschrijving' : 'Get Directions',
       body: 'Leyweg 986, Den Haag',
-      cta: 'Open in Maps',
+      cta: isNl ? 'Open in Maps' : 'Open in Maps',
       href: 'https://maps.google.com/?q=Leyweg+986+Den+Haag',
     },
   ]
@@ -91,6 +142,7 @@ export default function LocaleContactPage({ params }: Props) {
       <JsonLd data={restaurantSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={getContactPageSchema(locale)} />
+      <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
 
       {/* SECTION 1  -  RESERVATION SPLIT */}
       <section
@@ -107,11 +159,13 @@ export default function LocaleContactPage({ params }: Props) {
                   • VISIT US · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
                 </span>
               </div>
-              <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mt-2">
-                Reserve Your Table at Chopras
+              <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mt-2 mb-2 leading-[1.3]">
+                {isNl ? 'Reserveer uw Tafel bij Chopras' : 'Reserve Your Table at Chopras'}
               </h2>
               <p className="text-[#1A1A1A]/60 text-sm mt-2 mb-6">
-                Open Tuesday to Sunday · 16:30 to 22:30 · Leyweg 986, Den Haag
+                {isNl
+                  ? 'Open dinsdag t/m zondag · 16:30 tot 22:30 · Leyweg 986, Den Haag'
+                  : 'Open Tuesday to Sunday · 16:30 to 22:30 · Leyweg 986, Den Haag'}
               </p>
               <ReservationForm />
             </div>
@@ -126,7 +180,7 @@ export default function LocaleContactPage({ params }: Props) {
                     • FIND US •
                   </span>
                 </div>
-                <h3 className="font-vibes text-3xl text-white font-semibold mt-2 mb-6">
+                <h3 className="font-vibes text-3xl text-white mt-2 mb-6 leading-[1.3]">
                   Chopras Indian Restaurant
                 </h3>
                 <div className="space-y-5">
@@ -157,8 +211,12 @@ export default function LocaleContactPage({ params }: Props) {
                   <div className="flex items-start gap-4">
                     <Clock className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
                     <div className="text-sm leading-relaxed space-y-1">
-                      <p className="text-white/80">Tuesday to Sunday: 16:30 to 22:30</p>
-                      <p className="text-white/50">Monday: Closed</p>
+                      <p className="text-white/80">
+                        {isNl ? 'Dinsdag tot en met Zondag: 16:30 tot 22:30' : 'Tuesday to Sunday: 16:30 to 22:30'}
+                      </p>
+                      <p className="text-white/50">
+                        {isNl ? 'Maandag: Gesloten' : 'Monday: Closed'}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -168,7 +226,11 @@ export default function LocaleContactPage({ params }: Props) {
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 space-y-4">
                 <div className="flex items-center gap-3">
                   <Bus className="text-[#D4AF37] w-5 h-5 flex-shrink-0" />
-                  <p className="text-white/70 text-sm">Tram and bus accessible · Leyweg stop nearby</p>
+                  <p className="text-white/70 text-sm">
+                    {isNl
+                      ? 'Tram en bus bereikbaar · Halte Leyweg op loopafstand'
+                      : 'Tram and bus accessible · Leyweg stop nearby'}
+                  </p>
                 </div>
               </div>
 
@@ -202,7 +264,7 @@ export default function LocaleContactPage({ params }: Props) {
             >
               <div className="flex flex-col items-center text-center flex-1 mb-6">
                 <Icon className="text-[#D4AF37] w-10 h-10 mx-auto mb-4" />
-                <h3 className="font-vibes text-3xl text-[#C7A348] font-semibold mb-2">{title}</h3>
+                <h3 className="font-vibes text-3xl text-[#C7A348] mb-2 leading-[1.3]">{title}</h3>
                 <p className="text-[#1A1A1A]/60 text-sm mt-2">{body}</p>
               </div>
               <a
@@ -218,17 +280,135 @@ export default function LocaleContactPage({ params }: Props) {
         </div>
       </section>
 
-      {/* SECTION 3  -  CONTACT FORM */}
+      {/* SECTION 3  -  PLAN YOUR VISIT PROSE */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Uw Bezoek aan Chopras Indian Restaurant Plannen'
+              : 'Plan Your Visit to Chopras Indian Restaurant Den Haag'}
+          </h2>
+          {isNl ? (
+            <>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+                Chopras Indian Restaurant bevindt zich op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Gratis parkeren is direct op locatie beschikbaar, zonder parkeermeter en zonder tijdslimiet tijdens de openingstijden. Tramlijn 2 en meerdere buslijnen stoppen bij de halte Leyweg op loopafstand van de ingang. Open van dinsdag tot en met zondag van 16:30 tot 22:30, maandag gesloten.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+                Vanuit Den Haag Centraal duurt de tramrit naar Leyweg ongeveer 15 minuten. Vanuit{' '}
+                <Link href={`${base}/indian-restaurant-rijswijk`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Rijswijk
+                </Link>{' '}
+                is het restaurant vijf minuten rijden. Gasten die komen uit{' '}
+                <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Delft
+                </Link>{' '}
+                bereiken Chopras Indian Restaurant via de A13 in circa 15 minuten. Het gratis parkeerterrein betekent dat de laatste stap van elke reis de makkelijkste is.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Voor groepen van vier of meer wordt een reservering aanbevolen, met name op vrijdag- en zaterdagavond. Gebruik het reserveringsformulier bovenaan deze pagina of bel +31 6 30645930. Voor{' '}
+                <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Indiaas catering in Den Haag
+                </Link>{' '}
+                of om de{' '}
+                <Link href={`${base}/feestzaal-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  feestzaal te huren in Den Haag
+                </Link>
+                , neemt u contact op via het formulier hieronder.
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+                Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Free parking is available directly on site with no meters and no time limits during opening hours. Tram line 2 and several bus routes stop at the Leyweg stop, a short walk from the restaurant entrance. Open Tuesday to Sunday from 16:30 to 22:30, closed on Monday.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+                From Den Haag Centraal the tram journey to Leyweg takes around 15 minutes. From{' '}
+                <Link href={`${base}/indian-restaurant-rijswijk`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Rijswijk
+                </Link>{' '}
+                the restaurant is five minutes by car. Guests coming from{' '}
+                <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Delft
+                </Link>{' '}
+                reach Chopras Indian Restaurant via the A13 in around 15 minutes. Free parking on site means the last step of every journey is the easiest.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                For groups of four or more, a reservation is recommended, particularly on Friday and Saturday evenings. Use the reservation form at the top of this page or call +31 6 30645930. For{' '}
+                <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Indian catering in Den Haag
+                </Link>{' '}
+                or to{' '}
+                <Link href={`${base}/feestzaal-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  hire the event space in Den Haag
+                </Link>
+                , use the contact form below.
+              </p>
+            </>
+          )}
+        </div>
+      </section>
+
+      {/* SECTION 4  -  CONTACT FORM */}
       <section className="bg-white py-20 md:py-28 px-6 md:px-16">
         <div className="max-w-2xl mx-auto text-center mb-10">
-          <p className="text-xs uppercase tracking-widest text-[#D4AF37] font-medium mb-4">
-            SEND A MESSAGE
-          </p>
-          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348]">
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
+            <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
+              • SEND A MESSAGE •
+            </span>
+          </div>
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
             {tr.contact.formH2}
           </h2>
         </div>
         <ContactForm />
+      </section>
+
+      {/* SECTION 5  -  GEO BLOCK */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Hoe neem ik contact op of reserveer ik bij Chopras Indian Restaurant Den Haag?'
+              : 'How do I contact or reserve at Chopras Indian Restaurant Den Haag?'}
+          </h2>
+          {isNl ? (
+            <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+              Chopras Indian Restaurant is bereikbaar via{' '}
+              <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                +31 6 30645930
+              </Link>{' '}
+              of <EmailLink />. Het restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag. Reserveringen zijn mogelijk via het formulier bovenaan deze pagina. Open van dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren op locatie. Beoordeeld met 4,9 sterren van meer dan 800 gasten op Google. Voor{' '}
+              <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                Indiaas catering of privé-evenementen in Den Haag
+              </Link>
+              , gebruik het contactformulier hierboven.
+            </p>
+          ) : (
+            <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+              Chopras Indian Restaurant is reachable at{' '}
+              <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                +31 6 30645930
+              </Link>{' '}
+              or <EmailLink />. The restaurant is at Leyweg 986, 2545 GW Den Haag. Reservations can be made using the form at the top of this page. Open Tuesday to Sunday from 16:30 to 22:30. Free parking on site. Rated 4.9 stars from over 800 verified guests on Google. For{' '}
+              <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                Indian catering or private events in Den Haag
+              </Link>
+              , use the contact form above.
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* SECTION 6  -  FAQ */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Veelgestelde vragen over Chopras Indian Restaurant Den Haag'
+              : 'Frequently asked questions about Chopras Indian Restaurant Den Haag'}
+          </h2>
+          <FaqAccordion faqs={isNl ? faqsNl : faqsEn} locale={locale} />
+        </div>
       </section>
 
       {/* TRUST BAR */}
