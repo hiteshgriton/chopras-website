@@ -50,7 +50,7 @@ H2: Frequently Asked Questions About [Dish Name] in [City]
 CTA:
   [Primary: Reserve a table]
   [Secondary: Order online]
-  [Micro-commitment: "Open Tuesday to Sunday. Free parking at Leyweg 986."]
+  [Micro-commitment: "Open Tuesday to Sunday. Tram line 2 stops at Leyweg."]
 ```
 
 **Dish Page SEO Rules**

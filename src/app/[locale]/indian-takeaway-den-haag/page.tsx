@@ -57,7 +57,7 @@ const faqsEn = [
   },
   {
     question: 'How do I order Indian takeaway from Chopras?',
-    answer: 'Call Chopras Indian Restaurant on +31 6 30645930, place your order and collect from Leyweg 986 in Den Haag. Free parking is available on site. Collection is available Tuesday to Sunday from 16:30 to 22:30. Delivery is also available via Thuisbezorgd and Uber Eats within 5 km of Leyweg.',
+    answer: 'Call Chopras Indian Restaurant on +31 6 30645930, place your order and collect from Leyweg 986 in Den Haag. Paid parking is available in the Leyweg area. Collection is available Tuesday to Sunday from 16:30 to 22:30. Delivery is also available via Thuisbezorgd and Uber Eats within 5 km of Leyweg.',
   },
   {
     question: 'Is Chopras Indian takeaway fully halal certified?',
@@ -69,7 +69,7 @@ const faqsEn = [
   },
   {
     question: 'Where can I collect my Indian takeaway order from Chopras?',
-    answer: 'Collection is from Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag. Free parking is available directly outside the restaurant. Open for collection Tuesday to Sunday from 16:30 to 22:30. Closed on Monday.',
+    answer: 'Collection is from Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag. Paid parking is available in the Leyweg area. Open for collection Tuesday to Sunday from 16:30 to 22:30. Closed on Monday.',
   },
 ]
 
@@ -80,7 +80,7 @@ const faqsNl = [
   },
   {
     question: 'Hoe bestel ik Indiaas afhaaleten bij Chopras?',
-    answer: 'Bel Chopras Indian Restaurant op +31 6 30645930, geef uw bestelling door en haal op bij Leyweg 986 in Den Haag. Gratis parkeren is beschikbaar op locatie. Afhalen is mogelijk dinsdag tot en met zondag van 16:30 tot 22:30. Bezorging is ook beschikbaar via Thuisbezorgd en Uber Eats binnen 5 km van Leyweg.',
+    answer: 'Bel Chopras Indian Restaurant op +31 6 30645930, geef uw bestelling door en haal op bij Leyweg 986 in Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Afhalen is mogelijk dinsdag tot en met zondag van 16:30 tot 22:30. Bezorging is ook beschikbaar via Thuisbezorgd en Uber Eats binnen 5 km van Leyweg.',
   },
   {
     question: 'Is het Indiaas afhaaleten van Chopras volledig halal gecertificeerd?',
@@ -92,7 +92,7 @@ const faqsNl = [
   },
   {
     question: 'Waar kan ik mijn Indiaas afhaalbestelling ophalen bij Chopras?',
-    answer: 'Afhalen is bij Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag. Gratis parkeren is beschikbaar direct naast het restaurant. Open voor afhalen dinsdag tot en met zondag van 16:30 tot 22:30. Gesloten op maandag.',
+    answer: 'Afhalen is bij Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Open voor afhalen dinsdag tot en met zondag van 16:30 tot 22:30. Gesloten op maandag.',
   },
 ]
 
@@ -163,7 +163,7 @@ export default function IndianTakeawayPage({ params }: Props) {
             <div className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
               <div className="text-4xl mb-4">🏪</div>
               <h3 className="font-vibes text-2xl md:text-3xl text-[#C7A348] mb-3 leading-[1.3]">{isNl ? 'Afhalen' : 'Collect'}</h3>
-              <p className="font-body text-[#1A1A1A]/70 text-sm mb-4 leading-relaxed">{isNl ? 'Bel vooruit en haal op bij Leyweg 986. Gratis parkeren.' : 'Call ahead and collect from Leyweg 986. Free parking on site.'}</p>
+              <p className="font-body text-[#1A1A1A]/70 text-sm mb-4 leading-relaxed">{isNl ? 'Bel vooruit en haal op bij Leyweg 986. Betaald parkeren in de omgeving.' : 'Call ahead and collect from Leyweg 986. Paid parking nearby.'}</p>
               <a href={`tel:${RESTAURANT.contact.phone}`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px] w-full">
                 {RESTAURANT.contact.phoneDisplay}
               </a>
@@ -469,11 +469,11 @@ export default function IndianTakeawayPage({ params }: Props) {
               </div>
               {isNl ? (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  <strong>Haal op bij Leyweg 986 in Den Haag.</strong> Gratis parkeren is beschikbaar direct naast het restaurant. Geen parkeermeter, geen loopafstand. U rijdt voor, pakt uw bestelling op en rijdt terug.
+                  <strong>Haal op bij Leyweg 986 in Den Haag.</strong> Betaald parkeren is beschikbaar in de omgeving van Leyweg. U rijdt voor, pakt uw bestelling op en rijdt terug.
                 </p>
               ) : (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  <strong>Collect from Leyweg 986 in Den Haag.</strong> Free parking is available directly outside the restaurant. No parking meter, no distance to walk. Drive up, collect your order, drive home.
+                  <strong>Collect from Leyweg 986 in Den Haag.</strong> Paid parking is available in the Leyweg area. Drive up, collect your order, drive home.
                 </p>
               )}
             </div>

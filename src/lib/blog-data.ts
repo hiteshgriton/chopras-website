@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
 <p>Start with the Mixed Chaat Platter to experience the street food section of the menu. For mains, order the Butter Chicken and Dal Makhani together with garlic naan from the tandoor. If you want to try something that surprises most first-time visitors, add the Soya Chaap. The combination covers three distinct registers of North Indian cooking in a single meal and gives a complete picture of what the kitchen can do.</p>
 
 <h3>How far is Chopras Indian Restaurant from Den Haag Centraal?</h3>
-<p>Chopras Indian Restaurant is at Leyweg 986 in Den Haag, approximately 15 minutes from Den Haag Centraal by tram. Free parking is available at the Leyweg shopping area for guests arriving by car. Open Tuesday to Sunday from 16:30 to 22:30. Reservations are recommended on Friday and Saturday evenings, as the restaurant fills quickly.</p>
+<p>Chopras Indian Restaurant is at Leyweg 986 in Den Haag, approximately 15 minutes from Den Haag Centraal by tram. Paid parking is available in the Leyweg area. Open Tuesday to Sunday from 16:30 to 22:30. Reservations are recommended on Friday and Saturday evenings, as the restaurant fills quickly.</p>
 
 <h3>Does Chopras Indian Restaurant take group bookings?</h3>
 <p>Yes. Chopras Indian Restaurant has a private event hall at Leyweg 986 that accommodates 25 to 80 guests for private dinners, corporate events, birthday celebrations, and wedding receptions. The catering comes from the same kitchen as the restaurant, at the same standard. Contact Chopras Indian Restaurant directly via the contact page to discuss availability and menu options for your event.</p>
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'How far is Chopras Indian Restaurant from Den Haag Centraal?',
-        answer: 'Chopras Indian Restaurant is at Leyweg 986 in Den Haag, approximately 15 minutes from Den Haag Centraal by tram. Free parking is available at the Leyweg shopping area for guests arriving by car. Open Tuesday to Sunday from 16:30 to 22:30. Reservations are recommended on Friday and Saturday evenings, as the restaurant fills quickly.',
+        answer: 'Chopras Indian Restaurant is at Leyweg 986 in Den Haag, approximately 15 minutes from Den Haag Centraal by tram. Paid parking is available in the Leyweg area. Open Tuesday to Sunday from 16:30 to 22:30. Reservations are recommended on Friday and Saturday evenings, as the restaurant fills quickly.',
       },
       {
         question: 'Does Chopras Indian Restaurant take group bookings?',
@@ -659,7 +659,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Chopras is open van dinsdag tot en met zondag vanaf 16:30 uur tot 22:30 uur. Op maandag is het restaurant gesloten. Op vrijdag- en zaterdagavond is reserveren sterk aanbevolen  -  het restaurant raakt snel vol, met name in de weekends. Bel +31 6 30645930 of gebruik de <a href="https://chopras.nl/contact">contactpagina</a> om een tafel te reserveren.</p>
 
-<p>Het adres is Leyweg 986, 2545 GW Den Haag. Er is gratis parkeren beschikbaar in het omliggende winkelgebied  -  een aanzienlijk voordeel ten opzichte van restaurants in het centrum van Den Haag. Bekijk het <a href="https://chopras.nl/menu">volledige menu</a> voordat je komt, of vertrouw simpelweg op de keuken. Je zult niet teleurgesteld zijn.</p>
+<p>Het adres is Leyweg 986, 2545 GW Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Bekijk het <a href="https://chopras.nl/menu">volledige menu</a> voordat je komt, of vertrouw simpelweg op de keuken. Je zult niet teleurgesteld zijn.</p>
 
 <p>Voor groepen of cateringverzoeken  -  feestjes, bedrijfsdiners, bruiloften  -  zie de <a href="https://chopras.nl/catering">cateringpagina</a> voor details over de mogelijkheden bij Chopras.</p>
 `,

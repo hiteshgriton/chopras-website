@@ -9,11 +9,11 @@ import { getTranslations, type Locale } from '@/lib/useTranslations'
 const faqsEn = [
   {
     question: 'Is there a good Indian restaurant near Zoetermeer?',
-    answer: 'Chopras Indian Restaurant at Leyweg 986, Den Haag is 20 minutes from central Zoetermeer via the A12 motorway. Rated 4.9 stars by 800+ verified guests on Google, Chopras serves 143 halal-certified dishes from a kitchen that grinds its spices fresh each morning. Open Tuesday to Sunday from 16:30 to 22:30, with free parking on site.',
+    answer: 'Chopras Indian Restaurant at Leyweg 986, Den Haag is 20 minutes from central Zoetermeer via the A12 motorway. Rated 4.9 stars by 800+ verified guests on Google, Chopras serves 143 halal-certified dishes from a kitchen that grinds its spices fresh each morning. Open Tuesday to Sunday from 16:30 to 22:30. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'How do I get from Zoetermeer to Chopras Indian Restaurant?',
-    answer: 'By car, take the A12 westbound from Zoetermeer and exit at Leyweg. The journey is approximately 20 minutes from central Zoetermeer. By public transport, take the Randstadrail to Den Haag Centrum station and connect to a bus toward Leyweg. Total travel time by public transport is typically 30 to 40 minutes. Free parking is available on arrival at Leyweg 986.',
+    answer: 'By car, take the A12 westbound from Zoetermeer and exit at Leyweg. The journey is approximately 20 minutes from central Zoetermeer. By public transport, take the Randstadrail to Den Haag Centrum station and connect to a bus toward Leyweg. Total travel time by public transport is typically 30 to 40 minutes. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'Is Chopras Indian Restaurant halal certified?',
@@ -32,11 +32,11 @@ const faqsEn = [
 const faqsNl = [
   {
     question: 'Is er een goed Indiaas restaurant bij Zoetermeer?',
-    answer: 'Chopras Indian Restaurant op Leyweg 986 in Den Haag is 20 minuten rijden van centraal Zoetermeer via de A12. Beoordeeld met 4,9 sterren door meer dan 800 geverifieerde gasten op Google, serveert Chopras 143 halal-gecertificeerde gerechten uit een keuken die elke ochtend kruiden vers maalt. Open van dinsdag tot en met zondag van 16:30 tot 22:30, met gratis parkeren ter plaatse.',
+    answer: 'Chopras Indian Restaurant op Leyweg 986 in Den Haag is 20 minuten rijden van centraal Zoetermeer via de A12. Beoordeeld met 4,9 sterren door meer dan 800 geverifieerde gasten op Google, serveert Chopras 143 halal-gecertificeerde gerechten uit een keuken die elke ochtend kruiden vers maalt. Open van dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Hoe kom ik van Zoetermeer naar Chopras Indian Restaurant?',
-    answer: 'Per auto neemt u de A12 richting Den Haag vanuit Zoetermeer en slaat u af bij Leyweg. De reis duurt circa 20 minuten vanuit centraal Zoetermeer. Per openbaar vervoer neemt u de Randstadrail naar Den Haag Centrum en stapt u over op een bus naar Leyweg. De totale reistijd per openbaar vervoer is doorgaans 30 tot 40 minuten. Gratis parkeren is beschikbaar bij Leyweg 986.',
+    answer: 'Per auto neemt u de A12 richting Den Haag vanuit Zoetermeer en slaat u af bij Leyweg. De reis duurt circa 20 minuten vanuit centraal Zoetermeer. Per openbaar vervoer neemt u de Randstadrail naar Den Haag Centrum en stapt u over op een bus naar Leyweg. De totale reistijd per openbaar vervoer is doorgaans 30 tot 40 minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Is Chopras Indian Restaurant halal gecertificeerd?',
@@ -171,7 +171,7 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
               <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 menu van 143 gerechten
               </Link>{' '}
-              omvat curry&apos;s, tandoori en biryani. Open van dinsdag tot en met zondag van 16:30 tot 22:30, met gratis parkeren ter plaatse.
+              omvat curry&apos;s, tandoori en biryani. Open van dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren is beschikbaar in de omgeving van Leyweg.
             </p>
           ) : (
             <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
@@ -184,7 +184,7 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
               <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 full 143-dish menu
               </Link>{' '}
-              spans curries, tandoori, and biryani. Open Tuesday to Sunday from 16:30 to 22:30, with free parking on site.
+              spans curries, tandoori, and biryani. Open Tuesday to Sunday from 16:30 to 22:30. Paid parking is available in the Leyweg area.
             </p>
           )}
         </div>
@@ -199,7 +199,7 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
           {isNl ? (
             <div className="space-y-5">
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Zoetermeer ligt direct ten oosten van Den Haag, verbonden via de A12 en de Randstadrail. Vanuit centraal Zoetermeer rijdt u via de A12 richting Den Haag en slaat u af bij Leyweg. De rit duurt circa 20 minuten. Gratis parkeren is beschikbaar in het winkelgebied direct bij het restaurant.
+                Zoetermeer ligt direct ten oosten van Den Haag, verbonden via de A12 en de Randstadrail. Vanuit centraal Zoetermeer rijdt u via de A12 richting Den Haag en slaat u af bij Leyweg. De rit duurt circa 20 minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 Per openbaar vervoer verbindt de Randstadrail Zoetermeer rechtstreeks met Den Haag Centrum. Vandaar rijdt een bus naar Leyweg. De totale reistijd is doorgaans 30 tot 40 minuten, afhankelijk van vertrektijd en aansluiting.
@@ -209,13 +209,13 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
                 <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   gecertificeerde halalstatus
                 </Link>{' '}
-                die de gemeenschap vereist. Parkeren op Leyweg is gratis en ruim beschikbaar, een concreet voordeel voor families die de parkeerstress van het centrum van Den Haag willen vermijden.
+                die de gemeenschap vereist. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van het restaurant, wat Chopras ook goed bereikbaar maakt met het openbaar vervoer.
               </p>
             </div>
           ) : (
             <div className="space-y-5">
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Zoetermeer sits directly east of Den Haag, connected by the A12 motorway and the Randstadrail tram network. From central Zoetermeer, take the A12 westbound and exit at Leyweg. The drive takes approximately 20 minutes. Free parking is available in the shopping area directly at the restaurant.
+                Zoetermeer sits directly east of Den Haag, connected by the A12 motorway and the Randstadrail tram network. From central Zoetermeer, take the A12 westbound and exit at Leyweg. The drive takes approximately 20 minutes. Paid parking is available in the Leyweg area.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 By public transport, the Randstadrail connects Zoetermeer directly to Den Haag Centrum station. From there, a bus runs toward Leyweg. Total travel time is typically 30 to 40 minutes depending on departure time and connection.
@@ -225,7 +225,7 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
                 <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   confirmed halal certification
                 </Link>{' '}
-                the community requires. Parking at Leyweg is free and generous, a concrete advantage for families who want to avoid the parking uncertainty of Den Haag city centre.
+                the community requires. Tram line 2 stops at Leyweg, a short walk from the entrance, making Chopras accessible without a car as well.
               </p>
             </div>
           )}
@@ -368,12 +368,12 @@ export default function IndianRestaurantZoetermeerPage({ params }: Props) {
             {(isNl ? [
               { title: 'Afstand', desc: 'Circa 20 minuten rijden van centraal Zoetermeer via de A12.' },
               { title: 'Openbaar Vervoer', desc: 'Randstadrail naar Den Haag Centrum, dan bus naar Leyweg. Circa 30 tot 40 minuten totaal.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren bij het winkelgebied Leyweg. Geen parkeermeter, geen zoekwerk.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
             ] : [
               { title: 'Distance', desc: 'Approximately 20 minutes by car from central Zoetermeer via the A12.' },
               { title: 'Public Transport', desc: 'Randstadrail to Den Haag Centrum, then bus to Leyweg. Approximately 30 to 40 minutes total.' },
-              { title: 'Parking', desc: 'Free parking at the Leyweg shopping area. No meters, no searching.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
             ]).map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-5 border-l-4 border-[#D4AF37]">

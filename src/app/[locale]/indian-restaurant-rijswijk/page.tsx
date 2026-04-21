@@ -20,8 +20,8 @@ const faqsEn = [
     answer: 'Yes. Whole spices at Chopras are sourced directly from India and ground fresh every morning before service at Leyweg 986. The aromatic oils in cumin, cardamom, and coriander begin evaporating within hours of grinding - which is why pre-mixed blends from suppliers cannot replicate what happens when spices are this fresh.',
   },
   {
-    question: 'Is there free parking for visitors from Rijswijk?',
-    answer: 'Yes. Free parking is available in the Leyweg shopping area directly alongside the restaurant. This is a practical advantage for families arriving by car from Rijswijk - no parking costs and no time limits during the evening.',
+    question: 'How do I get to Chopras Indian Restaurant by car?',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, Den Haag. Paid parking is available in the surrounding Leyweg area. By public transport, tram line 2 stops at Leyweg, a short walk from the entrance.',
   },
   {
     question: 'What are the opening hours at Chopras Indian Restaurant?',
@@ -43,8 +43,8 @@ const faqsNl = [
     answer: 'Ja. Hele specerijen bij Chopras worden direct uit India betrokken en elke ochtend vers gemalen voor aanvang van de service op Leyweg 986. De aromatische olien in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Kant-en-klare leveranciermengsels kunnen dit niet evenaren.',
   },
   {
-    question: 'Is er gratis parkeergelegenheid voor bezoekers uit Rijswijk?',
-    answer: 'Ja. Gratis parkeren is beschikbaar in het winkelgebied Leyweg direct naast het restaurant. Dit is een praktisch voordeel voor families die per auto uit Rijswijk komen - geen parkeerkosten en geen tijdsbeperkingen tijdens de avond.',
+    question: 'Hoe rijd ik naar Chopras Indian Restaurant?',
+    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Met het openbaar vervoer stopt tramlijn 2 bij halte Leyweg, op loopafstand van de ingang.',
   },
   {
     question: 'Wat zijn de openingstijden van Chopras Indian Restaurant?',
@@ -167,13 +167,13 @@ export default function IndianRestaurantRijswijkPage({ params }: Props) {
             {isNl ? (
               <>
                 <p>Rijswijk en Den Haag delen een grens zonder zichtbare scheiding. De gemeentegrens loopt door woonwijken, winkelgebieden en parken - wat betekent dat de meeste Rijswijkse bewoners dichter bij Leyweg wonen dan bij het centrum van Den Haag. <strong>Chopras Indian Restaurant</strong> op Leyweg 986 is minder dan 5 minuten rijden van centraal Rijswijk.</p>
-                <p>Per openbaar vervoer verbinden tram- en busverbindingen centraal Rijswijk rechtstreeks met het Leyweg-gebied, zonder overstap. De reistijd is doorgaans minder dan 10 minuten. En anders dan parkeren in het centrum van Den Haag, is parkeren bij Leyweg gratis en ruim beschikbaar - een concreet voordeel voor families die &apos;s avonds komen eten.</p>
+                <p>Per openbaar vervoer verbinden tram- en busverbindingen centraal Rijswijk rechtstreeks met het Leyweg-gebied, zonder overstap. De reistijd is doorgaans minder dan 10 minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg voor gasten die met de auto komen.</p>
                 <p>Rijswijk heeft de grootste concentratie Hindoestaanse inwoners van Nederland. Families die zijn opgegroeid met echte Noord-Indiaase keuken - niet de restaurantversie, maar de keuken van thuis. Ze weten wat <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">dal makhani</Link> ruikt als de linzen een nacht hebben gesudderd, wat verse komijn doet wanneer hij een hete pan raakt, en wat een <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link> hoort te zijn. Chopras is gebouwd voor precies dit publiek.</p>
               </>
             ) : (
               <>
                 <p>Rijswijk and Den Haag share a border without a visible boundary. The municipal line runs through residential streets, shopping areas, and parks - which means most Rijswijk residents live closer to Leyweg than to Den Haag city centre. <strong>Chopras Indian Restaurant</strong> at Leyweg 986 is less than 5 minutes by car from central Rijswijk.</p>
-                <p>By public transport, tram and bus connections link central Rijswijk to the Leyweg area directly with no changes required. The journey takes under 10 minutes from most parts of Rijswijk. And unlike parking in central Den Haag, parking at Leyweg is free and readily available - a practical difference for families arriving in the evening.</p>
+                <p>By public transport, tram and bus connections link central Rijswijk to the Leyweg area directly with no changes required. The journey takes under 10 minutes from most parts of Rijswijk. Paid parking is available in the Leyweg area for guests arriving by car.</p>
                 <p>Rijswijk has the largest concentration of Hindustani residents in the Netherlands. Families who grew up with real North Indian cooking - not the restaurant version, but the home kitchen. They know what <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">dal makhani</Link> smells like when the lentils have cooked overnight, what fresh cumin does when it hits a hot pan, and what a <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link> is supposed to be. Chopras was built for exactly this audience.</p>
               </>
             )}
@@ -277,12 +277,12 @@ export default function IndianRestaurantRijswijkPage({ params }: Props) {
             {(isNl ? [
               { title: 'Afstand', desc: 'Minder dan 5 minuten met de auto van centraal Rijswijk. Leyweg 986 ligt vlak over de gemeentegrens.' },
               { title: 'Openbaar Vervoer', desc: 'Directe tram- en busverbindingen vanuit Rijswijk naar Leyweg - doorgaans minder dan 10 minuten reistijd.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg. Aanzienlijk eenvoudiger dan het centrum van Den Haag.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
             ] : [
               { title: 'Distance', desc: 'Under 5 minutes by car from central Rijswijk. Leyweg 986 is just across the municipal boundary.' },
               { title: 'Public Transport', desc: 'Direct tram and bus connections from Rijswijk to Leyweg - typically under 10 minutes.' },
-              { title: 'Parking', desc: 'Free parking in the Leyweg shopping area. Significantly easier than central Den Haag.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
             ]).map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-5 border-l-4 border-[#D4AF37]">

@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const faqsEn = [
   {
     question: 'How far is Chopras Indian Restaurant from the Peace Palace?',
-    answer: 'Chopras Indian Restaurant at Leyweg 986 is approximately 10 minutes from the Peace Palace by car. By public transport, take a tram or bus towards Leyweg. The journey takes around 20 minutes from the Peace Palace area. Free parking is available at Leyweg 986.',
+    answer: 'Chopras Indian Restaurant at Leyweg 986 is approximately 10 minutes from the Peace Palace by car. By public transport, take a tram or bus towards Leyweg. The journey takes around 20 minutes from the Peace Palace area. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'Is Chopras Indian Restaurant fully halal certified?',
@@ -68,15 +68,15 @@ const faqsEn = [
     answer: 'Chopras Indian Restaurant is open Tuesday to Sunday from 16:30 to 22:30. The restaurant is closed on Monday. Reservations are recommended for groups and for Friday and Saturday evenings.',
   },
   {
-    question: 'Is there parking at Leyweg 986?',
-    answer: 'Yes. Free parking is available directly at Leyweg 986. This makes Chopras Indian Restaurant easy to reach from the Peace Palace and surrounding diplomatic quarter by car, with no need to search for street parking.',
+    question: 'How do I get to Chopras Indian Restaurant by car?',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, Den Haag. Paid parking is available in the surrounding Leyweg area. By public transport, tram line 2 stops at Leyweg, a short walk from the entrance.',
   },
 ]
 
 const faqsNl = [
   {
     question: 'Hoe ver is Chopras Indian Restaurant van het Vredespaleis?',
-    answer: 'Chopras Indian Restaurant op Leyweg 986 is ongeveer 10 minuten rijden van het Vredespaleis. Met het openbaar vervoer neemt u een tram of bus richting Leyweg. De reis duurt ongeveer 20 minuten vanuit de omgeving van het Vredespaleis. Gratis parkeergelegenheid is beschikbaar op Leyweg 986.',
+    answer: 'Chopras Indian Restaurant op Leyweg 986 is ongeveer 10 minuten rijden van het Vredespaleis. Met het openbaar vervoer neemt u een tram of bus richting Leyweg. De reis duurt ongeveer 20 minuten vanuit de omgeving van het Vredespaleis. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Is Chopras Indian Restaurant volledig halal gecertificeerd?',
@@ -91,8 +91,8 @@ const faqsNl = [
     answer: 'Chopras Indian Restaurant is open van dinsdag tot en met zondag van 16:30 tot 22:30. Het restaurant is op maandag gesloten. Reserveren wordt aanbevolen voor groepen en voor vrijdag- en zaterdagavonden.',
   },
   {
-    question: 'Is er parkeergelegenheid op Leyweg 986?',
-    answer: 'Ja. Gratis parkeergelegenheid is direct beschikbaar op Leyweg 986. Hierdoor is Chopras Indian Restaurant gemakkelijk bereikbaar vanuit het Vredespaleis en de diplomatenwijk per auto, zonder straatparkeren te hoeven zoeken.',
+    question: 'Hoe rijd ik naar Chopras Indian Restaurant?',
+    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Met het openbaar vervoer stopt tramlijn 2 bij halte Leyweg, op loopafstand van de ingang.',
   },
 ]
 
@@ -436,8 +436,8 @@ export default function IndianRestaurantPeacePalacePage({ params }: Props) {
           </h2>
           <p className="font-body text-white/85 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
             {isNl
-              ? 'Open dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren op Leyweg 986. Tien minuten van het Vredespaleis in Den Haag.'
-              : 'Open Tuesday to Sunday from 16:30 to 22:30. Free parking at Leyweg 986. Ten minutes from the Peace Palace in Den Haag.'}
+              ? 'Open dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren beschikbaar in de omgeving van Leyweg. Tien minuten van het Vredespaleis in Den Haag.'
+              : 'Open Tuesday to Sunday from 16:30 to 22:30. Paid parking available in the Leyweg area. Ten minutes from the Peace Palace in Den Haag.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

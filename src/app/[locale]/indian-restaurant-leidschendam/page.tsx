@@ -167,13 +167,13 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
             {isNl ? (
               <>
                 <p>Leidschendam grenst aan Voorburg, en Voorburg grenst aan Den Haag. Leyweg 986 ligt net over die grens - wat betekent dat <strong>Chopras Indian Restaurant</strong> voor de meeste Leidschendam-inwoners dichter bij is dan het centrum van Den Haag zelf. Via de A4 is de reistijd met de auto gemiddeld 10 minuten.</p>
-                <p>Gratis parkeren in het winkelgebied Leyweg maakt het praktisch voor families die per auto komen. Geen parkeermeter, geen zonevergunning. U rijdt, u parkeert, u eet. Openbaar vervoer verbindt Leidschendam ook rechtstreeks met het Leyweg-gebied via busverbindingen vanuit Voorburg-Noord.</p>
+                <p>Betaald parkeren is beschikbaar in de omgeving van Leyweg. Openbaar vervoer verbindt Leidschendam ook rechtstreeks met het Leyweg-gebied via busverbindingen vanuit Voorburg-Noord. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang.</p>
                 <p>Het menu telt 143 gerechten verdeeld over dertien categorieen - van <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffraan biryani</Link> en <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">langzaam gestoofde dal makhani</Link> tot authentieke straatgerechten die u nergens anders in Den Haag vindt. Alles uit dezelfde keuken. Dezelfde specerijen, elke avond.</p>
               </>
             ) : (
               <>
                 <p>Leidschendam borders Voorburg, and Voorburg borders Den Haag. Leyweg 986 sits just across that boundary - which means <strong>Chopras Indian Restaurant</strong> is closer for most Leidschendam residents than Den Haag city centre itself. Via the A4 motorway, the average drive is 10 minutes.</p>
-                <p>Free parking in the Leyweg shopping area makes the journey practical for families arriving by car. No pay-and-display, no zone permits. Drive in, park, eat. Public transport also connects Leidschendam directly to the Leyweg area via bus routes from Voorburg-Noord.</p>
+                <p>Paid parking is available in the Leyweg area. Public transport also connects Leidschendam directly to the Leyweg area via bus routes from Voorburg-Noord. Tram line 2 stops at Leyweg, a short walk from the entrance.</p>
                 <p>The menu spans 143 dishes across thirteen categories - from <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffron biryani</Link> and <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">slow-cooked dal makhani</Link> to authentic street food that does not exist anywhere else in Den Haag. All from the same kitchen. Same spices, every evening.</p>
               </>
             )}
@@ -259,9 +259,9 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
           </h2>
           <div className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
             {isNl ? (
-              <p>Ja. Chopras Indian Restaurant op Leyweg 986, Den Haag, is ongeveer 10 minuten rijden van Leidschendam via de A4. Met 4.9 sterren van 800+ Google-reviews serveert Chopras 143 gerechten uit een volledig halal gecertificeerde keuken, open dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren is beschikbaar direct naast het restaurant. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserveer een tafel bij Chopras</Link> of <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">bekijk het volledige menu</Link> online.</p>
+              <p>Ja. Chopras Indian Restaurant op Leyweg 986, Den Haag, is ongeveer 10 minuten rijden van Leidschendam via de A4. Met 4.9 sterren van 800+ Google-reviews serveert Chopras 143 gerechten uit een volledig halal gecertificeerde keuken, open dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren is beschikbaar in de omgeving van Leyweg. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserveer een tafel bij Chopras</Link> of <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">bekijk het volledige menu</Link> online.</p>
             ) : (
-              <p>Yes. Chopras Indian Restaurant at Leyweg 986, Den Haag is approximately 10 minutes from Leidschendam by car via the A4 motorway. Rated 4.9 stars from 800+ Google reviews, Chopras serves 143 dishes from a fully halal certified kitchen, open Tuesday to Sunday from 16:30 to 22:30. Free parking is available directly alongside the restaurant. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table at Chopras</Link> or <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">view the full menu</Link> online.</p>
+              <p>Yes. Chopras Indian Restaurant at Leyweg 986, Den Haag is approximately 10 minutes from Leidschendam by car via the A4 motorway. Rated 4.9 stars from 800+ Google reviews, Chopras serves 143 dishes from a fully halal certified kitchen, open Tuesday to Sunday from 16:30 to 22:30. Paid parking is available in the Leyweg area. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table at Chopras</Link> or <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">view the full menu</Link> online.</p>
             )}
           </div>
         </div>
@@ -277,12 +277,12 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
             {(isNl ? [
               { title: 'Afstand', desc: 'Ongeveer 10 minuten met de auto van Leidschendam via de A4. Leyweg 986 ligt net over de grens van Voorburg in Den Haag.' },
               { title: 'Openbaar Vervoer', desc: 'Busverbindingen vanuit Voorburg-Noord rijden rechtstreeks naar het Leyweg-gebied. Geen overstap vereist.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg direct naast het restaurant. Ruim en zonder tijdslimiet tijdens de avond.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
             ] : [
               { title: 'Distance', desc: 'Approximately 10 minutes by car from Leidschendam via the A4 motorway. Leyweg 986 is just across the Voorburg boundary into Den Haag.' },
               { title: 'Public Transport', desc: 'Bus connections from Voorburg-Noord run directly to the Leyweg area. No transfers required.' },
-              { title: 'Parking', desc: 'Free parking in the Leyweg shopping area directly alongside the restaurant. Ample space with no time limits during evening hours.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
             ]).map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-5 border-l-4 border-[#D4AF37]">

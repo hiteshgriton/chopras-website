@@ -94,7 +94,7 @@ export default function PartyVenuePage({ params }: Props) {
     { title: 'Catering', desc: 'Volledige Indiase catering standaard inbegrepen bij elke evenementenboeking  -  buffet of bediening op bord, uw keuze.' },
     { title: 'Professioneel Personeel', desc: 'Een team van bedienden voor de volledige duur van uw evenement  -  van opbouw tot de laatste gast vertrekt.' },
     { title: 'Opbouw en Afbouw', desc: 'Volledig beheerd door Chopras. U arriveert in een zaal die klaar is voor uw gasten. U vertrekt en wij regelen de rest.' },
-    { title: 'Gratis Parkeren', desc: 'Het winkelgebied Leyweg biedt gratis parkeren voor gasten die met de auto komen  -  een groot voordeel boven locaties in het centrum van Den Haag.' },
+    { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving van Leyweg.' },
   ] : [
     { title: 'Location', desc: 'Leyweg 986, 2545 GW Den Haag  -  easily reached by tram (line 4 and 9), bus, and car. The Leyweg shopping area is a landmark guests know.' },
     { title: 'Capacity', desc: '25 to 80 guests depending on layout  -  seated dinner, standing reception, or mixed format.' },

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     nl: 'Contact Chopras Indiaas Restaurant Den Haag | Reserveringen',
   }
   const descriptions = {
-    en: 'Contact Chopras Indian Restaurant Den Haag. Leyweg 986, open Tuesday to Sunday. Reserve a table, call us or send a message. Free parking available on site.',
+    en: 'Contact Chopras Indian Restaurant Den Haag. Leyweg 986, open Tuesday to Sunday. Reserve a table, call us or send a message. Tram line 2 stops at the door.',
     nl: 'Neem contact op met Chopras Indiaas Restaurant in Den Haag. Bel, mail of gebruik ons formulier voor tafelreserveringen, cateringaanvragen en evenementboekingen.',
   }
   return {
@@ -62,7 +62,7 @@ const faqsEn = [
   },
   {
     question: 'Where is Chopras Indian Restaurant located in Den Haag?',
-    answer: 'Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Free parking is available directly on site. By public transport, tram line 2 and several bus routes stop near the Leyweg stop, a short walk from the restaurant. The nearest major green space is the Zuiderpark, five minutes away on foot.',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Paid parking is available in the Leyweg area. By public transport, tram line 2 and several bus routes stop near the Leyweg stop, a short walk from the restaurant. The nearest major green space is the Zuiderpark, five minutes away on foot.',
   },
   {
     question: 'What are the opening hours of Chopras Indian Restaurant Den Haag?',
@@ -70,7 +70,7 @@ const faqsEn = [
   },
   {
     question: 'How do I get to Chopras Indian Restaurant from Den Haag Centraal?',
-    answer: 'From Den Haag Centraal, take tram line 2 towards Leyenburg and exit at the Leyweg stop. The journey takes approximately 15 minutes. By car from the city centre, follow the Rijswijkseweg south and turn onto Leyweg. Free parking is available on site at Leyweg 986, directly outside the entrance.',
+    answer: 'From Den Haag Centraal, take tram line 2 towards Leyenburg and exit at the Leyweg stop. The journey takes approximately 15 minutes. By car from the city centre, follow the Rijswijkseweg south and turn onto Leyweg. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'Can I book Chopras Indian Restaurant for a private event or catering in Den Haag?',
@@ -85,7 +85,7 @@ const faqsNl = [
   },
   {
     question: 'Waar is Chopras Indian Restaurant gevestigd in Den Haag?',
-    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Gratis parkeren is beschikbaar direct op locatie. Met het openbaar vervoer stoppen tramlijn 2 en meerdere buslijnen bij of nabij de halte Leyweg, op loopafstand van het restaurant.',
+    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Met het openbaar vervoer stoppen tramlijn 2 en meerdere buslijnen bij of nabij de halte Leyweg, op loopafstand van het restaurant.',
   },
   {
     question: 'Wat zijn de openingstijden van Chopras Indian Restaurant Den Haag?',
@@ -93,7 +93,7 @@ const faqsNl = [
   },
   {
     question: 'Hoe kom ik van Den Haag Centraal naar Chopras Indian Restaurant?',
-    answer: 'Neem vanaf Den Haag Centraal tramlijn 2 richting Leyenburg en stap uit bij de halte Leyweg. De rit duurt ongeveer 15 minuten. Met de auto vanuit het centrum volgt u de Rijswijkseweg naar het zuiden en slaat u de Leyweg in. Gratis parkeren is beschikbaar op locatie bij Leyweg 986, direct voor de ingang.',
+    answer: 'Neem vanaf Den Haag Centraal tramlijn 2 richting Leyenburg en stap uit bij de halte Leyweg. De rit duurt ongeveer 15 minuten. Met de auto vanuit het centrum volgt u de Rijswijkseweg naar het zuiden en slaat u de Leyweg in. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Kan ik Chopras Indian Restaurant boeken voor een privé-evenement of catering in Den Haag?',
@@ -291,7 +291,7 @@ export default function LocaleContactPage({ params }: Props) {
           {isNl ? (
             <>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
-                Chopras Indian Restaurant bevindt zich op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Gratis parkeren is direct op locatie beschikbaar, zonder parkeermeter en zonder tijdslimiet tijdens de openingstijden. Tramlijn 2 en meerdere buslijnen stoppen bij de halte Leyweg op loopafstand van de ingang. Open van dinsdag tot en met zondag van 16:30 tot 22:30, maandag gesloten.
+                Chopras Indian Restaurant bevindt zich op Leyweg 986, 2545 GW Den Haag, in de wijk Leyenburg. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Tramlijn 2 en meerdere buslijnen stoppen bij de halte Leyweg op loopafstand van de ingang. Open van dinsdag tot en met zondag van 16:30 tot 22:30, maandag gesloten.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
                 Vanuit Den Haag Centraal duurt de tramrit naar Leyweg ongeveer 15 minuten. Vanuit{' '}
@@ -302,7 +302,7 @@ export default function LocaleContactPage({ params }: Props) {
                 <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   Delft
                 </Link>{' '}
-                bereiken Chopras Indian Restaurant via de A13 in circa 15 minuten. Het gratis parkeerterrein betekent dat de laatste stap van elke reis de makkelijkste is.
+                bereiken Chopras Indian Restaurant via de A13 in circa 15 minuten. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van het restaurant.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 Voor groepen van vier of meer wordt een reservering aanbevolen, met name op vrijdag- en zaterdagavond. Gebruik het reserveringsformulier bovenaan deze pagina of bel +31 6 30645930. Voor{' '}
@@ -319,7 +319,7 @@ export default function LocaleContactPage({ params }: Props) {
           ) : (
             <>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
-                Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Free parking is available directly on site with no meters and no time limits during opening hours. Tram line 2 and several bus routes stop at the Leyweg stop, a short walk from the restaurant entrance. Open Tuesday to Sunday from 16:30 to 22:30, closed on Monday.
+                Chopras Indian Restaurant is at Leyweg 986, 2545 GW Den Haag, in the Leyenburg neighbourhood. Paid parking is available in the Leyweg area. Tram line 2 and several bus routes stop at the Leyweg stop, a short walk from the restaurant entrance. Open Tuesday to Sunday from 16:30 to 22:30, closed on Monday.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
                 From Den Haag Centraal the tram journey to Leyweg takes around 15 minutes. From{' '}
@@ -330,7 +330,7 @@ export default function LocaleContactPage({ params }: Props) {
                 <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   Delft
                 </Link>{' '}
-                reach Chopras Indian Restaurant via the A13 in around 15 minutes. Free parking on site means the last step of every journey is the easiest.
+                reach Chopras Indian Restaurant via the A13 in around 15 minutes. Tram line 2 stops at Leyweg, a short walk from the entrance.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 For groups of four or more, a reservation is recommended, particularly on Friday and Saturday evenings. Use the reservation form at the top of this page or call +31 6 30645930. For{' '}
@@ -377,7 +377,7 @@ export default function LocaleContactPage({ params }: Props) {
               <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 +31 6 30645930
               </Link>{' '}
-              of <EmailLink />. Het restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag. Reserveringen zijn mogelijk via het formulier bovenaan deze pagina. Open van dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren op locatie. Beoordeeld met 4,9 sterren van meer dan 800 gasten op Google. Voor{' '}
+              of <EmailLink />. Het restaurant is gevestigd op Leyweg 986, 2545 GW Den Haag. Reserveringen zijn mogelijk via het formulier bovenaan deze pagina. Open van dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren beschikbaar in de omgeving van Leyweg. Beoordeeld met 4,9 sterren van meer dan 800 gasten op Google. Voor{' '}
               <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Indiaas catering of privé-evenementen in Den Haag
               </Link>
@@ -389,7 +389,7 @@ export default function LocaleContactPage({ params }: Props) {
               <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 +31 6 30645930
               </Link>{' '}
-              or <EmailLink />. The restaurant is at Leyweg 986, 2545 GW Den Haag. Reservations can be made using the form at the top of this page. Open Tuesday to Sunday from 16:30 to 22:30. Free parking on site. Rated 4.9 stars from over 800 verified guests on Google. For{' '}
+              or <EmailLink />. The restaurant is at Leyweg 986, 2545 GW Den Haag. Reservations can be made using the form at the top of this page. Open Tuesday to Sunday from 16:30 to 22:30. Paid parking is available in the Leyweg area. Rated 4.9 stars from over 800 verified guests on Google. For{' '}
               <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Indian catering or private events in Den Haag
               </Link>

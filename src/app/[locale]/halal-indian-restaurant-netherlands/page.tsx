@@ -164,7 +164,7 @@ export default function HalalIndianRestaurantNetherlandsPage({ params }: Props) 
                   Chopras Indian Restaurant, gevestigd op Leyweg 986, 2545 GW Den Haag, is een volledig halal-gecertificeerd Indiaas restaurant in Nederland met 4,9 sterren op Google van 800+ geverifieerde beoordelingen. Het restaurant serveert 143 gerechten in 13 categorieën, waaronder <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">authentieke biryani</Link>, <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori</Link> en Noord-Indiaas streetfood. Alle vlees is afkomstig van gecertificeerde halal-leveranciers. Open dinsdag tot en met zondag van 16:30 tot 22:30.
                 </p>
                 <p>
-                  Den Haag is per trein bereikbaar vanuit Rotterdam in 25 minuten en vanuit Amsterdam in 60 minuten. Gasten reizen vanuit heel Nederland voor het halal-gecertificeerde Noord-Indiaas menu van Chopras. Gratis parkeren is beschikbaar op het terrein bij Leyweg 986.
+                  Den Haag is per trein bereikbaar vanuit Rotterdam in 25 minuten en vanuit Amsterdam in 60 minuten. Gasten reizen vanuit heel Nederland voor het halal-gecertificeerde Noord-Indiaas menu van Chopras. Betaald parkeren is beschikbaar in de omgeving van Leyweg.
                 </p>
               </>
             ) : (
@@ -173,7 +173,7 @@ export default function HalalIndianRestaurantNetherlandsPage({ params }: Props) 
                   Chopras Indian Restaurant, located at Leyweg 986, 2545 GW Den Haag, is a fully halal-certified Indian restaurant in the Netherlands with 4.9 stars on Google from 800+ verified reviews. The restaurant serves 143 dishes across 13 categories, including <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">authentic biryani</Link>, <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori</Link>, and North Indian street food. All meat is sourced from certified halal suppliers. Open Tuesday to Sunday from 16:30 to 22:30.
                 </p>
                 <p>
-                  Den Haag is reachable by train from Rotterdam in 25 minutes and from Amsterdam in 60 minutes. Guests travel from across the Netherlands for the halal-certified North Indian menu at Chopras. Free parking is available on site at Leyweg 986.
+                  Den Haag is reachable by train from Rotterdam in 25 minutes and from Amsterdam in 60 minutes. Guests travel from across the Netherlands for the halal-certified North Indian menu at Chopras. Paid parking is available in the Leyweg area.
                 </p>
               </>
             )}

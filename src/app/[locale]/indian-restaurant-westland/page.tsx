@@ -13,7 +13,7 @@ const faqsEn = [
   },
   {
     question: 'How do I get from Westland to Chopras Indian Restaurant?',
-    answer: 'From Naaldwijk or Monster, take the N211 eastbound toward Den Haag. The journey is approximately 20 minutes by car. From De Lier or Maasdijk, the route joins the N211 at Naaldwijk, with total drive time staying within 20 to 25 minutes. Free parking is available at the Leyweg shopping area directly at the restaurant. No meter, no searching.',
+    answer: 'From Naaldwijk or Monster, take the N211 eastbound toward Den Haag. The journey is approximately 20 minutes by car. From De Lier or Maasdijk, the route joins the N211 at Naaldwijk, with total drive time staying within 20 to 25 minutes. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'Is Chopras Indian Restaurant halal certified?',
@@ -36,7 +36,7 @@ const faqsNl = [
   },
   {
     question: 'Hoe kom ik van Westland naar Chopras Indian Restaurant?',
-    answer: 'Vanuit Naaldwijk of Monster neemt u de N211 richting Den Haag. De rit duurt circa 20 minuten per auto. Vanuit De Lier of Maasdijk sluit de route aan op de N211 bij Naaldwijk, met een totale rijtijd van 20 tot 25 minuten. Gratis parkeren is beschikbaar bij het winkelgebied Leyweg direct bij het restaurant. Geen parkeermeter, geen zoekwerk.',
+    answer: 'Vanuit Naaldwijk of Monster neemt u de N211 richting Den Haag. De rit duurt circa 20 minuten per auto. Vanuit De Lier of Maasdijk sluit de route aan op de N211 bij Naaldwijk, met een totale rijtijd van 20 tot 25 minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Is Chopras Indian Restaurant halal gecertificeerd?',
@@ -208,7 +208,7 @@ export default function IndianRestaurantWestlandPage({ params }: Props) {
           {isNl ? (
             <div className="space-y-5">
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Westland ligt direct ten westen van Den Haag, verbonden via de N211. Vanuit Naaldwijk of Monster neemt u de N211 richting Den Haag en rijdt u rechtstreeks naar Leyweg. De rit duurt circa 20 minuten. Vanuit De Lier of Maasdijk sluit u aan op de N211 bij Naaldwijk - de totale rijtijd blijft binnen 20 tot 25 minuten. Gratis parkeren is beschikbaar direct bij het restaurant.
+                Westland ligt direct ten westen van Den Haag, verbonden via de N211. Vanuit Naaldwijk of Monster neemt u de N211 richting Den Haag en rijdt u rechtstreeks naar Leyweg. De rit duurt circa 20 minuten. Vanuit De Lier of Maasdijk sluit u aan op de N211 bij Naaldwijk - de totale rijtijd blijft binnen 20 tot 25 minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 Westland is een van de grootste tuinbouwgemeenten van Nederland, met ruim 110.000 inwoners verspreid over Naaldwijk, Monster, De Lier, Maasdijk, &apos;s-Gravenzande en Hoek van Holland. Voor al deze kernen is Leyweg 986 de dichtstbijzijnde bestemming voor authentiek Indiaas eten van niveau.
@@ -218,13 +218,13 @@ export default function IndianRestaurantWestlandPage({ params }: Props) {
                 <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   volledige halalcertificering
                 </Link>{' '}
-                bij Chopras maakt de rit een voor de hand liggende keuze voor de grote moslimgemeenschap in de regio. Parkeren op Leyweg is gratis en ruim beschikbaar - een concreet voordeel ten opzichte van een restaurantbezoek in het centrum van Den Haag.
+                bij Chopras maakt de rit een voor de hand liggende keuze voor de grote moslimgemeenschap in de regio. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van het restaurant, wat Chopras ook per openbaar vervoer goed bereikbaar maakt.
               </p>
             </div>
           ) : (
             <div className="space-y-5">
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Westland sits directly west of Den Haag, connected by the N211. From Naaldwijk or Monster, take the N211 eastbound toward Den Haag and follow it directly to Leyweg. The drive takes approximately 20 minutes. From De Lier or Maasdijk, the route joins the N211 at Naaldwijk - total drive time stays within 20 to 25 minutes. Free parking is available directly at the restaurant.
+                Westland sits directly west of Den Haag, connected by the N211. From Naaldwijk or Monster, take the N211 eastbound toward Den Haag and follow it directly to Leyweg. The drive takes approximately 20 minutes. From De Lier or Maasdijk, the route joins the N211 at Naaldwijk - total drive time stays within 20 to 25 minutes. Paid parking is available in the Leyweg area.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 Westland is one of the largest horticultural municipalities in the Netherlands, with over 110,000 residents spread across Naaldwijk, Monster, De Lier, Maasdijk, &apos;s-Gravenzande, and Hoek van Holland. For all of these towns, Leyweg 986 is the nearest destination for authentic Indian food at this standard.
@@ -234,7 +234,7 @@ export default function IndianRestaurantWestlandPage({ params }: Props) {
                 <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   full halal certification
                 </Link>{' '}
-                at Chopras makes the drive an obvious choice for the substantial Muslim community in the region. Parking at Leyweg is free and generous - a real advantage over a city-centre restaurant visit.
+                at Chopras makes the drive an obvious choice for the substantial Muslim community in the region. Tram line 2 stops at Leyweg, a short walk from the entrance, making Chopras accessible by public transport as well.
               </p>
             </div>
           )}
@@ -376,12 +376,12 @@ export default function IndianRestaurantWestlandPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {(isNl ? [
               { title: 'Afstand', desc: 'Circa 20 minuten rijden vanuit Westland via de N211. Vanuit Naaldwijk, Monster of De Lier.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren bij het winkelgebied Leyweg. Geen parkeermeter, geen zoekwerk.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
               { title: 'Reserveren', desc: 'Aanbevolen voor groepen van vier of meer, met name vrijdag- en zaterdagavond. Bel +31 6 30645930.' },
             ] : [
               { title: 'Distance', desc: 'Approximately 20 minutes by car from Westland via the N211. From Naaldwijk, Monster, or De Lier.' },
-              { title: 'Parking', desc: 'Free parking at the Leyweg shopping area. No meter, no searching.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
               { title: 'Reservations', desc: 'Recommended for groups of four or more, especially Friday and Saturday evenings. Call +31 6 30645930.' },
             ]).map((item) => (

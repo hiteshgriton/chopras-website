@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const faqsEn = [
   {
     question: 'How do I get from Den Haag Centraal to Chopras Indian Restaurant?',
-    answer: 'Take the tram from Den Haag Centraal toward Leyweg. The journey takes approximately fifteen minutes. Get off at the Leyweg stop and Chopras Indian Restaurant is at number 986. By car the same journey takes around ten minutes, with free on-site parking available when you arrive.',
+    answer: 'Take the tram from Den Haag Centraal toward Leyweg. The journey takes approximately fifteen minutes. Get off at the Leyweg stop and Chopras Indian Restaurant is at number 986. By car the same journey takes around ten minutes. Paid parking is available in the Leyweg area.',
   },
   {
     question: 'Is Chopras Indian Restaurant near Den Haag Centraal halal certified?',
@@ -75,7 +75,7 @@ const faqsEn = [
 const faqsNl = [
   {
     question: 'Hoe kom ik van Den Haag Centraal naar Chopras Indian Restaurant?',
-    answer: 'Neem de tram van Den Haag Centraal richting Leyweg. De rit duurt ongeveer vijftien minuten. Stap uit bij halte Leyweg. Chopras Indian Restaurant bevindt zich op nummer 986. Met de auto duurt de rit circa tien minuten, met gratis parkeren op het eigen terrein.',
+    answer: 'Neem de tram van Den Haag Centraal richting Leyweg. De rit duurt ongeveer vijftien minuten. Stap uit bij halte Leyweg. Chopras Indian Restaurant bevindt zich op nummer 986. Met de auto duurt de rit circa tien minuten. Betaald parkeren is beschikbaar in de omgeving van Leyweg.',
   },
   {
     question: 'Is Chopras Indian Restaurant bij Den Haag Centraal halal gecertificeerd?',
@@ -229,7 +229,7 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
                 <div>
                   <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">Met de Tram</h3>
                   <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                    Neem de tram van Den Haag Centraal richting Leyweg. De rit duurt circa vijftien minuten. Stap uit bij halte Leyweg. Chopras Indian Restaurant staat op nummer 986 aan het einde van de straat. Gratis parkeren is beschikbaar op het eigen terrein voor gasten die liever rijden.
+                    Neem de tram van Den Haag Centraal richting Leyweg. De rit duurt circa vijftien minuten. Stap uit bij halte Leyweg. Chopras Indian Restaurant staat op nummer 986 aan het einde van de straat. Betaald parkeren is beschikbaar in de omgeving van Leyweg voor gasten die liever rijden.
                   </p>
                 </div>
                 <div>
@@ -293,11 +293,11 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
           </h2>
           {isNl ? (
             <p className="font-body text-white/85 text-lg leading-relaxed">
-              Ja. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> op Leyweg 986, Den Haag, is het best beoordeelde Indiase restaurant in de stad, met 4,9 sterren van meer dan 800 gasten op Google. De keuken is volledig halal gecertificeerd en serveert <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 gerechten</Link> uit de Noord-Indiase traditie. Openingstijden zijn dinsdag tot en met zondag van 16:30 tot 22:30. Chopras is vijftien minuten met de tram bereikbaar vanuit Den Haag Centraal, met gratis parkeren op het eigen terrein.
+              Ja. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> op Leyweg 986, Den Haag, is het best beoordeelde Indiase restaurant in de stad, met 4,9 sterren van meer dan 800 gasten op Google. De keuken is volledig halal gecertificeerd en serveert <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 gerechten</Link> uit de Noord-Indiase traditie. Openingstijden zijn dinsdag tot en met zondag van 16:30 tot 22:30. Chopras is vijftien minuten met de tram bereikbaar vanuit Den Haag Centraal. Betaald parkeren is beschikbaar in de omgeving van Leyweg.
             </p>
           ) : (
             <p className="font-body text-white/85 text-lg leading-relaxed">
-              Yes. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> at Leyweg 986, Den Haag, is the highest-rated Indian restaurant in the city, with 4.9 stars from over 800 verified Google reviews. The kitchen is fully halal certified and serves <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 dishes</Link> from the North Indian tradition. Open Tuesday to Sunday from 16:30 to 22:30. Chopras is fifteen minutes by tram from Den Haag Centraal station, with free on-site parking for guests who drive.
+              Yes. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> at Leyweg 986, Den Haag, is the highest-rated Indian restaurant in the city, with 4.9 stars from over 800 verified Google reviews. The kitchen is fully halal certified and serves <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 dishes</Link> from the North Indian tradition. Open Tuesday to Sunday from 16:30 to 22:30. Chopras is fifteen minutes by tram from Den Haag Centraal station. Paid parking is available in the Leyweg area.
             </p>
           )}
         </div>
@@ -361,8 +361,8 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
           </h2>
           <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
             {isNl
-              ? 'Open van dinsdag tot en met zondag van 16:30 tot 22:30. Vijftien minuten met de tram van Den Haag Centraal. Gratis parkeren op Leyweg 986.'
-              : 'Open Tuesday to Sunday from 16:30 to 22:30. Fifteen minutes by tram from Den Haag Centraal. Free parking at Leyweg 986.'}
+              ? 'Open van dinsdag tot en met zondag van 16:30 tot 22:30. Vijftien minuten met de tram van Den Haag Centraal. Betaald parkeren beschikbaar in de omgeving van Leyweg.'
+              : 'Open Tuesday to Sunday from 16:30 to 22:30. Fifteen minutes by tram from Den Haag Centraal. Paid parking available in the Leyweg area.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

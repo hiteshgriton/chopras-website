@@ -16,8 +16,8 @@ const faqsEn = [
     answer: 'Yes. Chopras Indian Restaurant is fully halal certified. Every meat supplier holds halal certification and every dish across the 143-item menu is halal. There is no cross-contamination risk because no non-halal meat enters the kitchen at any point.',
   },
   {
-    question: 'Is there free parking at Chopras for visitors from Delft?',
-    answer: 'Yes. Free parking is available in the Leyweg shopping area directly adjacent to the restaurant. This is a significant practical advantage over dining in central Delft or Den Haag city centre, where parking fees add noticeably to the cost of an evening out.',
+    question: 'How do I get to Chopras Indian Restaurant by car?',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, Den Haag. Paid parking is available in the surrounding Leyweg area. By public transport, tram line 2 stops at Leyweg, a short walk from the entrance.',
   },
   {
     question: 'What are the opening hours at Chopras Indian Restaurant?',
@@ -39,8 +39,8 @@ const faqsNl = [
     answer: 'Ja. Chopras Indian Restaurant is volledig halal gecertificeerd. Iedere vleesleverancier heeft een halalcertificering en elk gerecht op het menu van 143 items is halal. Er is geen risico op kruisbesmetting omdat er geen niet-halal vlees de keuken binnenkomt.',
   },
   {
-    question: 'Is er gratis parkeerruimte bij Chopras voor bezoekers uit Delft?',
-    answer: 'Ja. Gratis parkeren is beschikbaar in het winkelgebied Leyweg direct naast het restaurant. Dit is een aanzienlijk praktisch voordeel ten opzichte van dineren in het centrum van Delft of Den Haag, waar parkeertarieven de avond merkbaar duurder maken.',
+    question: 'Hoe rijd ik naar Chopras Indian Restaurant?',
+    answer: 'Chopras Indian Restaurant is gevestigd op Leyweg 986, Den Haag. Betaald parkeren is beschikbaar in de omgeving van Leyweg. Met het openbaar vervoer stopt tramlijn 2 bij halte Leyweg, op loopafstand van de ingang.',
   },
   {
     question: 'Wat zijn de openingstijden van Chopras Indian Restaurant?',
@@ -171,7 +171,7 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
                 op Leyweg 986 ligt circa 15 minuten rijden van het centrum van Delft via de A13, en de meeste routes omzeilen het centrum van Den Haag volledig.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Gratis parkeren in het winkelgebied Leyweg is direct naast het restaurant beschikbaar. Geen zoeken, geen parkeertarieven, geen blokken lopen in de kou. Dat neemt een van de meest voorkomende ergernissen van een avondje uit weg voordat u ook maar binnen bent.
+                Betaald parkeren is beschikbaar in de omgeving van Leyweg. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang, wat Chopras ook goed bereikbaar maakt zonder auto.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 Per openbaar vervoer duurt de reis vanaf station Delft 20 tot 25 minuten via tram- of busverbindingen door Den Haag Centraal naar de halte Leyweg. Voor TU Delft-studenten en -medewerkers zonder auto is dit een eenvoudig avondje uit. Bekijk het{' '}
@@ -187,7 +187,7 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
                 at Leyweg 986 sits approximately 15 minutes from central Delft by car via the A13, and most routes bypass Den Haag city centre entirely.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Free parking at the Leyweg shopping area is available directly adjacent to the restaurant. No searching, no fees, no walking blocks in the cold. That removes one of the most common friction points of a city dinner before you even step inside.
+                Paid parking is available in the Leyweg area. Tram line 2 stops at Leyweg, a short walk from the entrance, making Chopras straightforward to reach without a car as well.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
                 By public transport, the journey from Delft station takes 20 to 25 minutes via tram or bus connections through Den Haag Centraal to the Leyweg stop. For TU Delft students and staff without a car, this is a straightforward evening out. Browse the{' '}
@@ -335,7 +335,7 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
             <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
               Ja.{' '}
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
-              op Leyweg 986, Den Haag ligt 15 minuten van het centrum van Delft via de A13. Beoordeeld met 4,9 sterren van meer dan 800 Google-beoordelingen en volledig halal gecertificeerd, serveert Chopras een menu van 143 Noord-Indiaase gerechten, waaronder biryani, tandoori en Indo-Chinese gerechten. Open dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren op het terrein.{' '}
+              op Leyweg 986, Den Haag ligt 15 minuten van het centrum van Delft via de A13. Beoordeeld met 4,9 sterren van meer dan 800 Google-beoordelingen en volledig halal gecertificeerd, serveert Chopras een menu van 143 Noord-Indiaase gerechten, waaronder biryani, tandoori en Indo-Chinese gerechten. Open dinsdag tot en met zondag van 16:30 tot 22:30. Betaald parkeren beschikbaar in de omgeving van Leyweg.{' '}
               <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserveer een tafel</Link>{' '}
               of bel +31 6 30645930.
             </p>
@@ -343,7 +343,7 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
             <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
               Yes.{' '}
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
-              at Leyweg 986, Den Haag is 15 minutes from central Delft via the A13. Rated 4.9 stars from 800+ Google reviews and fully halal certified, Chopras serves a 143-dish North Indian menu including biryani, tandoori, and Indo Chinese dishes. Open Tuesday to Sunday from 16:30 to 22:30. Free parking on site.{' '}
+              at Leyweg 986, Den Haag is 15 minutes from central Delft via the A13. Rated 4.9 stars from 800+ Google reviews and fully halal certified, Chopras serves a 143-dish North Indian menu including biryani, tandoori, and Indo Chinese dishes. Open Tuesday to Sunday from 16:30 to 22:30. Paid parking is available in the Leyweg area.{' '}
               <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table</Link>{' '}
               or call +31 6 30645930.
             </p>
@@ -361,12 +361,12 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
             {(isNl ? [
               { title: 'Afstand', desc: 'Circa 15 minuten rijden vanuit het centrum van Delft via de A13. De route omzeilt het centrum van Den Haag volledig.' },
               { title: 'Openbaar Vervoer', desc: 'Tram- en busverbindingen van Delft via Den Haag Centraal naar Leyweg - circa 25 minuten reistijd.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg, direct naast het restaurant. Veel eenvoudiger dan parkeren in het centrum.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
             ] : [
               { title: 'Distance', desc: 'Approximately 15 minutes by car from central Delft via the A13. The route bypasses Den Haag city centre entirely.' },
               { title: 'Public Transport', desc: 'Tram and bus connections from Delft via Den Haag Centraal to Leyweg - approximately 25 minutes.' },
-              { title: 'Parking', desc: 'Free parking in the Leyweg shopping area, directly adjacent to the restaurant. Far simpler than city centre parking.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
             ]).map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 border-l-4 border-[#D4AF37]">

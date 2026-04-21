@@ -108,14 +108,14 @@ export default function IndianRestaurantVoorburgPage({ params }: Props) {
               <>
                 <p>Voorburg is een woonwijk in de gemeente Leidschendam-Voorburg, met dezelfde urbanisatie en detailhandelsinfrastructuur als veel wijken van Den Haag. Chopras op Leyweg 986 is ongeveer 10 minuten rijden van centraal Voorburg  -  aanmerkelijk dichterbij dan veel dagelijkse bestemmingen van Voorburg-inwoners.</p>
                 <p>Openbaar vervoer is rechtlijnig. Busverbindingen verbinden Voorburg Centrum rechtstreeks met het Leyweg-winkelgebied zonder overstap. De reis duurt doorgaans 12 tot 15 minuten vanuit centraal Voorburg.</p>
-                <p>Parkeren is een onmiddellijke praktische voordeel. Het winkelgebied Leyweg biedt gratis parkeren  -  geen betaalde parkeergarages, geen parkeerschijf, geen toeristenvergunningen. Voor gezinnen uit Voorburg die naar Den Haag gaan eten, is gratis parkeren altijd een voordeel.</p>
+                <p>Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving van Leyweg voor gasten die met de auto komen.</p>
                 <p>Voorburg heeft een aanzienlijke Zuid-Aziatische gemeenschap  -  vooral Hindoestaanse en Maleisische families  -  voor wie authentiek Indiaas eten een erkende culinaire voorkeur is. Voor deze gemeenschap is Chopras de dichtstbijzijnde optie van hoge kwaliteit.</p>
               </>
             ) : (
               <>
                 <p>Voorburg is a residential area in the municipality of Leidschendam-Voorburg, with the same urban fabric and retail infrastructure as many districts of Den Haag. Chopras at Leyweg 986 is approximately 10 minutes by car from central Voorburg  -  considerably closer than many everyday destinations for Voorburg residents.</p>
                 <p>Public transport is straightforward. Bus connections link Voorburg Centrum directly to the Leyweg shopping area with no changes required. The journey is typically 12 to 15 minutes from central Voorburg.</p>
-                <p>Parking is an immediate practical advantage. The Leyweg shopping area offers free parking  -  no paid parking garages, no parking permits, no resident permits. For families from Voorburg dining in Den Haag, free parking is always a benefit.</p>
+                <p>Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking is available in the Leyweg area for guests arriving by car.</p>
                 <p>Voorburg has a substantial South Asian community  -  particularly Hindustani and Malaysian families  -  for whom authentic Indian food is a recognized culinary preference. For this community, Chopras is the nearest quality option.</p>
               </>
             )}
@@ -155,12 +155,12 @@ export default function IndianRestaurantVoorburgPage({ params }: Props) {
             {(isNl ? [
               { title: 'Afstand', desc: 'Ongeveer 10 minuten met de auto van centraal Voorburg. Leyweg 986 is dicht bij de grens met Leidschendam.' },
               { title: 'Openbaar Vervoer', desc: 'Directe busverbindingen vanuit Voorburg Centrum naar Leyweg  -  doorgaans 12 tot 15 minuten.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg. Geen parkeergeburen en geen vergunningen vereist.' },
+              { title: 'Per Tram', desc: 'Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang. Betaald parkeren is beschikbaar in de omgeving.' },
               { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30–22:30. Maandag gesloten.' },
             ] : [
               { title: 'Distance', desc: 'Approximately 10 minutes by car from central Voorburg. Leyweg 986 is close to the Leidschendam boundary.' },
               { title: 'Public Transport', desc: 'Direct bus connections from Voorburg Centrum to Leyweg - typically 12 to 15 minutes.' },
-              { title: 'Parking', desc: 'Free parking in the Leyweg shopping area. No parking neighbors and no permits required.' },
+              { title: 'By Tram', desc: 'Tram line 2 stops at Leyweg, a short walk from the entrance. Paid parking also available nearby.' },
               { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30–22:30. Closed Monday.' },
             ]).map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-5 border-l-4 border-[#D4AF37]">

@@ -194,10 +194,10 @@ export default function ZaalHurenPage({ params }: Props) {
             </div>
             <div>
               <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
-                Gratis parkeren op locatie
+                Betaald parkeren in de omgeving
               </h3>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                Chopras Indian Restaurant op Leyweg 986 heeft gratis parkeerplaatsen direct bij het restaurant. Geen parkeerkosten voor uw gasten, geen gedoe met parkeerschijven of betaalautomaten. Een detail dat uw gasten waarderen.
+                Betaald parkeren is beschikbaar in de omgeving van Leyweg 986. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van het restaurant. Uw gasten kunnen zowel met de auto als met het openbaar vervoer eenvoudig aankomen.
               </p>
             </div>
           </div>
