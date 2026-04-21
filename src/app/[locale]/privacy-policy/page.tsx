@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     nl: 'Privacybeleid | Chopras Indian Restaurant Den Haag',
   }
   const descriptions = {
-    en: 'Privacy policy for Chopras Indian Restaurant Den Haag. How we collect, store and use your personal data in compliance with GDPR. Contact: info@chopras.nl.',
-    nl: 'Privacybeleid van Chopras Indian Restaurant Den Haag. Hoe wij uw persoonsgegevens verzamelen en verwerken conform de AVG. Contact: info@chopras.nl.',
+    en: 'Privacy policy for Chopras Indian Restaurant Den Haag. How we collect, store and use your personal data in compliance with GDPR. Contact: info [at] chopras.nl.',
+    nl: 'Privacybeleid van Chopras Indian Restaurant Den Haag. Hoe wij uw persoonsgegevens verzamelen en verwerken conform de AVG. Contact: info [at] chopras.nl.',
   }
   return {
     title: titles[locale],
