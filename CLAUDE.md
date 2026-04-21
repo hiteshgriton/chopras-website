@@ -98,6 +98,8 @@ Package manager: pnpm. Node: 20.x.
 - Founded: 2023 by Arun Chopra
 - Arun Chopra is the FOUNDER only - never "Head Chef", never "Founder and Head Chef"
 - Serves: Den Haag, Rijswijk, Delft, Zoetermeer, Voorburg, Leidschendam, Westland
+- NO FREE PARKING — paid parking is available in the surrounding area. Never write "free parking", "gratis parkeren", or imply parking is free or on-site. Use "paid parking available nearby" or replace with tram access (tram line 2, Leyweg stop).
+- NO ALCOHOL — Chopras does not serve alcohol and does not permit it on the premises. Never write or imply alcohol is available.
 
 ## META DESCRIPTION RULES — MANDATORY FOR ALL PAGES
 
@@ -127,7 +129,7 @@ Meta: Indian catering Den Haag by Chopras Indian Restaurant. Weddings, birthdays
 
 Contact /contact
 Primary keyword: Chopras Indian Restaurant Den Haag contact
-Meta: Contact Chopras Indian Restaurant Den Haag. Leyweg 986, open Tuesday to Sunday. Reserve a table, call us or send a message. Free parking available on site.
+Meta: Contact Chopras Indian Restaurant Den Haag. Leyweg 986, open Tuesday to Sunday. Reserve a table, call us or send a message. Tram line 2 stops at the door.
 
 Vacancy /vacancy
 Primary keyword: Vacature Indiaas restaurant Den Haag
