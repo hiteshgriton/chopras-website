@@ -384,6 +384,27 @@ These phrases flag content as machine-generated to both human readers and Google
 - Provide full Dutch translations for every FAQ question and answer on bilingual pages
 - Do NOT add datePublished or dateModified to FAQPage schema ever
 
+## SITEMAP AND LLMS.TXT - MANDATORY AFTER EVERY PAGE CHANGE
+
+These two files are SEO-critical infrastructure. They MUST be kept in sync with the live site at all times. Never leave them stale.
+
+### src/app/sitemap.ts
+- NEW PAGE created: add the slug to the staticPages array with today's date as lastMod
+- PAGE significantly rewritten (new sections, new FAQ, new copy): update that page's lastMod date to today
+- No other changes to sitemap.ts are needed for minor copy tweaks or bug fixes
+- Use YYYY-MM-DD format for lastMod (e.g. '2026-04-21')
+
+### public/llms.txt
+- NEW PAGE created: add both the English URL and the Dutch /nl/ URL to the relevant section in the Important Pages block
+- PAGE title or primary keyword changed: update the corresponding entry
+- No URL change needed for content-only rewrites
+- Dutch /nl/ URLs must always appear alongside their English counterparts
+
+### Commit rule
+- Both sitemap.ts and llms.txt must be committed in the SAME commit as the page change
+- Never push a new page without also pushing updated sitemap.ts and llms.txt
+- If you forget, the fix commit message must be: "fix: update sitemap and llms.txt for [page-slug]"
+
 ## BUILD CHECK - MANDATORY BEFORE EVERY COMMIT
 - ALWAYS run: pnpm build (not just pnpm tsc --noEmit)
 - pnpm tsc --noEmit misses ESLint errors and runtime issues that break Vercel
