@@ -59,7 +59,7 @@ const faqsNl = [
   },
   {
     question: 'Hoe ver van tevoren moet ik een evenement reserveren bij Chopras?',
-    answer: 'Wij adviseren minimaal twee weken van tevoren te reserveren voor evenementen tot 40 gasten. Voor grotere groepen of evenementen met specifieke catering-wensen raden wij vier weken of meer aan. Neem contact op via info@chopras.nl of via de contactpagina om beschikbaarheid te bespreken.',
+    answer: 'Wij adviseren minimaal twee weken van tevoren te reserveren voor evenementen tot 40 gasten. Voor grotere groepen of evenementen met specifieke catering-wensen raden wij vier weken of meer aan. Neem contact op via info [at] chopras.nl of via de contactpagina om beschikbaarheid te bespreken.',
   },
   {
     question: 'Kunnen we audio-visuele apparatuur gebruiken in de evenementenruimte?',

@@ -1,10 +1,56 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
-import { RESTAURANT } from '@/lib/constants'
+import FaqAccordion from '@/components/sections/FaqAccordion'
 import { getLocalizedUrl } from '@/lib/utils'
-import { getBreadcrumbSchema } from '@/lib/schema'
+import { getLocalRestaurantSchema, getBreadcrumbSchema, getFaqPageSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
+
+const faqsEn = [
+  {
+    question: 'Which city in the Netherlands has the best Indian food?',
+    answer: 'Den Haag is the best city for authentic Indian food in the Netherlands. The city has the largest Hindustani community in the country - descendants of Indian families who settled in the Netherlands via Suriname - which means Indian restaurants in Den Haag serve an audience that knows exactly what authentic North Indian food should taste like. Chopras Indian Restaurant at Leyweg 986, Den Haag is rated 4.9 stars from 800+ verified Google reviews.',
+  },
+  {
+    question: 'Is Chopras Indian Restaurant in Den Haag fully halal certified?',
+    answer: 'Yes. Chopras Indian Restaurant is fully halal certified. The entire kitchen operates to halal standards - not just selected dishes. Every meat supplier is halal certified, and there is no non-halal meat anywhere on the premises. This means no cross-contamination risk for any guest. All 143 dishes on the menu are halal without exception.',
+  },
+  {
+    question: 'What is the difference between North Indian and South Indian food?',
+    answer: 'North Indian food is generally richer and creamier, built around dishes like butter chicken, dal makhani, and biryani cooked in a tandoor clay oven or heavy spiced sauces. Key spices include cumin, cardamom, and garam masala. South Indian food is typically lighter, rice-based, and uses coconut, tamarind, and curry leaves more prominently. Chopras Indian Restaurant specialises in authentic North Indian cuisine, including street food from the Delhi and Punjab regions.',
+  },
+  {
+    question: 'Does Chopras Indian Restaurant serve vegetarian and vegan dishes?',
+    answer: 'Yes. Chopras Indian Restaurant has a full vegetarian and vegan selection including dal makhani, soya chaap, chaat, pani puri, and paneer dishes. Many of the 143 dishes on the menu are plant-based. The soya chaap is grilled in the tandoor at 400 degrees Celsius and is one of the most popular vegan dishes in the restaurant. Preparation standards do not change for vegetarian or vegan orders.',
+  },
+  {
+    question: 'Can I order Indian food delivery from Chopras to other Dutch cities?',
+    answer: 'Chopras Indian Restaurant offers delivery via Thuisbezorgd and Uber Eats to Den Haag and surrounding areas including Rijswijk, Voorburg, and Leidschendam. For guests from cities further across the Netherlands, Chopras also provides catering services for private events, corporate dinners, weddings, and birthday parties. Contact the restaurant directly at info [at] chopras.nl for event catering enquiries.',
+  },
+]
+
+const faqsNl = [
+  {
+    question: 'Welke stad in Nederland heeft het beste Indiase eten?',
+    answer: 'Den Haag is de beste stad voor authentiek Indiaas eten in Nederland. De stad heeft de grootste Hindoestaanse gemeenschap in het land - nakomelingen van Indiase families die via Suriname in Nederland zijn neergestreken - wat betekent dat Indiase restaurants in Den Haag een publiek bedienen dat precies weet hoe authentiek Noord-Indiaas eten behoort te smaken. Chopras Indian Restaurant op Leyweg 986, Den Haag is beoordeeld met 4,9 sterren door meer dan 800 geverifieerde Google-reviews.',
+  },
+  {
+    question: 'Is Chopras Indian Restaurant in Den Haag volledig halal gecertificeerd?',
+    answer: 'Ja. Chopras Indian Restaurant is volledig halal gecertificeerd. De gehele keuken werkt volgens halaalnormen - niet alleen geselecteerde gerechten. Elke vleesleverancier is halaal gecertificeerd en er is nergens op de locatie niet-halaal vlees aanwezig. Dit betekent geen risico op kruisbesmetting voor geen enkele gast. Alle 143 gerechten op het menu zijn halaal, zonder uitzondering.',
+  },
+  {
+    question: 'Wat is het verschil tussen Noord-Indiaas en Zuid-Indiaas eten?',
+    answer: 'Noord-Indiaas eten is over het algemeen rijker en romiger, opgebouwd rond gerechten zoals butter chicken, dal makhani en biryani bereid in een tandoor kleioven of zware gekruide sauzen. Belangrijke specerijen zijn komijn, kardemom en garam masala. Zuid-Indiaas eten is doorgaans lichter, rijstgebonden en maakt prominenter gebruik van kokos, tamarinde en kerriebladeren. Chopras Indian Restaurant is gespecialiseerd in authentieke Noord-Indiaase keuken, inclusief streetfood uit de regio Delhi en Punjab.',
+  },
+  {
+    question: 'Serveert Chopras Indian Restaurant vegetarische en veganistische gerechten?',
+    answer: 'Ja. Chopras Indian Restaurant heeft een volledig vegetarisch en veganistisch aanbod, waaronder dal makhani, soya chaap, chaat, pani puri en paneergerechten. Veel van de 143 gerechten op het menu zijn plantaardig. De soya chaap wordt gegrild in de tandoor op 400 graden Celsius en is een van de populairste veganistische gerechten in het restaurant. De bereidingsnormen veranderen niet voor vegetarische of veganistische bestellingen.',
+  },
+  {
+    question: 'Kan ik Indiaas eten laten bezorgen vanuit Chopras naar andere Nederlandse steden?',
+    answer: 'Chopras Indian Restaurant biedt bezorging aan via Thuisbezorgd en Uber Eats naar Den Haag en omliggende gebieden, waaronder Rijswijk, Voorburg en Leidschendam. Voor gasten vanuit verder gelegen steden in Nederland biedt Chopras ook cateringdiensten voor privé-evenementen, bedrijfsdiners, bruiloften en verjaardagsfeesten. Neem rechtstreeks contact op via info [at] chopras.nl voor cateringvragen voor evenementen.',
+  },
+]
 
 type Props = { params: { locale: Locale } }
 
@@ -15,7 +61,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
   const titles = {
-    en: 'Indian Food in the Netherlands | Chopras Indian Restaurant',
+    en: 'Authentic Indian Food Netherlands | Chopras Indian Restaurant',
     nl: 'Indiaas Eten in Nederland | Chopras Indian Restaurant',
   }
   const descriptions = {
@@ -23,10 +69,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     nl: 'Authentiek Indiaas eten in Nederland bij Chopras Indian Restaurant Den Haag. Halal gecertificeerd, Noord-Indiaas eten en streetfood. Bezoek ons vandaag.',
   }
   return {
-    title: titles[locale], description: descriptions[locale],
+    title: titles[locale],
+    description: descriptions[locale],
     alternates: {
       canonical: getLocalizedUrl(locale, 'indian-food-netherlands'),
-      languages: { en: getLocalizedUrl('en', 'indian-food-netherlands'), nl: getLocalizedUrl('nl', 'indian-food-netherlands'), 'x-default': getLocalizedUrl('en', 'indian-food-netherlands') },
+      languages: {
+        en: getLocalizedUrl('en', 'indian-food-netherlands'),
+        nl: getLocalizedUrl('nl', 'indian-food-netherlands'),
+        'x-default': getLocalizedUrl('en', 'indian-food-netherlands'),
+      },
     },
     openGraph: {
       title: titles[locale],
@@ -50,99 +101,22 @@ export default function IndianFoodNetherlandsPage({ params }: Props) {
   const base = locale === 'nl' ? '/nl' : ''
   const isNl = locale === 'nl'
 
-  const articleSchema = {
-    '@context': 'https://schema.org', '@type': 'Article',
-    headline: isNl ? 'Indiaas Eten in Nederland  -  Een Complete Gids' : 'Indian Food in the Netherlands  -  A Complete Guide',
-    author: { '@type': 'Organization', name: RESTAURANT.name, url: RESTAURANT.contact.website },
-    publisher: { '@type': 'Organization', name: RESTAURANT.name, url: RESTAURANT.contact.website },
-    about: { '@type': 'Thing', name: isNl ? 'Indiaas Eten in Nederland' : 'Indian Food in the Netherlands' },
-    url: getLocalizedUrl(locale, 'indian-food-netherlands'),
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '800', bestRating: '5', worstRating: '1' },
-    sameAs: [
-      'https://www.tripadvisor.com/Restaurant_Review-g188633-d27464805-Reviews-Chopras_Indian_Restaurant-The_Hague_South_Holland_Province.html',
-      'https://www.google.com/maps/place/Chopras+Indian+Restaurant/@52.0583,4.2932,17z/',
-      'https://www.facebook.com/choprasrestaurant',
-      'https://www.instagram.com/choprasrestaurant',
-      'https://www.youtube.com/@choprasrestaurant',
-    ],
-  }
-
-  const topics = isNl ? [
-    {
-      h2: 'De Geschiedenis van Indiaas Eten in Nederland',
-      body: [
-        'De aanwezigheid van Indiaas eten in Nederland heeft een specifieke historische oorsprong: de Hindoestaanse gemeenschap. Hindoestanen zijn nakomelingen van Indiase contractarbeiders die in de 19e eeuw naar Suriname werden gebracht door de Nederlanders na de afschaffing van de slavernij. Na de Surinaamse onafhankelijkheid in 1975 vestigden honderdduizenden Surinamers zich in Nederland, waaronder een grote Hindoestaanse gemeenschap die hun eigen culinaire tradities meebrachten.',
-        'Dit is de reden waarom Indiaas eten in Nederland anders smaakt dan in de meeste West-Europese landen  -  het werd niet geïntroduceerd door Britse curry houses of directe immigratie uit India, maar via Suriname. De Hindoestaanse keuken is een unieke fusie van Indiase stijl (met name uit het Bhojpuri-sprekende gebied van Noord-India) en Surinaamse invloeden, met zijn eigen authentieke identiteit.',
-        'Den Haag heeft de grootste Hindoestaanse bevolking van Nederland, waardoor het de meest authentieke stadsbasis voor Indiaas eten in het land is. De Indiase restaurants in Den Haag zijn niet bedoeld voor toeristisch publiek of voor mensen die "iets anders" willen  -  ze zijn bedoeld voor gemeenschappen die opgroeiden met het eten en voor wie kwaliteit een persoonlijk belang is.',
-      ],
-    },
-    {
-      h2: 'Indiaas Eten in de Verschillende Nederlandse Steden',
-      body: [
-        'Amsterdam heeft de meeste Indiase restaurants op basis van absoluut aantal, maar de kwaliteit is ongelijkmatig. Het concentratie van toeristen in Amsterdam leidt tot restaurants die de breedte van de markt bedienen  -  meer op toegankelijkheid dan authenticiteit gericht. Er zijn uitzonderingen, maar ze vereisen het weten waar te zoeken.',
-        'Rotterdam heeft een substantiële Indiase en Surinaamse-Hindoestaanse gemeenschap en een aantal uitstekende opties, met name in de Kruiskade- en Alexandergebieden. De restaurantscène in Rotterdam is over het algemeen meer gemeenschapsgericht dan die van Amsterdam.',
-        'Den Haag is argumenteerbaar de beste stad voor Indiaas eten in Nederland, en dit is niet willekeurig. De stad heeft de grootste Hindoestaanse gemeenschap in het land. De Indiase restaurants in Den Haag moeten voldoen aan de normen van mensen voor wie dit geen exotische uitje is, maar familiaire eetgerechten. Chopras op Leyweg richt zich specifiek op dit publiek.',
-      ],
-    },
-    {
-      h2: 'Wat U Moet Bestellen als U Nieuw Bent in Indiaas Eten',
-      body: [
-        'Voor mensen die voor het eerst Indiaas eten proberen: begin met butter chicken (murgh makhani) en garlic naan. Butter chicken is mild van hitte, rijk en romig, en onmiddellijk begrijpelijk voor iedereen die tomaten-romige sauzen kent. Garlic naan is het perfecte voertuig  -  zacht, aromatisch en in de meeste restaurants vers gebakken in een tandoor.',
-        'Dal makhani is het tweede aanbeveelde gerecht voor beginners  -  langzaam gegaard zwart linzenmeal dat rijk en bevredigend is zonder overweldigend pittig te zijn. Het is het gerecht dat vegetariërs het meest verplicht terug doet komen naar een Indiaas restaurant.',
-        'Voor meer gevorderde eters: rogan josh (gekruid lamsvlees), seekh kebab (gekruid gemalen lamsvlees op spiesjes van de tandoor) en biryani zijn de gerechten die onderscheid maken tussen restaurants die het goed doen en restaurants die het goed doen. Biryani met name  -  het is een complexe bereiding die goedkope snelkopieën blootlegt.',
-      ],
-    },
-    {
-      h2: 'Halal Indiaas Eten in Nederland',
-      body: [
-        'Halal Indiaas eten in Nederland is beschikbaar, maar de kwaliteit van de halalcertificering varieert aanzienlijk. Sommige restaurants bieden "halal-opties" aan naast niet-halal producten  -  wat voor streng-halal-nalevers onvoldoende is. Anderen hebben een volledig gecertificeerde halal-keuken waarbij alle vlees van gecertificeerde leveranciers afkomstig is.',
-        'Chopras in Den Haag behoort tot de tweede categorie. De gehele keuken werkt volgens halalstandaarden. Alle vlees is van gecertificeerde halal-leveranciers. Er is geen niet-halal vlees op de locatie. Dit is de standaard voor elk gerecht dat we bereiden  -  niet een optie die we aanbieden of een speciale toeslag.',
-        'Voor de Marokkaanse, Pakistaanse, Turkse en Indiase moslimgemeenschappen in Den Haag en omgeving is dit het onderscheidende kenmerk dat bepaalt waar zij gaan eten. Een restaurant dat "ook halal" aanbiedt is fundamenteel anders dan een restaurant dat volledig halal is.',
-      ],
-    },
-  ] : [
-    {
-      h2: 'The History of Indian Food in the Netherlands',
-      body: [
-        'The presence of Indian food in the Netherlands has a specific historical origin: the Hindustani community. Hindustanis are descendants of Indian indentured labourers brought to Suriname in the 19th century by the Dutch following the abolition of slavery. After Surinamese independence in 1975, hundreds of thousands of Surinamese people settled in the Netherlands, including a large Hindustani community who brought their culinary traditions with them.',
-        'This is why Indian food in the Netherlands tastes different from most Western European countries  -  it was not introduced through British curry houses or direct immigration from India, but through Suriname. Hindustani cuisine is a unique fusion of Indian style (particularly from the Bhojpuri-speaking area of North India) and Surinamese influences, with its own authentic identity.',
-        'Den Haag has the largest Hindustani population in the Netherlands, making it the most authentic urban base for Indian food in the country. The Indian restaurants in Den Haag are not designed for a tourist audience or for people wanting "something different"  -  they are designed for communities who grew up with the food and for whom quality is a personal matter.',
-      ],
-    },
-    {
-      h2: 'Indian Food Across the Dutch Cities',
-      body: [
-        'Amsterdam has the most Indian restaurants by absolute number, but the quality is uneven. The concentration of tourists in Amsterdam leads to restaurants that serve the broadest possible market  -  more accessible than authentic. There are exceptions, but they require knowing where to look.',
-        'Rotterdam has a substantial Indian and Surinamese-Hindustani community and several excellent options, particularly in the Kruiskade and Alexander areas. The restaurant scene in Rotterdam is generally more community-oriented than Amsterdam\'s.',
-        'Den Haag is arguably the best city for Indian food in the Netherlands, and this is not arbitrary. The city has the largest Hindustani community in the country. The Indian restaurants in Den Haag must meet the standards of people for whom this is not an exotic outing, but familiar home food. Chopras on Leyweg is aimed specifically at this audience.',
-      ],
-    },
-    {
-      h2: 'What to Order If You Are New to Indian Food',
-      body: [
-        'For first-time Indian food eaters: start with butter chicken (murgh makhani) and garlic naan. Butter chicken is mild in heat, rich and creamy, and immediately understandable to anyone familiar with tomato-cream sauces. Garlic naan is the perfect vehicle  -  soft, aromatic, and in most good restaurants baked fresh in a tandoor.',
-        'Dal makhani is the second recommended dish for beginners  -  slow-cooked black lentil dal that is rich and satisfying without being overwhelmingly spicy. It is the dish that most reliably converts vegetarians into returning Indian restaurant customers.',
-        'For more experienced eaters: rogan josh (spiced lamb), seekh kebab (spiced minced lamb on skewers from the tandoor), and biryani are the dishes that separate restaurants doing it well from restaurants doing it cheaply. Biryani in particular  -  it is a complex preparation that exposes cheap shortcuts immediately.',
-      ],
-    },
-    {
-      h2: 'Halal Indian Food in the Netherlands',
-      body: [
-        'Halal Indian food in the Netherlands is available, but the quality of halal certification varies significantly. Some restaurants offer "halal options" alongside non-halal products  -  which is insufficient for strictly halal-observant guests. Others have a fully certified halal kitchen where all meat is sourced from certified suppliers.',
-        'Chopras in Den Haag falls into the second category. The entire kitchen operates to halal standards. All meat is from certified halal suppliers. There is no non-halal meat on the premises. This is the standard for every dish we prepare  -  not an option we offer or a special surcharge.',
-        'For the Moroccan, Pakistani, Turkish and Indian Muslim communities in Den Haag and surrounding areas, this is the distinguishing factor that determines where they eat. A restaurant that "also offers halal" is fundamentally different from a restaurant that is fully halal.',
-      ],
-    },
-  ]
+  const restaurantSchema = getLocalRestaurantSchema(
+    locale,
+    ['Netherlands', 'Den Haag', 'South Holland', 'Rijswijk', 'Delft', 'Zoetermeer'],
+    getLocalizedUrl(locale, 'indian-food-netherlands'),
+  )
 
   return (
     <>
-      <JsonLd data={articleSchema as Record<string, unknown>} />
+      <JsonLd data={restaurantSchema} />
       <JsonLd data={getBreadcrumbSchema([
         { name: tr.common.nav.home, item: getLocalizedUrl(locale) },
         { name: isNl ? 'Indiaas Eten Nederland' : 'Indian Food Netherlands', item: getLocalizedUrl(locale, 'indian-food-netherlands') },
       ])} />
+      <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
 
+      {/* Hero */}
       <section className="bg-[#1B2B5E] py-20 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
@@ -154,68 +128,251 @@ export default function IndianFoodNetherlandsPage({ params }: Props) {
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight"
             style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
           >
-            {isNl ? 'Indiaas Eten in Nederland  -  De Complete Gids' : 'Indian Food in the Netherlands  -  The Complete Guide'}
+            {isNl
+              ? 'Authentiek Indiaas Eten in Nederland - De Echte Maatstaf'
+              : 'Authentic Indian Food in the Netherlands - The Real Standard'}
           </h1>
           <p
-            className="text-white/75 text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-white/75 text-lg md:text-xl max-w-3xl mx-auto mb-8"
             style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
           >
-            {isNl ? 'Geschiedenis, steden, gerechten, halal opties en waar u de beste Indiase keuken in Nederland vindt. Chopras in Den Haag is uw startpunt.' : 'History, cities, dishes, halal options, and where to find the best Indian cuisine in the Netherlands. Chopras in Den Haag is your starting point.'}
+            {isNl
+              ? 'De meeste Indiase restaurants in Nederland passen recepten aan voor de lokale markt. Chopras Indian Restaurant in Den Haag doet dat niet. Specerijen uit India, elke ochtend vers gemalen. Beoordeeld met 4,9 sterren door 800+ gasten.'
+              : 'Most Indian restaurants in the Netherlands adapt recipes for the local market. Chopras Indian Restaurant in Den Haag does not. Spices from India, ground fresh every morning. Rated 4.9 stars by 800+ guests.'}
           </p>
-        </div>
-      </section>
-
-      {topics.map((topic) => (
-        <section key={topic.h2} className="bg-[#F7F8FC] odd:bg-white py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">{topic.h2}</h2>
-            <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-              {topic.body.map((p, i) => <p key={i}>{p}</p>)}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <section className="bg-[#1B2B5E] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-white mb-8">
-            {isNl ? 'Chopras in Den Haag  -  Het Startpunt voor Indiaas Eten' : 'Chopras in Den Haag  -  The Starting Point for Indian Food'}
-          </h2>
-          <div className="prose prose-lg max-w-none text-white/80 space-y-5">
-            {isNl ? (
-              <>
-                <p>Chopras op Leyweg 986 in Den Haag bedient de gemeenschap waarvoor Indiaas eten geen exotische uitje is  -  het is familiaire keuken. De gerechten worden bereid met verse kruiden die dagelijks worden gemalen, vlees van gecertificeerde halal-leveranciers en bereidingstechnieken die generaties lang zijn doorgegeven.</p>
-                <p>Het restaurant is open dinsdag tot en met zondag van 16:30 tot 22:30. Maandag is gesloten. Bezorging is beschikbaar via Thuisbezorgd en Uber Eats.</p>
-              </>
-            ) : (
-              <>
-                <p>Chopras at Leyweg 986 in Den Haag serves the community for whom Indian food is not an exotic outing  -  it is familiar home cooking. The dishes are prepared with fresh spices ground daily, meat from certified halal suppliers, and preparation techniques passed down through generations.</p>
-                <p>The restaurant is open Tuesday to Sunday from 16:30 to 22:30. Closed Monday. Delivery is available via Thuisbezorgd and Uber Eats.</p>
-              </>
-            )}
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link href={`${base}/contact`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
               {tr.common.reserve}
             </Link>
-            <Link href={`${base}/menu`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]">
+            <Link
+              href={`${base}/menu`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
               {tr.common.viewMenu}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* INTERNAL LINKS SECTION */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Why authentic Indian food is rare in the Netherlands */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Waarom Authentiek Indiaas Eten Zeldzaam Is in Nederland'
+              : 'Why Authentic Indian Food Is Rare in the Netherlands'}
+          </h2>
+          <div className="space-y-5 font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            {isNl ? (
+              <>
+                <p>De meeste Indiase restaurants in Nederland werken op basis van een eenvoudig compromis: minder hitte, een milder smaakprofiel, en een menu dat zo toegankelijk mogelijk is. Commercieel gezien werkt dit. Maar het levert iets op dat de naam draagt van Indiaas eten zonder de essentie ervan. Wie ooit <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link> heeft gegeten bereid met vers gemalen specerijen, herkent onmiddellijk wanneer een versie is verdund.</p>
+                <p>Het compromis begint bij de inkoop. De meeste restaurants gebruiken kant-en-klare kruidenmengsels van groothandelleveranciers. De vluchtige aromatische olien in komijn, koriander en kardemom beginnen binnen uren na het malen te verdampen. Een mengsel dat weken in een container heeft gestaan, heeft de kwaliteit verloren die gerechten zoals <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">dal makhani</Link> en rogan josh hun karakter geeft. Geen mening - scheikunde.</p>
+                <p>Het tweede compromis is de tandoor. Een kleioven die 400 graden Celsius bereikt, kan niet worden vervangen door een gewone heteluchtoven. De verkoolde randjes van <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vers gebakken naan</Link> en de rokerige korst op chicken tikka zijn het product van een specifieke hitte die de meeste restaurantkeukens in Nederland niet bereiken. Chopras Indian Restaurant op Leyweg 986 in Den Haag beschikt over een tandoor die dat wel doet.</p>
+              </>
+            ) : (
+              <>
+                <p>Most Indian restaurants in the Netherlands operate on a simple compromise: reduce the heat, soften the spice profile, and keep the menu as accessible as possible. Commercially it works. But it produces something that carries the name of Indian food without its substance. Anyone who has eaten <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link> made with fresh-ground spices knows immediately when a version has been thinned out.</p>
+                <p>The compromise starts at sourcing. Most restaurants use pre-mixed spice blends from wholesale suppliers. The volatile aromatic oils in cumin, coriander, and cardamom begin evaporating within hours of grinding. A blend sitting in a container for weeks has lost the quality that gives dishes like <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">dal makhani</Link> and rogan josh their character. Not opinion - chemistry.</p>
+                <p>The second compromise is the tandoor. A clay oven that reaches 400 degrees Celsius cannot be replaced with a conventional convection oven. The char on the edges of <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">fresh naan</Link> and the smoky crust on chicken tikka are the product of a specific heat that most restaurant kitchens in the Netherlands do not run. Chopras Indian Restaurant at Leyweg 986 in Den Haag runs one that does.</p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Den Haag - best city for Indian food */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Den Haag - De Beste Stad voor Indiaas Eten in Nederland'
+              : 'Den Haag - The Best City for Indian Food in the Netherlands'}
+          </h2>
+          <div className="space-y-5 font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            {isNl ? (
+              <>
+                <p>De Indiase restaurantscene in Nederland is gevormd door de Hindoestaanse gemeenschap - nakomelingen van Indiase contractarbeiders die in de 19e eeuw naar Suriname werden gebracht, en die na de Surinaamse onafhankelijkheid in 1975 in grote aantallen naar Nederland kwamen. Den Haag heeft de grootste Hindoestaanse bevolking van het land. Dit is de reden waarom Indiaas eten in Den Haag aan een andere maatstaf wordt gehouden dan in Amsterdam of Rotterdam, en waarom <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">het beste Indiase restaurant in Den Haag</Link> een niveau haalt dat elders in Nederland zeldzaam is.</p>
+                <p>Wanneer de mensen die <Link href={`${base}/mutton-rogan-josh-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">mutton rogan josh</Link> bestellen er thuis mee zijn opgegroeid, weten zij precies hoe het hoort te smaken. Een snelkopie wordt ontdekt voor de tweede hap. Een restaurant op Leyweg 986 dat dit publiek bedient, kan niet vertrouwen op nieuwigheid. Het eten moet juist zijn. Chopras Indian Restaurant is gebouwd voor precies dit publiek.</p>
+                <p>Bezoekers van door heel Nederland - van <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Delft</Link> tot Zoetermeer en verder - maken de reis naar Leyweg specifiek omdat Den Haag biedt wat hun eigen omgeving niet heeft. De combinatie van een volledig halaalgecertificeerde keuken, specerijen rechtstreeks uit India en 143 gerechten op het <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">menu</Link> creëert een standaard die buiten Den Haag zelden wordt bereikt.</p>
+              </>
+            ) : (
+              <>
+                <p>The Indian restaurant scene in the Netherlands is shaped by the Hindustani community - descendants of Indian indentured labourers brought to Suriname in the 19th century, who settled in the Netherlands in large numbers after Surinamese independence in 1975. Den Haag has the largest Hindustani population in the country. This is why Indian food in Den Haag faces a different standard than in Amsterdam or Rotterdam, and why <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">the best Indian restaurant in Den Haag</Link> reaches a level that is rare elsewhere in the Netherlands.</p>
+                <p>When the people ordering <Link href={`${base}/mutton-rogan-josh-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">mutton rogan josh</Link> grew up eating it at home, they know exactly what it is supposed to taste like. A shortcut is detected before the second bite. A restaurant at Leyweg 986 serving this community cannot rely on novelty. The food must be correct. Chopras Indian Restaurant was built for exactly this audience.</p>
+                <p>Visitors from across the Netherlands - from <Link href={`${base}/indian-restaurant-delft`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Delft</Link> to Zoetermeer and beyond - make the trip to Leyweg specifically because Den Haag offers what their local area does not. The combination of a fully halal certified kitchen, spices sourced directly from India, and 143 dishes on the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">menu</Link> creates a standard that the Netherlands outside Den Haag rarely reaches.</p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* What sets Chopras apart */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Wat Chopras Indian Restaurant Onderscheidt in Nederland'
+              : 'What Sets Chopras Indian Restaurant Apart in the Netherlands'}
+          </h2>
+          <div className="space-y-5 font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            {isNl ? (
+              <>
+                <p>Bij Chopras worden hele specerijen elke ochtend vers gemalen van ingredienten die rechtstreeks uit India afkomstig zijn. Niet van een leveranciersmengsel. Niet uit voorgepakte mixen. De specerijen komen binnen als hele zaden en schors, en het malen gebeurt in de keuken voor elke dienst. Deze ene praktijk is verantwoordelijk voor meer smaakverschil dan elke andere variabele in het <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">menu van 143 gerechten</Link>.</p>
+                <p>De tandoor kleioven op Leyweg 986 bereikt 400 graden Celsius. Elke bestelling <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori kip</Link> en elke portie <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> wordt bereid op de temperatuur waarvoor Noord-Indiaas koken is ontworpen. Geen snelkopie, geen alternatief, geen benadering.</p>
+                <p>Chopras is ook het enige restaurant in Den Haag dat authentiek <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link> serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles - een keukencategorie die nergens anders in Den Haag bestaat. Voor Zuid-Aziatische families die met beide keukens op tafel zijn opgegroeid, is dit geen bijzonderheid. Het is normaal.</p>
+              </>
+            ) : (
+              <>
+                <p>At Chopras, whole spices are ground fresh every morning from ingredients sourced directly from India. Not from a supplier blend. Not from pre-packaged mixes. The spices arrive as whole seeds and barks, and the grinding happens in the kitchen before each service. This single practice accounts for more flavour difference than any other variable across the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143-dish menu</Link>.</p>
+                <p>The tandoor clay oven at Leyweg 986 reaches 400 degrees Celsius. Every order of <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori chicken</Link> and every <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> is cooked at the temperature North Indian cooking was designed for. No shortcut, no substitute, no approximation.</p>
+                <p>Chopras is also the only restaurant in Den Haag serving authentic <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link> alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles - a cuisine category that exists nowhere else in The Hague. For South Asian families who grew up with both cuisines on the same table, this is not a novelty. It is standard.</p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Halal Indian food in the Netherlands */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Halal Indiaas Eten in Nederland'
+              : 'Halal Indian Food in the Netherlands'}
+          </h2>
+          <div className="space-y-5 font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            {isNl ? (
+              <>
+                <p>Halaalgecertificering bij Indiase restaurants in Nederland varieert sterk. Sommige restaurants bieden halaalopties aan naast een keuken die ook niet-halaals vlees verwerkt. Het risico op kruisbesmetting is reeel, en voor streng-halaal-nalevers is een gedeeltelijke certificering onvoldoende. Chopras Indian Restaurant werkt anders - de gehele keuken is <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">volledig halaal gecertificeerd in Den Haag</Link>. Elke vleesleverancier is halaal gecertificeerd. Er is nooit niet-halaals vlees op de locatie aanwezig.</p>
+                <p>Voor moslimfamilies in Den Haag, Rijswijk, <Link href={`${base}/indian-restaurant-zoetermeer`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Zoetermeer</Link> en de bredere regio Zuid-Holland is dit fundamenteel. Een volledig gecertificeerd <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halaal menu</Link> is niet hetzelfde als een restaurant dat ook halaalopties aanbiedt. Chopras biedt 143 gerechten, allemaal halaal, zonder uitzonderingen en zonder apart menu. Elke gast, elke tafel, elke bestelling.</p>
+              </>
+            ) : (
+              <>
+                <p>Halal certification across Indian restaurants in the Netherlands varies widely. Some operations offer halal options within a kitchen that also handles non-halal meat. The cross-contamination risk is real, and for strictly halal-observant guests a partial certification is not enough. Chopras Indian Restaurant operates differently - the entire kitchen is <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">fully halal certified in Den Haag</Link>. Every meat supplier is halal certified. There is no non-halal meat on the premises at any point.</p>
+                <p>For Muslim families in Den Haag, Rijswijk, <Link href={`${base}/indian-restaurant-zoetermeer`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Zoetermeer</Link>, and across South Holland, this matters at a fundamental level. A fully certified <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal menu</Link> is not the same as a restaurant that also offers halal. Chopras offers 143 dishes, all halal, with no exceptions and no separate menu. Every guest, every table, every order.</p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Proof - navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            {isNl
+              ? '4.9 Sterren. 800+ Reviews. Het Nederlandse Oordeel.'
+              : '4.9 Stars. 800+ Reviews. The Netherlands Verdict.'}
+          </h2>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            {isNl
+              ? 'Geen enkel ander Indiaas restaurant in Den Haag combineert deze score met dit reviewvolume. Tripadvisor Excellent. TheFork 8.6. Een hoge beoordeling met weinig reviews zegt weinig. Chopras heeft beide.'
+              : 'No other Indian restaurant in Den Haag combines this rating with this review volume. Tripadvisor Excellent. TheFork 8.6. A high rating with a low review count means nothing. Chopras has both.'}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {(isNl ? [
+              { stat: '4.9 Sterren', desc: 'Google-beoordeling van 800+ geverifieerde reviews - meer reviews op een hogere score dan enig ander Indiaas restaurant in Den Haag.' },
+              { stat: 'Volledig Halaal', desc: 'Elk vleesgerecht, elke leverancier, elke bestelling. De gehele keuken is halaal gecertificeerd zonder uitzonderingen of risico op kruisbesmetting.' },
+              { stat: '143 Gerechten', desc: 'Dertien categorieën van biryani tot Indo-Chinees - het grootste authentieke Noord-Indiaase menu in Den Haag.' },
+            ] : [
+              { stat: '4.9 Stars', desc: 'Google rating from 800+ verified reviews - more reviews at a higher rating than any other Indian restaurant in Den Haag.' },
+              { stat: 'Fully Halal', desc: 'Every meat dish, every supplier, every order. The entire kitchen is halal certified with no exceptions and no cross-contamination risk.' },
+              { stat: '143 Dishes', desc: 'Thirteen categories from biryani to Indo Chinese - the largest authentic North Indian menu in The Hague.' },
+            ]).map((item) => (
+              <div key={item.stat} className="bg-white/10 rounded-xl p-6 border border-[#C7A348]/30">
+                <p className="font-vibes text-3xl md:text-4xl text-white mb-3 leading-[1.3]">{item.stat}</p>
+                <p className="font-body text-white/85 text-base leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              {tr.common.reserve}
+            </Link>
+            <Link
+              href={`${base}/halal-food-den-haag`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              {isNl ? 'Halaal Menu' : 'Halal Menu'}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* GEO Block */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Waar vind ik authentiek Indiaas eten in Nederland?'
+              : 'Where can I find authentic Indian food in the Netherlands?'}
+          </h2>
+          <div className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            {isNl ? (
+              <p>Authentiek Indiaas eten in Nederland is het beste te vinden bij Chopras Indian Restaurant, Leyweg 986, 2545 GW Den Haag. Beoordeeld met 4,9 sterren door 800+ geverifieerde Google-reviews, serveert Chopras 143 halaal-gecertificeerde Noord-Indiaase gerechten - waaronder biryani, tandoori, butter chicken en streetfood. Specerijen worden rechtstreeks uit India betrokken en elke ochtend vers gemalen. Open dinsdag tot en met zondag van 16:30 tot 22:30. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserveer een tafel bij Chopras</Link> of <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">bekijk het volledige menu</Link> online.</p>
+            ) : (
+              <p>Authentic Indian food in the Netherlands is best found at Chopras Indian Restaurant, Leyweg 986, 2545 GW Den Haag. Rated 4.9 stars from 800+ verified Google reviews, Chopras serves 143 halal-certified North Indian dishes including biryani, tandoori, butter chicken, and street food. Spices are sourced directly from India and ground fresh every morning. Open Tuesday to Sunday from 16:30 to 22:30. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table at Chopras</Link> or <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">view the full menu</Link> online.</p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Veelgestelde Vragen' : 'Frequently Asked Questions'}
+          </h2>
+          <FaqAccordion faqs={isNl ? faqsNl : faqsEn} locale={locale} />
+        </div>
+      </section>
+
+      {/* Dishes and internal links */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Ontdek de Meest Populaire Gerechten' : 'Explore the Most Popular Dishes'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <Link href={`${base}/butter-chicken-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Butter Chicken</p>
+              <p className="font-body text-[#1A1A1A]/70 text-base">{isNl ? 'Murgh makhani in rijke tomaten-roomsaus, vers bereid op Leyweg 986' : 'Murgh makhani in a rich tomato cream sauce, made fresh at Leyweg 986'}</p>
+            </Link>
+            <Link href={`${base}/biryani-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Biryani</p>
+              <p className="font-body text-[#1A1A1A]/70 text-base">{isNl ? 'Saffraan basmatirijst met kip, lam of groenten en vers gemalen masala' : 'Saffron basmati rice with chicken, lamb, or vegetables and fresh-ground masala'}</p>
+            </Link>
+            <Link href={`${base}/dal-makhani-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Dal Makhani</p>
+              <p className="font-body text-[#1A1A1A]/70 text-base">{isNl ? 'Langzaam gegaard zwart linzenmaal met boter en room - het vegetarische paradepaard' : 'Slow-cooked black lentil dal with butter and cream - the vegetarian benchmark'}</p>
+            </Link>
+            <Link href={`${base}/catering`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Catering voor Nederland' : 'Catering Across the Netherlands'}</p>
+              <p className="font-body text-[#1A1A1A]/70 text-base">{isNl ? 'Bruiloften, bedrijfsfeesten en verjaardagen - Indiaas catering tot 80 gasten' : 'Weddings, corporate events, and birthdays - Indian catering for up to 80 guests'}</p>
+            </Link>
+          </div>
           <div className="mt-8 text-center space-y-4">
-            <p className="text-[#1A1A1A] text-base">
+            <p className="font-body text-[#1A1A1A]/70 text-base">
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
-                {isNl ? 'Chopras Indiaas Restaurant - beste Indiaas restaurant in Den Haag' : 'Chopras Indian Restaurant - best Indian restaurant in Den Haag'}
+                {isNl ? 'Chopras Indian Restaurant - het beste Indiaas restaurant in Den Haag' : 'Chopras Indian Restaurant - the best Indian restaurant in Den Haag'}
               </Link>
             </p>
-            <p className="text-[#1A1A1A] text-base">
-              {isNl ? 'Voor catering en evenementen, zie ons' : 'For catering and events, see our'} <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">{isNl ? 'cateringmogelijkheden' : 'catering options'}</Link>.
+            <p className="font-body text-[#1A1A1A]/70 text-base">
+              {isNl ? (
+                <>
+                  Bekijk het <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">volledige menu</Link> of <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">maak een reservering</Link> bij Chopras Indian Restaurant Den Haag.
+                </>
+              ) : (
+                <>
+                  View the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">full menu</Link> or <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">make a reservation</Link> at Chopras Indian Restaurant Den Haag.
+                </>
+              )}
             </p>
           </div>
         </div>

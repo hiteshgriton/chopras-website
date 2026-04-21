@@ -31,7 +31,7 @@ const faqsNl: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'Serveren jullie chaat op cateringevenementen?',
-    answer: 'Ja. Chaat is een populaire keuze voor Indiaas catering in Den Haag. Papdi chaat, aloo tikki en pani puri worden vers bereid en geserveerd op verjaardagen, bruiloften en bedrijfsfeesten. Neem contact op via info@chopras.nl voor een vrijblijvende offerte.',
+    answer: 'Ja. Chaat is een populaire keuze voor Indiaas catering in Den Haag. Papdi chaat, aloo tikki en pani puri worden vers bereid en geserveerd op verjaardagen, bruiloften en bedrijfsfeesten. Neem contact op via info [at] chopras.nl voor een vrijblijvende offerte.',
   },
   {
     question: 'Wat is pani puri precies?',
@@ -58,7 +58,7 @@ const faqsEn: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'Do you serve chaat at catering events?',
-    answer: 'Yes. Chaat is a popular choice for Indian catering in Den Haag. Papdi chaat, aloo tikki and pani puri are made fresh and served at birthday parties, weddings and corporate dinners. Contact us at info@chopras.nl for a free catering quote.',
+    answer: 'Yes. Chaat is a popular choice for Indian catering in Den Haag. Papdi chaat, aloo tikki and pani puri are made fresh and served at birthday parties, weddings and corporate dinners. Contact us at info [at] chopras.nl for a free catering quote.',
   },
   {
     question: 'What exactly is pani puri?',

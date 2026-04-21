@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import EmailLink from '@/components/ui/EmailLink'
 
 type VacancyFormData = {
   name: string
@@ -53,7 +54,7 @@ export default function VacancyForm() {
       {status === 'error' && (
         <div className="bg-red-500/20 border border-red-400/30 rounded-xl px-4 py-3">
           <p className="text-red-300 text-sm text-center">
-            Something went wrong. Please email us at info@chopras.nl.
+            Something went wrong. Please email us at <EmailLink />.
           </p>
         </div>
       )}

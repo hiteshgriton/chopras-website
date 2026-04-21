@@ -119,7 +119,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     question: "How can I contact the restaurant for queries or reservations?",
-    answer: "Contact Chopras Indian Restaurant by phone at +31 6 30645930, by email at info@chopras.nl, or via the contact form at chopras.nl/contact. Staff are available during opening hours Tuesday to Sunday."
+    answer: "Contact Chopras Indian Restaurant by phone at +31 6 30645930, by email at info [at] chopras.nl, or via the contact form at chopras.nl/contact. Staff are available during opening hours Tuesday to Sunday."
   },
 ]
 
@@ -227,7 +227,7 @@ export const eventFaqs: FaqItem[] = [
   },
   {
     question: "What is the minimum spend or fee for reserving the private space?",
-    answer: "The minimum spend for the private event space at Chopras depends on the event date, season, and size. Contact the restaurant at +31 6 30645930 or info@chopras.nl for a personalised quote."
+    answer: "The minimum spend for the private event space at Chopras depends on the event date, season, and size. Contact the restaurant at +31 6 30645930 or info [at] chopras.nl for a personalised quote."
   },
   {
     question: "Is the private event space wheelchair accessible?",
@@ -299,7 +299,7 @@ export const allFaqs: FaqItem[] = [
 export const cateringPageFaqs: FaqItem[] = [
   {
     question: "How much does Indian catering cost in Den Haag?",
-    answer: "Catering pricing at Chopras Indian Restaurant depends on your guest count, menu selection, and service format. There is no fixed price per head because every event is custom-built from scratch. Contact us at info@chopras.nl or call +31 6 30645930 and we will respond with a clear written proposal within 24 hours.",
+    answer: "Catering pricing at Chopras Indian Restaurant depends on your guest count, menu selection, and service format. There is no fixed price per head because every event is custom-built from scratch. Contact us at info [at] chopras.nl or call +31 6 30645930 and we will respond with a clear written proposal within 24 hours.",
   },
   {
     question: "Is the catering halal certified?",
@@ -322,7 +322,7 @@ export const cateringPageFaqs: FaqItem[] = [
 export const cateringPageFaqsNl: FaqItem[] = [
   {
     question: "Wat kost Indiaas catering in Den Haag?",
-    answer: "De prijs van catering bij Chopras Indian Restaurant hangt af van het aantal gasten, de menukeuze en het serviceformaat. Er is geen vaste prijs per persoon omdat elk evenement van scratch op maat wordt samengesteld. Neem contact op via info@chopras.nl of bel +31 6 30645930 en wij reageren binnen 24 uur met een duidelijk schriftelijk voorstel.",
+    answer: "De prijs van catering bij Chopras Indian Restaurant hangt af van het aantal gasten, de menukeuze en het serviceformaat. Er is geen vaste prijs per persoon omdat elk evenement van scratch op maat wordt samengesteld. Neem contact op via info [at] chopras.nl of bel +31 6 30645930 en wij reageren binnen 24 uur met een duidelijk schriftelijk voorstel.",
   },
   {
     question: "Is de catering halal gecertificeerd?",

@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const faqsEn = [
   {
     question: 'How do I reserve a table at Chopras Indian Restaurant Den Haag?',
-    answer: 'Use the reservation form at the top of this page, call +31 6 30645930 directly, or email info@chopras.nl. For groups of four or more, a reservation is recommended. For eight or more guests, call the team so the right table configuration can be arranged. Chopras Indian Restaurant at Leyweg 986 Den Haag is open Tuesday to Sunday from 16:30 to 22:30.',
+    answer: 'Use the reservation form at the top of this page, call +31 6 30645930 directly, or email info [at] chopras.nl. For groups of four or more, a reservation is recommended. For eight or more guests, call the team so the right table configuration can be arranged. Chopras Indian Restaurant at Leyweg 986 Den Haag is open Tuesday to Sunday from 16:30 to 22:30.',
   },
   {
     question: 'Where is Chopras Indian Restaurant located in Den Haag?',
@@ -81,7 +81,7 @@ const faqsEn = [
 const faqsNl = [
   {
     question: 'Hoe reserveer ik een tafel bij Chopras Indian Restaurant in Den Haag?',
-    answer: 'Gebruik het reserveringsformulier bovenaan deze pagina, bel +31 6 30645930 of stuur een e-mail naar info@chopras.nl. Voor groepen van vier of meer personen wordt een reservering aanbevolen. Voor acht of meer gasten belt u het team zodat de juiste tafelopstelling kan worden geregeld. Chopras Indian Restaurant op Leyweg 986 in Den Haag is open van dinsdag tot en met zondag van 16:30 tot 22:30.',
+    answer: 'Gebruik het reserveringsformulier bovenaan deze pagina, bel +31 6 30645930 of stuur een e-mail naar info [at] chopras.nl. Voor groepen van vier of meer personen wordt een reservering aanbevolen. Voor acht of meer gasten belt u het team zodat de juiste tafelopstelling kan worden geregeld. Chopras Indian Restaurant op Leyweg 986 in Den Haag is open van dinsdag tot en met zondag van 16:30 tot 22:30.',
   },
   {
     question: 'Waar is Chopras Indian Restaurant gevestigd in Den Haag?',

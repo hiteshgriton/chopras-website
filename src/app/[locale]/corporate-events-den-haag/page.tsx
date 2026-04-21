@@ -64,7 +64,7 @@ const faqsNl: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'Hoe snel kunt u een zakelijke cateringofferte verstrekken?',
-    answer: 'Chopras Indian Restaurant verstrekt gespecificeerde zakelijke cateringoffertes binnen 24 uur na ontvangst van uw evenementgegevens. Stuur uw evenementdatum, locatie, verwacht aantal gasten en gewenst format naar info@chopras.nl. Voor boekingen in dezelfde week of urgente vereisten belt u ons direct op +31 6 30645930.',
+    answer: 'Chopras Indian Restaurant verstrekt gespecificeerde zakelijke cateringoffertes binnen 24 uur na ontvangst van uw evenementgegevens. Stuur uw evenementdatum, locatie, verwacht aantal gasten en gewenst format naar info [at] chopras.nl. Voor boekingen in dezelfde week of urgente vereisten belt u ons direct op +31 6 30645930.',
   },
 ]
 
@@ -87,7 +87,7 @@ const faqsEn: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'How quickly can you provide a corporate catering quote?',
-    answer: 'Chopras Indian Restaurant provides itemised corporate catering quotes within 24 hours of receiving your event details. Send your event date, venue location, expected guest count and preferred format to info@chopras.nl. For same-week bookings or urgent requirements, call directly on +31 6 30645930.',
+    answer: 'Chopras Indian Restaurant provides itemised corporate catering quotes within 24 hours of receiving your event details. Send your event date, venue location, expected guest count and preferred format to info [at] chopras.nl. For same-week bookings or urgent requirements, call directly on +31 6 30645930.',
   },
 ]
 

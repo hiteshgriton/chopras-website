@@ -64,7 +64,7 @@ const faqsEn = [
   },
   {
     question: 'Can I book Diwali catering to my home in Den Haag?',
-    answer: 'Yes. Chopras Indian Restaurant delivers Diwali catering to homes and venues across Den Haag, Rijswijk, Delft, Zoetermeer and the wider South Holland area. The minimum for home catering is six guests. Contact us at info@chopras.nl or call +31 6 30645930 to request a quote.',
+    answer: 'Yes. Chopras Indian Restaurant delivers Diwali catering to homes and venues across Den Haag, Rijswijk, Delft, Zoetermeer and the wider South Holland area. The minimum for home catering is six guests. Contact us at info [at] chopras.nl or call +31 6 30645930 to request a quote.',
   },
   {
     question: 'What dishes are served at the Diwali dinner at Chopras?',
@@ -87,7 +87,7 @@ const faqsNl = [
   },
   {
     question: 'Kan ik Diwali-catering aan huis boeken in Den Haag?',
-    answer: 'Ja. Chopras Indian Restaurant verzorgt Diwali-catering aan huis en op locatie in Den Haag, Rijswijk, Delft, Zoetermeer en de bredere regio Zuid-Holland. Het minimum voor thuiscatering is zes gasten. Neem contact op via info@chopras.nl of bel +31 6 30645930 voor een offerte.',
+    answer: 'Ja. Chopras Indian Restaurant verzorgt Diwali-catering aan huis en op locatie in Den Haag, Rijswijk, Delft, Zoetermeer en de bredere regio Zuid-Holland. Het minimum voor thuiscatering is zes gasten. Neem contact op via info [at] chopras.nl of bel +31 6 30645930 voor een offerte.',
   },
   {
     question: 'Welke gerechten worden geserveerd bij het Diwali-diner bij Chopras?',

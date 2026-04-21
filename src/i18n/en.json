@@ -282,7 +282,7 @@
     "formMessage": "Cover Note",
     "formSubmit": "Send My Application",
     "formSuccess": "Thank you for your application. We will be in touch.",
-    "formError": "Something went wrong. Please email us at info@chopras.nl."
+    "formError": "Something went wrong. Please email us at info [at] chopras.nl."
   },
   "blog": {
     "heroH1": "From Our Kitchen to Your Screen",

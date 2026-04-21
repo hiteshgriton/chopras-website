@@ -1,4 +1,5 @@
 import { Phone, Mail } from 'lucide-react'
+import EmailLink from '@/components/ui/EmailLink'
 
 export default function TopBar() {
   return (
@@ -19,13 +20,10 @@ export default function TopBar() {
 
           <div className="w-px h-3 bg-[#1B2B5E]/20" />
 
-          <a
-            href="mailto:info@chopras.nl"
-            className="flex items-center gap-2 text-[#1B2B5E] hover:text-[#0000C9] transition-colors text-xs"
-          >
+          <div className="flex items-center gap-2 text-xs">
             <Mail className="w-3 h-3 text-[#D4AF37]" />
-            <span>info@chopras.nl</span>
-          </a>
+            <EmailLink />
+          </div>
         </div>
 
         {/* CENTER - Announcement (hidden on mobile) */}

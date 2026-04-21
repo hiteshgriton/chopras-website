@@ -61,7 +61,7 @@ const faqsEn = [
   },
   {
     question: 'Can Chopras host a private group dinner near the Peace Palace?',
-    answer: 'Yes. Chopras Indian Restaurant has a private hall at Leyweg 986 that accommodates 25 to 80 guests. This is suitable for diplomatic receptions, team dinners, and corporate group meals. Contact us at info@chopras.nl or call +31 6 30645930 to discuss availability and menu options.',
+    answer: 'Yes. Chopras Indian Restaurant has a private hall at Leyweg 986 that accommodates 25 to 80 guests. This is suitable for diplomatic receptions, team dinners, and corporate group meals. Contact us at info [at] chopras.nl or call +31 6 30645930 to discuss availability and menu options.',
   },
   {
     question: 'What are the opening hours at Chopras Indian Restaurant?',
@@ -84,7 +84,7 @@ const faqsNl = [
   },
   {
     question: 'Kan Chopras een privégroepsdiner organiseren bij het Vredespaleis?',
-    answer: 'Ja. Chopras Indian Restaurant heeft een privézaal op Leyweg 986 die 25 tot 80 gasten kan accommoderen. Dit is geschikt voor diplomatieke ontvangsten, teamdiners en zakelijke groepsmaaltijden. Neem contact op via info@chopras.nl of bel +31 6 30645930 voor beschikbaarheid en menuopties.',
+    answer: 'Ja. Chopras Indian Restaurant heeft een privézaal op Leyweg 986 die 25 tot 80 gasten kan accommoderen. Dit is geschikt voor diplomatieke ontvangsten, teamdiners en zakelijke groepsmaaltijden. Neem contact op via info [at] chopras.nl of bel +31 6 30645930 voor beschikbaarheid en menuopties.',
   },
   {
     question: 'Wat zijn de openingstijden van Chopras Indian Restaurant?',

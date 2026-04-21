@@ -69,7 +69,7 @@ const faqsEn = [
   },
   {
     question: 'Can I book a table for a family birthday at Chopras Indian Restaurant Den Haag?',
-    answer: 'Yes. Chopras accepts bookings for family birthday celebrations and can accommodate groups. Contact the restaurant at info@chopras.nl or call +31 6 30645930. Chopras also provides birthday catering for events outside the restaurant.',
+    answer: 'Yes. Chopras accepts bookings for family birthday celebrations and can accommodate groups. Contact the restaurant at info [at] chopras.nl or call +31 6 30645930. Chopras also provides birthday catering for events outside the restaurant.',
   },
 ]
 
@@ -92,7 +92,7 @@ const faqsNl = [
   },
   {
     question: 'Kan ik een tafel reserveren voor een familieverjaardag bij Chopras Indian Restaurant Den Haag?',
-    answer: 'Ja. Chopras accepteert reserveringen voor familiefeestjes en kan groepen accommoderen. Neem contact op via info@chopras.nl of bel +31 6 30645930. Chopras verzorgt ook verjaardagscatering voor evenementen buiten het restaurant.',
+    answer: 'Ja. Chopras accepteert reserveringen voor familiefeestjes en kan groepen accommoderen. Neem contact op via info [at] chopras.nl of bel +31 6 30645930. Chopras verzorgt ook verjaardagscatering voor evenementen buiten het restaurant.',
   },
 ]
 
