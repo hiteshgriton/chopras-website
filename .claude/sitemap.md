@@ -77,6 +77,9 @@
 | Near Zoetermeer | /indian-restaurant-zoetermeer | Indian restaurant Zoetermeer | Commercial |
 | Near Peace Palace | /indian-restaurant-near-peace-palace-den-haag | Indian restaurant near Peace Palace Den Haag | Commercial |
 | Near Den Haag Centraal | /indian-restaurant-near-den-haag-centraal | Indian restaurant near Den Haag Centraal | Commercial |
+| Near Leidschendam | /indian-restaurant-leidschendam | Indian restaurant Leidschendam | Commercial |
+| Near Voorburg | /indian-restaurant-voorburg | Indian restaurant Voorburg | Commercial |
+| Near Westland | /indian-restaurant-westland | Indian restaurant Westland | Commercial |
 
 ---
 

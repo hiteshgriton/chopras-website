@@ -1,5 +1,5 @@
 # Chopras Indian Restaurant — Pre-Filled Copy Briefs
-# All 43 pages. Ready to use with the seo-copywriting skill.
+# All 46 pages. Ready to use with the seo-copywriting skill.
 # Usage: Find the page, copy the brief block, paste into Claude Code with:
 # "Read CLAUDE.md, SEO-BRIEF.md, and sitemap.md first. Then use the seo-copywriting skill. Here is the briefing block: [paste]"
 
@@ -1307,4 +1307,88 @@ Word Count: 800 to 1200
 CTA Goal: Dine in, order online, or view individual dish pages
 Available Proof: 143 dishes, 12 categories, halal certified, vegetarian and vegan labelled, Indo Chinese exclusive in Den Haag, spices ground fresh daily, 4.9 stars 800+ reviews, Leyweg 986
 Do Not Include: individual dish prices, competitor menu comparisons
+```
+
+---
+
+## BRIEF 44 — NEAR LEIDSCHENDAM
+
+```
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Leidschendam residents are 10 minutes from Den Haag's highest-rated Indian restaurant. Chopras Indian Restaurant at Leyweg 986 serves the Leidschendam area.
+Primary Keyword: Indian restaurant Leidschendam
+Secondary Keywords: Indiaas restaurant Leidschendam, halal restaurant Leidschendam, beste Indiaas eten Leidschendam, Indian food near Leidschendam
+LSI / Related Terms: Leyweg 986, Den Haag, 10 minutes, A4 motorway, halal certified, 4.9 stars, 143 dishes, Voorburg border
+Internal Links: sitemap
+Audience: Leidschendam residents and visitors looking for Indian food nearby
+Customer Language: "Indian restaurant Leidschendam", "Indiaas eten Leidschendam", "halal restaurant bij Leidschendam"
+Language: English (bilingual EN/NL)
+Tone Notes: Local and specific. Name the route, the travel time, the community connection. No generic language.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 10 minutes from Leidschendam, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, unverifiable travel time claims
+```
+
+---
+
+## BRIEF 45 — NEAR VOORBURG
+
+```
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Voorburg sits directly on the Den Haag border. Chopras Indian Restaurant at Leyweg 986 is 5 minutes away — the closest high-rated Indian restaurant to Voorburg residents.
+Primary Keyword: Indian restaurant Voorburg
+Secondary Keywords: Indiaas restaurant Voorburg, halal restaurant Voorburg, beste Indiaas eten Voorburg, Indian food near Voorburg
+LSI / Related Terms: Leyweg 986, 5 minutes, tram line, halal certified, 4.9 stars, 143 dishes, Den Haag border, Leidschendam-Voorburg gemeente
+Internal Links: sitemap
+Audience: Voorburg residents searching for Indian food — very close proximity, strong conversion intent
+Customer Language: "Indian restaurant Voorburg", "Indiaas eten Voorburg", "halal restaurant Voorburg"
+Language: English (bilingual EN/NL)
+Tone Notes: Proximity is the angle. Make the 5-minute distance feel like no decision at all.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 5 minutes from Voorburg, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, unverifiable travel time claims
+```
+
+---
+
+## BRIEF 46 — NEAR WESTLAND
+
+```
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Westland is a large municipality with no comparable Indian restaurant. Chopras Indian Restaurant at Leyweg 986 is 20 minutes via the N211.
+Primary Keyword: Indian restaurant Westland
+Secondary Keywords: Indiaas restaurant Westland, halal restaurant Westland, Indian food near Westland, beste Indiaas eten Westland
+LSI / Related Terms: Leyweg 986, 20 minutes, N211, Naaldwijk, Monster, De Lier, halal certified, 4.9 stars, 143 dishes, Hoek van Holland
+Internal Links: sitemap
+Audience: Westland residents with no authentic Indian food locally — high unmet demand
+Customer Language: "Indian restaurant Westland", "Indiaas eten Westland", "halal restaurant bij Westland"
+Language: English (bilingual EN/NL)
+Tone Notes: Address the lack of authentic Indian food in Westland directly. The 20-minute drive is worth it.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 20 minutes from Westland, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, claims about Westland restaurants, unverifiable travel times
 ```

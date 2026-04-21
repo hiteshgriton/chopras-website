@@ -27,11 +27,17 @@ Target pages come from sitemap.md. The GEO block paragraph must also contain inl
 Minimum 8 inline links per page across all prose sections combined.
 
 **BRAND STYLING — MANDATORY ON ALL SECTIONS:**
-- H2: font-heading text-4xl md:text-5xl text-[#1B2B5E] mb-6 leading-[1.4]
-- H3: font-heading text-2xl text-[#1B2B5E] mb-4
-- Body: font-body text-[#1A1A1A] text-lg leading-relaxed
+- H2 (light/white bg): font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]
+- H2 (navy/dark bg): font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]
+- H3 (light/white bg): font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]
+- H3 (navy/dark bg): font-vibes text-3xl md:text-4xl text-white mb-4 leading-[1.3]
+- H1 ONLY: font-heading (Cormorant Garamond) — NEVER use font-heading for H2/H3/H4
+- Body: font-body text-[#1A1A1A]/70 text-lg leading-relaxed (light bg)
+- Body: font-body text-white/85 text-lg leading-relaxed (navy bg)
 - Section padding: py-20 px-6 md:px-16
 - NEVER use font-bold alone for headings
+- NEVER use text-[#1B2B5E] on any heading on a light/white background
+- NEVER use gold (#C7A348) for H2/H3 on dark/navy backgrounds — use text-white
 
 **FAQ — MANDATORY ON EVERY PAGE:**
 Every page must have a FAQ section with 4-5 bilingual Q&A pairs.
@@ -1927,4 +1933,166 @@ Do Not Include: individual dish prices, competitor menu comparisons
 
 ---
 
-*End of file. 43 prompts. Copy. Paste. Execute.*
+## PROMPT 44 — NEAR LEIDSCHENDAM LOCATION PAGE
+
+```
+Read CLAUDE.md, SEO-BRIEF.md, and sitemap.md from the project root.
+Then read .claude/DESIGN-SYSTEM.md.
+Then use the seo-copywriting skill.
+
+Create a new location page at:
+src/app/[locale]/indian-restaurant-leidschendam/page.tsx
+
+Use src/app/[locale]/indian-restaurant-rijswijk/page.tsx as the structural reference.
+Follow the existing bilingual EN/NL pattern.
+Never use em dashes. Never use contractions. Match the brand voice in SEO-BRIEF.md.
+Include a GEO block: one self-contained 60-100 word paragraph answering
+"Is there an Indian restaurant near Leidschendam?" without needing surrounding context.
+Update the meta description to exactly match the approved one in CLAUDE.md.
+
+BRIEFING BLOCK:
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Leidschendam residents searching for a good Indian restaurant are 10 minutes from Den Haag's highest-rated one. Chopras Indian Restaurant at Leyweg 986 serves the Leidschendam area.
+Primary Keyword: Indian restaurant Leidschendam
+Secondary Keywords: Indiaas restaurant Leidschendam, halal restaurant Leidschendam, beste Indiaas eten Leidschendam, Indian food near Leidschendam
+LSI / Related Terms: Leyweg 986, Den Haag, 10 minutes, A4 motorway, Hindostaanse gemeenschap, halal certified, 4.9 stars, 143 dishes, Voorburg border
+Internal Links: use sitemap.md
+Audience: Leidschendam residents and visitors looking for Indian food nearby
+Customer Language: "Indian restaurant Leidschendam", "Indiaas eten Leidschendam", "halal restaurant bij Leidschendam"
+Language: English (bilingual EN/NL)
+Tone Notes: Local and specific. Name the route, the travel time, the community connection. No generic "near you" language.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 10 minutes from Leidschendam, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, unverifiable travel time claims beyond 10-15 minutes
+
+MANDATORY CHECKS BEFORE COMMITTING:
+1. Page file created at src/app/[locale]/indian-restaurant-leidschendam/page.tsx
+2. faqsEn and faqsNl defined as module-level constants, 4-5 questions each
+3. FaqAccordion rendered with getFaqPageSchema JsonLd (no date parameters)
+4. GEO block visible with question-format H2, 60-100 words, 2 inline Links
+5. H2/H3 use font-vibes — NEVER font-heading for subheadings
+6. Minimum 8 inline links using className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold"
+7. const base = locale === 'nl' ? '/nl' : '' — NEVER use /${locale}
+8. Meta description matches CLAUDE.md exactly
+9. Run pnpm build — zero errors before git add, commit, push
+```
+
+---
+
+## PROMPT 45 — NEAR VOORBURG LOCATION PAGE
+
+```
+Read CLAUDE.md, SEO-BRIEF.md, and sitemap.md from the project root.
+Then read .claude/DESIGN-SYSTEM.md.
+Then use the seo-copywriting skill.
+
+Create a new location page at:
+src/app/[locale]/indian-restaurant-voorburg/page.tsx
+
+Use src/app/[locale]/indian-restaurant-rijswijk/page.tsx as the structural reference.
+Follow the existing bilingual EN/NL pattern.
+Never use em dashes. Never use contractions. Match the brand voice in SEO-BRIEF.md.
+Include a GEO block: one self-contained 60-100 word paragraph answering
+"Is there an Indian restaurant near Voorburg?" without needing surrounding context.
+Update the meta description to exactly match the approved one in CLAUDE.md.
+
+BRIEFING BLOCK:
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Voorburg sits directly on the border of Den Haag. Chopras Indian Restaurant at Leyweg 986 is 5 minutes away — the closest high-rated Indian restaurant to Voorburg residents.
+Primary Keyword: Indian restaurant Voorburg
+Secondary Keywords: Indiaas restaurant Voorburg, halal restaurant Voorburg, beste Indiaas eten Voorburg, Indian food near Voorburg
+LSI / Related Terms: Leyweg 986, 5 minutes, tram line, Hindostaanse gemeenschap, halal certified, 4.9 stars, 143 dishes, Den Haag border, Leidschendam-Voorburg gemeente
+Internal Links: use sitemap.md
+Audience: Voorburg residents searching for Indian food — very close proximity, strong conversion intent
+Customer Language: "Indian restaurant Voorburg", "Indiaas eten Voorburg", "halal restaurant Voorburg"
+Language: English (bilingual EN/NL)
+Tone Notes: Proximity is the angle. Voorburg is Den Haag's closest neighbour. Make the 5-minute distance feel like no decision at all.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 5 minutes from Voorburg, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, unverifiable travel time claims
+
+MANDATORY CHECKS BEFORE COMMITTING:
+1. Page file created at src/app/[locale]/indian-restaurant-voorburg/page.tsx
+2. faqsEn and faqsNl defined as module-level constants, 4-5 questions each
+3. FaqAccordion rendered with getFaqPageSchema JsonLd (no date parameters)
+4. GEO block visible with question-format H2, 60-100 words, 2 inline Links
+5. H2/H3 use font-vibes — NEVER font-heading for subheadings
+6. Minimum 8 inline links using className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold"
+7. const base = locale === 'nl' ? '/nl' : '' — NEVER use /${locale}
+8. Meta description matches CLAUDE.md exactly
+9. Run pnpm build — zero errors before git add, commit, push
+```
+
+---
+
+## PROMPT 46 — NEAR WESTLAND LOCATION PAGE
+
+```
+Read CLAUDE.md, SEO-BRIEF.md, and sitemap.md from the project root.
+Then read .claude/DESIGN-SYSTEM.md.
+Then use the seo-copywriting skill.
+
+Create a new location page at:
+src/app/[locale]/indian-restaurant-westland/page.tsx
+
+Use src/app/[locale]/indian-restaurant-zoetermeer/page.tsx as the structural reference.
+Follow the existing bilingual EN/NL pattern.
+Never use em dashes. Never use contractions. Match the brand voice in SEO-BRIEF.md.
+Include a GEO block: one self-contained 60-100 word paragraph answering
+"Is there an Indian restaurant near Westland?" without needing surrounding context.
+Update the meta description to exactly match the approved one in CLAUDE.md.
+
+BRIEFING BLOCK:
+Content Type: Location Page
+Content Format: Local SEO proximity page
+Client: Chopras Indian Restaurant Den Haag
+Funnel Stage: TOFU to MOFU
+Awareness Level: Problem-Aware
+Traffic Source: Organic
+Search Intent: Commercial
+Content Angle: Westland is a large municipality west of Den Haag with no comparable Indian restaurant. Chopras Indian Restaurant at Leyweg 986 is 20 minutes via the N211 — the closest high-rated Indian restaurant to the area.
+Primary Keyword: Indian restaurant Westland
+Secondary Keywords: Indiaas restaurant Westland, halal restaurant Westland, Indian food near Westland, beste Indiaas eten Westland
+LSI / Related Terms: Leyweg 986, 20 minutes, N211, Naaldwijk, Monster, De Lier, halal certified, 4.9 stars, 143 dishes, Hoek van Holland, greenhouse region
+Internal Links: use sitemap.md
+Audience: Westland residents who rarely have access to authentic Indian food locally — high unmet demand
+Customer Language: "Indian restaurant Westland", "Indiaas eten Westland", "halal restaurant bij Westland"
+Language: English (bilingual EN/NL)
+Tone Notes: Address the lack of authentic Indian food in the Westland area directly. The 20-minute drive becomes worth it when the alternative is no real Indian food at all.
+Schema Type: LocalBusiness + FAQPage
+Word Count: 700 to 1000
+CTA Goal: Visit Chopras at Leyweg 986 Den Haag
+Available Proof: 4.9 stars 800+ reviews, 143 dishes, halal certified, Leyweg 986, 20 minutes from Westland, TheFork 8.6, Tripadvisor Excellent
+Do Not Include: competitor names, claims about Westland restaurants, unverifiable travel times beyond 20-25 minutes
+
+MANDATORY CHECKS BEFORE COMMITTING:
+1. Page file created at src/app/[locale]/indian-restaurant-westland/page.tsx
+2. faqsEn and faqsNl defined as module-level constants, 4-5 questions each
+3. FaqAccordion rendered with getFaqPageSchema JsonLd (no date parameters)
+4. GEO block visible with question-format H2, 60-100 words, 2 inline Links
+5. H2/H3 use font-vibes — NEVER font-heading for subheadings
+6. Minimum 8 inline links using className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold"
+7. const base = locale === 'nl' ? '/nl' : '' — NEVER use /${locale}
+8. Meta description matches CLAUDE.md exactly
+9. Run pnpm build — zero errors before git add, commit, push
+```
+
+---
+
+*End of file. 46 prompts. Copy. Paste. Execute.*

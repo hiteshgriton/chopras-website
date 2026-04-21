@@ -28,7 +28,7 @@
 - Spices sourced directly from India and ground fresh every morning before service
 - Opened 2023 — the newest and highest-rated Indian restaurant in Den Haag
 - Private event hall at Leyweg accommodates 25 to 80 guests
-- Serves Den Haag, Rijswijk, Delft, Zoetermeer, Voorburg, Leidschendam
+- Serves Den Haag, Rijswijk, Delft, Zoetermeer, Voorburg, Leidschendam, Westland
 - Dedicated kids menu with surprise gift for children
 - Wheelchair accessible
 

@@ -97,7 +97,7 @@ Package manager: pnpm. Node: 20.x.
 - Email: info@chopras.nl
 - Founded: 2023 by Arun Chopra
 - Arun Chopra is the FOUNDER only - never "Head Chef", never "Founder and Head Chef"
-- Serves: Den Haag, Rijswijk, Delft, Zoetermeer, Voorburg, Leidschendam
+- Serves: Den Haag, Rijswijk, Delft, Zoetermeer, Voorburg, Leidschendam, Westland
 
 ## META DESCRIPTION RULES — MANDATORY FOR ALL PAGES
 
@@ -111,7 +111,7 @@ Package manager: pnpm. Node: 20.x.
 8. Every page must have a unique meta description — no duplicates
 9. Rewrite any meta description where Google Search Console CTR is under 2%
 
-## APPROVED META DESCRIPTIONS — ALL 43 PAGES
+## APPROVED META DESCRIPTIONS — ALL 46 PAGES
 
 Homepage /
 Primary keyword: Best Indian restaurant Den Haag
@@ -284,6 +284,18 @@ Meta: Vegetarian Indian food Den Haag at Chopras Indian Restaurant. Dal makhani,
 Blog: Indian Street Food /blog/indian-street-food-den-haag
 Primary keyword: Indian street food Den Haag
 Meta: Indian street food Den Haag at Chopras Indian Restaurant. Pani puri, chaat and samosa from India. Authentic snacks at Leyweg 986. Open Tuesday to Sunday.
+
+Near Leidschendam /indian-restaurant-leidschendam
+Primary keyword: Indian restaurant Leidschendam
+Meta: Indian restaurant near Leidschendam. Chopras Indian Restaurant Den Haag is 10 minutes away. Authentic halal food at Leyweg 986. Open Tuesday to Sunday.
+
+Near Voorburg /indian-restaurant-voorburg
+Primary keyword: Indian restaurant Voorburg
+Meta: Indian restaurant near Voorburg. Chopras Indian Restaurant Den Haag is 5 minutes away. Authentic halal food and 143 dishes at Leyweg 986. Book now.
+
+Near Westland /indian-restaurant-westland
+Primary keyword: Indian restaurant Westland
+Meta: Indian restaurant near Westland. Chopras Indian Restaurant Den Haag is 20 minutes away. Authentic halal food at Leyweg 986. Open Tuesday to Sunday.
 
 ## HITESH — WORKING PREFERENCES (READ THIS EVERY SESSION)
 
