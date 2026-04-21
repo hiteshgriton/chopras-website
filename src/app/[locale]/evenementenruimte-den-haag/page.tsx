@@ -204,7 +204,7 @@ export default function EvenementenruimtePage({ params }: Props) {
             Waarom kiezen bedrijven in Den Haag voor Chopras?
           </h2>
           <p className="font-body text-white/85 text-lg leading-relaxed mb-10">
-            Bedrijven die een evenementenruimte zoeken in Den Haag hebben keuze genoeg. Toch kiezen steeds meer organisaties voor Chopras Indian Restaurant op Leyweg 986. Dat heeft concrete redenen die u hieronder terugvindt.
+            Bedrijven die een evenementenruimte huren in Den Haag hebben keuze genoeg. Toch kiezen steeds meer organisaties voor Chopras Indian Restaurant op Leyweg 986 als hun vaste bedrijfsfeest locatie Den Haag. Dat heeft concrete redenen die u hieronder terugvindt.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/20">

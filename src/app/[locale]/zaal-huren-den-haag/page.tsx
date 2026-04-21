@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
+import FaqAccordion from '@/components/sections/FaqAccordion'
 import { getLocalizedUrl } from '@/lib/utils'
 import { getLocalRestaurantSchema, getBreadcrumbSchema, getFaqPageSchema, getCateringServiceSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
-import FaqAccordion from '@/components/sections/FaqAccordion'
 
 type Props = { params: { locale: Locale } }
 
@@ -14,204 +14,418 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
-  const titles = {
-    en: 'Private Dining Venue in Den Haag | Chopras Indian Restaurant',
-    nl: 'Zaal Huren Den Haag | Chopras Indian Restaurant',
-  }
-  const descriptions = {
-    en: 'Zaal huren Den Haag bij Chopras Indian Restaurant. Feesten en vergaderingen met Indiaas catering inbegrepen. Flexibel en betaalbaar. Offerte aanvragen.',
-    nl: 'Zaal huren Den Haag bij Chopras Indian Restaurant. Feesten en vergaderingen met Indiaas catering inbegrepen. Flexibel en betaalbaar. Offerte aanvragen.',
-  }
+  const title = 'Zaal Huren Den Haag | Chopras Indian Restaurant'
+  const description =
+    'Zaal huren Den Haag bij Chopras Indian Restaurant. Feesten en vergaderingen met Indiaas catering inbegrepen. Flexibel en betaalbaar. Offerte aanvragen.'
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: getLocalizedUrl(locale, 'zaal-huren-den-haag'),
-      languages: { en: getLocalizedUrl('en', 'zaal-huren-den-haag'), nl: getLocalizedUrl('nl', 'zaal-huren-den-haag'), 'x-default': getLocalizedUrl('en', 'zaal-huren-den-haag') },
+      languages: {
+        en: getLocalizedUrl('en', 'zaal-huren-den-haag'),
+        nl: getLocalizedUrl('nl', 'zaal-huren-den-haag'),
+        'x-default': getLocalizedUrl('en', 'zaal-huren-den-haag'),
+      },
     },
     openGraph: {
-      title: titles[locale],
-      description: descriptions[locale],
+      title,
+      description,
       url: getLocalizedUrl(locale, 'zaal-huren-den-haag'),
-      images: [{ url: '/og/home-og.jpg', width: 1200, height: 630, alt: 'Chopras Indian Restaurant Den Haag' }],
+      images: [{ url: '/og/home-og.jpg', width: 1200, height: 630, alt: 'Zaal huren Den Haag bij Chopras Indian Restaurant' }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[locale],
-      description: descriptions[locale],
+      title,
+      description,
       images: ['/og/home-og.jpg'],
     },
   }
 }
 
-const faqsEn = [
-  { question: 'How many people can fit in the venue?', answer: '25 to 80 guests comfortably. If you need more, we can make arrangements.' },
-  { question: 'Can my guests bring their own drinks?', answer: 'Chopras Indian Restaurant is a fully halal venue. We serve a selection of soft drinks, juices, and water. No alcohol is served or permitted on the premises.' },
-  { question: 'What if I want to add decorations?', answer: 'That is fine. You can add your own decorations. We are happy to help with setup. Your celebration, your style.' },
-]
-
-const faqsNl = [
-  { question: 'Hoeveel mensen kunnen in de zaal?', answer: '25 tot 80 gasten comfortabel. Als je meer nodig hebt, kunnen we arrangementen maken.' },
-  { question: 'Kunnen mijn gasten hun eigen drank meebrengen?', answer: 'Chopras Indian Restaurant is een volledig halal locatie. Wij serveren een selectie van frisdranken, sappen en water. Er wordt geen alcohol geserveerd of toegestaan op het terrein.' },
-  { question: 'Wat als ik decoraties wil toevoegen?', answer: 'Dat is prima. Je kunt je eigen decoraties toevoegen. We helpen graag met opzet. Je feest, jouw stijl.' },
+const faqs = [
+  {
+    question: 'Hoeveel gasten passen in de zaal van Chopras Indian Restaurant?',
+    answer:
+      'De privézaal van Chopras Indian Restaurant op Leyweg 986 in Den Haag biedt ruimte voor 25 tot 80 gasten. De opstelling is flexibel: ronde tafels voor een diner, lange tafelrijen voor een receptie of een staande opstelling voor een borrel. Neem contact op voor een opstelling op maat voor uw gelegenheid.',
+  },
+  {
+    question: 'Is zaal huren bij Chopras volledig halal?',
+    answer:
+      'Ja, volledig. Chopras Indian Restaurant is een volledig halal gecertificeerd restaurant. Niet alleen het vlees, maar elke leverancier en elk ingrediënt in de keuken is halal gecertificeerd. Er is geen niet-halal vlees aanwezig op de locatie, dus er is geen risico op kruisbesmetting. Uw gasten eten met vertrouwen.',
+  },
+  {
+    question: 'Is catering inbegrepen bij het huren van de zaal?',
+    answer:
+      'Ja. Chopras verzorgt de volledige catering als onderdeel van het zaalverhuur pakket. U kiest het menu op maat, of u nu kiest voor een buffet met biryani en tandoori of een meergangendiner met curries en naan. De bereiding, het transport en de bediening zijn inbegrepen. U hoeft niets te regelen buiten ons.',
+  },
+  {
+    question: 'Voor welke gelegenheden kan ik een zaal reserveren bij Chopras?',
+    answer:
+      'De privézaal van Chopras is beschikbaar voor verjaardagen, bruiloften, nikah-recepties, bedrijfsdiners, teamvieringen, Diwali-diners en andere privé evenementen. Elke gelegenheid krijgt hetzelfde verse eten uit dezelfde keuken als ons restaurant. Dat is precies wat wij leveren, ongeacht de aanleiding.',
+  },
+  {
+    question: 'Hoe ver van tevoren moet ik een zaal huren in Den Haag reserveren?',
+    answer:
+      'Voor evenementen van 25 tot 80 gasten raden wij aan om minimaal zes tot acht weken van tevoren contact op te nemen. Dit geeft ons de ruimte om het menu samen te stellen, de indeling te plannen en ervoor te zorgen dat alles op uw dag vlekkeloos verloopt. Neem vandaag contact op voor een vrijblijvende offerte.',
+  },
 ]
 
 export default function ZaalHurenPage({ params }: Props) {
   const { locale } = params
   const tr = getTranslations(locale)
   const base = locale === 'nl' ? '/nl' : ''
-  const isNl = locale === 'nl'
 
   return (
     <>
       <JsonLd data={getCateringServiceSchema(locale)} />
       <JsonLd data={getLocalRestaurantSchema(locale, ['Den Haag'], getLocalizedUrl(locale, 'zaal-huren-den-haag'))} />
-      <JsonLd data={getBreadcrumbSchema([
-        { name: tr.common.nav.home, item: getLocalizedUrl(locale) },
-        { name: isNl ? 'Zaal Huren' : 'Venue Hire', item: getLocalizedUrl(locale, 'zaal-huren-den-haag') },
-      ])} />
-      <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: tr.common.nav.home, item: getLocalizedUrl(locale) },
+          { name: 'Zaal Huren Den Haag', item: getLocalizedUrl(locale, 'zaal-huren-den-haag') },
+        ])}
+      />
+      <JsonLd data={getFaqPageSchema(faqs)} />
 
-      <section className="bg-[#1B2B5E] py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
+      {/* Hero */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-6">
             <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
               • CATERING · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
             </span>
           </div>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
-            {isNl ? 'Zaal Huren in Den Haag' : 'Rent a Venue in Den Haag'}
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+            Zaal Huren Den Haag
           </h1>
-          <p className="text-white/75 text-lg md:text-xl" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>
-            {isNl ? 'Private ruimte. Indiaas eten. Je gelegenheid. Bij Chopras.' : 'Private space. Indian food. Your occasion. At Chopras.'}
+          <p className="font-body text-white/85 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            Private ruimte voor 25 tot 80 gasten. Indiaas catering inbegrepen. Volledig halal gecertificeerd. Alles op een plek bij Chopras Indian Restaurant op Leyweg 986.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Vrijblijvende Offerte Aanvragen
+            </Link>
+            <Link
+              href={`${base}/feestzaal-den-haag`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Feestzaal Bekijken
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 1: Intro */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Zaal huren Den Haag zonder het gedoe
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+            U zoekt een zaal in Den Haag. Niet een anoniem zalencentrum met TL-licht en catering uit de magnetron. U wilt een ruimte die warm aanvoelt, waar uw gasten zich welkom voelen en waar het eten de avond draagt. Dat is precies waarom mensen <strong>feestzaal huren Den Haag met catering</strong> bij{' '}
+            <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Chopras Indian Restaurant
+            </Link>
+            .
+          </p>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+            De privézaal op{' '}
+            <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Leyweg 986 in Den Haag
+            </Link>{' '}
+            biedt ruimte voor 25 tot 80 gasten. De indeling is flexibel: ronde tafels voor een diner, lange tafelrijen voor een receptie of een staande opstelling voor een borrel. U beslist. Wij regelen de inrichting, de bediening en het eten.
+          </p>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            De catering is geen bijproduct. Wij malen onze kruiden elke ochtend vers van hele specerijen die wij rechtstreeks uit India betrekken. De aromatische oliën in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Dat verschil proeft uw gasten direct. Het is het verschil tussen Indiaas eten dat leeft en Indiaas eten dat verpakt smaakt. Geen aparte cateraar nodig. Alles op een plek.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Zaal Huren bij Chopras' : 'Venue Hire at Chopras'}
-          </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <p>Soms wil je niet in een anoniem zalencentrum zitten. Soms wil je ergens zijn waar het warm voelt, waar het eten de ster van het feest is, waar je gasten voelen dat je iets speciaals voor hen hebt gedaan. Dit is waarom mensen naar Chopras komen om zaal te huren.</p>
-                <p>We hebben ruimte in ons restaurant in Den Haag die voor private events kan worden gebruikt. Het is geen grote hallen met fluorescent licht. Het is warme ruimte, authentiek gedecoreerd, vol van de geur van Indiaas eten. Je gasten voelen zich welkom, ze voelen zich gehoord, ze voelen zich gewaardeerd.</p>
-                <p>We kunnen groepen van twintig tot honderd of meer accommoderen. We combineren venue hire met catering, dus je hebt alles hier. Je hoeft je geen zorgen te maken over voedsel, borden, serveerders. We doen het allemaal. Je concentreert je op wat belangrijk is - je gasten en je moment.</p>
-              </>
-            ) : (
-              <>
-                <p>Sometimes you do not want to be in an anonymous event centre. Sometimes you want to be somewhere that feels warm, where the food is the star of the party, where your guests feel that you have done something special for them. This is why people come to Chopras to rent a venue.</p>
-                <p>We have space in our restaurant in Den Haag that can be used for private events. It is not large halls with fluorescent lights. It is warm space, authentically decorated, full of the aroma of Indian food. Your guests feel welcome, they feel heard, they feel valued.</p>
-                <p>We can accommodate groups of twenty to one hundred or more. We combine venue hire with catering, so you have everything here. You do not have to worry about food, plates, servers. We do it all. You focus on what matters - your guests and your moment.</p>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Wat Inbegrepen is' : 'What is Included'}
-          </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Ruimte</h3>
-                <p>Warme, Authentieke Indiaase eetruimte. Geen fluorescent licht. Geen plastic stoelen. Dit voelt als een plek waar je wil zijn.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Catering</h3>
-                <p>Custom menu, vers eten, professionele serveerders. Je kiest wat je wilt, we bereiden het, we serveren het.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Setup</h3>
-                <p>Tafels, stoelen, borden, bestek, servetten, tafeldecoraties - alles. We zorgen voor de details.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Faciliteren</h3>
-                <p>Parkeren beschikbaar. Toiletten. Muziek kan worden afgespeeld. Je feest voelt compleet.</p>
-              </>
-            ) : (
-              <>
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Space</h3>
-                <p>Warm, Authentic Indian dining space. No fluorescent lights. No plastic chairs. This feels like a place you want to be.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Catering</h3>
-                <p>Custom menu, fresh food, professional servers. You choose what you want, we prepare it, we serve it.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Setup</h3>
-                <p>Tables, chairs, plates, utensils, napkins, table decorations - everything. We look after the details.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Facilities</h3>
-                <p>Parking available. Toilets. Music can be played. Your celebration feels complete.</p>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
+      {/* Section 2: Wat is inbegrepen */}
       <section className="bg-white py-20 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
-            {isNl ? 'Zaal Huren FAQ' : 'Venue Hire FAQ'}
+            Wat is er inbegrepen bij zaal huren met catering?
           </h2>
-          <FaqAccordion faqs={isNl ? faqsNl : faqsEn} locale={locale} />
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-10">
+            Chopras biedt een totaaloplossing voor zaalverhuur Den Haag. Geen coördinatie tussen een locatie en een externe cateraar. Geen vragen wie welke borden meeneemt. U boekt bij ons en wij regelen het volgende.
+          </p>
+          <div className="space-y-10">
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Private ruimte voor uw gelegenheid
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                De zaal is warm ingericht en authentiek gedecoreerd. Geen plastic stoelen, geen kale wanden. Uw gasten voelen meteen dat u iets bijzonders voor hen heeft geregeld. De ruimte is beschikbaar voor 25 tot 80 gasten en de opstelling past u aan op uw wensen.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Indiaas catering op maat
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Van{' '}
+                <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  saffraan biryani
+                </Link>{' '}
+                en{' '}
+                <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  tandoori gegrilde gerechten
+                </Link>{' '}
+                tot{' '}
+                <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  dal makhani
+                </Link>{' '}
+                en vers gebakken naan uit onze tandoor. U kiest het menu samen met ons. Wij bereiden het met dezelfde verse specerijen als in het restaurant. Uw gasten merken het verschil.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Volledige bediening en opstelling
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Tafels, stoelen, borden, bestek, servetten. Professionele bediening tijdens het evenement. Bereiding en transport van het eten. Alles is inbegrepen. U staat die avond niet na te denken over logistiek. U geniet van uw gasten.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Gratis parkeren op locatie
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Chopras Indian Restaurant op Leyweg 986 heeft gratis parkeerplaatsen direct bij het restaurant. Geen parkeerkosten voor uw gasten, geen gedoe met parkeerschijven of betaalautomaten. Een detail dat uw gasten waarderen.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Zaal Huren Aanvragen' : 'Request Venue Hire'}
+      {/* Section 3: Gelegenheden */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Voor welke gelegenheden kunt u een zaal reserveren?
           </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-10">
+            De privézaal van Chopras is geschikt voor uiteenlopende gelegenheden, van een vergaderzaal huren Den Haag met inbegrepen catering tot een volledig bruiloftsdiner. Elk evenement krijgt dezelfde aandacht en hetzelfde verse eten uit de keuken die elke dag opnieuw begint met het malen van specerijen.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <Link
+              href={`${base}/bruiloft-catering-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Bruiloft</p>
+              <p className="font-body text-[#1A1A1A]/70">Nikah-recepties, walima-diners en trouwfeesten voor 25 tot 80 gasten</p>
+            </Link>
+            <Link
+              href={`${base}/indian-birthday-catering-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Verjaardag</p>
+              <p className="font-body text-[#1A1A1A]/70">Verjaardagsdiners en feesten met authentiek Indiaas buffet of bediend diner</p>
+            </Link>
+            <Link
+              href={`${base}/corporate-events-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Zakelijk</p>
+              <p className="font-body text-[#1A1A1A]/70">Bedrijfsdiners, teamvieringen en zakelijke bijeenkomsten tot 80 gasten</p>
+            </Link>
+            <Link
+              href={`${base}/diwali-dinner-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Diwali</p>
+              <p className="font-body text-[#1A1A1A]/70">Diwali-diners en festiviteiten met een volledig Indiaas feestmenu</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Halal + proof - navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            Volledig halal gecertificeerd. Geen uitzonderingen.
+          </h2>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-4">
+            Halal bij Chopras Indian Restaurant is geen menu-optie. Het is de gehele keuken. Elke vleesleverancier is halal gecertificeerd. Elk gerecht is halal. Er is geen niet-halal vlees aanwezig op de locatie, dus er is geen risico op kruisbesmetting. Uw gasten eten met vertrouwen. Geen vragen, geen twijfels.
+          </p>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-4">
+            Voor een evenement van 25 tot 80 gasten is dit niet vanzelfsprekend. Veel zalen en cateraars in Den Haag bieden een halal optie aan, maar bereiden in dezelfde keuken ook niet-halal vlees. Bij Chopras is dat niet het geval. Volledig halal van begin tot eind.
+          </p>
+          <p className="font-body text-white/85 text-lg leading-relaxed">
+            Chopras Indian Restaurant heeft 4,9 sterren op Google van meer dan 800 beoordelingen. Geen enkel ander Indiaas restaurant in Den Haag combineert die beoordeling met dat volume. Hoge sterren met weinig reviews zeggen weinig. Chopras heeft beide.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 5: Hoe werkt het */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Hoe werkt zaal huren met catering bij Chopras?
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
+            Geen ingewikkelde pakketten, geen verborgen kosten. U neemt contact op, wij bespreken uw wensen en sturen binnen twee werkdagen een vrijblijvende offerte. Zo werkt het in de praktijk.
+          </p>
+          <div className="space-y-8">
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                1
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Neem contact op</strong> via ons{' '}
+                <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  contactformulier
+                </Link>{' '}
+                of bel ons op +31 6 30645930. Vertel ons de datum, het aantal gasten, de gewenste opstelling en eventuele dieetwensen.
+              </p>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                2
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Wij stellen samen met u een menu op maat samen</strong> op basis van uw gelegenheid, de voorkeur van uw gasten en uw budget. Buffet, bediend diner of een combinatie. Alles is bespreekbaar.
+              </p>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                3
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Op de dag zelf zorgen wij voor de volledige uitvoering.</strong> Opstelling, bereiding, bediening en afronding. U staat die dag niet na te denken over het eten of de logistiek. Dat is ons werk.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Vrijblijvende Offerte Aanvragen
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: GEO Block */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Kan ik een zaal huren bij Chopras Indian Restaurant in Den Haag?
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            Ja. Chopras Indian Restaurant op{' '}
+            <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Leyweg 986 in Den Haag
+            </Link>{' '}
+            biedt een private zaal voor 25 tot 80 gasten, inclusief volledig halal Indiaas catering op maat. De keuken is halal gecertificeerd en bereidt elke dag met vers gemalen specerijen rechtstreeks uit India. Beoordeeld met 4,9 sterren op Google van meer dan 800 gasten. Geschikt voor verjaardagen, bruiloften, bedrijfsdiners en andere evenementen. Bekijk onze{' '}
+            <Link href={`${base}/feestzaal-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              feestzaal in Den Haag
+            </Link>{' '}
+            of vraag direct een offerte aan. Open dinsdag tot en met zondag vanaf 16:30.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 7: FAQ */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Veelgestelde vragen over zaal huren in Den Haag
+          </h2>
+          <FaqAccordion faqs={faqs} locale={locale} />
+        </div>
+      </section>
+
+      {/* Section 8: Populaire gerechten */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Populaire gerechten voor uw evenement
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
+            Deze gerechten worden het vaakst gekozen bij zaal huren met catering in Den Haag. Bekijk de pagina van elk gerecht voor informatie over bereiding en herkomst. Bekijk ook ons{' '}
+            <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              volledige Indiaas menu
+            </Link>{' '}
+            voor alle 143 gerechten verdeeld over 13 categorieen.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <Link
+              href={`${base}/biryani-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Biryani</p>
+              <p className="font-body text-[#1A1A1A]/70">Saffraan basmatirijst met halal lam, kip of groenten in dum-stijl</p>
+            </Link>
+            <Link
+              href={`${base}/tandoori-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Tandoori</p>
+              <p className="font-body text-[#1A1A1A]/70">Gegrild bij 400 graden Celsius in onze tandoor kleioven</p>
+            </Link>
+            <Link
+              href={`${base}/butter-chicken-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Butter Chicken</p>
+              <p className="font-body text-[#1A1A1A]/70">Halal kip in romige tomaten- en botersaus, dagelijks vers bereid</p>
+            </Link>
+            <Link
+              href={`${base}/dal-makhani-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Dal Makhani</p>
+              <p className="font-body text-[#1A1A1A]/70">Zwarte linzen langzaam gegaard met boter en room</p>
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href={`${base}/contact`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {isNl ? 'Offerte Aanvragen' : 'Request Quote'}
+            <Link
+              href={`${base}/catering`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Alle Catering Opties
             </Link>
-            <Link href={`${base}/menu`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {tr.common.viewMenu}
-            </Link>
-            <Link href={`${base}/evenementenruimte-den-haag`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {isNl ? 'Evenementenruimte' : 'Event Space'}
+            <Link
+              href={`${base}/evenementenruimte-den-haag`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Evenementenruimte Bekijken
             </Link>
           </div>
         </div>
       </section>
 
-      {/* INTERNAL LINKS SECTION */}
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-10 text-center">
-            {isNl ? 'Andere Cateringmogelijkheden' : 'Other Catering Options'}
+      {/* Section 9: Final CTA - navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            Vraag vandaag uw vrijblijvende offerte aan
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <Link href={`${base}/indian-wedding-catering-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Bruiloft' : 'Wedding'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Nikah-recepties en bruiloftsfestiviteiten' : 'Nikah receptions and wedding festivities'}</p>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Chopras Indian Restaurant verhuurt een private zaal in Den Haag voor 25 tot 80 gasten. Volledig halal gecertificeerd Indiaas catering inbegrepen. Beoordeeld met 4,9 sterren op Google van meer dan 800 gasten. Open dinsdag tot en met zondag.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Offerte Aanvragen
             </Link>
-            <Link href={`${base}/corporate-events-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Zakelijk' : 'Corporate'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Bedrijfsdiners en teamvieringen' : 'Corporate dinners and team celebrations'}</p>
+            <Link
+              href={`${base}/halal-menu`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Halal Menu Bekijken
             </Link>
-            <Link href={`${base}/feestzaal-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Feestzaal' : 'Party Venue'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Feestzaal Huren Den Haag bij Chopras Indian Restaurant' : 'Private event hall hire'}</p>
-            </Link>
-            <Link href={`${base}/diwali-dinner-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Diwali' : 'Diwali'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Diwali-diners en festiviteiten' : 'Diwali dinners and festival celebrations'}</p>
-            </Link>
-          </div>
-          <div className="mt-8 text-center space-y-4">
-            <p className="text-[#1A1A1A] text-base">
-              <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
-                {isNl ? 'Chopras Indiaas Restaurant - beste Indiaas restaurant in Den Haag' : 'Chopras Indian Restaurant - best Indian restaurant in Den Haag'}
-              </Link>
-            </p>
-            <p className="text-[#1A1A1A] text-base">
-              {isNl ? 'Voor meer cateringmogelijkheden, zie ons' : 'For more catering options, see our'} <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">{tr.common.viewMenu}</Link> {isNl ? 'of' : 'or'} <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">{isNl ? 'maak een afspraak' : 'contact us'}</Link> {isNl ? 'om uw zaal huren te bespreken.' : 'to discuss your venue hire.'}
-            </p>
           </div>
         </div>
       </section>

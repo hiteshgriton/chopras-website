@@ -305,7 +305,7 @@ export default function LocaleHomePage({ params }: Props) {
               </h3>
               {isNl ? (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is het hoogst beoordeelde Indiaas restaurant in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,6 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiaase gerechten zoals{' '}
+                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is het hoogst beoordeelde halal Indiaas restaurant in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,6 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiaase gerechten zoals{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>,
                   {' '}butter chicken, tandoori, dal makhani en chaat, bereid met dagelijks vers gemalen specerijen uit India. Het volledig{' '}
                   <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal gecertificeerd menu</Link>{' '}
@@ -324,7 +324,7 @@ export default function LocaleHomePage({ params }: Props) {
             <div className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed space-y-6">
               {isNl ? (
                 <p>
-                  Chopras Indian Restaurant is een authentiek Indiaas restaurant op Leyweg 986, 2545 GW Den Haag, Nederland. Opgericht in 2023 door Arun Chopra, serveert Chopras Indian Restaurant authentieke Noord-Indiaase gerechten, Indiaas straatvoedsel, <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinese gerechten</Link>, en een volledig halal en <Link href={`${base}/vegan-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarisch en veganistisch menu</Link>.
+                  Chopras Indian Restaurant is een authentiek Indiaas restaurant op Leyweg 986, 2545 GW Den Haag, Nederland. Opgericht in 2023 door Arun Chopra, serveert Chopras Indian Restaurant authentiek Noord-Indiaas eten in Den Haag, Indiaas straatvoedsel, <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinese gerechten</Link>, en een volledig halal en <Link href={`${base}/vegan-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarisch en veganistisch menu</Link>.
                 </p>
               ) : (
                 <p>

@@ -14,54 +14,62 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
-  const titles = {
-    en: 'Indian Wedding Catering in Den Haag | Chopras Indian Restaurant',
-    nl: 'Indiaas Bruiloft Catering in Den Haag | Chopras Indian Restaurant',
-  }
-  const descriptions = {
-    en: 'Bruiloft catering Den Haag bij Chopras Indian Restaurant. Authentiek Indiaas eten voor uw trouwdag. Volledig halal. Vraag een vrijblijvende offerte aan.',
-    nl: 'Bruiloft catering Den Haag bij Chopras Indian Restaurant. Authentiek Indiaas eten voor uw trouwdag. Volledig halal. Vraag een vrijblijvende offerte aan.',
-  }
+  const title = 'Bruiloft Catering Den Haag | Chopras Indian Restaurant'
+  const description = 'Bruiloft catering Den Haag bij Chopras Indian Restaurant. Authentiek Indiaas eten voor uw trouwdag. Volledig halal. Vraag een vrijblijvende offerte aan.'
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: getLocalizedUrl(locale, 'bruiloft-catering-den-haag'),
-      languages: { en: getLocalizedUrl('en', 'bruiloft-catering-den-haag'), nl: getLocalizedUrl('nl', 'bruiloft-catering-den-haag'), 'x-default': getLocalizedUrl('en', 'bruiloft-catering-den-haag') },
+      languages: {
+        en: getLocalizedUrl('en', 'bruiloft-catering-den-haag'),
+        nl: getLocalizedUrl('nl', 'bruiloft-catering-den-haag'),
+        'x-default': getLocalizedUrl('en', 'bruiloft-catering-den-haag'),
+      },
     },
     openGraph: {
-      title: titles[locale],
-      description: descriptions[locale],
+      title,
+      description,
       url: getLocalizedUrl(locale, 'bruiloft-catering-den-haag'),
-      images: [{ url: '/og/home-og.jpg', width: 1200, height: 630, alt: 'Chopras Indian Restaurant Den Haag' }],
+      images: [{ url: '/og/home-og.jpg', width: 1200, height: 630, alt: 'Bruiloft catering Den Haag bij Chopras Indian Restaurant' }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: titles[locale],
-      description: descriptions[locale],
+      title,
+      description,
       images: ['/og/home-og.jpg'],
     },
   }
 }
 
-const faqsEn = [
-  { question: 'How much time in advance should I book?', answer: 'For a wedding of eighty or more guests, we recommend at least three months in advance. This gives us time to work with you on the menu and details.' },
-  { question: 'Can you provide both vegetarian and meat dishes?', answer: 'Yes, absolutely. Most weddings have both. We prepare them separately to prevent contamination, and everything is served with equal care.' },
-  { question: 'What is included in the price?', answer: 'Menu design, preparation, delivery, setup, servers, plates, utensils, napkins, everything. The only costs you have are for food and service. Nothing hidden.' },
-]
-
-const faqsNl = [
-  { question: 'Hoe veel tijd van tevoren moet ik boeken?', answer: 'Voor een bruiloft van tachtig of meer gasten, raden we ten minste drie maanden vooraf aan. Dit geeft ons tijd om met je samen te werken aan het menu en de details.' },
-  { question: 'Kun je vegetarische en vlees gerechten beide leveren?', answer: 'Ja, absoluut. De meeste bruiloften hebben beide. We bereiden ze afzonderlijk om contamatie te voorkomen, en alles wordt geserveerd met gelijke liefde.' },
-  { question: 'Wat is inbegrepen in de prijs?', answer: 'Menu design, voorbereiding, bezorging, opzet, serveerders, borden, bestek, servetten, alles. De enige kosten die je hebt zijn voor eten en service. Niets verborgen.' },
+const faqs = [
+  {
+    question: 'Hoe ver van tevoren moet ik bruiloft catering boeken?',
+    answer: 'Voor een bruiloft van 25 tot 80 gasten raden wij aan om minimaal drie maanden van tevoren contact op te nemen. Dit geeft ons de ruimte om het menu op maat samen te stellen, de logistiek te plannen en ervoor te zorgen dat alles op uw trouwdag vlekkeloos verloopt.',
+  },
+  {
+    question: 'Is de bruiloft catering van Chopras volledig halal?',
+    answer: 'Ja, volledig. Chopras Indian Restaurant is volledig halal gecertificeerd. Niet alleen de kip en het lam, maar elke vleesleverancier en elk ingrediënt in onze keuken is halal. Er is geen risico op kruisbesmetting, omdat er nergens op de locatie niet-halal vlees aanwezig is.',
+  },
+  {
+    question: 'Hoeveel gasten kan Chopras bedienen bij een bruiloft?',
+    answer: 'Onze privézaal op Leyweg 986 in Den Haag biedt ruimte voor 25 tot 80 gasten. Voor bruiloften op externe locaties in Den Haag, Rijswijk, Delft en omgeving verzorgen wij ook volledige catering. Neem contact op voor een offerte op maat.',
+  },
+  {
+    question: 'Welke gerechten zijn het meest populair bij Indiaas bruiloft catering Den Haag?',
+    answer: 'De meest gevraagde gerechten zijn biryani, butter chicken, mutton rogan josh, dal makhani en tandoori gegrilde gerechten. Wij stellen altijd een gebalanceerd menu samen met zowel vegetarische als vleesgerechten, zodat alle gasten ruim keuze hebben.',
+  },
+  {
+    question: 'Kan ik ook de feestzaal bij Chopras huren voor mijn bruiloft?',
+    answer: 'Ja. De privézaal van Chopras Indian Restaurant op Leyweg 986 in Den Haag is beschikbaar voor bruiloften, nikah-recepties en trouwfeesten. U kunt de zaal combineren met ons volledige cateringpakket voor een totaaloplossing op één locatie.',
+  },
 ]
 
 export default function BruiloftCateringPage({ params }: Props) {
   const { locale } = params
   const tr = getTranslations(locale)
   const base = locale === 'nl' ? '/nl' : ''
-  const isNl = locale === 'nl'
 
   return (
     <>
@@ -69,149 +77,319 @@ export default function BruiloftCateringPage({ params }: Props) {
       <JsonLd data={getLocalRestaurantSchema(locale, ['Den Haag'], getLocalizedUrl(locale, 'bruiloft-catering-den-haag'))} />
       <JsonLd data={getBreadcrumbSchema([
         { name: tr.common.nav.home, item: getLocalizedUrl(locale) },
-        { name: isNl ? 'Bruiloft Catering' : 'Wedding Catering', item: getLocalizedUrl(locale, 'bruiloft-catering-den-haag') },
+        { name: 'Bruiloft Catering', item: getLocalizedUrl(locale, 'bruiloft-catering-den-haag') },
       ])} />
-      <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
+      <JsonLd data={getFaqPageSchema(faqs)} />
 
-      <section className="bg-[#1B2B5E] py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
+      {/* Hero */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-6">
             <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
               • CATERING · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
             </span>
           </div>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>
-            {isNl ? 'Indiaas Bruiloft Catering in Den Haag' : 'Indian Wedding Catering in Den Haag'}
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+            Bruiloft Catering Den Haag
           </h1>
-          <p className="text-white/75 text-lg md:text-xl" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>
-            {isNl ? 'Je Grote Dag. Authentiek Indiaas Eten. Familie. Feest. Wij doen het allemaal.' : 'Your Big Day. Authentic Indian Food. Family. Celebration. We do it all.'}
+          <p className="font-body text-white/85 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
+            Authentiek Indiaas eten voor uw trouwdag. Volledig halal gecertificeerd. Wij verzorgen de catering, u geniet van de dag.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Vrijblijvende Offerte Aanvragen
+            </Link>
+            <Link
+              href={`${base}/feestzaal-den-haag`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Feestzaal Bekijken
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 1: Intro */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Bruiloft catering Den Haag die het eten serieus neemt
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+            Op uw trouwdag staat alles in het teken van één moment. De locatie, de bloemen, de kleding. En dan het eten. Want uw gasten herinneren zich het eten. Niet het tafellaken. <strong>Bruiloft catering Den Haag</strong> van Chopras Indian Restaurant is gebouwd op één principe: het eten op uw trouwdag moet even goed zijn als het eten in ons restaurant aan de{' '}
+            <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Leyweg 986 in Den Haag
+            </Link>
+            .
+          </p>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
+            Wij malen onze kruiden elke ochtend vers, van hele specerijen die wij rechtstreeks uit India betrekken. Niet uit een zakje. De aromatische oliën in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Dat verschil proeft u in elk gerecht dat wij voor uw bruiloft bereiden. Het is het verschil tussen Indiaas eten dat leeft en Indiaas eten dat verpakt smaakt.
+          </p>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            Chopras Indian Restaurant heeft een{' '}
+            <Link href={`${base}/feestzaal-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              privézaal voor 25 tot 80 gasten
+            </Link>{' '}
+            en verzorgt ook catering op externe locaties in Den Haag, Rijswijk, Delft en omgeving. U vraagt een offerte aan. Wij doen de rest.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Indiaas Bruiloft Catering bij Chopras' : 'Indian Wedding Catering at Chopras'}
-          </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <p>Een Indiaase bruiloft is veel meer dan eten. Het is een viering van twee families die samenkomen, van tradities die teruggaan eeuwen, van liefde die generaties verbindt. En het eten op die dag moet dat alles weerspiegelen. Het moet authentiek zijn, lekker zijn, en duurzaam. Dit is wat we bij Chopras voor je doen.</p>
-                <p>We hebben decennia ervaring met het serveren van Indiaase bruiloften. We kennen de tradities. We begrijpen wat je nodig hebt. <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:underline">Biryani</Link> voor honderd mensen? <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:underline">Tandoori</Link>? Vegetarische gerechtjes naast vleesgerechten? Halal? Gluten-vrij? We doen het allemaal, en we doen het met de eer die het moment verdient.</p>
-                <p>Dit is niet alleen eten bezorgen. Dit is een partnering. We werken met jou samen van begin tot einde, we zorgen voor de details, we stellen zeker dat alles perfect is. Je bruiloft verdient echte aandacht, echte vakmanschap, en echte warmte. Dat is wat we geven.</p>
-              </>
-            ) : (
-              <>
-                <p>An Indian wedding is much more than food. It is a celebration of two families coming together, of traditions that go back centuries, of love that binds generations. And the food on that day must reflect all of that. It must be authentic, delicious, and lasting. This is what we do at Chopras for you.</p>
-                <p>We have decades of experience serving Indian weddings. We know the traditions. We understand what you need. <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:underline">Biryani</Link> for a hundred people? <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:underline">Tandoori</Link>? Vegetarian dishes alongside meat dishes? Halal? Gluten - free? We do it all, and we do it with the honour the moment deserves.</p>
-                <p>This is not just delivering food. This is a partnership. We work with you from start to finish, we look after the details, we ensure that everything is perfect. Your wedding deserves real attention, real skill, and real warmth. That is what we give.</p>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Bruiloft Catering Opties' : 'Wedding Catering Options'}
-          </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Voorgerechten en Snacks</h3>
-                <p>Samosas, pakora, kebabs, tandoori snacks - alles vers. Dit wordt geserveerd terwijl je gasten aankomen, terwijl ze lachen, terwijl ze familieleden zien die ze lang niet hebben gezien.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Hoofd Gangen</h3>
-                <p>Biryani. Tandoori kip, vis, lam. Dal. Groente curries. Paneer dishes. Elk gerecht is gemaakt met dezelfde zorg die je zou gebruiken als je thuis aan het koken was. Niets voorgekookt. Niets uit een jar.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Brood</h3>
-                <p>Naan, roti, paratha - alles uit onze tandoor. Vers. Heet. Dit is de voet van het eten, en we maken het goed.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Zoet Eindigt</h3>
-                <p>Kheer. Gulab jamun. Ras malai. Rasgulla. Traditionele Indiaase zoetigheden die je vertellen dat de maaltijd voorbij is, maar dat het moment niet voorbij is.</p>
-              </>
-            ) : (
-              <>
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Appetizers and Snacks</h3>
-                <p>Samosas, pakora, kebabs, tandoori snacks - all fresh. This is served as your guests arrive, as they laugh, as they see family members they have not seen in a long time.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Main Courses</h3>
-                <p>Biryani. Tandoori chicken, fish, lamb. Dal. Vegetable curries. Paneer dishes. Each dish is made with the same care you would use if you were cooking at home. Nothing pre-cooked. Nothing from a jar.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Bread</h3>
-                <p>Naan, roti, paratha - all from our tandoor. Fresh. Hot. This is the foundation of the meal, and we make it well.</p>
-                
-                <h3 className="font-vibes text-3xl text-[#C7A348] mt-8 mb-4">Sweet Endings</h3>
-                <p>Kheer. Gulab jamun. Ras malai. Rasgulla. Traditional Indian sweets that tell you the meal is over, but that the moment is not.</p>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
+      {/* Section 2: Menu */}
       <section className="bg-white py-20 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
-            {isNl ? 'Bruiloft FAQ' : 'Wedding FAQ'}
+            Wat staat er op het bruiloftsmenu?
           </h2>
-          <FaqAccordion faqs={isNl ? faqsNl : faqsEn} locale={locale} />
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
+            Geen vast pakket waar u in past. Wij stellen het menu samen op basis van uw gasten, uw tradities en uw wensen. De onderstaande gerechten behoren tot de meest gevraagde bij{' '}
+            <Link href={`${base}/indian-wedding-catering-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Indiaas trouwen catering Den Haag
+            </Link>
+            .
+          </p>
+
+          <div className="space-y-10">
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Biryani voor de grote zaal
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Biryani
+                </Link>{' '}
+                is het middelpunt van elke Indiaase bruiloft. Saffraan basmatirijst, langzaam gegaard met halal lam, kip of groenten. Wij bereiden de biryani in traditionele dum-stijl, waarbij de pot wordt afgesloten zodat alle aroma behouden blijven. Voor 80 gasten bereiden wij dit met dezelfde zorgvuldigheid als voor een tafel van vier in ons restaurant aan de Leyweg.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Tandoori uit onze kleioven
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Onze tandoor bereikt 400 graden Celsius. Die temperatuur is niet aanpasbaar. Het is precies dat wat{' '}
+                <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  tandoori kip
+                </Link>{' '}
+                zijn verkoolde rand geeft en naan zijn luchtige binnenkant. Geen gewone oven kan dit nabootsen. Op uw bruiloft serveren wij tandoori gegrilde gerechten met dezelfde kwaliteit als in het restaurant. Uw gasten merken het verschil.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Curry en dal voor iedereen aan tafel
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Butter chicken
+                </Link>
+                ,{' '}
+                <Link href={`${base}/mutton-rogan-josh-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  mutton rogan josh
+                </Link>
+                ,{' '}
+                <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  dal makhani
+                </Link>{' '}
+                en paneer gerechten. Elk gerecht gemaakt met kruiden die dezelfde ochtend zijn gemalen. Wij stellen altijd een gebalanceerd menu samen met vleesgerechten naast vegetarische opties, zodat elk van uw gasten ruim keuze heeft.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
+                Naan vers gebakken uit de oven
+              </h3>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Knoflook naan, boter naan, Peshwari naan. Vers gebakken in de tandoor en heet opgediend.{' '}
+                <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  Naan bij Chopras
+                </Link>{' '}
+                is geen bijgerecht. Het is onderdeel van de maaltijd. Brood dat koud of zacht is, verrraadt de rest van het eten. Bij ons komt het vers uit de oven aan tafel.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Plan je Bruiloft' : 'Plan Your Wedding'}
+      {/* Section 3: Halal & kwaliteit - navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            Volledig halal gecertificeerd. Zonder uitzondering.
           </h2>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-4">
+            Halal bij Chopras Indian Restaurant is geen menu-optie. Het is de gehele keuken. Elke vleesleverancier is halal gecertificeerd. Elk gerecht is halal. Er is geen risico op kruisbesmetting, omdat er nergens op de locatie niet-halal vlees aanwezig is.
+          </p>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-4">
+            Voor halal bruiloft catering Den Haag is dit niet vanzelfsprekend. Veel restaurants bieden een halal optie, maar bereiden in dezelfde keuken ook niet-halal vlees. Bij Chopras is dat niet het geval. Uw gasten eten met vertrouwen. Geen vragen. Geen twijfels.
+          </p>
+          <p className="font-body text-white/85 text-lg leading-relaxed">
+            Wij hebben 4,9 sterren op Google van meer dan 800 beoordelingen. Geen enkel ander Indiaas restaurant in Den Haag combineert die beoordeling met dat volume. Hoge sterren met weinig reviews zeggen weinig. Chopras heeft beide.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 4: Hoe het werkt */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Hoe werkt bruiloft catering bij Chopras?
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
+            Geen ingewikkelde pakketten, geen verborgen kosten. U neemt contact op, wij bespreken uw wensen en sturen binnen twee werkdagen een vrijblijvende offerte. Zo werkt het in de praktijk.
+          </p>
+          <div className="space-y-8">
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                1
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Neem contact op</strong> via ons{' '}
+                <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+                  contactformulier
+                </Link>{' '}
+                of bel ons op +31 6 30645930. Vertel ons de datum, het aantal gasten en uw voorkeur voor locatie en dieetwensen.
+              </p>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                2
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Wij stellen samen met u een menu op maat samen</strong> op basis van uw tradities, dieetwensen en budget. Nikah catering Den Haag, walima-diner, receptie of een andere viering. Alles is bespreekbaar.
+              </p>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C7A348] flex items-center justify-center text-white font-semibold text-sm">
+                3
+              </div>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <strong>Op de dag zelf zorgen wij voor de volledige uitvoering.</strong> Bereiding, transport, opstelling en servering. U staat die dag niet na te denken over het eten. Dat is ons werk.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Vrijblijvende Offerte Aanvragen
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: GEO Block */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Doet Chopras Indian Restaurant bruiloft catering in Den Haag?
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+            Ja. Chopras Indian Restaurant op{' '}
+            <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Leyweg 986 in Den Haag
+            </Link>{' '}
+            verzorgt bruiloft catering voor 25 tot 80 gasten. De keuken is volledig halal gecertificeerd en bereidt elke dag met vers gemalen specerijen rechtstreeks uit India. Wij verzorgen nikah-recepties, walima-diners en trouwfeesten in onze eigen privézaal of op externe locaties in{' '}
+            <Link href={`${base}/indian-restaurant-rijswijk`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
+              Rijswijk
+            </Link>
+            , Delft en omgeving. Beoordeeld met 4,9 sterren op Google van meer dan 800 gasten. Open dinsdag tot en met zondag vanaf 16:30.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 6: FAQ */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Veelgestelde vragen over bruiloft catering
+          </h2>
+          <FaqAccordion faqs={faqs} locale={locale} />
+        </div>
+      </section>
+
+      {/* Section 7: Populaire gerechten */}
+      <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            Populaire bruiloftsgerechten bij Chopras
+          </h2>
+          <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
+            Deze gerechten worden het vaakst gekozen voor Indiase bruiloft catering in Den Haag. Bekijk de pagina van elk gerecht voor informatie over bereiding en herkomst van de ingrediënten.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <Link
+              href={`${base}/biryani-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Biryani</p>
+              <p className="font-body text-[#1A1A1A]/70">Saffraan basmatirijst met halal lam, kip of groenten</p>
+            </Link>
+            <Link
+              href={`${base}/tandoori-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Tandoori</p>
+              <p className="font-body text-[#1A1A1A]/70">Gegrild bij 400 graden Celsius in kleioven</p>
+            </Link>
+            <Link
+              href={`${base}/butter-chicken-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Butter Chicken</p>
+              <p className="font-body text-[#1A1A1A]/70">Halal kip in romige tomaten- en botersaus</p>
+            </Link>
+            <Link
+              href={`${base}/dal-makhani-den-haag`}
+              className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Dal Makhani</p>
+              <p className="font-body text-[#1A1A1A]/70">Langzaam gegaard met boter en room</p>
+            </Link>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href={`${base}/contact`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {isNl ? 'Offerte Aanvragen' : 'Request Quote'}
-            </a>
-            <Link href={`${base}/menu`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {tr.common.viewMenu}
+            <Link
+              href={`${base}/catering`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Alle Catering Opties
             </Link>
-            <Link href={`${base}/feestzaal-den-haag`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {isNl ? 'Feestzaal Huren voor Bruiloft Den Haag' : 'Bruiloft Venue Hire Den Haag'}
+            <Link
+              href={`${base}/feestzaal-den-haag`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              Feestzaal Huren Den Haag
             </Link>
           </div>
         </div>
       </section>
 
-      {/* INTERNAL LINKS SECTION */}
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-10">
-            {isNl ? 'Populaire Catering Gerechten' : 'Popular Catering Dishes'}
+      {/* Section 8: Final CTA - navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            Vraag vandaag uw vrijblijvende offerte aan
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href={`${base}/biryani-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Biryani' : 'Biryani'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Geurige rijst specialiteit' : 'Fragrant rice speciality'}</p>
+          <p className="font-body text-white/85 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Chopras Indian Restaurant verzorgt bruiloft catering Den Haag voor 25 tot 80 gasten. Volledig halal gecertificeerd. Vers bereid. Beoordeeld met 4,9 sterren op Google van meer dan 800 gasten. Open dinsdag tot en met zondag.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Offerte Aanvragen
             </Link>
-            <Link href={`${base}/tandoori-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Tandoori' : 'Tandoori'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Gegrilde specialiteiten' : 'Grilled specialities'}</p>
+            <Link
+              href={`${base}/halal-menu`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              Halal Menu Bekijken
             </Link>
-            <Link href={`${base}/dal-makhani-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Dal Makhani' : 'Dal Makhani'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Langzaam gemaakte linzenmix' : 'Slow-cooked lentil medley'}</p>
-            </Link>
-            <Link href={`${base}/butter-chicken-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Butter Chicken' : 'Butter Chicken'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'De beroemde roomkip van Chopras' : 'Chopras famous butter chicken'}</p>
-            </Link>
-          </div>
-          <div className="mt-8 text-center space-y-4">
-            <p className="text-[#1A1A1A] text-base">
-              <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
-                {isNl ? 'Chopras Catering - voor al uw celebraties' : 'Chopras Catering - for all your celebrations'}
-              </Link>
-            </p>
-            <p className="text-[#1A1A1A] text-base">
-              {isNl ? 'Voor een offerte of meer informatie,' : 'For a quote or more information,'} <a href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">{isNl ? 'neem contact op met ons team' : 'contact our catering team'}</a>.
-            </p>
           </div>
         </div>
       </section>
