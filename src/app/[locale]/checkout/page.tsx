@@ -248,7 +248,7 @@ export default function CheckoutPage({ params }: { params: { locale: Locale } })
               </div>
 
               {/* Pickup info */}
-              <div className="bg-[#1B2B5E]/5 border border-[#1B2B5E]/20 rounded-2xl p-6 flex items-start gap-4 mb-8">
+              <div className="bg-[#EEF0FF] border border-[#1B2B5E]/40 rounded-2xl p-6 flex items-start gap-4 mb-8">
                 <MapPin className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-[#1B2B5E] text-sm">Pickup Location</p>

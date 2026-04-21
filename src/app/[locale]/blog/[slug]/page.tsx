@@ -121,9 +121,9 @@ export default function LocaleBlogPostPage({ params }: Props) {
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <article
               className="flex-1 prose prose-lg max-w-none
-                prose-headings:font-vibes prose-headings:text-[#C7A348]
+                prose-headings:font-vibes prose-headings:text-[#C7A348] prose-headings:leading-[1.3]
                 prose-p:text-[#1A1A1A]/70 prose-p:leading-relaxed
-                prose-a:text-[#D4AF37] prose-a:no-underline prose-a:font-semibold
+                prose-a:text-[#D4AF37] prose-a:hover:text-[#e8c84a] prose-a:no-underline prose-a:font-semibold
                 prose-strong:text-[#1A1A1A]
                 prose-ul:text-gray-700
                 prose-img:block prose-img:md:float-right prose-img:md:ml-6 prose-img:mb-4 prose-img:w-full prose-img:md:w-auto

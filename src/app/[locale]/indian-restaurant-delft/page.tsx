@@ -1,20 +1,55 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
+import FaqAccordion from '@/components/sections/FaqAccordion'
 import { getLocalizedUrl } from '@/lib/utils'
 import { getLocalRestaurantSchema, getBreadcrumbSchema, getFaqPageSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
 
 const faqsEn = [
-  { question: 'How far is Chopras Indian Restaurant from Delft?', answer: 'Chopras Indian Restaurant is at Leyweg 986, Den Haag, approximately 15 minutes by car from central Delft via the A13. Tram and bus connections are also available, taking around 25 minutes.' },
-  { question: 'Is there free parking available near Chopras for visitors from Delft?', answer: 'Yes. Free parking is available in the Leyweg shopping area directly next to the restaurant. This is a significant advantage over parking in central Delft or Den Haag city centre.' },
-  { question: 'What are the opening hours at Chopras Indian Restaurant?', answer: 'Chopras Indian Restaurant is open Tuesday to Sunday from 16:30 to 22:30. The restaurant is closed on Mondays.' },
+  {
+    question: 'How far is Chopras Indian Restaurant from Delft?',
+    answer: 'Chopras Indian Restaurant is at Leyweg 986, Den Haag, approximately 15 minutes by car from central Delft via the A13. The route bypasses central Den Haag entirely. By tram or bus via Den Haag Centraal, the journey takes around 25 minutes.',
+  },
+  {
+    question: 'Is Chopras Indian Restaurant halal certified?',
+    answer: 'Yes. Chopras Indian Restaurant is fully halal certified. Every meat supplier holds halal certification and every dish across the 143-item menu is halal. There is no cross-contamination risk because no non-halal meat enters the kitchen at any point.',
+  },
+  {
+    question: 'Is there free parking at Chopras for visitors from Delft?',
+    answer: 'Yes. Free parking is available in the Leyweg shopping area directly adjacent to the restaurant. This is a significant practical advantage over dining in central Delft or Den Haag city centre, where parking fees add noticeably to the cost of an evening out.',
+  },
+  {
+    question: 'What are the opening hours at Chopras Indian Restaurant?',
+    answer: 'Chopras Indian Restaurant is open Tuesday to Sunday from 16:30 to 22:30. The restaurant is closed on Mondays. Reservations are recommended for groups of four or more visiting from Delft.',
+  },
+  {
+    question: 'Does Chopras provide catering for events in the Delft area?',
+    answer: 'Yes. Chopras Indian Restaurant provides full catering services for events across South Holland, including the Delft area. The private hall at Leyweg 986 accommodates 25 to 80 guests. Catering is also available at external venues for birthdays, weddings, and corporate dinners.',
+  },
 ]
 
 const faqsNl = [
-  { question: 'Hoe ver is Chopras Indian Restaurant van Delft?', answer: 'Chopras Indian Restaurant is op Leyweg 986, Den Haag, circa 15 minuten rijden van het centrum van Delft via de A13. Tram- en busverbindingen zijn ook beschikbaar, circa 25 minuten reistijd.' },
-  { question: 'Is er gratis parkeerruimte bij Chopras voor bezoekers uit Delft?', answer: 'Ja. Gratis parkeren is beschikbaar in het winkelgebied Leyweg direct naast het restaurant. Dit is een aanzienlijk voordeel ten opzichte van parkeren in het centrum van Delft of Den Haag.' },
-  { question: 'Wat zijn de openingstijden van Chopras Indian Restaurant?', answer: 'Chopras Indian Restaurant is open dinsdag tot en met zondag van 16:30 tot 22:30. Het restaurant is op maandag gesloten.' },
+  {
+    question: 'Hoe ver is Chopras Indian Restaurant van Delft?',
+    answer: 'Chopras Indian Restaurant is op Leyweg 986 in Den Haag, circa 15 minuten rijden van het centrum van Delft via de A13. De route omzeilt het centrum van Den Haag volledig. Per tram of bus via Den Haag Centraal duurt de reis circa 25 minuten.',
+  },
+  {
+    question: 'Is Chopras Indian Restaurant halal gecertificeerd?',
+    answer: 'Ja. Chopras Indian Restaurant is volledig halal gecertificeerd. Iedere vleesleverancier heeft een halalcertificering en elk gerecht op het menu van 143 items is halal. Er is geen risico op kruisbesmetting omdat er geen niet-halal vlees de keuken binnenkomt.',
+  },
+  {
+    question: 'Is er gratis parkeerruimte bij Chopras voor bezoekers uit Delft?',
+    answer: 'Ja. Gratis parkeren is beschikbaar in het winkelgebied Leyweg direct naast het restaurant. Dit is een aanzienlijk praktisch voordeel ten opzichte van dineren in het centrum van Delft of Den Haag, waar parkeertarieven de avond merkbaar duurder maken.',
+  },
+  {
+    question: 'Wat zijn de openingstijden van Chopras Indian Restaurant?',
+    answer: 'Chopras Indian Restaurant is open van dinsdag tot en met zondag van 16:30 tot 22:30. Het restaurant is op maandag gesloten. Reserveren wordt aanbevolen voor groepen van vier of meer personen vanuit Delft.',
+  },
+  {
+    question: 'Verzorgt Chopras catering voor evenementen in de regio Delft?',
+    answer: 'Ja. Chopras Indian Restaurant verzorgt volledige cateringdiensten voor evenementen in heel Zuid-Holland, inclusief de regio Delft. De privézaal op Leyweg 986 biedt ruimte voor 25 tot 80 gasten. Catering is ook beschikbaar op externe locaties voor verjaardagen, bruiloften en bedrijfsdiner.',
+  },
 ]
 
 type Props = { params: { locale: Locale } }
@@ -31,13 +66,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const descriptions = {
     en: 'Indian restaurant near Delft. Chopras Indian Restaurant Den Haag is 15 minutes via the A13. Authentic halal food at Leyweg 986. Open Tuesday to Sunday.',
-    nl: 'Indiaas restaurant bij Delft. Chopras in Den Haag is 15 minuten rijden via de A13. Halal gecertificeerd, open dinsdag tot en met zondag. Boek nu.',
+    nl: 'Indiaas restaurant bij Delft. Chopras Indian Restaurant Den Haag is 15 minuten via de A13. Halal gecertificeerd, open dinsdag tot en met zondag. Boek nu.',
   }
   return {
-    title: titles[locale], description: descriptions[locale],
+    title: titles[locale],
+    description: descriptions[locale],
     alternates: {
       canonical: getLocalizedUrl(locale, 'indian-restaurant-delft'),
-      languages: { en: getLocalizedUrl('en', 'indian-restaurant-delft'), nl: getLocalizedUrl('nl', 'indian-restaurant-delft'), 'x-default': getLocalizedUrl('en', 'indian-restaurant-delft') },
+      languages: {
+        en: getLocalizedUrl('en', 'indian-restaurant-delft'),
+        nl: getLocalizedUrl('nl', 'indian-restaurant-delft'),
+        'x-default': getLocalizedUrl('en', 'indian-restaurant-delft'),
+      },
     },
     openGraph: {
       title: titles[locale],
@@ -76,6 +116,7 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
       ])} />
       <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
 
+      {/* Hero */}
       <section className="bg-[#1B2B5E] py-20 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
@@ -87,147 +128,358 @@ export default function IndianRestaurantDelftPage({ params }: Props) {
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight"
             style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
           >
-            {isNl ? 'Indiaas Restaurant bij Delft  -  Chopras in Den Haag, 15 Minuten Rijden' : 'Indian Restaurant Near Delft  -  Chopras in Den Haag, 15 Minutes Away'}
+            {isNl
+              ? 'Indiaas Restaurant bij Delft - Chopras in Den Haag, 15 Minuten Rijden'
+              : 'Indian Restaurant Near Delft - Chopras in Den Haag, 15 Minutes Away'}
           </h1>
           <p
-            className="text-white/75 text-lg md:text-xl max-w-3xl mx-auto"
+            className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
           >
-            {isNl ? 'Authentiek Noord-Indiaas eten, volledig halal gecertificeerd, open dinsdag tot en met zondag. Leyweg 986, Den Haag  -  direct bereikbaar vanuit Delft per auto of openbaar vervoer.' : 'Authentic North Indian food, fully halal certified, open Tuesday to Sunday. Leyweg 986, Den Haag  -  directly accessible from Delft by car or public transport.'}
+            {isNl
+              ? 'Authentiek Noord-Indiaas eten, volledig halal gecertificeerd, 4,9 sterren van meer dan 800 beoordelingen. Leyweg 986, Den Haag - direct bereikbaar vanuit Delft via de A13.'
+              : 'Authentic North Indian food, fully halal certified, 4.9 stars from 800+ reviews. Leyweg 986, Den Haag - directly accessible from Delft via the A13.'}
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              {isNl ? 'Reserveer een tafel' : 'Reserve a Table'}
+            </Link>
+            <Link
+              href={`${base}/menu`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-white/10 px-6 py-3 text-white text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[rgba(199,163,72,0.3)] active:scale-[0.98] min-h-[48px] backdrop-blur-[10px]"
+            >
+              {isNl ? 'Bekijk het menu' : 'View the Menu'}
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
+      {/* From Delft to Leyweg */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
             {isNl ? 'Van Delft naar Leyweg' : 'From Delft to Leyweg'}
           </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <p>Delft en Den Haag vormen een aaneengesloten stedelijk gebied  -  de gemeentegrenzen lopen door wat in wezen een continue bebouwde omgeving is. Chopras op Leyweg 986 ligt op circa 15 minuten met de auto van het centrum van Delft, of 20 tot 25 minuten per tram of bus via de directe verbinding.</p>
-                <p>De A13-snelweg verbindt Delft direct met de Leyweg-omgeving  -  de meeste routes vermijden het centrum van Den Haag volledig. Parkeren op Leyweg is gratis, wat een aanzienlijk voordeel is ten opzichte van het zoeken naar parkeerplaatsen in Delft of Den Haag Centrum.</p>
-                <p>Delft heeft een grote internationale studentenpopulatie via de TU Delft. Indiase en Zuid-Aziatische studenten, internationale studenten die bekend zijn met Indiaas eten, en lokale families die eens per maand een speciaal etentje organiseren  -  Chopras is voor al deze groepen het meest logische uitje vanuit Delft wanneer de keuze valt op Indiaas eten.</p>
-              </>
-            ) : (
-              <>
-                <p>Delft and Den Haag form a continuous urban area - the municipal boundaries run through what is essentially uninterrupted built environment. Chopras at Leyweg 986 is approximately 15 minutes by car from central Delft, or 20 to 25 minutes by tram or bus via the direct connection.</p>
-                <p>The A13 motorway connects Delft directly to the Leyweg area - most routes avoid central Den Haag entirely.</p>
-                <p>Delft has a large international student population through TU Delft. Indian and South Asian students, international students familiar with Indian food, and local families organising a special dinner once a month - Chopras is the most logical outing from Delft for all these groups when the choice is Indian food.</p>
-              </>
-            )}
-          </div>
+          {isNl ? (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Delft en Den Haag delen een aaneengesloten stedelijk gebied. De gemeentegrens loopt door bebouwde straten, niet door open landschap.{' '}
+                <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
+                op Leyweg 986 ligt circa 15 minuten rijden van het centrum van Delft via de A13, en de meeste routes omzeilen het centrum van Den Haag volledig.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Gratis parkeren in het winkelgebied Leyweg is direct naast het restaurant beschikbaar. Geen zoeken, geen parkeertarieven, geen blokken lopen in de kou. Dat neemt een van de meest voorkomende ergernissen van een avondje uit weg voordat u ook maar binnen bent.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Per openbaar vervoer duurt de reis vanaf station Delft 20 tot 25 minuten via tram- of busverbindingen door Den Haag Centraal naar de halte Leyweg. Voor TU Delft-studenten en -medewerkers zonder auto is dit een eenvoudig avondje uit. Bekijk het{' '}
+                <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">volledige menu van 143 gerechten</Link>{' '}
+                zodat u weet wat u wilt bestellen voordat u vertrekt.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Delft and Den Haag share a continuous urban footprint. The municipal boundary runs through built-up streets, not open countryside.{' '}
+                <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
+                at Leyweg 986 sits approximately 15 minutes from central Delft by car via the A13, and most routes bypass Den Haag city centre entirely.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Free parking at the Leyweg shopping area is available directly adjacent to the restaurant. No searching, no fees, no walking blocks in the cold. That removes one of the most common friction points of a city dinner before you even step inside.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                By public transport, the journey from Delft station takes 20 to 25 minutes via tram or bus connections through Den Haag Centraal to the Leyweg stop. For TU Delft students and staff without a car, this is a straightforward evening out. Browse the{' '}
+                <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">full 143-dish menu</Link>{' '}
+                before you leave so you arrive knowing exactly what you want.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Populaire Gerechten bij Delftse Bezoekers' : 'Popular Dishes with Delft Visitors'}
+      {/* Why Delft Residents Choose Chopras */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Waarom Delftenaren Kiezen voor Chopras' : 'Why Delft Residents Choose Chopras'}
           </h2>
-          <div className="prose prose-lg max-w-none text-[#1A1A1A] space-y-5">
-            {isNl ? (
-              <>
-                <p>Bezoekers uit Delft bestellen vaker dan gemiddeld <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:underline">biryani</Link>  -  het gerecht dat het meest onderscheidend is van de thuisbereidingsversies die de meeste mensen kennen. De qualiteit van de saffraanrijst en de verse kruiden bij Chopras maakt een direct vergelijkbaar verschil zichtbaar.</p>
-                <p>De street food-sectie van het menu is bijzonder populair bij internationale TU Delft-studenten en -medewerkers  -  pani puri, <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:underline">chaat</Link> en samosa zijn vertrouwde smaken voor bezoekers uit India en Pakistan die elders in Den Haag of Delft moeilijk te vinden authentieke versies van deze gerechten zoeken.</p>
-                <p>Het halal-aspect trekt specifiek families uit Delft&apos;s diverse moslimgemeenschap aan  -  Turks, Marokkaans, Pakistaans, Indiaas-moslim  -  voor wie de volledig gecertificeerde haalhalstatus van Chopras een doorslaggevend argument is.</p>
-              </>
-            ) : (
-              <>
-                <p>Visitors from Delft order <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:underline">biryani</Link> at above-average rates  -  the dish that is most distinctively different from the home-cooked versions most people know. The quality of the saffron rice and fresh spices at Chopras makes an immediately comparable difference.</p>
-                <p>The street food section of the menu is particularly popular with international TU Delft students and staff  -  pani puri, <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:underline">chaat</Link> and samosa are familiar tastes for visitors from India and Pakistan who find authentic versions of these dishes hard to find elsewhere in Den Haag or Delft.</p>
-                <p>The halal aspect specifically draws families from Delft&apos;s diverse Muslim community  -  Turkish, Moroccan, Pakistani, Indian-Muslim  -  for whom Chopras&apos; fully certified halal status is a decisive factor.</p>
-              </>
-            )}
-          </div>
+          {isNl ? (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                De 4,9-sterren Google-beoordeling van meer dan 800 geverifieerde beoordelingen is het getal dat er het meest toe doet. Hoge beoordelingen met weinig recensies zijn gebruikelijk en eenvoudig te behalen. Meer dan 800 beoordelingen bij 4,9 sterren betekent een aanhoudende standaard over honderden afzonderlijke avonden, niet een geluksstuk.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                De keuken draait op een specifieke discipline. Kruiden worden rechtstreeks uit India betrokken en elke ochtend vers gemalen voordat de service begint. De vluchtige aromatische verbindingen in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Voorgemengsde blends van leveranciers zijn de kortcut die de meeste restaurants nemen. Chopras doet dat niet.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                De tandoor-kleioven op Leyweg bereikt 400 graden Celsius. Die temperatuur geeft{' '}
+                <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link>{' '}
+                zijn gebakken randjes en{' '}
+                <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoorigerechten</Link>{' '}
+                hun rokerige buitenkant. Geen conventionele oven repliceert dit. Het is het fysieke feit achter het smaakverschil, en het is precies wat bezoekers uit Delft beschrijven in hun beoordelingen.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                The 4.9-star Google rating across 800+ verified reviews is the number that matters most to anyone comparing options. High ratings with low review counts are common and easy to achieve. 800+ reviews at 4.9 stars means a sustained standard across hundreds of separate evenings, not a lucky streak.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                The kitchen runs on a specific discipline. Spices are sourced directly from India and ground fresh every morning before service opens. The volatile aromatic compounds in cumin, cardamom, and coriander begin evaporating within hours of grinding. Pre-mixed blends from suppliers are the shortcut most restaurants take. Chopras does not.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                The tandoor clay oven at Leyweg reaches 400 degrees Celsius. That temperature gives{' '}
+                <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan bread</Link>{' '}
+                its charred edges and{' '}
+                <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori dishes</Link>{' '}
+                their smoky exterior crust. No conventional oven replicates this. It is the physical fact behind the taste difference, and it is exactly what Delft visitors describe in their reviews.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="bg-[#F7F8FC] py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-8">
-            {isNl ? 'Praktische Informatie voor Bezoekers uit Delft' : 'Practical Information for Delft Visitors'}
+      {/* Halal - Navy */}
+      <section className="bg-[#1B2B5E] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-white mb-6 leading-[1.3]">
+            {isNl ? 'Volledig Halal. Geen Uitzonderingen.' : 'Fully Halal. No Exceptions.'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {isNl ? (
+            <div className="space-y-6">
+              <p className="font-body text-white/85 text-lg leading-relaxed">
+                Chopras Indian Restaurant is volledig halal gecertificeerd. Die verklaring geldt voor de gehele keuken, elke leverancier en elk gerecht op het{' '}
+                <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">menu van 143 items</Link>.
+                {' '}Er is geen halalsectie naast een niet-halalsectie. Er is geen risico op kruisbesmetting, omdat er geen niet-halal vlees aanwezig is in het restaurant.
+              </p>
+              <p className="font-body text-white/85 text-lg leading-relaxed">
+                Voor TU Delfts grote internationale moslim-studentengemeenschap en voor de Zuid-Hollandse families die langs andere restaurants rijden om bevestigde halal te vinden, is dit de doorslaggevende factor. Niet een prettig extraatje. Een voorwaarde. Lees de{' '}
+                <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">volledige halalinformatie</Link>{' '}
+                voor details over onze certificering en leveranciers.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <p className="font-body text-white/85 text-lg leading-relaxed">
+                Chopras Indian Restaurant is fully halal certified. That statement covers the entire kitchen, every supplier, and every dish across the{' '}
+                <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143-item menu</Link>.
+                {' '}There is no halal section alongside a non-halal section. There is no cross-contamination risk because no non-halal meat is present anywhere on the premises.
+              </p>
+              <p className="font-body text-white/85 text-lg leading-relaxed">
+                For TU Delft&apos;s large international Muslim student community and for South Holland families who drive past other restaurants to find confirmed halal, this is the decisive factor. Not a nice-to-have. A prerequisite. Read the{' '}
+                <Link href={`${base}/halal-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">full halal certification details</Link>{' '}
+                for complete information on our sourcing and verification.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* What Delft Visitors Order */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Wat Delftse Bezoekers als Eerste Bestellen' : 'What Delft Visitors Order First'}
+          </h2>
+          {isNl ? (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Bezoekers uit Delft bestellen{' '}
+                <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link>{' '}
+                bovengemiddeld vaak. Het saffraanbasmatirijst en de vers gemalen kruiden bij Chopras vertegenwoordigen precies het verschil tussen restaurantbiryani en wat de meeste thuiskoks kunnen produceren. De kwaliteit is onmiddellijk vergelijkbaar en blijvend.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                De street food-sectie trekt TU Delfts internationale gemeenschap in bijzonder grote aantallen.{' '}
+                <Link href={`${base}/pani-puri-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Pani puri</Link>,{' '}
+                <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chaat</Link>{' '}
+                en samosa zijn gerechten die echte nostalgie dragen voor Zuid-Aziatische bezoekers. Authentieke versies vinden buiten een Zuid-Aziatische thuiskeuken is in deze regio oprecht zeldzaam.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Butter chicken</Link>{' '}
+                blijft het startpunt voor de meeste Nederlandse gasten die Chopras voor het eerst vanuit Delft bezoeken. De rijkheid van de tomaten-roomsaus, gemaakt met vers gemalen masala in plaats van een kant-en-klare basis, stelt onmiddellijk een maatstaf voor wat Indiaas eten kan zijn.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                Visitors from Delft order{' '}
+                <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link>{' '}
+                at above-average rates. The saffron basmati rice and fresh-ground spices at Chopras represent exactly the gap between restaurant biryani and what most home kitchens can produce. The quality is immediately apparent and consistently repeatable.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                The street food section draws TU Delft&apos;s international community in particularly strong numbers.{' '}
+                <Link href={`${base}/pani-puri-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Pani puri</Link>,{' '}
+                <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chaat</Link>,{' '}
+                and samosa are dishes that carry genuine nostalgia for South Asian visitors. Finding authentic versions outside of a South Asian home kitchen is genuinely rare in this region.
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+                <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Butter chicken</Link>{' '}
+                remains the entry point for most Dutch guests visiting Chopras for the first time from Delft. The richness of the tomato and cream sauce, made with fresh-ground masala rather than a jarred base, sets an immediate benchmark for what Indian food can be.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* GEO Block */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl
+              ? 'Is er een goed Indiaas restaurant bij Delft?'
+              : 'Is There a Good Indian Restaurant Near Delft?'}
+          </h2>
+          {isNl ? (
+            <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+              Ja.{' '}
+              <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
+              op Leyweg 986, Den Haag ligt 15 minuten van het centrum van Delft via de A13. Beoordeeld met 4,9 sterren van meer dan 800 Google-beoordelingen en volledig halal gecertificeerd, serveert Chopras een menu van 143 Noord-Indiaase gerechten, waaronder biryani, tandoori en Indo-Chinese gerechten. Open dinsdag tot en met zondag van 16:30 tot 22:30. Gratis parkeren op het terrein.{' '}
+              <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserveer een tafel</Link>{' '}
+              of bel +31 6 30645930.
+            </p>
+          ) : (
+            <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
+              Yes.{' '}
+              <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>{' '}
+              at Leyweg 986, Den Haag is 15 minutes from central Delft via the A13. Rated 4.9 stars from 800+ Google reviews and fully halal certified, Chopras serves a 143-dish North Indian menu including biryani, tandoori, and Indo Chinese dishes. Open Tuesday to Sunday from 16:30 to 22:30. Free parking on site.{' '}
+              <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table</Link>{' '}
+              or call +31 6 30645930.
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Practical Info */}
+      <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Praktische Informatie voor Bezoekers uit Delft' : 'Getting Here from Delft'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             {(isNl ? [
-              { title: 'Afstand', desc: 'Circa 15 minuten rijden vanuit het centrum van Delft via de A13. Directe route zonder stad in.' },
-              { title: 'Openbaar Vervoer', desc: 'Tram- en busverbindingen van Delft via Den Haag Centraal naar Leyweg  -  circa 25 minuten.' },
-              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg. Veel eenvoudiger dan parkeren in het centrum.' },
-              { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30–22:30. Maandag gesloten.' },
+              { title: 'Afstand', desc: 'Circa 15 minuten rijden vanuit het centrum van Delft via de A13. De route omzeilt het centrum van Den Haag volledig.' },
+              { title: 'Openbaar Vervoer', desc: 'Tram- en busverbindingen van Delft via Den Haag Centraal naar Leyweg - circa 25 minuten reistijd.' },
+              { title: 'Parkeren', desc: 'Gratis parkeren in het winkelgebied Leyweg, direct naast het restaurant. Veel eenvoudiger dan parkeren in het centrum.' },
+              { title: 'Openingstijden', desc: 'Dinsdag tot en met zondag: 16:30 tot 22:30. Maandag gesloten.' },
             ] : [
-              { title: 'Distance', desc: 'Approximately 15 minutes by car from central Delft via the A13. Direct route without entering the city centre.' },
+              { title: 'Distance', desc: 'Approximately 15 minutes by car from central Delft via the A13. The route bypasses Den Haag city centre entirely.' },
               { title: 'Public Transport', desc: 'Tram and bus connections from Delft via Den Haag Centraal to Leyweg - approximately 25 minutes.' },
-              { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30–22:30. Closed Monday.' },
+              { title: 'Parking', desc: 'Free parking in the Leyweg shopping area, directly adjacent to the restaurant. Far simpler than city centre parking.' },
+              { title: 'Opening Hours', desc: 'Tuesday to Sunday: 16:30 to 22:30. Closed Monday.' },
             ]).map((item) => (
-              <div key={item.title} className="bg-white rounded-xl p-5 border-l-4 border-[#D4AF37]">
-                <h3 className="font-vibes text-lg text-[#C7A348] mb-1">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+              <div key={item.title} className="bg-white rounded-xl p-6 border-l-4 border-[#D4AF37]">
+                <h3 className="font-vibes text-2xl md:text-3xl text-[#C7A348] mb-3 leading-[1.3]">{item.title}</h3>
+                <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href={`${base}/contact`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {tr.common.reserve}
-            </a>
-            <Link href={`${base}/menu`} className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]">
-              {tr.common.viewMenu}
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              {isNl ? 'Reserveer een tafel' : 'Reserve a Table'}
+            </Link>
+            <Link
+              href={`${base}/catering`}
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+            >
+              {isNl ? 'Catering aanvragen' : 'Enquire About Catering'}
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F7F8FC] py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="font-vibes text-3xl text-[#C7A348] mb-6">
+      {/* FAQ */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
+            {isNl ? 'Veelgestelde Vragen' : 'Frequently Asked Questions'}
+          </h2>
+          <FaqAccordion faqs={isNl ? faqsNl : faqsEn} locale={locale} />
+        </div>
+      </section>
+
+      {/* Nearby Areas */}
+      <section className="bg-[#FFFAF5] py-16 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">
             {isNl ? 'Ook Nabij Den Haag' : 'Also Serving These Areas Near Den Haag'}
           </h3>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href={`${base}/indian-restaurant-rijswijk`} className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-[#D4AF37] transition-colors">
-              <p className="font-vibes text-[#C7A348] font-bold">{isNl ? 'Indiaas Restaurant bij Rijswijk' : 'Indian Restaurant Near Rijswijk'}</p>
-              <p className="text-gray-600 text-sm mt-1">{isNl ? 'Chopras bedient ook Rijswijk' : 'Chopras also serves Rijswijk'}</p>
+            <Link
+              href={`${base}/indian-restaurant-rijswijk`}
+              className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-[#D4AF37] transition-colors"
+            >
+              <p className="font-vibes text-2xl text-[#C7A348] leading-[1.3]">
+                {isNl ? 'Indiaas Restaurant bij Rijswijk' : 'Indian Restaurant Near Rijswijk'}
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-base leading-relaxed mt-1">
+                {isNl ? 'Chopras bedient ook Rijswijk' : 'Chopras also serves Rijswijk'}
+              </p>
             </Link>
-            <Link href={`${base}/indian-restaurant-zoetermeer`} className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-[#D4AF37] transition-colors">
-              <p className="font-vibes text-[#C7A348] font-bold">{isNl ? 'Indiaas Restaurant bij Zoetermeer' : 'Indian Restaurant Near Zoetermeer'}</p>
-              <p className="text-gray-600 text-sm mt-1">{isNl ? 'Chopras bedient ook Zoetermeer' : 'Chopras also serves Zoetermeer'}</p>
+            <Link
+              href={`${base}/indian-restaurant-zoetermeer`}
+              className="flex-1 bg-white border border-gray-200 rounded-xl p-4 text-center hover:border-[#D4AF37] transition-colors"
+            >
+              <p className="font-vibes text-2xl text-[#C7A348] leading-[1.3]">
+                {isNl ? 'Indiaas Restaurant bij Zoetermeer' : 'Indian Restaurant Near Zoetermeer'}
+              </p>
+              <p className="font-body text-[#1A1A1A]/70 text-base leading-relaxed mt-1">
+                {isNl ? 'Chopras bedient ook Zoetermeer' : 'Chopras also serves Zoetermeer'}
+              </p>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* INTERNAL LINKS SECTION */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-10">
+      {/* Explore Popular Dishes */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
             {isNl ? 'Ontdek Populaire Gerechten' : 'Explore Popular Dishes'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href={`${base}/butter-chicken-den-haag`} className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Butter Chicken' : 'Butter Chicken'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Populair gerecht voor Delft-bezoekers' : 'Popular choice for Delft visitors'}</p>
+            <Link
+              href={`${base}/butter-chicken-den-haag`}
+              className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Butter Chicken</p>
+              <p className="text-[#1B2B5E] font-semibold">
+                {isNl ? 'Rijke tomaat-roomsaus, vers gemalen masala' : 'Rich tomato cream sauce, fresh-ground masala'}
+              </p>
             </Link>
-            <Link href={`${base}/dal-makhani-den-haag`} className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Dal Makhani' : 'Dal Makhani'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Langzaam gemaakte linzenmix' : 'Slow-cooked lentil speciality'}</p>
+            <Link
+              href={`${base}/dal-makhani-den-haag`}
+              className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Dal Makhani</p>
+              <p className="text-[#1B2B5E] font-semibold">
+                {isNl ? 'Langzaam gekookte zwarte linzen met boter' : 'Slow-cooked black lentils with butter and cream'}
+              </p>
             </Link>
-            <Link href={`${base}/biryani-den-haag`} className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Biryani' : 'Biryani'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Geurige rijst specialiteit' : 'Fragrant rice speciality'}</p>
+            <Link
+              href={`${base}/biryani-den-haag`}
+              className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Biryani</p>
+              <p className="text-[#1B2B5E] font-semibold">
+                {isNl ? 'Saffraanbasmati met vers gemalen kruiden' : 'Saffron basmati with fresh-ground spices'}
+              </p>
             </Link>
-            <Link href={`${base}/catering`} className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
-              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Catering' : 'Catering'}</p>
-              <p className="text-[#1B2B5E] font-semibold">{isNl ? 'Indiaas buffet voor evenementen' : 'Indian catering for events'}</p>
+            <Link
+              href={`${base}/catering`}
+              className="block p-6 bg-[#F7F8FC] rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all"
+            >
+              <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">
+                {isNl ? 'Catering' : 'Catering'}
+              </p>
+              <p className="text-[#1B2B5E] font-semibold">
+                {isNl ? 'Indiaas catering voor evenementen in de regio Delft' : 'Indian catering for events across the Delft region'}
+              </p>
             </Link>
-          </div>
-          <div className="mt-8 text-center space-y-4">
-            <p className="text-[#1A1A1A] text-base">
-              <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
-                {isNl ? 'Chopras Indiaas Restaurant - beste Indiaas restaurant in Den Haag' : 'Chopras Indian Restaurant - best Indian restaurant in Den Haag'}
-              </Link>
-            </p>
-            <p className="text-[#1A1A1A] text-base">
-              {isNl ? 'Bekijk het volledige menu of' : 'View the full menu or'} <a href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">{isNl ? 'maak een reservering voor Delft' : 'book a table from Delft at Chopras Indian Restaurant Den Haag'}</a>.
-            </p>
           </div>
         </div>
       </section>
