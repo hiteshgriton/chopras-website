@@ -65,8 +65,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     nl: 'Indiaas Eten in Nederland | Chopras Indian Restaurant',
   }
   const descriptions = {
-    en: 'Authentic Indian food Netherlands at Chopras Indian Restaurant Den Haag. Halal certified, North Indian cuisine and street food since 2023. Visit us.',
-    nl: 'Authentiek Indiaas eten in Nederland bij Chopras Indian Restaurant Den Haag. Halal gecertificeerd, Noord-Indiaas eten en streetfood. Bezoek ons vandaag.',
+    en: 'Authentic Indian food Netherlands at Chopras Indian Restaurant Den Haag. 143 dishes, 4.9 stars, fully halal certified. Open Tuesday to Sunday. Visit.',
+    nl: 'Authentiek Indiaas eten in Nederland bij Chopras Indian Restaurant Den Haag. 143 gerechten, 4,9 sterren, halal gecertificeerd. Bezoek ons vandaag.',
   }
   return {
     title: titles[locale],

@@ -17,12 +17,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
   const titles = {
-    en: 'Vegan Menu Den Haag | Chopras Indian Restaurant',
-    nl: 'Veganistisch Menu Den Haag | Chopras Indian Restaurant',
+    en: 'Vegan Indian Food Den Haag | Chopras Indian Restaurant',
+    nl: 'Veganistisch Indiaas Eten Den Haag | Chopras Indian Restaurant',
   }
   const descriptions = {
-    en: 'Vegan Indian food Den Haag at Chopras Indian Restaurant. Dal makhani, soya chaap and chaat. Authentic plant-based Indian dishes at Leyweg 986. Dine in.',
-    nl: 'Veganistisch Indiaas eten in Den Haag bij Chopras Indian Restaurant. Dal makhani en soya chaap op Leyweg 986. Authentiek plantaardig. Reserveer nu.',
+    en: 'Vegan Indian food Den Haag at Chopras Indian Restaurant. 40+ plant-based dishes including soya chaap and dal makhani. 4.9 stars. Order online today.',
+    nl: 'Veganistisch Indiaas eten Den Haag bij Chopras Indian Restaurant. 40+ plantaardige gerechten waaronder soya chaap en dal makhani. Bestel online.',
   }
   return {
     title: titles[locale],
