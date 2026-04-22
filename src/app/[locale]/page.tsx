@@ -41,12 +41,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
   const titles = {
-    en: 'Best Indian Restaurant Den Haag | Chopras Indian Restaurant',
+    en: 'Best Indian Restaurant Den Haag (The Hague) | Chopras Indian Restaurant',
     nl: 'Beste Indiaas Restaurant Den Haag | Chopras Indian Restaurant',
   }
   const descriptions = {
-    en: 'Best Indian restaurant Den Haag. Chopras Indian Restaurant. Halal certified, vegetarian and vegan options at Leyweg 986. Open Tuesday to Sunday.',
-    nl: 'Beste Indiaas restaurant Den Haag bij Chopras Indian Restaurant. Halal, vegetarisch en veganistisch op Leyweg 986. Open dinsdag tot en met zondag.',
+    en: 'Best Indian restaurant Den Haag and The Hague. Chopras Indian Restaurant. 4.9 stars, 800+ reviews. Halal certified, vegetarian options. Book a table.',
+    nl: 'Beste Indiaas restaurant Den Haag bij Chopras Indian Restaurant. 4,9 sterren, 800+ reviews. Halal gecertificeerd. Reserveer een tafel vandaag.',
   }
   return {
     title: titles[locale],

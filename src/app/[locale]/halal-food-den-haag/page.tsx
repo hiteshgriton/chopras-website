@@ -61,12 +61,12 @@ const faqsEn: Array<{ question: string; answer: string }> = [
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params
   const titles = {
-    en: 'Halal Food Den Haag | Chopras Indian Restaurant',
-    nl: 'Halal Eten Den Haag | Chopras Indian Restaurant',
+    en: 'Halal Indian Restaurant Den Haag | Chopras Indian Restaurant',
+    nl: 'Halal Indiaas Restaurant Den Haag | Chopras Indian Restaurant',
   }
   const descriptions = {
-    en: 'Halal food Den Haag. Chopras Indian Restaurant is fully halal certified. Biryani, tandoori and curries. Open Tuesday to Sunday at Leyweg 986 Den Haag.',
-    nl: 'Halal eten Den Haag. Chopras Indian Restaurant is volledig halal gecertificeerd. Biryani, tandoori en curry. Open dinsdag tot en met zondag op Leyweg 986.',
+    en: 'Halal Indian restaurant Den Haag at Chopras Indian Restaurant. Only fully halal certified. No alcohol. 4.9 stars. Open Tuesday to Sunday. Book now.',
+    nl: 'Halal Indiaas restaurant Den Haag bij Chopras Indian Restaurant. Volledig halal gecertificeerd. Geen alcohol. 4,9 sterren. Reserveer een tafel.',
   }
   return {
     title: titles[locale],

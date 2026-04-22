@@ -117,7 +117,8 @@ Package manager: pnpm. Node: 20.x.
 
 Homepage /
 Primary keyword: Best Indian restaurant Den Haag
-Meta: Best Indian restaurant Den Haag. Chopras Indian Restaurant. Halal certified, vegetarian and vegan options at Leyweg 986. Open Tuesday to Sunday.
+Title: Best Indian Restaurant Den Haag (The Hague) | Chopras Indian Restaurant
+Meta: Best Indian restaurant Den Haag and The Hague. Chopras Indian Restaurant. 4.9 stars, 800+ reviews. Halal certified, vegetarian options. Book a table.
 
 Menu /menu
 Primary keyword: Indian restaurant menu Den Haag
@@ -185,15 +186,17 @@ Meta: Indo Chinese food Den Haag at Chopras Indian Restaurant. Chilli chicken, c
 
 Halal Menu /halal-menu
 Primary keyword: Halal menu Den Haag
-Meta: Halal menu Den Haag at Chopras Indian Restaurant. All meat is halal certified. Biryani, tandoori and curries. Dine with confidence at Leyweg 986.
+Meta: Halal menu Den Haag at Chopras Indian Restaurant. All meat halal certified. No alcohol on premises. 4.9 stars. Dine with confidence at Leyweg 986.
 
 Vegan Menu /vegan-menu
 Primary keyword: Vegan Indian food Den Haag
-Meta: Vegan Indian food Den Haag at Chopras Indian Restaurant. Dal makhani, soya chaap and chaat. Authentic plant-based Indian dishes at Leyweg 986. Dine in.
+Title: Vegan Indian Food Den Haag | Chopras Indian Restaurant
+Meta: Vegan Indian food Den Haag at Chopras Indian Restaurant. 40+ plant-based dishes including soya chaap and dal makhani. 4.9 stars. Order online today.
 
 Halal Food /halal-food-den-haag
-Primary keyword: Halal food Den Haag
-Meta: Halal food Den Haag. Chopras Indian Restaurant is fully halal certified. Biryani, tandoori and curries. Open Tuesday to Sunday at Leyweg 986 Den Haag.
+Primary keyword: Halal Indian restaurant Den Haag
+Title: Halal Indian Restaurant Den Haag | Chopras Indian Restaurant
+Meta: Halal Indian restaurant Den Haag at Chopras Indian Restaurant. Only fully halal certified. No alcohol. 4.9 stars. Open Tuesday to Sunday. Book now.
 
 Halal Indian Restaurant Netherlands /halal-indian-restaurant-netherlands
 Primary keyword: Halal Indian restaurant Netherlands
@@ -265,7 +268,7 @@ Meta: Family restaurant Den Haag. Chopras Indian Restaurant has a dedicated kids
 
 Indian Food Netherlands /indian-food-netherlands
 Primary keyword: Authentic Indian food Netherlands
-Meta: Authentic Indian food Netherlands at Chopras Indian Restaurant Den Haag. Halal certified, North Indian cuisine and street food since 2023. Visit us.
+Meta: Authentic Indian food Netherlands at Chopras Indian Restaurant Den Haag. 143 dishes, 4.9 stars, fully halal certified. Open Tuesday to Sunday. Visit.
 
 Blog: Best Indian Restaurant /blog/best-indian-restaurant-den-haag
 Primary keyword: Best Indian restaurant Den Haag
