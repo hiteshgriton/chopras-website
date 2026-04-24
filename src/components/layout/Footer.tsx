@@ -65,65 +65,81 @@ export default function Footer({ locale }: { locale: Locale }) {
   ]
 
   return (
-    <footer className="text-white" style={{ background: 'linear-gradient(135deg, #000066 0%, #0000FF 100%)' }}>
-      {/* Top border separator */}
-      <div className="border-t-[1px] border-solid" style={{ borderColor: 'rgba(199, 163, 72, 0.3)' }} />
+    <footer className="relative text-white overflow-hidden bg-[#000066]" style={{ background: 'linear-gradient(135deg, #000066 0%, #0000FF 100%)' }}>
+      {/* Decorative top border with glowing effect */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#C7A348] to-transparent opacity-50" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-[#C7A348] opacity-20 blur-sm" />
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Desktop and Tablet Layout */}
-        <div className="py-16 md:py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
-            {/* SECTION 1 - Brand Column (Desktop: 25%, takes 1 col in 5-col grid) */}
-            <div className="lg:col-span-1 flex flex-col gap-6">
+      <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+        <div className="py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
+            
+            {/* SECTION 1 - Brand Column */}
+            <div className="lg:col-span-4 flex flex-col gap-8 pr-0 lg:pr-8">
               {/* Logo */}
-              <Link href={base} className="inline-block">
+              <Link href={base} className="inline-block transform hover:scale-105 transition-transform duration-500 origin-left">
                 <Image
                   src={RESTAURANT.logo}
                   alt="Chopras Indian Restaurant logo"
-                  width={140}
-                  height={50}
-                  className="h-12 w-auto object-contain"
+                  width={160}
+                  height={60}
+                  className="h-14 w-auto object-contain drop-shadow-lg"
                 />
               </Link>
 
               {/* Tagline */}
               <div className="flex flex-col gap-1">
-                <p className="text-white/90 text-sm leading-relaxed font-medium">
-                  Den Haag&apos;s Most Authentic Indian Restaurant
+                <p className="text-white/90 text-base leading-relaxed font-light tracking-wide">
+                  Den Haag&apos;s Most Authentic <span className="text-[#C7A348] font-medium">Indian Restaurant</span>
                 </p>
               </div>
 
-              {/* Address Block */}
-              <address className="not-italic flex flex-col gap-2 text-sm">
-                <p className="text-white/60">{RESTAURANT.address.street}</p>
-                <p className="text-white/60">{RESTAURANT.address.postcode} {RESTAURANT.address.city}</p>
-                <div className="flex items-center gap-2 pt-1">
-                  <a
-                    href={`tel:${RESTAURANT.contact.phone}`}
-                    className="text-white/60 hover:text-[#C7A348] transition-colors duration-200"
-                  >
-                    {RESTAURANT.contact.phoneDisplay}
-                  </a>
-                  <a
-                    href="https://wa.me/31630645930"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/60 hover:text-[#C7A348] transition-colors duration-200"
-                    aria-label="WhatsApp"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.967 1.523.505.505 0 00-.223.579l1.514 3.885a.498.498 0 00.596.28 8.88 8.88 0 014.487-1.228h.004c4.896 0 8.876 3.98 8.876 8.877 0 4.897-3.98 8.877-8.877 8.877-4.896 0-8.877-3.98-8.877-8.877v-.004a8.877 8.877 0 011.34-4.585.498.498 0 00-.051-.595l-1.511-3.884a.505.505 0 00-.58-.225 11.88 11.88 0 00-6.024 6.73.503.503 0 00.071.615l3.838 3.16c.142.118.338.104.456 0 2.03-2.049 4.896-3.206 7.82-3.206 6.335 0 11.5 5.165 11.5 11.5S18.84 22.6 12.503 22.6s-11.5-5.165-11.5-11.5c0-3.026 1.159-5.864 3.256-7.982a.502.502 0 00-.039-.636L.84 1.062a.505.505 0 00-.568-.075 11.88 11.88 0 006.024 6.73z" />
-                    </svg>
-                  </a>
-                </div>
-              </address>
+              {/* Contact Info Card */}
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col gap-5 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Address Block */}
+                <address className="not-italic flex flex-col gap-1 text-sm font-light">
+                  <p className="text-white/80">{RESTAURANT.address.street}</p>
+                  <p className="text-white/80">{RESTAURANT.address.postcode} {RESTAURANT.address.city}</p>
+                  <div className="flex items-center gap-3 pt-3 mt-3 border-t border-white/10">
+                    <a
+                      href={`tel:${RESTAURANT.contact.phone}`}
+                      className="text-white hover:text-[#C7A348] transition-colors duration-300 font-medium"
+                    >
+                      {RESTAURANT.contact.phoneDisplay}
+                    </a>
+                    <div className="w-1 h-1 rounded-full bg-[#C7A348]/50" />
+                    <a
+                      href="https://wa.me/31630645930"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#C7A348] transition-colors duration-300 flex items-center gap-2"
+                      aria-label="WhatsApp"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.967 1.523.505.505 0 00-.223.579l1.514 3.885a.498.498 0 00.596.28 8.88 8.88 0 014.487-1.228h.004c4.896 0 8.876 3.98 8.876 8.877 0 4.897-3.98 8.877-8.877 8.877-4.896 0-8.877-3.98-8.877-8.877v-.004a8.877 8.877 0 011.34-4.585.498.498 0 00-.051-.595l-1.511-3.884a.505.505 0 00-.58-.225 11.88 11.88 0 00-6.024 6.73.503.503 0 00.071.615l3.838 3.16c.142.118.338.104.456 0 2.03-2.049 4.896-3.206 7.82-3.206 6.335 0 11.5 5.165 11.5 11.5S18.84 22.6 12.503 22.6s-11.5-5.165-11.5-11.5c0-3.026 1.159-5.864 3.256-7.982a.502.502 0 00-.039-.636L.84 1.062a.505.505 0 00-.568-.075 11.88 11.88 0 006.024 6.73z" />
+                      </svg>
+                      <span className="text-xs uppercase tracking-wider">WhatsApp</span>
+                    </a>
+                  </div>
+                </address>
 
-              {/* Opening Hours */}
-              <div className="flex flex-col gap-2 text-xs text-white/60 leading-relaxed">
-                <p className="font-medium text-white/70">Opening Hours</p>
-                <p>Tuesday to Sunday: 16:30 - 22:30</p>
-                <p>Monday: Closed</p>
+                {/* Opening Hours */}
+                <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
+                  <p className="text-[10px] font-bold text-[#C7A348] uppercase tracking-[0.2em]">Opening Hours</p>
+                  <div className="flex flex-col gap-1 text-sm font-light text-white/80">
+                    <div className="flex justify-between items-center">
+                      <span>Tue - Sun</span>
+                      <span className="text-white font-medium">16:30 - 22:30</span>
+                    </div>
+                    <div className="flex justify-between items-center text-white/50">
+                      <span>Monday</span>
+                      <span>Closed</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Social Proof */}
@@ -132,122 +148,146 @@ export default function Footer({ locale }: { locale: Locale }) {
                   href={RESTAURANT.social.tripadvisor}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#C7A348] hover:text-white transition-colors duration-200"
+                  className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-3 w-fit transition-all duration-300"
                 >
-                  <span>★</span>
-                  <span>TripAdvisor Reviewed</span>
+                  <span className="text-[#C7A348] text-xl leading-none">★</span>
+                  <span className="text-sm font-medium tracking-wide">TripAdvisor Reviewed</span>
                 </a>
-                <p className="text-xs text-white/50">
-                  Rated 4.9 ★ on Google · 800+ reviews
+                <p className="text-xs text-white/50 px-2 font-light tracking-wide">
+                  Rated <span className="text-white font-medium">4.9 ★</span> on Google · 800+ reviews
                 </p>
               </div>
             </div>
 
-            {/* SECTION 2 - Navigation Columns (Desktop: 75%, takes 4 cols in 5-col grid) */}
+            {/* SECTION 2 - Navigation Columns */}
+            <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16 pt-2 lg:pt-0">
+              
+              {/* Column 1 - Our Dishes */}
+              <div className="flex flex-col">
+                <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                  Our Dishes
+                  <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                </h3>
+                <ul className="flex flex-col gap-4">
+                  {DISHES_LINKS.map(({ label, href }) => (
+                    <li key={href}>
+                      <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                        <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                        <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Column 1 - Our Dishes */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4">
-                Our Dishes
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {DISHES_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Column 2 - Menu & Order */}
+              <div className="flex flex-col gap-12">
+                <div>
+                  <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                    Menu
+                    <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                  </h3>
+                  <ul className="flex flex-col gap-4">
+                    {MENU_LINKS.map(({ label, href }) => (
+                      <li key={href}>
+                        <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                          <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            {/* Column 2 - Menu & Catering */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4">
-                Menu
-              </h3>
-              <ul className="flex flex-col gap-2 mb-6">
-                {MENU_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                <div>
+                  <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                    Explore
+                    <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                  </h3>
+                  <ul className="flex flex-col gap-4">
+                    {ORDER_EXPLORE_LINKS.map(({ label, href }) => (
+                      <li key={href}>
+                        <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                          <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4 pt-2 border-t border-white/10">
-                Catering
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {CATERING_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Column 3 - Catering & Feestzaal */}
+              <div className="flex flex-col gap-12">
+                <div>
+                  <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                    Catering
+                    <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                  </h3>
+                  <ul className="flex flex-col gap-4">
+                    {CATERING_LINKS.map(({ label, href }) => (
+                      <li key={href}>
+                        <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                          <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            {/* Column 3 - Feestzaal */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4">
-                Feestzaal
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {FEESTZAAL_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <div>
+                  <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                    Events
+                    <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                  </h3>
+                  <ul className="flex flex-col gap-4">
+                    {FEESTZAAL_LINKS.map(({ label, href }) => (
+                      <li key={href}>
+                        <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                          <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                          <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-            {/* Column 4 - Near You */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4">
-                Near You
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {NEAR_YOU_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Column 4 - Near You */}
+              <div className="flex flex-col">
+                <h3 className="font-serif text-[#C7A348] text-xl font-medium mb-8 relative inline-block w-fit">
+                  Near You
+                  <span className="absolute -bottom-3 left-0 w-1/2 h-px bg-gradient-to-r from-[#C7A348] to-transparent"></span>
+                </h3>
+                <ul className="flex flex-col gap-4">
+                  {NEAR_YOU_LINKS.map(({ label, href }) => (
+                    <li key={href}>
+                      <Link href={href} className="group flex items-center text-sm font-light text-white/70 hover:text-white transition-all duration-300">
+                        <span className="w-0 h-px bg-[#C7A348] mr-0 opacity-0 group-hover:w-4 group-hover:mr-3 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
+                        <span className="transform group-hover:translate-x-1 transition-transform duration-300">{label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Column 5 - Order & Explore */}
-            <div className="lg:col-span-1">
-              <h3 className="font-semibold text-[#C7A348] uppercase tracking-wider text-xs mb-4">
-                Order and Explore
-              </h3>
-              <ul className="flex flex-col gap-2">
-                {ORDER_EXPLORE_LINKS.map(({ label, href }) => (
-                  <li key={href}>
-                    <Link href={href} className="text-sm text-white/70 hover:text-[#C7A348] transition-colors duration-200 hover:underline">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t-[1px] border-solid" style={{ borderColor: 'rgba(199, 163, 72, 0.3)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            <p>
+      <div className="relative z-10 border-t border-white/10 bg-black/10 backdrop-blur-md">
+        <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-16 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs font-light tracking-wide text-white/50">
               © {new Date().getFullYear()} Chopras Indian Restaurant Den Haag. All rights reserved.
             </p>
+            <div className="flex items-center gap-6 text-xs font-light text-white/50">
+              <Link href={`${base}/privacy`} className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
+              <Link href={`${base}/terms`} className="hover:text-white transition-colors duration-300">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -79,12 +79,12 @@ export default function WhySection({ locale = 'en' }: { locale?: Locale }) {
           className={`grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${gridInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
           {/* Hero card  -  col-span-7 row-span-2 */}
-          <div className="md:col-span-7 md:row-span-2 rounded-[2rem] bg-[#1B2B5E]/[0.03] p-2 ring-1 ring-[#1B2B5E]/[0.06]">
-            <div className="h-full min-h-[300px] md:min-h-[440px] rounded-[calc(2rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
+          <div className="md:col-span-7 md:row-span-2 rounded-[2rem] bg-[#D4AF37]/[0.06] p-2 ring-1 ring-[#D4AF37]/[0.12]">
+            <div className="h-full min-h-[300px] md:min-h-[440px] rounded-[calc(2rem-0.5rem)] bg-[#F7F8FC] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute -right-16 -bottom-16 w-72 h-72 rounded-full bg-[#D4AF37]/[0.06] blur-2xl pointer-events-none" />
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#1B2B5E]/5 flex items-center justify-center mb-8 ring-1 ring-[#1B2B5E]/8">
-                  <IconFlame className="w-7 h-7 text-[#1B2B5E]" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center mb-8 ring-1 ring-[#D4AF37]/15">
+                  <IconFlame className="w-7 h-7 text-[#D4AF37]" />
                 </div>
                 <div className="w-10 h-px bg-[#D4AF37] mb-6" />
                 <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] leading-tight max-w-sm">
@@ -94,7 +94,7 @@ export default function WhySection({ locale = 'en' }: { locale?: Locale }) {
                   {t.home.why1P}
                 </p>
               </div>
-              <div className="flex items-center gap-3 mt-10">
+              <div className="flex items-center gap-3 mt-10 relative z-10">
                 <span className="text-5xl font-vibes text-[#C7A348]">143</span>
                 <span className="text-sm text-[#1A1A1A]/40 leading-tight font-body">Dishes crafted<br />fresh daily</span>
               </div>
@@ -120,11 +120,11 @@ export default function WhySection({ locale = 'en' }: { locale?: Locale }) {
           </div>
 
           {/* Card 3  -  col-span-5 lower right */}
-          <div className="md:col-span-5 rounded-[2rem] bg-[#1B2B5E]/[0.03] p-2 ring-1 ring-[#1B2B5E]/[0.06]">
-            <div className="h-full min-h-[220px] rounded-[calc(2rem-0.5rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] p-8 md:p-10 flex flex-col justify-between">
+          <div className="md:col-span-5 rounded-[2rem] bg-[#D4AF37]/[0.06] p-2 ring-1 ring-[#D4AF37]/[0.12]">
+            <div className="h-full min-h-[220px] rounded-[calc(2rem-0.5rem)] bg-[#F7F8FC] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] p-8 md:p-10 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#1B2B5E]/5 flex items-center justify-center mb-6 ring-1 ring-[#1B2B5E]/8">
-                  <IconCalendar className="w-6 h-6 text-[#1B2B5E]" />
+                <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center mb-6 ring-1 ring-[#D4AF37]/15">
+                  <IconCalendar className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <div className="w-8 h-px bg-[#D4AF37] mb-4" />
                 <h3 className="font-vibes text-2xl text-[#C7A348] leading-tight">
@@ -136,10 +136,10 @@ export default function WhySection({ locale = 'en' }: { locale?: Locale }) {
               </div>
               <Link
                 href={`${base}/catering`}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-[#1B2B5E]/15 px-5 py-2.5 mt-6 self-start text-[#1B2B5E] text-xs font-semibold uppercase tracking-wider transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#1B2B5E]/40 hover:bg-[#1B2B5E]/5 active:scale-[0.98]"
+                className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4AF37]/30 px-5 py-2.5 mt-6 self-start text-[#C7A348] text-xs font-semibold uppercase tracking-wider transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#D4AF37]/60 hover:bg-[#D4AF37]/5 active:scale-[0.98]"
               >
                 Explore Catering
-                <span className="inline-flex w-5 h-5 items-center justify-center rounded-full bg-[#1B2B5E]/8 transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-px">
+                <span className="inline-flex w-5 h-5 items-center justify-center rounded-full bg-[#D4AF37]/15 transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-px">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" strokeWidth="1.5" stroke="currentColor">
                     <path d="M1.5 8.5L8.5 1.5M8.5 1.5H3.5M8.5 1.5V6.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
