@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { RESTAURANT } from '@/lib/constants'
 import { getLocalizedUrl } from '@/lib/utils'
@@ -140,8 +141,18 @@ export default function CorporateEventsPage({ params }: Props) {
       <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
 
       {/* HERO */}
-      <section className="bg-[#1B2B5E] py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-[#1B2B5E]">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/images/catering/corporate-dinners-at-chopras.png"
+            alt="Corporate events Den Haag at Chopras Indian Restaurant"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(27,43,94,0.85), rgba(27,43,94,0.95))' }} />
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-20">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
             <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
               • CATERING · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
@@ -194,6 +205,13 @@ export default function CorporateEventsPage({ params }: Props) {
               </>
             )}
           </div>
+          <Image
+            src="/images/catering/team-dinners.png"
+            alt="Team dinner catering at Chopras Indian Restaurant Den Haag"
+            width={800}
+            height={500}
+            className="rounded-2xl w-full object-cover mt-10"
+          />
         </div>
       </section>
 

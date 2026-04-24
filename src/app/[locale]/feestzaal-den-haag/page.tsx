@@ -213,6 +213,35 @@ export default function FeestzaalDenHaagPage({ params }: Props) {
         </div>
       </section>
 
+      {/* GALLERY */}
+      <section className="py-12 px-6 md:px-16 bg-[#FFFAF5]">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Image
+              src="/images/catering/proposal---1.png"
+              alt="Proposal dinner at Chopras Indian Restaurant Den Haag private hall"
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-64 object-cover"
+            />
+            <Image
+              src="/images/catering/proposal---2.png"
+              alt="Private dining proposal at Chopras Indian Restaurant Den Haag"
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-64 object-cover"
+            />
+            <Image
+              src="/images/catering/baby-shower-pic-1.png"
+              alt="Baby shower catering at Chopras Indian Restaurant Den Haag"
+              width={400}
+              height={300}
+              className="rounded-2xl w-full h-64 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* WHAT IS INCLUDED */}
       <section className="bg-white py-20 md:py-28 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
