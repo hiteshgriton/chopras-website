@@ -520,7 +520,7 @@ export default function FeestzaalDenHaagPage({ params }: Props) {
                   ? 'De privézaal past zich aan uw groep aan. Intiem familiediner of grote receptie, de ruimte werkt voor uw gelegenheid zonder verplichte vaste pakketten.'
                   : 'The private hall adapts to your group size. Intimate family dinner or large reception, the space works for your occasion without mandatory fixed packages.',
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <div key={item.title} className="group relative rounded-3xl bg-[#F7F8FC] p-2 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
                 <div className="absolute inset-0 rounded-3xl border border-[#D4AF37]/0 group-hover:border-[#D4AF37]/20 transition-colors duration-500" />
                 <div className="relative h-full rounded-[1.25rem] bg-white p-10 flex flex-col justify-between border border-gray-100">
