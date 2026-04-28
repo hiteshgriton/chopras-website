@@ -404,7 +404,7 @@ export default function IndianTakeawayPage({ params }: Props) {
                 For many families in Den Haag, Rijswijk and Zoetermeer this is not guaranteed elsewhere. Many restaurants offer a halal option but prepare non-halal meat in the same kitchen. At Chopras the structure is different. Fully halal from start to finish, for every dish, on every order.
               </p>
               <p className="font-body text-white/85 text-lg leading-relaxed">
-                4.9 stars on Google from over 800 verified reviews. No other Indian restaurant in Den Haag combines that rating with that volume. You order with complete confidence.
+                4.9 stars on Google from over 800 verified reviews. Few Indian restaurants in Den Haag show that combination of rating and review volume. You order with complete confidence.
               </p>
             </>
           )}

@@ -81,7 +81,7 @@ export function getRestaurantSchema(locale: Locale): Record<string, unknown> {
     '@type': ['FoodEstablishment', 'Restaurant'],
     '@id': `${SITE_URL}/#restaurant`,
     name: RESTAURANT.name,
-    description: 'Den Haag best Indian restaurant serving authentic North Indian food, halal dishes, vegetarian and vegan options, Indian street food, Indo Chinese food, and event catering with a private event hall.',
+    description: 'Den Haag Indian restaurant serving authentic North Indian food, halal dishes, vegetarian and vegan options, Indian street food, Indo Chinese food, and event catering with a private event hall.',
     image: [
       RESTAURANT.logo,
       `${SITE_URL}/og/home-og.jpg`,

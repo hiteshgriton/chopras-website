@@ -342,7 +342,7 @@ export default function FeestzaalDenHaagPage({ params }: Props) {
                   </p>
                   <p>
                     The kitchen standard at your event matches the restaurant. Spices are sourced directly from India and ground fresh every morning before service. The tandoor fires to <strong>400 degrees Celsius</strong>. The dishes at your tables are prepared by the same chefs who made Chopras Indian Restaurant the{' '}
-                    <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">highest-rated Indian restaurant in Den Haag</Link>
+                    <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">strongly rated Indian restaurant in Den Haag</Link>
                     . That standard does not drop for events.
                   </p>
                   </>

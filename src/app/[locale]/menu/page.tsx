@@ -91,7 +91,7 @@ const menuFaqsNl = [
   },
   {
     question: 'Wat zijn de populairste gerechten bij Chopras Indian Restaurant Den Haag?',
-    answer: 'De populairste gerechten bij Chopras Indian Restaurant Den Haag zijn butter chicken, mutton rogan josh, kip biryani, knoflooknaan uit de tandoorkleioven en de chaat street food-sectie. De Indo-Chinese gerechten, waaronder chilli chicken en Hakka noodles, zijn exclusief bij Chopras en nergens anders in Den Haag verkrijgbaar.',
+    answer: 'De populairste gerechten bij Chopras Indian Restaurant Den Haag zijn butter chicken, mutton rogan josh, kip biryani, knoflooknaan uit de tandoorkleioven en de chaat street food-sectie. De Indo-Chinese gerechten, waaronder chilli chicken en Hakka noodles, zijn exclusief bij Chopras en moeilijk te vinden in Den Haag.',
   },
   {
     question: 'Kan ik online bestellen bij Chopras Indian Restaurant voor bezorging in Den Haag?',
@@ -169,7 +169,7 @@ export default function LocaleMenuPage({ params }: Props) {
             </h2>
             <p className="text-[#3A3A4A] text-base leading-relaxed">
               {isNl
-                ? "Chopras Indian Restaurant Den Haag serveert 143 gerechten verdeeld over 13 categorieën op Leyweg 986, 2545 GW Den Haag. Het menu omvat Noord-Indiase curry's, tandoorigerechten uit een kleoven van 400 graden Celsius, biryani, Indiaas street food, chaat, naan, dal makhani en exclusief Indo-Chinees eten dat nergens anders in Den Haag verkrijgbaar is. Elk vleesgericht is halal gecertificeerd. Vegetarische en veganistische opties zijn duidelijk aangegeven. Specerijen worden rechtstreeks uit India betrokken en elke ochtend vers gemalen. Geopend van dinsdag tot zondag van 16:30 tot 22:30."
+                ? "Chopras Indian Restaurant Den Haag serveert 143 gerechten verdeeld over 13 categorieën op Leyweg 986, 2545 GW Den Haag. Het menu omvat Noord-Indiase curry's, tandoorigerechten uit een kleoven van 400 graden Celsius, biryani, Indiaas street food, chaat, naan, dal makhani en Indo-Chinees eten dat moeilijk te vinden is in Den Haag. Elk vleesgericht is halal gecertificeerd. Vegetarische en veganistische opties zijn duidelijk aangegeven. Specerijen worden rechtstreeks uit India betrokken en elke ochtend vers gemalen. Geopend van dinsdag tot zondag van 16:30 tot 22:30."
                 : 'Chopras Indian Restaurant Den Haag serves 143 dishes across 13 categories at Leyweg 986, 2545 GW Den Haag. The menu covers North Indian curries, tandoori dishes from a 400-degree Celsius clay oven, biryani, Indian street food, chaat, naan, dal makhani, and exclusive Indo Chinese dishes unavailable anywhere else in The Hague. Every meat dish is halal certified. Vegetarian and vegan options are clearly labelled throughout. Spices are sourced directly from India and ground fresh each morning. Open Tuesday to Sunday, 16:30 to 22:30.'}
             </p>
           </div>
@@ -326,7 +326,7 @@ export default function LocaleMenuPage({ params }: Props) {
               </h3>
               {isNl ? (
                 <p className="text-[#3A3A4A] text-base leading-relaxed">
-                  Chopras Indian Restaurant is het enige restaurant in Den Haag dat authentiek{' '}
+                  Chopras Indian Restaurant is een van de weinige restaurants in Den Haag dat authentiek{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link>{' '}
                   serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Een keuken die is ontstaan in de Chinese gemeenschappen van Kolkata en Mumbai. Moeilijk elders in Den Haag te vinden.
                 </p>

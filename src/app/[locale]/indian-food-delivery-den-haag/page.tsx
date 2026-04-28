@@ -227,9 +227,9 @@ export default function IndianFoodDeliveryPage({ params }: Props) {
               <div>
                 <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">Indo-Chinees</h3>
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant is het enige restaurant in Den Haag dat authentiek{' '}
+                  Chopras Indian Restaurant is een van de weinige restaurants in Den Haag dat authentiek{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link>{' '}
-                  serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Dit is een keukencategorie die nergens anders in Den Haag bestaat - en het is ook beschikbaar voor bezorging.
+                  serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Dit is een keukencategorie die moeilijk te vinden is in Den Haag - en het is ook beschikbaar voor bezorging.
                 </p>
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function IndianFoodDeliveryPage({ params }: Props) {
             </p>
           ) : (
             <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-              Yes. Chopras Indian Restaurant delivers food across Den Haag via Thuisbezorgd and Uber Eats, or directly by phone. The kitchen is at Leyweg 986, 2545 GW Den Haag, and every delivery order is cooked fresh after it is placed. Chopras is open Tuesday to Sunday from 16:30 to 22:30 and is fully halal certified. With 4.9 stars from 800+ Google reviews, it is the highest-rated{' '}
+              Yes. Chopras Indian Restaurant delivers food across Den Haag via Thuisbezorgd and Uber Eats, or directly by phone. The kitchen is at Leyweg 986, 2545 GW Den Haag, and every delivery order is cooked fresh after it is placed. Chopras is open Tuesday to Sunday from 16:30 to 22:30 and is fully halal certified. With 4.9 stars from 800+ Google reviews, it is one of the strongest-rated{' '}
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indian restaurant in Den Haag</Link>{' '}
               with{' '}
               <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">online ordering</Link>{' '}

@@ -242,7 +242,7 @@ export default function LocaleVacancyPage({ params }: Props) {
           ) : (
             <>
               <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
-                Den Haag&apos;s highest-rated Indian restaurant is growing
+                Den Haag&apos;s strongly rated Indian restaurant is growing
               </h2>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
                 Chopras Indian Restaurant opened on Leyweg in 2023 and earned{' '}

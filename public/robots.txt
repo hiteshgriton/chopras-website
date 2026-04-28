@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_next/
 Disallow: /checkout
 Disallow: /checkout/
 Disallow: /nl/checkout
@@ -11,53 +10,5 @@ Disallow: /order-confirmation/
 Disallow: /nl/order-confirmation
 Disallow: /nl/order-confirmation/
 Sitemap: https://chopras.nl/sitemap.xml
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Omgilibot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Diffbot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
 
 # llms.txt available at https://chopras.nl/llms.txt

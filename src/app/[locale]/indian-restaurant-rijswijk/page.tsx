@@ -193,7 +193,7 @@ export default function IndianRestaurantRijswijkPage({ params }: Props) {
                 <p>De Hindoestaanse gemeenschap in Rijswijk heeft generaties lang met Noord-Indiaas koken geleefd. Dat schept een andere maatstaf. Wanneer een familie uit Rijswijk aanschuift bij Chopras en <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken</Link> bestelt, ontdekt men geen nieuwe keuken - men trekt een vergelijking. De vraag is altijd dezelfde: smaakt dit zoals het gemaakt hoort te worden?</p>
                 <p>Het antwoord zit in de specerijen. Bij Chopras worden hele specerijen rechtstreeks uit India betrokken en elke ochtend vers gemalen voordat de keuken opengaat. De aromatische olien in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Kant-en-klare mengsels van leveranciers kunnen niet repliceren wat er gebeurt als specerijen zo vers zijn. Geen marketingclaim - het is de chemie van wat eten levend laat smaken in plaats van plat.</p>
                 <p>De tandoor op Leyweg 986 bereikt 400 graden Celsius. Die temperatuur is niet regelbaar - het is wat <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> zijn kooltjes aan de randen geeft en chicken tikka zijn rokerige korst. Geen gewone oven kan dit repliceren. Wanneer families uit Rijswijk <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori</Link> bestellen bij Chopras, ontvangen zij de versie bereid op de temperatuur waarvoor het gerecht ontworpen is.</p>
-                <p>Chopras is ook het enige restaurant in Den Haag dat authentiek <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link> serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles - een keukencategorie die nergens anders in Den Haag bestaat.</p>
+                <p>Chopras is ook een van de weinige restaurants in Den Haag dat authentiek <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link> serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles - een keukencategorie die moeilijk te vinden is in Den Haag.</p>
               </>
             ) : (
               <>
@@ -216,7 +216,7 @@ export default function IndianRestaurantRijswijkPage({ params }: Props) {
           <p className="font-body text-white/85 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             {isNl
               ? 'Geen enkel ander Indiaas restaurant in Den Haag heeft een vergelijkbare combinatie van score en reviewvolume. Een hoge score met weinig reviews zegt weinig. Chopras heeft beide.'
-              : 'No other Indian restaurant in Den Haag comes close to this combination of rating and review volume. A high rating with a low review count means nothing. Chopras has both.'}
+              : 'Few Indian restaurants in Den Haag show this combination of rating and review volume. A high rating with a low review count means nothing. Chopras has both.'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {(isNl ? [

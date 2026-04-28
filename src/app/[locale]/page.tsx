@@ -15,7 +15,7 @@ import LocationSection from '@/components/sections/LocationSection'
 import FinalCta from '@/components/sections/FinalCta'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
 import { getLocalizedUrl } from '@/lib/utils'
-import { getRestaurantSchema, getFounderSchema, getWebSiteSchema, getOrganizationSchema, getSpeakableSchema, getFaqPageSchema } from '@/lib/schema'
+import { getRestaurantSchema, getFounderSchema, getOrganizationSchema, getSpeakableSchema, getFaqPageSchema } from '@/lib/schema'
 import { homeFaqs, homeFaqsNl } from '@/lib/faq-data'
 
 function injectLinks(text: string, links: Array<[string, ReactNode]>): ReactNode {
@@ -77,7 +77,6 @@ export default function LocaleHomePage({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={getWebSiteSchema(locale)} />
       <JsonLd data={getRestaurantSchema(locale)} />
       <JsonLd data={getFounderSchema()} />
       <JsonLd data={getOrganizationSchema()} />
@@ -202,13 +201,13 @@ export default function LocaleHomePage({ params }: Props) {
             {isNl ? (
               <>
                 <p>
-                  Het volledige menu van Chopras Indian Restaurant in Den Haag telt 143 gerechten verdeeld over 13 categorieën. Noord-Indiaase curries. Streetfood.{' '}
+                  Het volledige menu van Chopras Indian Restaurant in Den Haag telt 143 gerechten verdeeld over 13 categorieën. Noord-Indiase curries. Streetfood.{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Biryani Den Haag</Link>.
                   {' '}Tandoori. Brood vers uit de kleioven. Een volledig{' '}
                   <Link href={`${base}/vegan-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">veganistisch menu</Link>{' '}
                   met soya chaap en dal makhani. Een kindermenu met milde gerechten en een verrassingscadeau. En een volledig{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees menu Den Haag</Link>{' '}
-                  dat nergens anders in Den Haag bestaat.
+                  dat moeilijk te vinden is in Den Haag.
                 </p>
                 <p>
                   Elk gerecht in alle 13 categorieën komt uit dezelfde keuken op Leyweg 986. Dezelfde specerijen elke ochtend vers gemalen. Dezelfde{' '}
@@ -305,7 +304,7 @@ export default function LocaleHomePage({ params }: Props) {
               </h3>
               {isNl ? (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is het hoogst beoordeelde halal Indiaas restaurant in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,7 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiaase gerechten zoals{' '}
+                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is een van de sterkst beoordeelde halal Indiase restaurants in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,7 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiase gerechten zoals{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>,
                   {' '}butter chicken, tandoori, dal makhani en chaat, bereid met dagelijks vers gemalen specerijen uit India. Het volledig{' '}
                   <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal gecertificeerd menu</Link>{' '}
@@ -313,7 +312,7 @@ export default function LocaleHomePage({ params }: Props) {
                 </p>
               ) : (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag, is the highest-rated Indian restaurant in Den Haag and The Hague, with 4.9 stars from 800+ verified Google reviews, 8.7 on TheFork, and an Excellent rating on Tripadvisor. Founded by Arun Chopra in 2023, Chopras serves authentic North Indian cuisine including{' '}
+                  Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag, is one of the strongest-rated Indian restaurants in Den Haag and The Hague, with 4.9 stars from 800+ verified Google reviews, 8.7 on TheFork, and an Excellent rating on Tripadvisor. Founded by Arun Chopra in 2023, Chopras serves authentic North Indian cuisine including{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>,
                   {' '}butter chicken, tandoori, dal makhani, and chaat, using spices ground fresh daily from India. The entire{' '}
                   <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal-certified menu</Link>{' '}

@@ -187,7 +187,7 @@ export default function HalalMenuPage({ params }: Props) {
             <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
               Chopras Indian Restaurant Den Haag at <strong>Leyweg 986</strong> serves a fully halal certified menu
               of 143 dishes. Every meat supplier is certified halal. Chicken, lamb and mutton are processed in a
-              dedicated halal-only kitchen. From{' '}
+              dedicated dedicated halal kitchen. From{' '}
               <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 biryani
               </Link>{' '}

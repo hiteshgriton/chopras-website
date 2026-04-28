@@ -168,7 +168,7 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
               <>
                 <p>Leidschendam grenst aan Voorburg, en Voorburg grenst aan Den Haag. Leyweg 986 ligt net over die grens - wat betekent dat <strong>Chopras Indian Restaurant</strong> voor de meeste Leidschendam-inwoners dichter bij is dan het centrum van Den Haag zelf. Via de A4 is de reistijd met de auto gemiddeld 10 minuten.</p>
                 <p>Betaald parkeren is beschikbaar in de omgeving van Leyweg. Openbaar vervoer verbindt Leidschendam ook rechtstreeks met het Leyweg-gebied via busverbindingen vanuit Voorburg-Noord. Tramlijn 2 stopt bij halte Leyweg, op loopafstand van de ingang.</p>
-                <p>Het menu telt 143 gerechten verdeeld over dertien categorieen - van <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffraan biryani</Link> en <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">langzaam gestoofde dal makhani</Link> tot authentieke straatgerechten die u nergens anders in Den Haag vindt. Alles uit dezelfde keuken. Dezelfde specerijen, elke avond.</p>
+                <p>Het menu telt 143 gerechten verdeeld over dertien categorieen - van <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffraan biryani</Link> en <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">langzaam gestoofde dal makhani</Link> tot authentieke straatgerechten die moeilijk te vinden zijn in Den Haag. Alles uit dezelfde keuken. Dezelfde specerijen, elke avond.</p>
               </>
             ) : (
               <>
@@ -193,7 +193,7 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
                 <p>De Hindoestaanse gemeenschap in en rond Leidschendam-Voorburg is een van de grootste in Zuid-Holland. Families die generaties lang met Noord-Indiaas koken zijn opgegroeid, herkennen meteen het verschil tussen een keuken die de moeite neemt en een keuken die het nabootst. Bij Chopras worden hele specerijen rechtstreeks uit India betrokken en elke ochtend vers gemalen - nog voor de eerste gast arriveert.</p>
                 <p>De aromatische olien in komijn, kardemom en koriander beginnen binnen uren na het malen te verdampen. Kant-en-klare mengsels van leveranciers laten nooit dezelfde diepte zien. Dat is de reden waarom <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken bij Chopras</Link> niet hetzelfde smaakt als elders - de saus is opgebouwd van specerijen die nog levend zijn.</p>
                 <p>De tandoor op Leyweg 986 bereikt 400 graden Celsius. Die temperatuur is niet regelbaar - het is wat <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> zijn kooltjes aan de randen geeft en <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chicken tikka</Link> zijn rokerige korst. Geen gewone oven kan dit repliceren.</p>
-                <p>Chopras is bovendien het enige restaurant in Den Haag dat authentiek <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link> serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles - een keukencategorie die nergens anders in Den Haag bestaat.</p>
+                <p>Chopras is bovendien een van de weinige restaurants in Den Haag dat authentiek <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link> serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles - een keukencategorie die moeilijk te vinden is in Den Haag.</p>
               </>
             ) : (
               <>
@@ -216,7 +216,7 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
           <p className="font-body text-white/85 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             {isNl
               ? 'Geen enkel ander Indiaas restaurant in Den Haag heeft een vergelijkbare combinatie van score en reviewvolume. Een hoge score met weinig reviews zegt niets. Chopras heeft beide.'
-              : 'No other Indian restaurant in Den Haag comes close to this combination of rating and review volume. A high rating with a low review count means nothing. Chopras has both.'}
+              : 'Few Indian restaurants in Den Haag show this combination of rating and review volume. A high rating with a low review count means nothing. Chopras has both.'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {(isNl ? [

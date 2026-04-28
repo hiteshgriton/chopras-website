@@ -297,7 +297,7 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
             </p>
           ) : (
             <p className="font-body text-white/85 text-lg leading-relaxed">
-              Yes. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> at Leyweg 986, Den Haag, is the highest-rated Indian restaurant in the city, with 4.9 stars from over 800 verified Google reviews. The kitchen is fully halal certified and serves <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 dishes</Link> from the North Indian tradition. Open Tuesday to Sunday from 16:30 to 22:30. Chopras is fifteen minutes by tram from Den Haag Centraal station. Paid parking is available in the Leyweg area.
+              Yes. <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> at Leyweg 986, Den Haag, is one of the strongest-rated Indian restaurants in the city, with 4.9 stars from over 800 verified Google reviews. The kitchen is fully halal certified and serves <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143 dishes</Link> from the North Indian tradition. Open Tuesday to Sunday from 16:30 to 22:30. Chopras is fifteen minutes by tram from Den Haag Centraal station. Paid parking is available in the Leyweg area.
             </p>
           )}
         </div>

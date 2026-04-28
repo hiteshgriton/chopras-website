@@ -59,7 +59,7 @@ const faqs = [
   {
     question: 'Hoeveel gerechten staan er op het menu van Chopras?',
     answer:
-      '143 gerechten verdeeld over 13 categorieën. Curries, tandoori gerechten, biryani varianten, chaat, pani puri, soya chaap, naan en een volledige Indo Chinese kaart. Chopras is het enige restaurant in Den Haag dat authentieke Indo Chinese keuken combineert met een volledig Noord-Indiaas menu.',
+      '143 gerechten verdeeld over 13 categorieën. Curries, tandoori gerechten, biryani varianten, chaat, pani puri, soya chaap, naan en een volledige Indo Chinese kaart. Chopras is een van de weinige restaurants in Den Haag dat authentieke Indo Chinese keuken combineert met een volledig Noord-Indiaas menu.',
   },
   {
     question: 'Wanneer is Chopras Indian Restaurant open in Den Haag?',
@@ -236,7 +236,7 @@ export default function BesteIndiaasPage({ params }: Props) {
             . Dal makhani, soya chaap, paneer gerechten en chaat. Gasten die geen vlees eten vinden hier net zoveel keuze als de rest van de tafel. Dat is niet vanzelfsprekend bij een Indiaas restaurant.
           </p>
           <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-8">
-            En dan is er iets wat nergens anders in Den Haag bestaat: de{' '}
+            En dan is er iets wat moeilijk te vinden is in Den Haag: de{' '}
             <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
               Indo Chinese keuken van Chopras
             </Link>

@@ -244,7 +244,7 @@ export default function MuttonRoganJoshPage({ params }: Props) {
                   The spices are not from a pre-mixed blend. At Leyweg 986, whole spices - Kashmiri dried red chillies, fennel, black cardamom, cinnamon, clove, and bay leaf - are <strong>sourced directly from India and ground fresh every morning</strong> before service. The volatile aromatic oils in whole spices begin evaporating within hours of grinding. By the time they reach the pot, they are at maximum potency.
                 </p>
                 <p>
-                  Chopras Indian Restaurant holds <strong>4.9 stars from 800+ Google reviews</strong> - the highest-rated Indian restaurant in Den Haag. Guests who know rogan josh specifically return for this dish. View the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">full menu</Link> to see all dishes available, or <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">reserve a table</Link> for this evening.
+                  Chopras Indian Restaurant holds <strong>4.9 stars from 800+ Google reviews</strong> - one of the strongest-rated Indian restaurants in Den Haag. Guests who know rogan josh specifically return for this dish. View the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">full menu</Link> to see all dishes available, or <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">reserve a table</Link> for this evening.
                 </p>
               </>
             )}
@@ -267,7 +267,7 @@ export default function MuttonRoganJoshPage({ params }: Props) {
               </p>
             ) : (
               <p>
-                Authentic mutton rogan josh in Den Haag is served at <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>, Leyweg 986, 2545 GW Den Haag. The dish uses halal bone-in lamb, Kashmiri red chillies, fennel, and spices sourced from India and ground fresh daily. Chopras holds a 4.9-star Google rating from 800+ verified reviews - the highest-rated Indian restaurant in Den Haag. Open Tuesday to Sunday, 16:30 to 22:30. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table</Link> or order online.
+                Authentic mutton rogan josh in Den Haag is served at <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link>, Leyweg 986, 2545 GW Den Haag. The dish uses halal bone-in lamb, Kashmiri red chillies, fennel, and spices sourced from India and ground fresh daily. Chopras holds a 4.9-star Google rating from 800+ verified reviews - one of the strongest-rated Indian restaurants in Den Haag. Open Tuesday to Sunday, 16:30 to 22:30. <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Reserve a table</Link> or order online.
               </p>
             )}
           </div>

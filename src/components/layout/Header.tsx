@@ -14,7 +14,8 @@ function LanguageSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname()
 
   function getLocalePath(newLocale: Locale): string {
-    const slug = pathname.startsWith('/nl') ? pathname.slice(3) : pathname
+    const withoutEnglishPrefix = pathname.replace(/^\/en(?=\/|$)/, '')
+    const slug = withoutEnglishPrefix.startsWith('/nl') ? withoutEnglishPrefix.slice(3) : withoutEnglishPrefix
     const clean = slug || '/'
     return newLocale === 'nl' ? `/nl${clean === '/' ? '' : clean}` : clean
   }

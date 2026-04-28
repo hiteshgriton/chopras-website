@@ -296,7 +296,7 @@ export default function IndianRestaurantWestlandPage({ params }: Props) {
                 <strong className="text-white">Full halal certification, not selective.</strong> Halal at Chopras is not a menu option. It is the entire kitchen. Every meat supplier, every dish, every preparation surface. There is no cross-contamination risk because there is no non-halal meat anywhere on the premises. Westland families who require confirmed halal food can order the full 143-dish menu without reservation.
               </p>
               <p className="font-body text-white/85 text-lg leading-relaxed">
-                <strong className="text-white">4.9 stars from 800+ guests.</strong> No other Indian restaurant in Den Haag has both the rating and the review volume that Chopras has. A high rating with few reviews is unreliable. 800+ guests over multiple months is a data point that is difficult to fabricate and even harder to maintain.
+                <strong className="text-white">4.9 stars from 800+ guests.</strong> Few Indian restaurants in Den Haag show both a strong rating and this review volume. A high rating with few reviews is unreliable. 800+ guests over multiple months is a data point that is difficult to fabricate and even harder to maintain.
               </p>
             </div>
           )}

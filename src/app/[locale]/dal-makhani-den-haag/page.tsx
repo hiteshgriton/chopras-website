@@ -189,7 +189,7 @@ export default function DalMakhaniPage({ params }: Props) {
                 <p>Dal makhani is a North Indian dish from Punjab. The version most people know was developed in the twentieth century in Delhi, at a restaurant that understood that butter and cream do not make lentils richer by being added last. They make it richer by cooking into the dish from the beginning.</p>
                 <p>At <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Chopras Indian Restaurant</Link> on Leyweg 986, the kitchen follows this approach. The butter goes in early. The cream is added in stages. The whole pot reduces slowly until the sauce is thick and glossy. This is <strong>Punjabi dal makhani as it was intended</strong> - not a soup with lentils floating in it, but a thick, clinging, deeply flavoured curry that you pull through hot <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori naan</Link> or eat over basmati rice and feel completely satisfied.</p>
                 <p>The spices are not from a bag. Chopras sources whole spices directly from India and grinds them fresh every morning before service. The difference is immediate and unmistakable. Cumin ground that morning smells alive. Cardamom sitting in a pre-mixed blend for weeks smells of nothing.</p>
-                <p>With a 4.9-star Google rating from 800+ verified reviews, Chopras is the highest-rated <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indian restaurant in Den Haag</Link>. Dal makhani is one of the dishes that brings guests back.</p>
+                <p>With a 4.9-star Google rating from 800+ verified reviews, Chopras is one of the strongest-rated <Link href={`${base}/beste-indiaas-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indian restaurant in Den Haag</Link>. Dal makhani is one of the dishes that brings guests back.</p>
               </>
             )}
           </div>
@@ -274,7 +274,7 @@ export default function DalMakhaniPage({ params }: Props) {
                   <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori naan</Link>
                   {' '}uit onze kleioven, of combineer het met een portie{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>
-                  {' '}voor een complete Noord-Indiaase maaltijd. Voor grotere groepen biedt Chopras ook{' '}
+                  {' '}voor een complete Noord-Indiase maaltijd. Voor grotere groepen biedt Chopras ook{' '}
                   <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indiaas catering in Den Haag</Link>
                   {' '}aan, inclusief dal makhani als onderdeel van een volledig menu.
                 </p>

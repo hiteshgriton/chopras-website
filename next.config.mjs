@@ -26,12 +26,19 @@ const nextConfig = {
       { source: '/privacy/', destination: '/privacy-policy', permanent: true },
       { source: '/nl/privacy', destination: '/nl/privacy-policy', permanent: true },
       { source: '/nl/privacy/', destination: '/nl/privacy-policy', permanent: true },
+      { source: '/nl/en/:path*', destination: '/nl/:path*', permanent: true },
 
       // Legacy flat URLs — now served at root, these point to root paths
       { source: '/reservations', destination: '/contact', permanent: true },
       { source: '/reservations/', destination: '/contact', permanent: true },
       { source: '/event-space-den-haag', destination: '/catering', permanent: true },
       { source: '/event-space-den-haag/', destination: '/catering', permanent: true },
+
+      // Dutch-only landing pages — avoid indexable/noindex English duplicates at root
+      { source: '/beste-indiaas-restaurant-den-haag', destination: '/nl/beste-indiaas-restaurant-den-haag', permanent: true },
+      { source: '/bruiloft-catering-den-haag', destination: '/nl/bruiloft-catering-den-haag', permanent: true },
+      { source: '/zaal-huren-den-haag', destination: '/nl/zaal-huren-den-haag', permanent: true },
+      { source: '/evenementenruimte-den-haag', destination: '/nl/evenementenruimte-den-haag', permanent: true },
     ]
   },
   async headers() {

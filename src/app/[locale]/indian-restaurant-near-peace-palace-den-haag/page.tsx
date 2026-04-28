@@ -256,7 +256,7 @@ export default function IndianRestaurantPeacePalacePage({ params }: Props) {
                 Den Haag herbergt meer internationale instellingen per vierkante kilometer dan vrijwel elke andere stad in Europa. Het Permanente Hof van Arbitrage. Het Internationaal Strafhof. De Organisatie voor het Verbod op Chemische Wapens. Gasten uit deze professionele wereld hebben Chopras Indian Restaurant gevonden. Zij keren terug omdat de kwaliteit standhoudt. Niet alleen een keer. Elke keer. 4.9 sterren van 800+ geverifieerde Google-recensies documenteert die consistentie.
               </p>
               <p className="font-body text-white/85 text-lg leading-relaxed">
-                Chopras is ook het enige restaurant in Den Haag dat{' '}
+                Chopras is ook een van de weinige restaurants in Den Haag dat{' '}
                 <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   authentiek Indo-Chinees eten
                 </Link>{' '}

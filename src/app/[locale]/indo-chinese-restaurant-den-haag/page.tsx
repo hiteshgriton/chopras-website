@@ -56,7 +56,7 @@ const faqsNl: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'Is er een Indo-Chinees restaurant in Den Haag?',
-    answer: 'Ja. Chopras Indian Restaurant op Leyweg 986 in Den Haag is het enige restaurant in Den Haag dat authentiek Indo-Chinees eten serveert. Het menu bevat chilli chicken, chilli paneer, Hakka noedels en Manchow soep naast een volledig Noord-Indiaas menu. Open van dinsdag tot en met zondag vanaf 16:30.',
+    answer: 'Ja. Chopras Indian Restaurant op Leyweg 986 in Den Haag is een van de weinige restaurants in Den Haag dat authentiek Indo-Chinees eten serveert. Het menu bevat chilli chicken, chilli paneer, Hakka noedels en Manchow soep naast een volledig Noord-Indiaas menu. Open van dinsdag tot en met zondag vanaf 16:30.',
   },
   {
     question: 'Welke Indo-Chinese gerechten serveert Chopras?',
@@ -210,7 +210,7 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
                 Als u eerder Indo-Chinees eten in Den Haag heeft gezocht, kent u het probleem al. Gewone Chinese restaurants serveren het niet. Indiase restaurants hebben het zelden op de kaart. De keuken bevindt zich tussen twee categorieën in, en de meeste restaurants in Den Haag hebben er nooit bij stilgestaan.
               </p>
               <p>
-                Chopras Indian Restaurant op Leyweg 986 is het enige restaurant in Den Haag dat authentiek Indo-Chinees eten serveert naast een volledig Noord-Indiaas menu. U kunt hier chilli chicken bestellen in dezelfde avond als een{' '}
+                Chopras Indian Restaurant op Leyweg 986 is een van de weinige restaurants in Den Haag dat authentiek Indo-Chinees eten serveert naast een volledig Noord-Indiaas menu. U kunt hier chilli chicken bestellen in dezelfde avond als een{' '}
                 <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   butter chicken
                 </Link>{' '}
@@ -332,7 +332,7 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Chopras Indian Restaurant
               </Link>{' '}
-              op Leyweg 986 in Den Haag is het enige restaurant in Den Haag dat authentiek Indo-Chinees eten serveert. Het menu bevat chilli chicken, chilli paneer, Hakka noedels en Manchow soep, bereid met kruiden die rechtstreeks uit India komen. Chopras heeft een 4.9-sterren beoordeling op basis van 800+ Google reviews en is open van dinsdag tot en met zondag van 16:30 tot 22:30.{' '}
+              op Leyweg 986 in Den Haag is een van de weinige restaurants in Den Haag dat authentiek Indo-Chinees eten serveert. Het menu bevat chilli chicken, chilli paneer, Hakka noedels en Manchow soep, bereid met kruiden die rechtstreeks uit India komen. Chopras heeft een 4.9-sterren beoordeling op basis van 800+ Google reviews en is open van dinsdag tot en met zondag van 16:30 tot 22:30.{' '}
               <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Reserveer een tafel
               </Link>{' '}
