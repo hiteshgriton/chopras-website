@@ -759,7 +759,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>For smaller groups celebrating at a restaurant, Chopras Indian Restaurant on Leyweg 986 is the recommended choice in Den Haag. The kitchen understands Diwali food traditions  -  the food is not adapted for a European audience but cooked as it is meant to be cooked. The atmosphere is warm and festive without requiring a private event booking.</p>
 
-<p>For larger Diwali celebrations  -  extended family dinners, community gatherings, cultural association events  -  Chopras Indian Restaurant's <a href="https://chopras.nl/party-venue-den-haag">private event hall</a> accommodates 25 to 80 guests and is available for hire. The catering comes from the same kitchen as the restaurant.</p>
+<p>For larger Diwali celebrations  -  extended family dinners, community gatherings, cultural association events  -  Chopras Indian Restaurant's <a href="https://chopras.nl/feestzaal-den-haag">private event hall</a> accommodates 25 to 80 guests and is available for hire. The catering comes from the same kitchen as the restaurant.</p>
 
 <h2>What to Order at Chopras Indian Restaurant for Diwali</h2>
 
@@ -779,7 +779,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>For a private event  -  a family Diwali dinner in the event hall, a community celebration, or a Diwali-themed corporate event  -  contact Chopras Indian Restaurant via the <a href="https://chopras.nl/catering#catering-form">catering enquiry form</a> as early as possible. October and November bookings for the event hall go quickly. The earlier you contact us, the more flexibility there is in menu planning.</p>
 
-<p>The <a href="https://chopras.nl/party-venue-den-haag">party venue page</a> has full details of the event hall capacity, what is included, and how the booking process works. The <a href="https://chopras.nl/menu">full menu</a> covers all the dishes available for Diwali dinners at Chopras Indian Restaurant.</p>
+<p>The <a href="https://chopras.nl/feestzaal-den-haag">party venue page</a> has full details of the event hall capacity, what is included, and how the booking process works. The <a href="https://chopras.nl/menu">full menu</a> covers all the dishes available for Diwali dinners at Chopras Indian Restaurant.</p>
 
 <p>Diwali happens once a year. The food should be worthy of the occasion.</p>
 `,

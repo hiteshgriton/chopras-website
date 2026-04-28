@@ -285,7 +285,7 @@ export default function Footer({ locale }: { locale: Locale }) {
               © {new Date().getFullYear()} Chopras Indian Restaurant Den Haag. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-xs font-light text-white/50">
-              <Link href={`${base}/privacy`} className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
+              <Link href={`${base}/privacy-policy`} className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
               <Link href={`${base}/terms`} className="hover:text-white transition-colors duration-300">Terms of Service</Link>
             </div>
           </div>

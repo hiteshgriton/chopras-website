@@ -82,7 +82,7 @@ export default function LocaleHomePage({ params }: Props) {
       <JsonLd data={getFounderSchema()} />
       <JsonLd data={getOrganizationSchema()} />
       <JsonLd data={getSpeakableSchema(locale)} />
-      <JsonLd data={getFaqPageSchema(homeFaqs)} />
+      <JsonLd data={getFaqPageSchema(isNl ? homeFaqsNl : homeFaqs)} />
 
       {/* 1  -  Hero */}
       <HeroSection locale={locale} />

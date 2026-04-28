@@ -159,9 +159,9 @@ export default function LocaleContactPage({ params }: Props) {
                   • VISIT US · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
                 </span>
               </div>
-              <h2 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mt-2 mb-2 leading-[1.3]">
+              <h1 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mt-2 mb-2 leading-[1.3]">
                 {isNl ? 'Reserveer uw Tafel bij Chopras' : 'Reserve Your Table at Chopras'}
-              </h2>
+              </h1>
               <p className="text-[#1A1A1A]/60 text-sm mt-2 mb-6">
                 {isNl
                   ? 'Open dinsdag t/m zondag · 16:30 tot 22:30 · Leyweg 986, Den Haag'

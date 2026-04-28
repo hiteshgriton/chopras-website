@@ -17,8 +17,15 @@ const nextConfig = {
   async redirects() {
     return [
       // Page consolidation — /en/ prefix kept here because middleware will then strip it
-      { source: '/en/party-venue-den-haag', destination: '/en/feestzaal-den-haag', permanent: true },
+      { source: '/party-venue-den-haag', destination: '/feestzaal-den-haag', permanent: true },
+      { source: '/en/party-venue-den-haag', destination: '/feestzaal-den-haag', permanent: true },
       { source: '/nl/party-venue-den-haag', destination: '/nl/feestzaal-den-haag', permanent: true },
+      { source: '/about-us', destination: '/about', permanent: true },
+      { source: '/about-us/', destination: '/about', permanent: true },
+      { source: '/privacy', destination: '/privacy-policy', permanent: true },
+      { source: '/privacy/', destination: '/privacy-policy', permanent: true },
+      { source: '/nl/privacy', destination: '/nl/privacy-policy', permanent: true },
+      { source: '/nl/privacy/', destination: '/nl/privacy-policy', permanent: true },
 
       // Legacy flat URLs — now served at root, these point to root paths
       { source: '/reservations', destination: '/contact', permanent: true },
