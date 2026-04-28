@@ -276,7 +276,7 @@ export default function IndianRestaurantPeacePalacePage({ params }: Props) {
                 Den Haag hosts more international institutions per square kilometre than almost anywhere else in Europe. The Permanent Court of Arbitration. The International Criminal Court. The Organisation for the Prohibition of Chemical Weapons. Guests from this professional world have found Chopras Indian Restaurant. They return because the quality holds. Not just once. Every visit. 4.9 stars from 800+ verified Google reviews documents that consistency.
               </p>
               <p className="font-body text-white/85 text-lg leading-relaxed">
-                Chopras is also the only restaurant in Den Haag serving{' '}
+                Chopras also serves{' '}
                 <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   authentic Indo Chinese food
                 </Link>{' '}

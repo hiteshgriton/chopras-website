@@ -174,7 +174,7 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
                 Our <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani</Link>, <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken</Link>, and <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori</Link> are made with spices sourced directly from India and ground fresh every morning in our kitchen. Not from a bag. Not from a supplier blend. This is the difference that brings commuters and tourists back to Leyweg, evening after evening.
               </p>
               <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                At 4.9 stars from over 800 Google reviews, Chopras Indian Restaurant is the highest-rated Indian restaurant in Den Haag. No other restaurant in the city combines this rating with this volume. A high rating with few reviews means nothing. Chopras has both.
+                At 4.9 stars from over 800 Google reviews, Chopras Indian Restaurant is one of the strongest-rated Indian restaurants in Den Haag by both rating and review volume. A high rating becomes more meaningful when it is supported by hundreds of reviews, and Chopras has both.
               </p>
             </div>
           )}
@@ -343,7 +343,7 @@ export default function IndianRestaurantCentraalPage({ params }: Props) {
             </Link>
             <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
               <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">Indo Chinese</p>
-              <p className="font-body text-[#1B2B5E] font-semibold">{isNl ? 'Het enige Indo Chinese restaurant in Den Haag' : 'The only Indo Chinese restaurant in Den Haag'}</p>
+              <p className="font-body text-[#1B2B5E] font-semibold">{isNl ? 'Authentiek Indo-Chinees eten in Den Haag' : 'Authentic Indo Chinese food in Den Haag'}</p>
             </Link>
             <Link href={`${base}/catering`} className="block p-6 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-lg transition-all">
               <p className="text-[#D4AF37] text-sm font-semibold uppercase tracking-widest mb-2">{isNl ? 'Catering' : 'Catering'}</p>

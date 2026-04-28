@@ -260,9 +260,9 @@ export default function IndianFoodDeliveryPage({ params }: Props) {
               <div>
                 <h3 className="font-vibes text-3xl md:text-4xl text-[#C7A348] mb-4 leading-[1.3]">Indo Chinese</h3>
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant is the only restaurant in Den Haag serving authentic{' '}
+                  Chopras Indian Restaurant serves authentic{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link>{' '}
-                  alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles, Manchow soup. This is a cuisine category that does not exist anywhere else in Den Haag - and it is available for delivery.
+                  alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles, Manchow soup. This is a cuisine category that is hard to find elsewhere in Den Haag - and it is available for delivery.
                 </p>
               </div>
             </div>

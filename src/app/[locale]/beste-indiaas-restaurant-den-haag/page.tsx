@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    robots: locale === 'en' ? { index: false, follow: true } : undefined,
     alternates: {
       canonical: getLocalizedUrl(locale, 'beste-indiaas-restaurant-den-haag'),
       languages: {
@@ -48,7 +49,7 @@ const faqs = [
   {
     question: 'Wat maakt Chopras het beste Indiaas restaurant in Den Haag?',
     answer:
-      'Chopras Indian Restaurant scoort 4,9 sterren op Google van meer dan 800 gasten, een 8,6 op TheFork en Excellent op Tripadvisor. De keuken maalt specerijen elke ochtend vers van hele specerijen rechtstreeks uit India. Elk gerecht is volledig halal gecertificeerd. De tandoor bereikt 400 graden Celsius. Dat zijn geen marketingclaims. Dat zijn kooktechnieken die u terugvindt in elk bord dat wij serveren.',
+      'Chopras Indian Restaurant scoort 4,9 sterren op Google van meer dan 800 gasten, een 8,7 op TheFork en Excellent op Tripadvisor. De keuken maalt specerijen elke ochtend vers van hele specerijen rechtstreeks uit India. Elk gerecht is volledig halal gecertificeerd. De tandoor bereikt 400 graden Celsius. Dat zijn geen marketingclaims. Dat zijn kooktechnieken die u terugvindt in elk bord dat wij serveren.',
   },
   {
     question: 'Is Chopras Indian Restaurant volledig halal gecertificeerd?',
@@ -126,10 +127,10 @@ export default function BesteIndiaasPage({ params }: Props) {
             De beoordelingen spreken voor zich
           </h2>
           <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
-            <strong>4,9 sterren op Google van meer dan 800 gasten.</strong> Op TheFork scoort Chopras Indian Restaurant een 8,6. Op Tripadvisor valt het restaurant in de categorie Excellent. Drie onafhankelijke platforms, drie beoordelingssystemen, één conclusie. Het beste Indiaas restaurant in Den Haag is geen zelfbenoemde titel.
+            <strong>4,9 sterren op Google van meer dan 800 gasten.</strong> Op TheFork scoort Chopras Indian Restaurant een 8,7. Op Tripadvisor valt het restaurant in de categorie Excellent. Drie onafhankelijke platforms, drie beoordelingssystemen, één conclusie. Het beste Indiaas restaurant in Den Haag is geen zelfbenoemde titel.
           </p>
           <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed mb-4">
-            Hoge sterren met een handvol beoordelingen zeggen weinig. Elk nieuw restaurant heeft enthousiaste eerste gasten. Wat dit anders maakt is het volume. Meer dan 800 mensen namen de moeite om hun ervaring te beschrijven. Die combinatie van hoge beoordeling en groot volume komt bij geen enkel ander Indiaas restaurant in Den Haag voor.
+            Hoge sterren met een handvol beoordelingen zeggen weinig. Elk nieuw restaurant heeft enthousiaste eerste gasten. Wat dit anders maakt is het volume. Meer dan 800 mensen namen de moeite om hun ervaring te beschrijven. Die combinatie van hoge beoordeling en groot volume is zeldzaam bij Indiase restaurants in Den Haag.
           </p>
           <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
             Gasten schrijven over de versheid. Over kruiden die anders smaken dan elders. Over het gevoel dat zij echte kookkunst van een authentiek Indiaas restaurant Den Haag hebben gegeten en niet een Westerse interpretatie ervan. Bekijk het{' '}
@@ -239,7 +240,7 @@ export default function BesteIndiaasPage({ params }: Props) {
             <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
               Indo Chinese keuken van Chopras
             </Link>
-            . Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Dit is een culinaire categorie die in geen enkel ander restaurant in Den Haag op het menu staat.
+            . Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Dit is een culinaire categorie die moeilijk elders in Den Haag te vinden is.
           </p>
           <Link
             href={`${base}/menu`}

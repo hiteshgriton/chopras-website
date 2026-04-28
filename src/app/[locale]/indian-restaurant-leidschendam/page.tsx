@@ -174,7 +174,7 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
               <>
                 <p>Leidschendam borders Voorburg, and Voorburg borders Den Haag. Leyweg 986 sits just across that boundary - which means <strong>Chopras Indian Restaurant</strong> is closer for most Leidschendam residents than Den Haag city centre itself. Via the A4 motorway, the average drive is 10 minutes.</p>
                 <p>Paid parking is available in the Leyweg area. Public transport also connects Leidschendam directly to the Leyweg area via bus routes from Voorburg-Noord. Tram line 2 stops at Leyweg, a short walk from the entrance.</p>
-                <p>The menu spans 143 dishes across thirteen categories - from <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffron biryani</Link> and <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">slow-cooked dal makhani</Link> to authentic street food that does not exist anywhere else in Den Haag. All from the same kitchen. Same spices, every evening.</p>
+                <p>The menu spans 143 dishes across thirteen categories - from <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">saffron biryani</Link> and <Link href={`${base}/dal-makhani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">slow-cooked dal makhani</Link> to authentic street food that is hard to find elsewhere in Den Haag. All from the same kitchen. Same spices, every evening.</p>
               </>
             )}
           </div>
@@ -200,7 +200,7 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
                 <p>The Hindustani community in and around Leidschendam-Voorburg is one of the largest in South Holland. Families who have grown up with North Indian cooking for generations spot the difference immediately between a kitchen that takes care and one that cuts corners. At Chopras, whole spices are sourced directly from India and ground fresh every morning - before the first guest arrives.</p>
                 <p>The aromatic oils in cumin, cardamom, and coriander start evaporating within hours of grinding. Pre-mixed blends from suppliers never achieve the same depth. That is why <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken at Chopras</Link> does not taste like anywhere else - the sauce is built from spices that are still alive.</p>
                 <p>The tandoor at Leyweg 986 reaches 400 degrees Celsius. That temperature is not adjustable - it is what gives <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> its char on the edges and <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chicken tikka</Link> its smoky crust. No conventional oven can replicate this.</p>
-                <p>Chopras is also the only restaurant in Den Haag serving authentic <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link> alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles - a cuisine category that does not exist anywhere else in The Hague.</p>
+                <p>Chopras also serves authentic <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link> in Den Haag alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles - a cuisine category that is hard to find elsewhere in The Hague.</p>
               </>
             )}
           </div>
@@ -220,11 +220,11 @@ export default function IndianRestaurantLeidschendamPage({ params }: Props) {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {(isNl ? [
-              { stat: '4.9 Sterren', desc: 'Google-beoordeling van 800+ geverifieerde reviews. Ook 8.6 op TheFork en Excellent op Tripadvisor. Meer reviews op een hogere score dan enig ander Indiaas restaurant in Den Haag.' },
+              { stat: '4.9 Sterren', desc: 'Google-beoordeling van 800+ geverifieerde reviews. Ook 8.7 op TheFork en Excellent op Tripadvisor. Meer reviews op een hogere score dan enig ander Indiaas restaurant in Den Haag.' },
               { stat: 'Volledig Halal', desc: 'Elk vleesgerecht, elke leverancier, elke bestelling. De gehele keuken is halal gecertificeerd - geen uitzonderingen en geen risico op kruisbesmetting.' },
               { stat: '143 Gerechten', desc: 'Dertien categorieen van biryani tot Indo-Chinees - het grootste authentieke Indiaase menu in Den Haag, beschikbaar voor dineren en bezorging naar Leidschendam.' },
             ] : [
-              { stat: '4.9 Stars', desc: 'Google rating from 800+ verified reviews. Also 8.6 on TheFork and Excellent on Tripadvisor. More reviews at a higher rating than any other Indian restaurant in Den Haag.' },
+              { stat: '4.9 Stars', desc: 'Google rating from 800+ verified reviews. Also 8.7 on TheFork and Excellent on Tripadvisor. More reviews at a higher rating than any other Indian restaurant in Den Haag.' },
               { stat: 'Fully Halal', desc: 'Every meat dish, every supplier, every order. The entire kitchen is halal certified - no exceptions and no cross-contamination risk.' },
               { stat: '143 Dishes', desc: 'Thirteen categories from biryani to Indo Chinese - the largest authentic Indian menu in Den Haag, available for dine-in and delivery to Leidschendam.' },
             ]).map((item) => (

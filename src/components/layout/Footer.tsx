@@ -30,21 +30,35 @@ export default function Footer({ locale }: { locale: Locale }) {
     { label: 'Indian Food Netherlands', href: `${base}/indian-food-netherlands` },
   ]
 
-  const CATERING_LINKS = [
-    { label: 'Indian Catering', href: `${base}/catering` },
-    { label: 'Wedding Catering', href: `${base}/indian-wedding-catering-den-haag` },
-    { label: 'Birthday Catering', href: `${base}/indian-birthday-catering-den-haag` },
-    { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
-    { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
-    { label: 'Bruiloft Catering', href: `${base}/bruiloft-catering-den-haag` },
-  ]
+  const CATERING_LINKS = locale === 'nl'
+    ? [
+        { label: 'Indiaas Catering', href: `${base}/catering` },
+        { label: 'Bruiloft Catering', href: `${base}/bruiloft-catering-den-haag` },
+        { label: 'Verjaardag Catering', href: `${base}/indian-birthday-catering-den-haag` },
+        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
+        { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
+      ]
+    : [
+        { label: 'Indian Catering', href: `${base}/catering` },
+        { label: 'Wedding Catering', href: `${base}/indian-wedding-catering-den-haag` },
+        { label: 'Birthday Catering', href: `${base}/indian-birthday-catering-den-haag` },
+        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
+        { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
+      ]
 
-  const FEESTZAAL_LINKS = [
-    { label: 'Feestzaal Huren Den Haag', href: `${base}/feestzaal-den-haag` },
-    { label: 'Zaal Huren Den Haag', href: `${base}/zaal-huren-den-haag` },
-    { label: 'Evenementenruimte Den Haag', href: `${base}/evenementenruimte-den-haag` },
-    { label: 'Party Venue Den Haag', href: `${base}/feestzaal-den-haag` },
-  ]
+  const FEESTZAAL_LINKS = locale === 'nl'
+    ? [
+        { label: 'Feestzaal Huren Den Haag', href: `${base}/feestzaal-den-haag` },
+        { label: 'Zaal Huren Den Haag', href: `${base}/zaal-huren-den-haag` },
+        { label: 'Evenementenruimte Den Haag', href: `${base}/evenementenruimte-den-haag` },
+        { label: 'Party Venue Den Haag', href: `${base}/feestzaal-den-haag` },
+      ]
+    : [
+        { label: 'Private Event Hall', href: `${base}/feestzaal-den-haag` },
+        { label: 'Wedding Catering', href: `${base}/indian-wedding-catering-den-haag` },
+        { label: 'Birthday Catering', href: `${base}/indian-birthday-catering-den-haag` },
+        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
+      ]
 
   const NEAR_YOU_LINKS = [
     { label: 'Indian Restaurant Delft', href: `${base}/indian-restaurant-delft` },

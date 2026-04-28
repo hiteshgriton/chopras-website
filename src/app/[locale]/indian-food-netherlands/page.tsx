@@ -228,7 +228,7 @@ export default function IndianFoodNetherlandsPage({ params }: Props) {
               <>
                 <p>At Chopras, whole spices are ground fresh every morning from ingredients sourced directly from India. Not from a supplier blend. Not from pre-packaged mixes. The spices arrive as whole seeds and barks, and the grinding happens in the kitchen before each service. This single practice accounts for more flavour difference than any other variable across the <Link href={`${base}/menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">143-dish menu</Link>.</p>
                 <p>The tandoor clay oven at Leyweg 986 reaches 400 degrees Celsius. Every order of <Link href={`${base}/tandoori-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">tandoori chicken</Link> and every <Link href={`${base}/naan-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">naan</Link> is cooked at the temperature North Indian cooking was designed for. No shortcut, no substitute, no approximation.</p>
-                <p>Chopras is also the only restaurant in Den Haag serving authentic <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link> alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles - a cuisine category that exists nowhere else in The Hague. For South Asian families who grew up with both cuisines on the same table, this is not a novelty. It is standard.</p>
+                <p>Chopras also serves authentic <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link> in Den Haag alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles - a cuisine category that is hard to find elsewhere in The Hague. For South Asian families who grew up with both cuisines on the same table, this is not a novelty. It is standard.</p>
               </>
             )}
           </div>
@@ -269,8 +269,8 @@ export default function IndianFoodNetherlandsPage({ params }: Props) {
           </h2>
           <p className="font-body text-white/85 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             {isNl
-              ? 'Geen enkel ander Indiaas restaurant in Den Haag combineert deze score met dit reviewvolume. Tripadvisor Excellent. TheFork 8.6. Een hoge beoordeling met weinig reviews zegt weinig. Chopras heeft beide.'
-              : 'No other Indian restaurant in Den Haag combines this rating with this review volume. Tripadvisor Excellent. TheFork 8.6. A high rating with a low review count means nothing. Chopras has both.'}
+              ? 'Weinig Indiase restaurants in Den Haag combineren deze score met dit reviewvolume. Tripadvisor Excellent. TheFork 8.7. Een hoge beoordeling met weinig reviews zegt weinig. Chopras heeft beide.'
+              : 'Few Indian restaurants in Den Haag combine this rating with this review volume. Tripadvisor Excellent. TheFork 8.7. A high rating with a low review count means nothing. Chopras has both.'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {(isNl ? [

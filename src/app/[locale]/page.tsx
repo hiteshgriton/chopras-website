@@ -170,7 +170,7 @@ export default function LocaleHomePage({ params }: Props) {
                 </div>
               </div>
               <p className="font-body text-[#1A1A1A] font-semibold mb-2">TheFork Rating</p>
-              <p className="font-body text-3xl font-bold text-[#1B2B5E] mb-1">8.6</p>
+              <p className="font-body text-3xl font-bold text-[#1B2B5E] mb-1">8.7</p>
               <p className="font-body text-[#666]">Top rated restaurant</p>
             </div>
             <div className="bg-white rounded-lg p-8 shadow-sm">
@@ -241,7 +241,7 @@ export default function LocaleHomePage({ params }: Props) {
                   <Link href={`${base}/vegan-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegan menu</Link>{' '}
                   with soya chaap and dal makhani. A dedicated kids menu with mild dishes and a surprise gift. And a complete{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese menu Den Haag</Link>{' '}
-                  that exists nowhere else in The Hague.
+                  that is hard to find elsewhere in The Hague.
                 </p>
                 <p>
                   Every dish across all 13 categories comes from the same kitchen at Leyweg 986 in Den Haag. The same spices ground fresh every morning. The same{' '}
@@ -305,7 +305,7 @@ export default function LocaleHomePage({ params }: Props) {
               </h3>
               {isNl ? (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is het hoogst beoordeelde halal Indiaas restaurant in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,6 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiaase gerechten zoals{' '}
+                  Chopras Indian Restaurant op Leyweg 986, 2545 GW Den Haag, is het hoogst beoordeelde halal Indiaas restaurant in Den Haag, met 4,9 sterren van 800+ geverifieerde Google-beoordelingen, 8,7 op TheFork en de beoordeling Uitstekend op Tripadvisor. Opgericht door Arun Chopra in 2023, serveert Chopras authentieke Noord-Indiaase gerechten zoals{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>,
                   {' '}butter chicken, tandoori, dal makhani en chaat, bereid met dagelijks vers gemalen specerijen uit India. Het volledig{' '}
                   <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal gecertificeerd menu</Link>{' '}
@@ -313,7 +313,7 @@ export default function LocaleHomePage({ params }: Props) {
                 </p>
               ) : (
                 <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed">
-                  Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag, is the highest-rated Indian restaurant in Den Haag and The Hague, with 4.9 stars from 800+ verified Google reviews, 8.6 on TheFork, and an Excellent rating on Tripadvisor. Founded by Arun Chopra in 2023, Chopras serves authentic North Indian cuisine including{' '}
+                  Chopras Indian Restaurant at Leyweg 986, 2545 GW Den Haag, is the highest-rated Indian restaurant in Den Haag and The Hague, with 4.9 stars from 800+ verified Google reviews, 8.7 on TheFork, and an Excellent rating on Tripadvisor. Founded by Arun Chopra in 2023, Chopras serves authentic North Indian cuisine including{' '}
                   <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">biryani Den Haag</Link>,
                   {' '}butter chicken, tandoori, dal makhani, and chaat, using spices ground fresh daily from India. The entire{' '}
                   <Link href={`${base}/halal-menu`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">halal-certified menu</Link>{' '}
@@ -333,11 +333,11 @@ export default function LocaleHomePage({ params }: Props) {
               )}
               {isNl ? (
                 <p>
-                  Chopras Indian Restaurant heeft 4,9 sterren op Google met 800+ beoordelingen en 8,6 op TheFork, waarmee het het hoogst beoordeelde Indiaas restaurant in Den Haag is. Het restaurant is volledig halal gecertificeerd en biedt uitgebreide <Link href={`${base}/blog/vegetarian-indian-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarische Indiaas eten Den Haag</Link> opties naast het volledige vleesmenu.
+                  Chopras Indian Restaurant heeft 4,9 sterren op Google met 800+ beoordelingen en 8,7 op TheFork, waarmee het het hoogst beoordeelde Indiaas restaurant in Den Haag is. Het restaurant is volledig halal gecertificeerd en biedt uitgebreide <Link href={`${base}/blog/vegetarian-indian-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarische Indiaas eten Den Haag</Link> opties naast het volledige vleesmenu.
                 </p>
               ) : (
                 <p>
-                  Chopras Indian Restaurant is rated 4.9 stars on Google with 800+ reviews and 8.6 on TheFork, making it the highest rated Indian restaurant in Den Haag and The Hague. The restaurant is fully halal certified and offers extensive <Link href={`${base}/blog/vegetarian-indian-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarian Indian food Den Haag</Link> options alongside its full meat menu.
+                  Chopras Indian Restaurant is rated 4.9 stars on Google with 800+ reviews and 8.7 on TheFork, making it the highest rated Indian restaurant in Den Haag and The Hague. The restaurant is fully halal certified and offers extensive <Link href={`${base}/blog/vegetarian-indian-food-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">vegetarian Indian food Den Haag</Link> options alongside its full meat menu.
                 </p>
               )}
               {isNl ? (

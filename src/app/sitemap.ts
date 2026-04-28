@@ -3,6 +3,12 @@ import { blogPosts } from '@/lib/blog-data'
 import { SITE_URL } from '@/lib/constants'
 
 const locales = ['en', 'nl'] as const
+const dutchOnlySlugs = new Set([
+  'beste-indiaas-restaurant-den-haag',
+  'bruiloft-catering-den-haag',
+  'zaal-huren-den-haag',
+  'evenementenruimte-den-haag',
+])
 
 interface SitemapPage {
   slug: string
@@ -78,7 +84,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // All static pages × both locales
   // English pages live at root (https://chopras.nl/slug), Dutch at /nl/
   const sitemapStaticPages = locales.flatMap((locale) =>
-    staticPages.map(({ slug, lastMod, priority, changeFreq }) => {
+    staticPages
+    .filter(({ slug }) => locale === 'nl' || !dutchOnlySlugs.has(slug))
+    .map(({ slug, lastMod, priority, changeFreq }) => {
       let url: string
       if (locale === 'nl') {
         url = slug ? `${SITE_URL}/nl/${slug}` : `${SITE_URL}/nl`

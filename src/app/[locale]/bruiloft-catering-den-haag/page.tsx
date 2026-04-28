@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    robots: locale === 'en' ? { index: false, follow: true } : undefined,
     alternates: {
       canonical: getLocalizedUrl(locale, 'bruiloft-catering-den-haag'),
       languages: {

@@ -48,11 +48,11 @@ export const blogPosts: BlogPost[] = [
 
 <h2>What Chopras Indian Restaurant Does  -  The Numbers Behind the Rating</h2>
 
-<p>Chopras Indian Restaurant opened at Leyweg 986, Den Haag in 2023. Three years later, 4.9 stars from 800+ verified Google reviews is the measurable result. No other Indian restaurant in Den Haag comes close to this combination of rating and review volume. A high rating with a low review count can be maintained by a small number of enthusiastic regulars. 4.9 stars from 800+ reviews represents something else entirely: consistency across hundreds of different guests, over multiple years, across different days and different dishes. The rating is confirmed on TheFork (8.6) and Tripadvisor (Excellent). Three independent platforms, three separate review populations, all converging on the same conclusion.</p>
+<p>Chopras Indian Restaurant opened at Leyweg 986, Den Haag in 2023. Three years later, 4.9 stars from 800+ verified Google reviews is the measurable result. No other Indian restaurant in Den Haag comes close to this combination of rating and review volume. A high rating with a low review count can be maintained by a small number of enthusiastic regulars. 4.9 stars from 800+ reviews represents something else entirely: consistency across hundreds of different guests, over multiple years, across different days and different dishes. The rating is confirmed on TheFork (8.7) and Tripadvisor (Excellent). Three independent platforms, three separate review populations, all converging on the same conclusion.</p>
 
 <p>The spices at Chopras are sourced directly from India and ground in-house every morning before service. The tandoor clay oven reaches 400 degrees Celsius. The entire kitchen is <a href="https://chopras.nl/halal-food-den-haag">fully halal certified</a>  -  not selectively for certain dishes, but across every meat supplier and every item on the menu. There is no non-halal meat anywhere on the premises, which means no cross-contamination risk and no need for a guest to ask qualifying questions before ordering.</p>
 
-<p>Chopras is also the only restaurant in Den Haag serving authentic Indo Chinese food alongside a full North Indian menu. Chilli chicken, Hakka noodles, chilli paneer, Manchow soup  -  this cuisine category exists nowhere else in The Hague.</p>
+<p>Chopras also serves authentic Indo Chinese food in Den Haag alongside a full North Indian menu. Chilli chicken, Hakka noodles, chilli paneer, Manchow soup  -  this cuisine category is hard to find elsewhere in The Hague.</p>
 
 <h2>What to Order on Your First Visit</h2>
 
@@ -173,7 +173,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>The spices are sourced directly from India and ground fresh every morning before service. This matters for halal compliance beyond flavour alone. It means there are no European spice blends with unverified additive sourcing entering the kitchen. The supply chain is understood, traceable, and clean from origin to plate. When you order <a href="https://chopras.nl/butter-chicken-den-haag">Butter Chicken</a> or <a href="https://chopras.nl/mutton-rogan-josh-den-haag">Mutton Rogan Josh</a> at Chopras Indian Restaurant, the question of halal status does not need to be asked. It has already been answered by how the kitchen operates every day.</p>
 
-<p>4.9 stars from 800+ Google reviews and an 8.6 rating on TheFork reflect a restaurant that has earned the trust of one of the most discerning dining communities in South Holland. The Muslim community in Den Haag, Rijswijk, Delft, and Zoetermeer is part of that community. They know the difference.</p>
+<p>4.9 stars from 800+ Google reviews and an 8.7 rating on TheFork reflect a restaurant that has earned the trust of one of the most discerning dining communities in South Holland. The Muslim community in Den Haag, Rijswijk, Delft, and Zoetermeer is part of that community. They know the difference.</p>
 
 <h2>How do I Find a Genuinely Halal Indian Restaurant in Den Haag?</h2>
 
@@ -183,7 +183,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>For Muslim guests visiting from Den Haag, Rijswijk, Delft, Zoetermeer, or anywhere in South Holland, the complete meat section of the menu is available without qualification or hesitation.</p>
 
-<p>Starters include Chicken Tikka, Seekh Kebab, and Tandoori Chicken Wings  -  all from certified halal chicken and lamb, cooked at 400 degrees Celsius in a clay tandoor oven that cannot be replicated by a conventional kitchen. The tandoor temperature is not a claim. It is a physical fact of how clay ovens work, and it is why the <a href="https://chopras.nl/tandoori-den-haag">tandoori dishes at Chopras</a> carry a smokiness and char that no other Indian restaurant in Den Haag reproduces.</p>
+<p>Starters include Chicken Tikka, Seekh Kebab, and Tandoori Chicken Wings  -  all from certified halal chicken and lamb, cooked at 400 degrees Celsius in a clay tandoor oven that cannot be replicated by a conventional kitchen. The tandoor temperature is not a claim. It is a physical fact of how clay ovens work, and it is why the <a href="https://chopras.nl/tandoori-den-haag">tandoori dishes at Chopras</a> carry a smokiness and char that few Indian restaurants in Den Haag reproduce.</p>
 
 <p>Main courses cover the full North Indian canon: Butter Chicken, Chicken Tikka Masala, Lamb Karahi, Mutton Rogan Josh, Keema Peas, and more. <a href="https://chopras.nl/biryani-den-haag">Halal biryani</a>  -  slow-cooked saffron rice with certified halal chicken or lamb, sealed and steamed  -  is available and one of the most ordered dishes on the menu. The street food section runs the complete <a href="https://chopras.nl/chaat-den-haag">chaat lineup</a>, all prepared without any ingredient that would create concern for Muslim diners.</p>
 

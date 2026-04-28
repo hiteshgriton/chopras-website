@@ -70,6 +70,26 @@ export default function Header({ locale }: { locale: Locale }) {
 
   const FEESTZAAL_LINK = { label: 'Feestzaal', href: `${base}/feestzaal-den-haag` }
 
+  const cateringLinks = locale === 'nl'
+    ? [
+        { label: 'Indiaas Catering Den Haag', href: `${base}/catering` },
+        { label: 'Bruiloft Catering', href: `${base}/bruiloft-catering-den-haag` },
+        { label: 'Zaal Huren Den Haag', href: `${base}/zaal-huren-den-haag` },
+        { label: 'Evenementenruimte Den Haag', href: `${base}/evenementenruimte-den-haag` },
+        { label: 'Verjaardag Catering', href: `${base}/indian-birthday-catering-den-haag` },
+        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
+        { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
+        { label: 'Indian Buffet Den Haag', href: `${base}/indian-buffet-den-haag` },
+      ]
+    : [
+        { label: 'Indian Catering Den Haag', href: `${base}/catering` },
+        { label: 'Wedding Catering', href: `${base}/indian-wedding-catering-den-haag` },
+        { label: 'Birthday Catering', href: `${base}/indian-birthday-catering-den-haag` },
+        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
+        { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
+        { label: 'Indian Buffet Den Haag', href: `${base}/indian-buffet-den-haag` },
+      ]
+
   const DROPDOWNS = [
     {
       key: 'menu',
@@ -111,15 +131,7 @@ export default function Header({ locale }: { locale: Locale }) {
     {
       key: 'catering',
       label: tr.common.nav.catering,
-      links: [
-        { label: 'Indian Catering Den Haag', href: `${base}/catering` },
-        { label: 'Wedding Catering', href: `${base}/indian-wedding-catering-den-haag` },
-        { label: 'Birthday Catering', href: `${base}/indian-birthday-catering-den-haag` },
-        { label: 'Corporate Events', href: `${base}/corporate-events-den-haag` },
-        { label: 'Diwali Dinner', href: `${base}/diwali-dinner-den-haag` },
-        { label: 'Bruiloft Catering', href: `${base}/bruiloft-catering-den-haag` },
-        { label: 'Indian Buffet Den Haag', href: `${base}/indian-buffet-den-haag` },
-      ],
+      links: cateringLinks,
     },
   ]
 

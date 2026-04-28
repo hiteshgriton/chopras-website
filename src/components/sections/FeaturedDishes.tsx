@@ -19,10 +19,10 @@ type Dish = {
 }
 
 const DISHES: Dish[] = [
-  { id: 'onion-bhaji', name: 'Onion Bhaji', category: 'Starters', image: '/images/dishes/onion-bhaji.webp', price: '€8.50' },
+  { id: 'onion-bhaji', name: 'Onion Bhaji', category: 'Starters', image: '/images/dishes/onion-bhaji.jpg', price: '€8.50' },
   { id: 'veg-samosa', name: 'Samosa', category: 'Starters', image: '/images/dishes/veg-samosa.webp', price: '€7.50' },
   { id: 'pani-puri', name: 'Pani Puri', category: 'Starters', image: '/images/dishes/pani-puri.webp', price: '€8.50' },
-  { id: 'chicken-seekh-kebab', name: 'Chicken Seekh Kebab', category: 'Starters', image: '/images/dishes/chicken-seekh-kebab.webp', price: '€20.50' },
+  { id: 'chicken-seekh-kebab', name: 'Chicken Seekh Kebab', category: 'Starters', image: '/images/dishes/chicken-seekh-kebab.jpg', price: '€20.50' },
   { id: 'paneer-tikka', name: 'Paneer Tikka', category: 'Tandoori', image: '/images/dishes/paneer-tikka.webp', price: '€18.00', isChefsFavourite: true },
   { id: 'chicken-tikka', name: 'Chicken Tikka', category: 'Tandoori', image: '/images/dishes/chicken-tikka.webp', price: '€20.50' },
   { id: 'tandoori-chicken', name: 'Tandoori Chicken', category: 'Tandoori', image: '/images/dishes/tandoori-chicken.webp', price: '€22.50' },

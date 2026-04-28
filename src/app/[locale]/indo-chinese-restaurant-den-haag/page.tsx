@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     nl: 'Indo Chinees Restaurant Den Haag | Chopras Indian Restaurant',
   }
   const descriptions = {
-    en: 'Indo Chinese food Den Haag at Chopras Indian Restaurant. Chilli chicken, chilli paneer and Hakka noodles. The only Indo Chinese restaurant in The Hague.',
+    en: 'Indo Chinese food Den Haag at Chopras Indian Restaurant. Chilli chicken, chilli paneer and Hakka noodles. A distinctive Indo Chinese restaurant in The Hague.',
     nl: 'Indo-Chinees eten Den Haag bij Chopras Indian Restaurant. Chilli chicken, chilli paneer en Hakka noedels. Het enige Indo-Chinese restaurant in Den Haag.',
   }
   return {
@@ -79,7 +79,7 @@ const faqsEn: Array<{ question: string; answer: string }> = [
   },
   {
     question: 'Is there an Indo Chinese restaurant in Den Haag?',
-    answer: 'Yes. Chopras Indian Restaurant at Leyweg 986, Den Haag is the only restaurant in The Hague serving authentic Indo Chinese food. The menu includes chilli chicken, chilli paneer, Hakka noodles and Manchow soup alongside a full North Indian menu. Open Tuesday to Sunday from 16:30.',
+    answer: 'Yes. Chopras Indian Restaurant at Leyweg 986, Den Haag serves authentic Indo Chinese food alongside a full North Indian menu. The menu includes chilli chicken, chilli paneer, Hakka noodles and Manchow soup. Open Tuesday to Sunday from 16:30.',
   },
   {
     question: 'What Indo Chinese dishes does Chopras serve?',
@@ -113,7 +113,7 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
         locale,
         'Indo Chinese Restaurant Den Haag',
         'Indo Chinees Restaurant Den Haag',
-        'Chopras Indian Restaurant is the only Indo Chinese restaurant in Den Haag. Chilli chicken, chilli paneer, Hakka noodles and Manchow soup. Halal certified. Open Tuesday to Sunday at Leyweg 986.',
+        'Chopras Indian Restaurant serves distinctive Indo Chinese food in Den Haag. Chilli chicken, chilli paneer, Hakka noodles and Manchow soup. Halal certified. Open Tuesday to Sunday at Leyweg 986.',
         'Chopras Indian Restaurant is het enige Indo-Chinese restaurant in Den Haag. Chilli chicken, chilli paneer, Hakka noedels en Manchow soep. Halal gecertificeerd. Open van dinsdag tot zondag op Leyweg 986.',
       )} />
 
@@ -131,7 +131,7 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
             {isNl
               ? 'Chilli chicken, chilli paneer en Hakka noedels. Het enige Indo-Chinese eten in Den Haag, bij Chopras Indian Restaurant op Leyweg 986.'
-              : 'Chilli chicken, chilli paneer and Hakka noodles. The only Indo Chinese food in The Hague, at Chopras Indian Restaurant on Leyweg 986.'}
+              : 'Chilli chicken, chilli paneer and Hakka noodles. Distinctive Indo Chinese food in The Hague, at Chopras Indian Restaurant on Leyweg 986.'}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -233,14 +233,14 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
                 If you have searched for Indo Chinese food in Den Haag before, you already know the problem. Regular Chinese restaurants do not serve it. Indian restaurants rarely carry it. The cuisine sits between two categories, and most restaurants in The Hague have never touched it.
               </p>
               <p>
-                Chopras Indian Restaurant at Leyweg 986 is the only restaurant in Den Haag serving authentic Indo Chinese food alongside a full North Indian menu. You can order chilli chicken here the same evening as a{' '}
+                Chopras Indian Restaurant at Leyweg 986 serves authentic Indo Chinese food alongside a full North Indian menu. You can order chilli chicken here the same evening as a{' '}
                 <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   butter chicken
                 </Link>{' '}
                 or a{' '}
                 <Link href={`${base}/biryani-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                   biryani
-                </Link>. No other restaurant in Den Haag offers that.
+                </Link>. That makes Chopras a strong choice when you want both North Indian dishes and Indo Chinese food in Den Haag.
               </p>
               <p>
                 This is not a token section on the menu. Chopras has built a dedicated Indo Chinese menu that stands alongside its North Indian dishes, not beneath them. Every dish is wok-tossed to order using the same fresh spices that go into every other dish in the kitchen.{' '}
@@ -344,11 +344,11 @@ export default function IndoChineseRestaurantPage({ params }: Props) {
               <Link href={`${base}/`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Chopras Indian Restaurant
               </Link>{' '}
-              at Leyweg 986, Den Haag is the only restaurant in The Hague serving authentic Indo Chinese food. The menu includes chilli chicken, chilli paneer, Hakka noodles and Manchow soup, made with spices sourced directly from India. Chopras holds a 4.9-star rating from 800+ Google reviews and is open Tuesday to Sunday from 16:30 to 22:30.{' '}
+              at Leyweg 986, Den Haag serves authentic Indo Chinese food alongside a full North Indian menu. The menu includes chilli chicken, chilli paneer, Hakka noodles and Manchow soup, made with spices sourced directly from India. Chopras holds a 4.9-star rating from 800+ Google reviews and is open Tuesday to Sunday from 16:30 to 22:30.{' '}
               <Link href={`${base}/contact`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 Reserve a table
               </Link>{' '}
-              and try the only Indo Chinese food in Den Haag.
+              and try Indo Chinese food in Den Haag.
             </p>
           )}
         </div>

@@ -16,6 +16,8 @@ export default function MenuHeroSection({ locale = 'en' }: { locale?: Locale }) 
         muted
         loop
         playsInline
+        preload="metadata"
+        poster="/images/hero/hero-poster.png"
       >
         <source src="https://res.cloudinary.com/dllsnz1uz/video/upload/v1776214380/chopras_video0415_bkyweg.mp4" type="video/mp4" />
       </video>

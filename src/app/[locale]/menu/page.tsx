@@ -328,13 +328,13 @@ export default function LocaleMenuPage({ params }: Props) {
                 <p className="text-[#3A3A4A] text-base leading-relaxed">
                   Chopras Indian Restaurant is het enige restaurant in Den Haag dat authentiek{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo-Chinees eten</Link>{' '}
-                  serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Een keuken die is ontstaan in de Chinese gemeenschappen van Kolkata en Mumbai. Nergens anders in Den Haag te vinden.
+                  serveert naast een volledig Noord-Indiaas menu. Chilli chicken, chilli paneer, Hakka noodles en Manchow soep. Een keuken die is ontstaan in de Chinese gemeenschappen van Kolkata en Mumbai. Moeilijk elders in Den Haag te vinden.
                 </p>
               ) : (
                 <p className="text-[#3A3A4A] text-base leading-relaxed">
-                  Chopras Indian Restaurant is the only restaurant in Den Haag serving authentic{' '}
+                  Chopras Indian Restaurant serves authentic{' '}
                   <Link href={`${base}/indo-chinese-restaurant-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indo Chinese food</Link>{' '}
-                  alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles, and Manchow soup. A cuisine born in the Chinese communities of Kolkata and Mumbai. Unavailable anywhere else in The Hague.
+                  alongside a full North Indian menu. Chilli chicken, chilli paneer, Hakka noodles, and Manchow soup. A cuisine born in the Chinese communities of Kolkata and Mumbai. Hard to find elsewhere in The Hague.
                 </p>
               )}
             </div>
