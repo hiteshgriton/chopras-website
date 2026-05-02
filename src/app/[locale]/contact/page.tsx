@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Phone, Mail, Clock, Bus } from 'lucide-react'
+import { MapPin, Phone, Clock, Bus } from 'lucide-react'
 import JsonLd from '@/components/seo/JsonLd'
 import FaqAccordion from '@/components/sections/FaqAccordion'
 import { RESTAURANT } from '@/lib/constants'
@@ -113,30 +113,6 @@ export default function LocaleContactPage({ params }: Props) {
     { name: tr.common.nav.contact, item: getLocalizedUrl(locale, 'contact') },
   ])
 
-  const quickCards = [
-    {
-      Icon: Phone,
-      title: isNl ? 'Bel Ons Rechtstreeks' : 'Call Us Directly',
-      body: isNl ? 'Voor reserveringen op dezelfde dag of dringende vragen' : 'For same-day bookings or urgent enquiries',
-      cta: `${isNl ? 'Bel' : 'Call'} ${RESTAURANT.contact.phoneDisplay}`,
-      href: `tel:${RESTAURANT.contact.phone}`,
-    },
-    {
-      Icon: Mail,
-      title: isNl ? 'Stuur een Bericht' : 'Send a Message',
-      body: isNl ? 'Wij reageren binnen 24 uur' : 'We reply within 24 hours',
-      cta: RESTAURANT.contact.email,
-      href: `mailto:${RESTAURANT.contact.email}`,
-    },
-    {
-      Icon: MapPin,
-      title: isNl ? 'Routebeschrijving' : 'Get Directions',
-      body: 'Leyweg 986, Den Haag',
-      cta: isNl ? 'Open in Maps' : 'Open in Maps',
-      href: 'https://maps.google.com/?q=Leyweg+986+Den+Haag',
-    },
-  ]
-
   return (
     <>
       <JsonLd data={restaurantSchema} />
@@ -144,7 +120,7 @@ export default function LocaleContactPage({ params }: Props) {
       <JsonLd data={getContactPageSchema(locale)} />
       <JsonLd data={getFaqPageSchema(isNl ? faqsNl : faqsEn)} />
 
-      {/* SECTION 1  -  RESERVATION SPLIT */}
+      {/* SECTION 1  -  DUAL FORM SPLIT */}
       <section
         className="pb-0"
         style={{ background: 'linear-gradient(135deg, #000066 0%, #0000FF 100%)' }}
@@ -152,7 +128,7 @@ export default function LocaleContactPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] items-start gap-0">
 
-            {/* LEFT  -  GHL Form */}
+            {/* LEFT  -  Reservation Form */}
             <div className="bg-white rounded-t-3xl lg:rounded-l-3xl lg:rounded-r-none p-8 md:p-10 shadow-2xl">
               <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
                 <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
@@ -170,113 +146,93 @@ export default function LocaleContactPage({ params }: Props) {
               <ReservationForm />
             </div>
 
-            {/* RIGHT  -  Contact Details */}
-            <div className="bg-transparent text-white p-8 md:p-10 flex flex-col justify-start gap-8">
-
-              {/* Restaurant info card */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
-                <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
-                  <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
-                    • FIND US •
-                  </span>
-                </div>
-                <h3 className="font-vibes text-3xl text-white mt-2 mb-6 leading-[1.3]">
-                  Chopras Indian Restaurant
-                </h3>
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      Leyweg 986, 2545 GW Den Haag<br />Netherlands
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <a
-                      href={`tel:${RESTAURANT.contact.phone}`}
-                      className="text-white/80 text-sm leading-relaxed hover:text-[#D4AF37] transition-colors"
-                    >
-                      {RESTAURANT.contact.phoneDisplay}
-                    </a>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Mail className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <a
-                      href={`mailto:${RESTAURANT.contact.email}`}
-                      className="text-white/80 text-sm leading-relaxed hover:text-[#D4AF37] transition-colors"
-                    >
-                      {RESTAURANT.contact.email}
-                    </a>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Clock className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
-                    <div className="text-sm leading-relaxed space-y-1">
-                      <p className="text-white/80">
-                        {isNl ? 'Dinsdag tot en met Zondag: 16:30 tot 22:30' : 'Tuesday to Sunday: 16:30 to 22:30'}
-                      </p>
-                      <p className="text-white/50">
-                        {isNl ? 'Maandag: Gesloten' : 'Monday: Closed'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            {/* RIGHT  -  Contact Form */}
+            <div className="bg-white rounded-t-3xl lg:rounded-r-3xl lg:rounded-l-none p-8 md:p-10 shadow-2xl">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
+                <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
+                  • CATERING · EVENTS · GENERAL ENQUIRIES •
+                </span>
               </div>
-
-              {/* Transport card */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <Bus className="text-[#D4AF37] w-5 h-5 flex-shrink-0" />
-                  <p className="text-white/70 text-sm">
-                    {isNl
-                      ? 'Tram en bus bereikbaar · Halte Leyweg op loopafstand'
-                      : 'Tram and bus accessible · Leyweg stop nearby'}
-                  </p>
-                </div>
+              <h2 className="font-vibes text-3xl text-[#C7A348] mt-2 mb-2 leading-[1.3]">
+                {isNl
+                  ? 'Catering, Evenement en Algemene Vragen'
+                  : 'Catering, Event and General Enquiries'}
+              </h2>
+              <p className="text-[#1A1A1A]/60 text-sm mt-2 mb-4">
+                {isNl
+                  ? 'Voor feestzaal huren, bruiloftscatering, bedrijfsdiners en alle overige vragen'
+                  : 'For feestzaal hire, wedding catering, corporate dinners and all other enquiries'}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <Link
+                  href={`${base}/feestzaal-den-haag`}
+                  className="border border-[#C7A348]/40 rounded-full px-3 py-1 text-xs text-[#C7A348] hover:bg-[#C7A348]/10 transition-colors"
+                >
+                  Feestzaal huren
+                </Link>
+                <Link
+                  href={`${base}/catering`}
+                  className="border border-[#C7A348]/40 rounded-full px-3 py-1 text-xs text-[#C7A348] hover:bg-[#C7A348]/10 transition-colors"
+                >
+                  Catering
+                </Link>
+                <Link
+                  href={`${base}/corporate-events-den-haag`}
+                  className="border border-[#C7A348]/40 rounded-full px-3 py-1 text-xs text-[#C7A348] hover:bg-[#C7A348]/10 transition-colors"
+                >
+                  {isNl ? 'Zakelijke Evenementen' : 'Corporate Events'}
+                </Link>
               </div>
-
-              {/* Map */}
-              <div className="rounded-3xl overflow-hidden" style={{ height: '280px' }}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.8!2d4.2742654!3d52.0487367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b12ba9dd450d%3A0xf932c69c8e71a16b!2sChopras%20Indian%20Restaurant%20Den%20Haag!5e0!3m2!1sen!2snl!4v1744000000000!5m2!1sen!2snl"
-                  width="100%"
-                  height="280"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-3xl"
-                  title="Chopras Indian Restaurant Den Haag location"
-                />
-              </div>
+              <ContactForm />
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* SECTION 2  -  QUICK ACTION CARDS */}
-      <section className="bg-[#F7F8FC] py-16 px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-          {quickCards.map(({ Icon, title, body, cta, href }) => (
-            <div
-              key={title}
-              className="flex flex-col justify-between bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="flex flex-col items-center text-center flex-1 mb-6">
-                <Icon className="text-[#D4AF37] w-10 h-10 mx-auto mb-4" />
-                <h3 className="font-vibes text-3xl text-[#C7A348] mb-2 leading-[1.3]">{title}</h3>
-                <p className="text-[#1A1A1A]/60 text-sm mt-2">{body}</p>
-              </div>
+      {/* SECTION 2  -  COMPACT INFO STRIP */}
+      <section className="bg-[#1B2B5E] py-10 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div className="flex items-start gap-3">
+              <MapPin className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
+              <p className="text-white text-sm leading-relaxed">Leyweg 986, 2545 GW Den Haag</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Phone className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
               <a
-                href={href}
-                target={href.startsWith('http') ? '_blank' : undefined}
-                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="w-full mt-auto inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#C7A348] bg-[rgba(199,163,72,0.1)] px-6 py-3 text-[#C7A348] text-sm font-medium uppercase tracking-wide transition-all duration-200 ease-out hover:bg-[#C7A348] hover:text-white active:scale-[0.98] min-h-[48px]"
+                href={`tel:${RESTAURANT.contact.phone}`}
+                className="text-white text-sm leading-relaxed hover:text-[#D4AF37] transition-colors"
               >
-                {cta}
+                {RESTAURANT.contact.phoneDisplay}
               </a>
             </div>
-          ))}
+            <div className="flex items-start gap-3">
+              <Clock className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
+              <p className="text-white text-sm leading-relaxed">
+                {isNl ? 'Dinsdag t/m Zondag 16:30 tot 22:30' : 'Tuesday to Sunday 16:30 to 22:30'}
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Bus className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
+              <p className="text-white text-sm leading-relaxed">
+                {isNl ? 'Tramlijn 2, halte Leyweg' : 'Tram line 2, Leyweg stop'}
+              </p>
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.8!2d4.2742654!3d52.0487367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b12ba9dd450d%3A0xf932c69c8e71a16b!2sChopras%20Indian%20Restaurant%20Den%20Haag!5e0!3m2!1sen!2snl!4v1744000000000!5m2!1sen!2snl"
+              width="100%"
+              height="260"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-2xl"
+              title="Chopras Indian Restaurant Den Haag location"
+            />
+          </div>
         </div>
       </section>
 
@@ -348,22 +304,7 @@ export default function LocaleContactPage({ params }: Props) {
         </div>
       </section>
 
-      {/* SECTION 4  -  CONTACT FORM */}
-      <section className="bg-white py-20 md:py-28 px-6 md:px-16">
-        <div className="max-w-2xl mx-auto text-center mb-10">
-          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
-            <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
-              • SEND A MESSAGE •
-            </span>
-          </div>
-          <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
-            {tr.contact.formH2}
-          </h2>
-        </div>
-        <ContactForm />
-      </section>
-
-      {/* SECTION 5  -  GEO BLOCK */}
+      {/* SECTION 4  -  GEO BLOCK */}
       <section className="bg-[#FFFAF5] py-20 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
@@ -399,7 +340,7 @@ export default function LocaleContactPage({ params }: Props) {
         </div>
       </section>
 
-      {/* SECTION 6  -  FAQ */}
+      {/* SECTION 5  -  FAQ */}
       <section className="bg-[#F7F8FC] py-20 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-vibes text-4xl md:text-5xl text-[#C7A348] mb-6 leading-[1.3]">
