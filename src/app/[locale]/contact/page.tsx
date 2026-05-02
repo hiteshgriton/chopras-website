@@ -122,14 +122,14 @@ export default function LocaleContactPage({ params }: Props) {
 
       {/* SECTION 1  -  DUAL FORM SPLIT */}
       <section
-        className="pb-0"
+        className="py-10 md:py-14"
         style={{ background: 'linear-gradient(135deg, #000066 0%, #0000FF 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] items-start gap-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] items-start gap-6 lg:gap-8">
 
             {/* LEFT  -  Reservation Form */}
-            <div className="bg-white rounded-t-3xl lg:rounded-l-3xl lg:rounded-r-none p-8 md:p-10 shadow-2xl">
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl ring-1 ring-white/10">
               <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
                 <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
                   • VISIT US · CHOPRAS INDIAN RESTAURANT · DEN HAAG •
@@ -147,7 +147,7 @@ export default function LocaleContactPage({ params }: Props) {
             </div>
 
             {/* RIGHT  -  Contact Form */}
-            <div className="bg-white rounded-t-3xl lg:rounded-r-3xl lg:rounded-l-none p-8 md:p-10 shadow-2xl">
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl ring-1 ring-white/10">
               <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-[#C7A348]/40 bg-white/10 backdrop-blur-sm mb-4">
                 <span className="text-[#C7A348] text-xs font-medium uppercase tracking-widest">
                   • CATERING · EVENTS · GENERAL ENQUIRIES •
@@ -210,7 +210,11 @@ export default function LocaleContactPage({ params }: Props) {
             <div className="flex items-start gap-3">
               <Clock className="text-[#D4AF37] w-5 h-5 mt-0.5 flex-shrink-0" />
               <p className="text-white text-sm leading-relaxed">
-                {isNl ? 'Dinsdag t/m Zondag 16:30 tot 22:30' : 'Tuesday to Sunday 16:30 to 22:30'}
+                {isNl ? (
+                  <>Dinsdag t/m Zondag 16:30 tot 22:30<br />Maandag gesloten</>
+                ) : (
+                  <>Tuesday to Sunday 16:30 to 22:30<br />Monday closed</>
+                )}
               </p>
             </div>
             <div className="flex items-start gap-3">
