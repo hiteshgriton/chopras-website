@@ -5,6 +5,7 @@ import { RESTAURANT } from '@/lib/constants'
 import { getLocalizedUrl } from '@/lib/utils'
 import { getBreadcrumbSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
+import EmailLink from '@/components/ui/EmailLink'
 
 type Props = { params: { locale: Locale } }
 
@@ -192,7 +193,7 @@ export default function PrivacyPolicyPage({ params }: Props) {
                     <li><strong>Recht op beperking:</strong> U kunt verzoeken de verwerking van uw gegevens te beperken.</li>
                     <li><strong>Recht op gegevensportabiliteit:</strong> U kunt uw gegevens ontvangen in een gestructureerd, veelgebruikt formaat.</li>
                   </ul>
-                  <p className="mt-4">Neem contact op met <strong>{RESTAURANT.contact.email}</strong> om een van deze rechten uit te oefenen.</p>
+                  <p className="mt-4">Neem contact op met <strong><EmailLink className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold" /></strong> om een van deze rechten uit te oefenen.</p>
                 </>
               ) : (
                 <>
@@ -204,7 +205,7 @@ export default function PrivacyPolicyPage({ params }: Props) {
                     <li><strong>Right to restrict processing:</strong> You can request processing of your data to be limited.</li>
                     <li><strong>Right to data portability:</strong> You can receive your data in a structured, commonly used format.</li>
                   </ul>
-                  <p className="mt-4">Contact <strong>{RESTAURANT.contact.email}</strong> to exercise any of these rights.</p>
+                  <p className="mt-4">Contact <strong><EmailLink className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold" /></strong> to exercise any of these rights.</p>
                 </>
               )}
             </div>
@@ -278,7 +279,7 @@ export default function PrivacyPolicyPage({ params }: Props) {
                   <div className="space-y-2 mt-4">
                     <p><strong>Chopras Indian Restaurant</strong></p>
                     <p>Leyweg 986<br />2545 GW Den Haag<br />Netherlands</p>
-                    <p>E-mail: <Link href={`mailto:${RESTAURANT.contact.email}`} className="text-[#D4AF37] hover:underline font-semibold">{RESTAURANT.contact.email}</Link></p>
+                    <p>E-mail: <EmailLink className="text-[#D4AF37] hover:underline font-semibold" /></p>
                     <p>Telefoon: <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:underline font-semibold">{RESTAURANT.contact.phoneDisplay}</Link></p>
                   </div>
                   <p className="mt-6">U kunt ook een klacht indienen bij de <Link href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline font-semibold">Autoriteit Persoonsgegevens (AP)</Link>, de Nederlandse toezichthouder voor gegevensbescherming.</p>
@@ -289,7 +290,7 @@ export default function PrivacyPolicyPage({ params }: Props) {
                   <div className="space-y-2 mt-4">
                     <p><strong>Chopras Indian Restaurant</strong></p>
                     <p>Leyweg 986<br />2545 GW Den Haag<br />Netherlands</p>
-                    <p>Email: <Link href={`mailto:${RESTAURANT.contact.email}`} className="text-[#D4AF37] hover:underline font-semibold">{RESTAURANT.contact.email}</Link></p>
+                    <p>Email: <EmailLink className="text-[#D4AF37] hover:underline font-semibold" /></p>
                     <p>Phone: <Link href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:underline font-semibold">{RESTAURANT.contact.phoneDisplay}</Link></p>
                   </div>
                   <p className="mt-6">You can also file a complaint with the <Link href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline font-semibold">Autoriteit Persoonsgegevens (AP)</Link>, the Dutch data protection authority.</p>

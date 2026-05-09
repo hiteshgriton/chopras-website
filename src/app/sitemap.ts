@@ -67,6 +67,10 @@ const staticPages: SitemapPage[] = [
   // About page
   { slug: 'about', lastMod: '2026-04-16', priority: 0.7, changeFreq: 'monthly' },
 
+  // Trust and legal pages
+  { slug: 'privacy-policy', lastMod: '2026-04-21', priority: 0.3, changeFreq: 'yearly' },
+  { slug: 'terms', lastMod: '2026-04-21', priority: 0.3, changeFreq: 'yearly' },
+
   // Landing pages
   { slug: 'beste-indiaas-restaurant-den-haag', lastMod: '2026-04-21', priority: 0.8, changeFreq: 'weekly' },
   { slug: 'family-restaurant-den-haag', lastMod: '2026-04-21', priority: 0.8, changeFreq: 'weekly' },

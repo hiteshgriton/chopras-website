@@ -5,6 +5,7 @@ import { RESTAURANT } from '@/lib/constants'
 import { getLocalizedUrl } from '@/lib/utils'
 import { getBreadcrumbSchema } from '@/lib/schema'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
+import EmailLink from '@/components/ui/EmailLink'
 
 type Props = { params: { locale: Locale } }
 
@@ -130,9 +131,7 @@ export default function TermsPage({ params }: Props) {
             </h2>
             <p>
               {isNl ? 'Voor vragen over deze voorwaarden kunt u contact opnemen via ' : 'For questions about these terms, contact us at '}
-              <a href={`mailto:${RESTAURANT.contact.email}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
-                {RESTAURANT.contact.email}
-              </a>
+              <EmailLink className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold" />
               {isNl ? ' of bel ' : ' or call '}
               <a href={`tel:${RESTAURANT.contact.phone}`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">
                 {RESTAURANT.contact.phoneDisplay}

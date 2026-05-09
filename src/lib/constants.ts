@@ -28,8 +28,9 @@ export const RESTAURANT = {
   social: {
     tripadvisor: 'https://www.tripadvisor.com/Restaurant_Review-g188633-d27464805-Reviews-Chopras_Indian_Restaurant-The_Hague_South_Holland_Province.html',
     facebook: 'https://www.facebook.com/choprasrestaurant',
-    instagram: 'https://www.instagram.com/choprasrestaurant',
-    youtube: 'https://www.youtube.com/@choprasrestaurant',
+    instagram: 'https://www.instagram.com/chopras.indianrestaurant/',
+    youtube: 'https://www.youtube.com/channel/UC-oVbHCXWzyiWeGsiNL-0xA',
+    x: 'https://x.com/choprasdenhaag',
     thefork: 'https://www.thefork.nl/restaurant/chopras-indian-restaurant-r825662',
     thuisbezorgd: 'https://www.thuisbezorgd.nl/menu/chopras-indian-street-food',
     ubereats: 'https://www.ubereats.com/nl/store/chopras-indian-restaurant/kFKhBtR-W3OkJyl2f6QmUg',

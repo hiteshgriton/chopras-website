@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { RESTAURANT } from '@/lib/constants'
 import { useInView } from '@/hooks/useInView'
 import { getTranslations, type Locale } from '@/lib/useTranslations'
+import EmailLink from '@/components/ui/EmailLink'
 
 type HourEntry = {
   day: string
@@ -103,12 +104,7 @@ export default function LocationSection({ locale = 'en' }: { locale?: Locale }) 
                 <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0 ring-1 ring-[#D4AF37]/15">
                   <IconMail className="w-4 h-4 text-[#D4AF37]" />
                 </div>
-                <a
-                  href={`mailto:${RESTAURANT.contact.email}`}
-                  className="font-body text-white/70 text-sm hover:text-white transition-colors duration-300"
-                >
-                  {RESTAURANT.contact.email}
-                </a>
+                <EmailLink className="font-body text-white/70 text-sm hover:text-white transition-colors duration-300" />
               </div>
 
               <div className="flex items-start gap-4">

@@ -27,9 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: getLocalizedUrl(locale, `blog/${post.slug}`),
       languages: {
         [post.language]: getLocalizedUrl(post.language, `blog/${post.slug}`),
-        'x-default': post.language === 'en'
-          ? getLocalizedUrl('en', `blog/${post.slug}`)
-          : getLocalizedUrl('en', 'blog'),
+        'x-default': getLocalizedUrl(post.language, `blog/${post.slug}`),
       },
     },
     openGraph: {
@@ -54,6 +52,20 @@ function formatDate(dateStr: string, locale: Locale): string {
   }).format(new Date(dateStr))
 }
 
+function localizeInternalLinks(html: string, locale: Locale): string {
+  return html.replace(
+    /href="https:\/\/chopras\.nl(\/[^"#?]*)?([#?][^"]*)?"/g,
+    (_match, path = '/', suffix = '') => {
+      if (locale === 'nl') {
+        const localizedPath = path.startsWith('/nl') ? path : `/nl${path === '/' ? '' : path}`
+        return `href="${localizedPath}${suffix}"`
+      }
+
+      return `href="${path}${suffix}"`
+    },
+  )
+}
+
 export default function LocaleBlogPostPage({ params }: Props) {
   const { locale, slug } = params
   const post = blogPosts.find((p) => p.slug === slug)
@@ -61,6 +73,7 @@ export default function LocaleBlogPostPage({ params }: Props) {
 
   const tr = getTranslations(locale)
   const base = locale === 'nl' ? '/nl' : ''
+  const localizedContent = localizeInternalLinks(post.content, locale)
   const relatedPosts = blogPosts
     .filter((p) => p.slug !== post.slug && p.language === locale)
     .slice(0, 2)
@@ -132,7 +145,7 @@ export default function LocaleBlogPostPage({ params }: Props) {
                 [&_[class*='sticky']]:relative [&_[class*='sticky']]:md:sticky
                 [&_[class*='absolute']]:relative [&_[class*='absolute']]:md:absolute
                 overflow-hidden"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: localizedContent }}
             />
 
             <aside className="hidden lg:block w-full lg:w-80">

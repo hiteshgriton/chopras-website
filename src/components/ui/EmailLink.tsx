@@ -6,7 +6,11 @@ import { useEffect, useState } from 'react'
 // btoa('info@chopras.nl') === 'aW5mb0BjaG9wcmFzLm5s'
 const ENCODED = 'aW5mb0BjaG9wcmFzLm5s'
 
-export default function EmailLink() {
+interface EmailLinkProps {
+  className?: string
+}
+
+export default function EmailLink({ className = 'text-[#D4AF37] hover:text-[#e8c84a] font-semibold' }: EmailLinkProps) {
   const [email, setEmail] = useState<string | null>(null)
 
   useEffect(() => {
@@ -16,10 +20,7 @@ export default function EmailLink() {
   if (!email) return null
 
   return (
-    <a
-      href={`mailto:${email}`}
-      className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold"
-    >
+    <a href={`mailto:${email}`} className={className}>
       {email}
     </a>
   )

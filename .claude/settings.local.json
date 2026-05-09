@@ -20,7 +20,8 @@
     ],
     "additionalDirectories": [
       "/Users/me/Desktop/Projects/chopras-website/menu_dishess",
-      "/Users/me/Desktop/Projects/chopras-website/.git"
+      "/Users/me/Desktop/Projects/chopras-website/.git",
+      "/Users/me/Desktop/Projects/chopras-website/src/app/[locale]/indian-restaurant-westland"
     ]
   }
 }
