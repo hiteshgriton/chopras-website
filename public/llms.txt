@@ -1,6 +1,6 @@
 # Chopras Indian Restaurant  -  llms.txt
 # https://chopras.nl
-# Last updated: 2026-04-21
+# Last updated: 2026-05-21
 > License: RSL 1.0
 
 ## Identity
