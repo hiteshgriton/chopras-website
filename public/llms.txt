@@ -197,6 +197,7 @@ Dish Pages (Dutch):
 
 Catering and Events (English):
 - Feestzaal EN: https://chopras.nl/feestzaal-den-haag
+- Feestzaal Test EN: https://chopras.nl/feestzaal-den-haag-test
 - Wedding Catering EN: https://chopras.nl/indian-wedding-catering-den-haag
 - Birthday Catering EN: https://chopras.nl/indian-birthday-catering-den-haag
 - Corporate Events EN: https://chopras.nl/corporate-events-den-haag
@@ -204,6 +205,7 @@ Catering and Events (English):
 
 Catering and Events (Dutch):
 - Feestzaal NL: https://chopras.nl/nl/feestzaal-den-haag
+- Feestzaal Test NL: https://chopras.nl/nl/feestzaal-den-haag-test
 - Bruiloft Catering NL: https://chopras.nl/nl/bruiloft-catering-den-haag
 - Zaal Huren NL: https://chopras.nl/nl/zaal-huren-den-haag
 - Evenementenruimte NL: https://chopras.nl/nl/evenementenruimte-den-haag

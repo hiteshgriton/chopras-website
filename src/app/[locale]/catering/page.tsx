@@ -329,6 +329,60 @@ export default function LocaleCateringPage({ params }: Props) {
         </div>
       </section>
 
+      {/* SPICE MILL SECTION — bg-white */}
+      <section className="bg-white py-20 md:py-28 px-6 md:px-16 border-t border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="font-vibes text-4xl text-[#C7A348] mb-6 leading-[1.4]">
+            {isNl ? 'Kruiden Die Leven, Niet Alleen Kleur Geven' : 'Spices That Live, Not Just Add Color'}
+          </h3>
+          <div className="space-y-4 text-[#1A1A1A] text-base md:text-lg leading-relaxed">
+            {isNl ? (
+              <>
+                <p>
+                  Het eten bij uw evenement is niet afkomstig van een externe cateraar en niet samengesteld uit een vast pakket. Het komt rechtstreeks uit de Chopras-keuken en wordt op de dag zelf vers bereid. Dit onderscheid klinkt eenvoudig. Het maakt het verschil.
+                </p>
+                <p>
+                  De meeste eventcateraars werken met kant-en-klare kruidenmengsels van een leverancier. Bij Chopras Indian Restaurant worden hele specerijen rechtstreeks uit India ingevoerd en elke ochtend vers gemalen vóór de service. De vluchtige aromatische verbindingen in komijn, kardemom en koriander bereiken hun hoogtepunt binnen uren na het malen. Uw evenementgasten eten het eten op het absolute hoogtepunt van zijn smaak. Dat is het verschil tussen Indiaas eten dat leeft en Indiaas eten dat uit een pot komt.
+                </p>
+                <p>
+                  Het menu voor uw evenement wordt samengesteld in overleg met ons team. Van{' '}
+                  <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken</Link>{' '}
+                  en{' '}
+                  <Link href={`${base}/mutton-rogan-josh-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">mutton rogan josh</Link>{' '}
+                  tot{' '}
+                  <Link href={`${base}/soya-chaap-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">soya chaap</Link>{' '}
+                  en{' '}
+                  <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chaat</Link>
+                  , alles van het restaurantmenu is beschikbaar. Vegetarische en veganistische gasten zijn volledig gedekt. Een buffet werkt goed voor grotere groepen; een meergangendiner met bordbediening geeft formele gelegenheden meer gewicht. Meer over onze volledige{' '}
+                  <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indiaas catering diensten in Den Haag</Link>.
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  The food at your event does not come from an outside caterer or a fixed package. It comes directly from the Chopras kitchen and is prepared fresh on the day. That distinction sounds simple. It makes all the difference.
+                </p>
+                <p>
+                  Most event caterers work from pre-mixed spice blends bought from a supplier. At Chopras Indian Restaurant, whole spices are sourced directly from India and ground fresh every morning before service. The volatile aromatic compounds in cumin, cardamom, and coriander peak within hours of grinding. Your event guests eat the food at its absolute best. That is the difference between Indian food that tastes alive and Indian food that tastes like it came from a jar.
+                </p>
+                <p>
+                  The menu for your event is built in consultation with our team. From{' '}
+                  <Link href={`${base}/butter-chicken-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">butter chicken</Link>{' '}
+                  and{' '}
+                  <Link href={`${base}/mutton-rogan-josh-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">mutton rogan josh</Link>{' '}
+                  to{' '}
+                  <Link href={`${base}/soya-chaap-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">soya chaap</Link>{' '}
+                  and{' '}
+                  <Link href={`${base}/chaat-den-haag`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">chaat</Link>
+                  , everything from the restaurant menu is available. Vegetarian and vegan guests are fully covered. A buffet works well for larger groups; a plated multi-course dinner adds formality to wedding receptions and corporate dinners. Explore our full{' '}
+                  <Link href={`${base}/catering`} className="text-[#D4AF37] hover:text-[#e8c84a] font-semibold">Indian catering services in Den Haag</Link>.
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* PRIVATE HALL — bg-white */}
       <section className="bg-white py-20 md:py-28 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
