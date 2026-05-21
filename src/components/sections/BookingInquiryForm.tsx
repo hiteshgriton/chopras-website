@@ -70,9 +70,15 @@ const labels = {
     messagePlaceholder: 'Any dietary requirements, layout preferences, or questions for the team...',
     submit: 'Send Enquiry',
     sending: 'Sending...',
-    successHeading: 'Enquiry Received',
+    successEyebrow: 'Enquiry Received',
+    successHeading: 'Thank You!',
     successBody: 'Thank you. We will review your request and send a quote within 24 hours. You can also call us directly on +31 6 30645930.',
     required: 'Required fields are marked with *',
+    errName: 'Please enter your full name',
+    errEmail: 'Please enter a valid email address',
+    errDate: 'Please select a preferred date',
+    errGuests: 'Please select the number of guests',
+    errEventType: 'Please select the type of event',
   },
   nl: {
     heading: 'Vraag een Gratis Offerte Aan',
@@ -92,9 +98,15 @@ const labels = {
     messagePlaceholder: 'Dieetwensen, opstellingsvoorkeur of vragen voor het team...',
     submit: 'Verstuur Aanvraag',
     sending: 'Verzenden...',
-    successHeading: 'Aanvraag Ontvangen',
+    successEyebrow: 'Aanvraag Ontvangen',
+    successHeading: 'Bedankt!',
     successBody: 'Dank u. Wij bekijken uw aanvraag en sturen binnen 24 uur een offerte. U kunt ons ook direct bellen op +31 6 30645930.',
     required: 'Verplichte velden zijn gemarkeerd met *',
+    errName: 'Vul uw volledige naam in',
+    errEmail: 'Vul een geldig e-mailadres in',
+    errDate: 'Selecteer een gewenste datum',
+    errGuests: 'Selecteer het aantal gasten',
+    errEventType: 'Selecteer het type evenement',
   },
 }
 
@@ -106,7 +118,8 @@ export default function BookingInquiryForm({ locale }: Props) {
 
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const [formError, setFormError] = useState<string | null>(null)
+  const [apiError, setApiError] = useState<string | null>(null)
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -118,13 +131,35 @@ export default function BookingInquiryForm({ locale }: Props) {
   })
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setForm(prev => ({ ...prev, [name]: value }))
+    if (fieldErrors[name]) {
+      setFieldErrors(prev => {
+        const next = { ...prev }
+        delete next[name]
+        return next
+      })
+    }
+  }
+
+  function validate(): boolean {
+    const errors: Record<string, string> = {}
+    if (!form.name.trim()) errors.name = t.errName
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errors.email = t.errEmail
+    if (!form.date) errors.date = t.errDate
+    if (!form.guests) errors.guests = t.errGuests
+    if (!form.eventType) errors.eventType = t.errEventType
+    setFieldErrors(errors)
+    return Object.keys(errors).length === 0
   }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+    setApiError(null)
+
+    if (!validate()) return
+
     setSubmitting(true)
-    setFormError(null)
 
     try {
       const res = await fetch('/api/feestzaal-enquiry', {
@@ -136,32 +171,42 @@ export default function BookingInquiryForm({ locale }: Props) {
       const data = await res.json()
 
       if (!res.ok || !data.success) {
-        setFormError('Something went wrong. Please call us on +31 6 30645930.')
+        setApiError('Something went wrong. Please call us on +31 6 30645930.')
       } else {
         setSubmitted(true)
       }
     } catch {
-      setFormError('Something went wrong. Please call us on +31 6 30645930.')
+      setApiError('Something went wrong. Please call us on +31 6 30645930.')
     } finally {
       setSubmitting(false)
     }
   }
 
-  const inputClass = [
-    'w-full rounded-xl border border-[#1B2B5E]/20 bg-white px-4 py-3',
+  const inputBase = [
+    'w-full rounded-xl border bg-white px-4 py-3',
     'font-body text-[#1A1A1A] text-base placeholder:text-[#1A1A1A]/40',
     'focus:outline-none focus:ring-2 focus:ring-[#C7A348]/40 focus:border-[#C7A348]',
     'transition-colors duration-200',
   ].join(' ')
 
+  const fieldClass = (name: string) =>
+    `${inputBase} ${fieldErrors[name] ? 'border-red-400 focus:border-red-400 focus:ring-red-200' : 'border-[#1B2B5E]/20'}`
+
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center text-center py-16 px-8">
+      <div className="flex flex-col items-center justify-center text-center py-12 px-8">
         <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 flex items-center justify-center mb-6 ring-2 ring-[#C7A348]/30">
           <CheckCircle className="w-8 h-8 text-[#C7A348]" />
         </div>
-        <h3 className="font-vibes text-3xl text-[#C7A348] mb-4">{t.successHeading}</h3>
-        <p className="font-body text-[#1A1A1A]/70 text-lg leading-relaxed max-w-md">{t.successBody}</p>
+        <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-[#C7A348] mb-2">
+          {t.successEyebrow}
+        </p>
+        <h3 className="font-heading text-2xl font-semibold text-[#1B2B5E] mb-4">
+          {t.successHeading}
+        </h3>
+        <p className="font-body text-gray-600 text-base leading-relaxed max-w-md">
+          {t.successBody}
+        </p>
       </div>
     )
   }
@@ -180,12 +225,14 @@ export default function BookingInquiryForm({ locale }: Props) {
             id="booking-name"
             type="text"
             name="name"
-            required
             value={form.name}
             onChange={handleChange}
             placeholder={t.namePlaceholder}
-            className={inputClass}
+            className={fieldClass('name')}
           />
+          {fieldErrors.name && (
+            <p className="font-body text-red-500 text-xs mt-1">{fieldErrors.name}</p>
+          )}
         </div>
         <div>
           <label htmlFor="booking-email" className="block font-body text-sm font-semibold text-[#1B2B5E] mb-2">
@@ -195,12 +242,14 @@ export default function BookingInquiryForm({ locale }: Props) {
             id="booking-email"
             type="email"
             name="email"
-            required
             value={form.email}
             onChange={handleChange}
             placeholder={t.emailPlaceholder}
-            className={inputClass}
+            className={fieldClass('email')}
           />
+          {fieldErrors.email && (
+            <p className="font-body text-red-500 text-xs mt-1">{fieldErrors.email}</p>
+          )}
         </div>
       </div>
 
@@ -217,7 +266,7 @@ export default function BookingInquiryForm({ locale }: Props) {
             value={form.phone}
             onChange={handleChange}
             placeholder={t.phonePlaceholder}
-            className={inputClass}
+            className={fieldClass('phone')}
           />
         </div>
         <div>
@@ -228,11 +277,13 @@ export default function BookingInquiryForm({ locale }: Props) {
             id="booking-date"
             type="date"
             name="date"
-            required
             value={form.date}
             onChange={handleChange}
-            className={inputClass}
+            className={fieldClass('date')}
           />
+          {fieldErrors.date && (
+            <p className="font-body text-red-500 text-xs mt-1">{fieldErrors.date}</p>
+          )}
         </div>
       </div>
 
@@ -245,16 +296,18 @@ export default function BookingInquiryForm({ locale }: Props) {
           <select
             id="booking-guests"
             name="guests"
-            required
             value={form.guests}
             onChange={handleChange}
-            className={`${inputClass} cursor-pointer`}
+            className={`${fieldClass('guests')} cursor-pointer`}
           >
             <option value="">{t.guestsDefault}</option>
             {guestOpts.map(opt => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
           </select>
+          {fieldErrors.guests && (
+            <p className="font-body text-red-500 text-xs mt-1">{fieldErrors.guests}</p>
+          )}
         </div>
         <div>
           <label htmlFor="booking-event-type" className="block font-body text-sm font-semibold text-[#1B2B5E] mb-2">
@@ -263,16 +316,18 @@ export default function BookingInquiryForm({ locale }: Props) {
           <select
             id="booking-event-type"
             name="eventType"
-            required
             value={form.eventType}
             onChange={handleChange}
-            className={`${inputClass} cursor-pointer`}
+            className={`${fieldClass('eventType')} cursor-pointer`}
           >
             <option value="">{t.eventTypeDefault}</option>
             {eventOpts.map(opt => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
           </select>
+          {fieldErrors.eventType && (
+            <p className="font-body text-red-500 text-xs mt-1">{fieldErrors.eventType}</p>
+          )}
         </div>
       </div>
 
@@ -288,14 +343,14 @@ export default function BookingInquiryForm({ locale }: Props) {
           value={form.message}
           onChange={handleChange}
           placeholder={t.messagePlaceholder}
-          className={`${inputClass} resize-none`}
+          className={`${fieldClass('message')} resize-none`}
         />
       </div>
 
-      {/* Error message */}
-      {formError && (
+      {/* API error message */}
+      {apiError && (
         <p className="font-body text-red-600 text-sm text-center bg-red-50 rounded-xl px-4 py-3">
-          {formError}
+          {apiError}
         </p>
       )}
 
