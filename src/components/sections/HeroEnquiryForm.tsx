@@ -60,6 +60,9 @@ const t = {
     namePh: 'Your name',
     email: 'Email Address',
     emailPh: 'your@email.com',
+    phone: 'Phone Number',
+    phonePh: '+31 6 ...',
+    phoneNote: 'Optional — helps us call you back faster',
     date: 'Preferred Date',
     eventType: 'Type of Event',
     eventTypePh: 'Select occasion',
@@ -70,7 +73,7 @@ const t = {
     trust1: 'No obligation',
     trust2: '100% halal certified',
     trust3: '24hr response',
-    successEyebrow: 'Enquiry Received',
+    successBadge: 'Enquiry Received',
     successHeading: 'Thank You!',
     successBody: 'We will send your free quote within 24 hours. You can also call us directly on +31 6 30645930.',
     errName: 'Please enter your full name',
@@ -87,6 +90,9 @@ const t = {
     namePh: 'Uw naam',
     email: 'E-mailadres',
     emailPh: 'uw@email.com',
+    phone: 'Telefoonnummer',
+    phonePh: '+31 6 ...',
+    phoneNote: 'Optioneel - helpt ons u sneller terug te bellen',
     date: 'Gewenste Datum',
     eventType: 'Type Evenement',
     eventTypePh: 'Selecteer gelegenheid',
@@ -97,7 +103,7 @@ const t = {
     trust1: 'Geen verplichtingen',
     trust2: '100% halal gecertificeerd',
     trust3: 'Reactie binnen 24 uur',
-    successEyebrow: 'Aanvraag Ontvangen',
+    successBadge: 'Aanvraag Ontvangen',
     successHeading: 'Bedankt!',
     successBody: 'Wij sturen u binnen 24 uur een gratis offerte. U kunt ons ook direct bellen op +31 6 30645930.',
     errName: 'Vul uw volledige naam in',
@@ -116,14 +122,13 @@ export default function HeroEnquiryForm({ locale }: Props) {
 
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', date: '', eventType: '', guests: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', date: '', eventType: '', guests: '' })
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [apiError, setApiError] = useState<string | null>(null)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = e.target
     setForm(prev => ({ ...prev, [name]: value }))
-    // Clear the field error as soon as the user fixes it
     if (fieldErrors[name]) {
       setFieldErrors(prev => {
         const next = { ...prev }
@@ -147,20 +152,15 @@ export default function HeroEnquiryForm({ locale }: Props) {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setApiError(null)
-
     if (!validate()) return
-
     setSubmitting(true)
-
     try {
       const res = await fetch('/api/feestzaal-enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, source: 'hero' }),
       })
-
       const data = await res.json()
-
       if (!res.ok || !data.success) {
         setApiError('Something went wrong. Please call us on +31 6 30645930.')
       } else {
@@ -173,7 +173,6 @@ export default function HeroEnquiryForm({ locale }: Props) {
     }
   }
 
-  // ── Shared input class ──
   const inputCls = [
     'w-full rounded-xl border bg-white px-3.5 py-2.5 md:px-4 md:py-3',
     'font-body text-[#1A1A1A] text-[14px] md:text-[15px] placeholder:text-gray-400',
@@ -181,29 +180,40 @@ export default function HeroEnquiryForm({ locale }: Props) {
     'transition-colors duration-200',
   ].join(' ')
 
-  const fieldClass = (name: string) =>
+  const fieldCls = (name: string) =>
     `${inputCls} ${fieldErrors[name] ? 'border-red-400 focus:border-red-400 focus:ring-red-200' : 'border-gray-200'}`
 
   // ── Success state ──
   if (submitted) {
     return (
-      <div className="bg-white rounded-3xl border border-[#D4AF37]/25 shadow-2xl shadow-[#1B2B5E]/20 p-8 md:p-10 text-center">
-        {/* Gold accent bar */}
-        <div className="h-1 bg-gradient-to-r from-[#C7A348] via-[#D4AF37] to-[#C7A348] rounded-full mb-8 mx-auto w-16" />
+      <div className="bg-white rounded-3xl border border-[#D4AF37]/25 shadow-2xl shadow-[#1B2B5E]/20 overflow-hidden">
+        {/* Top gold bar — same as the form card */}
+        <div className="h-1.5 bg-gradient-to-r from-[#C7A348] via-[#D4AF37] to-[#C7A348]" />
 
-        <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 ring-4 ring-[#C7A348]/20 flex items-center justify-center mx-auto mb-5">
-          <CheckCircle className="w-8 h-8 text-[#C7A348]" />
+        <div className="p-8 md:p-10 text-center">
+          {/* Checkmark circle */}
+          <div className="w-16 h-16 rounded-full bg-[#1B2B5E]/8 ring-4 ring-[#1B2B5E]/12 flex items-center justify-center mx-auto mb-5">
+            <CheckCircle className="w-8 h-8 text-[#1B2B5E]" />
+          </div>
+
+          {/* Badge — navy pill, high contrast */}
+          <div className="inline-flex items-center gap-2 bg-[#1B2B5E]/8 border border-[#1B2B5E]/15 rounded-full px-4 py-1.5 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C7A348] flex-shrink-0" />
+            <span className="font-body text-[11px] font-bold uppercase tracking-[0.15em] text-[#1B2B5E]">
+              {tr.successBadge}
+            </span>
+          </div>
+
+          {/* Heading — dark, heavy, clearly readable */}
+          <h3 className="font-heading text-3xl font-bold text-gray-900 mb-3">
+            {tr.successHeading}
+          </h3>
+
+          {/* Body — dark gray, solid contrast */}
+          <p className="font-body text-gray-700 text-sm leading-relaxed">
+            {tr.successBody}
+          </p>
         </div>
-
-        <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-[#C7A348] mb-2">
-          {tr.successEyebrow}
-        </p>
-        <h3 className="font-heading text-2xl font-semibold text-[#1B2B5E] mb-4">
-          {tr.successHeading}
-        </h3>
-        <p className="font-body text-gray-600 text-sm leading-relaxed">
-          {tr.successBody}
-        </p>
       </div>
     )
   }
@@ -215,7 +225,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
 
       <div className="p-5 md:p-7 lg:p-8">
         {/* Card heading */}
-        <div className="mb-4 md:mb-6">
+        <div className="mb-4 md:mb-5">
           <p className="font-body text-[#C7A348] text-[11px] font-bold uppercase tracking-[0.18em] mb-0.5">
             {tr.eyebrow}
           </p>
@@ -225,7 +235,8 @@ export default function HeroEnquiryForm({ locale }: Props) {
           <p className="font-body text-[#1A1A1A]/50 text-sm mt-0.5">{tr.sub}</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-2.5 md:space-y-3.5" noValidate>
+        <form onSubmit={handleSubmit} className="space-y-2.5 md:space-y-3" noValidate>
+
           {/* Name */}
           <div>
             <label htmlFor="hero-name" className="block font-body text-xs font-semibold text-[#1B2B5E] mb-1 uppercase tracking-wide">
@@ -238,7 +249,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
               value={form.name}
               onChange={handleChange}
               placeholder={tr.namePh}
-              className={fieldClass('name')}
+              className={fieldCls('name')}
             />
             {fieldErrors.name && (
               <p className="font-body text-red-500 text-[11px] mt-1">{fieldErrors.name}</p>
@@ -257,11 +268,30 @@ export default function HeroEnquiryForm({ locale }: Props) {
               value={form.email}
               onChange={handleChange}
               placeholder={tr.emailPh}
-              className={fieldClass('email')}
+              className={fieldCls('email')}
             />
             {fieldErrors.email && (
               <p className="font-body text-red-500 text-[11px] mt-1">{fieldErrors.email}</p>
             )}
+          </div>
+
+          {/* Phone — optional */}
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <label htmlFor="hero-phone" className="font-body text-xs font-semibold text-[#1B2B5E] uppercase tracking-wide">
+                {tr.phone}
+              </label>
+              <span className="font-body text-[10px] text-gray-400 italic">{tr.phoneNote}</span>
+            </div>
+            <input
+              id="hero-phone"
+              type="tel"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              placeholder={tr.phonePh}
+              className={fieldCls('phone')}
+            />
           </div>
 
           {/* Date + Guests — side by side */}
@@ -276,7 +306,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
                 name="date"
                 value={form.date}
                 onChange={handleChange}
-                className={fieldClass('date')}
+                className={fieldCls('date')}
               />
               {fieldErrors.date && (
                 <p className="font-body text-red-500 text-[11px] mt-1">{fieldErrors.date}</p>
@@ -291,7 +321,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
                 name="guests"
                 value={form.guests}
                 onChange={handleChange}
-                className={`${fieldClass('guests')} cursor-pointer`}
+                className={`${fieldCls('guests')} cursor-pointer`}
               >
                 <option value="">{tr.guestsPh}</option>
                 {guestOpts.map(o => <option key={o} value={o}>{o}</option>)}
@@ -312,7 +342,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
               name="eventType"
               value={form.eventType}
               onChange={handleChange}
-              className={`${fieldClass('eventType')} cursor-pointer`}
+              className={`${fieldCls('eventType')} cursor-pointer`}
             >
               <option value="">{tr.eventTypePh}</option>
               {eventOpts.map(o => <option key={o} value={o}>{o}</option>)}
@@ -322,7 +352,7 @@ export default function HeroEnquiryForm({ locale }: Props) {
             )}
           </div>
 
-          {/* API error message */}
+          {/* API error */}
           {apiError && (
             <p className="font-body text-red-600 text-xs text-center bg-red-50 rounded-lg px-3 py-2">
               {apiError}
@@ -350,14 +380,14 @@ export default function HeroEnquiryForm({ locale }: Props) {
             ) : (
               <>
                 {tr.cta}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </>
             )}
           </button>
         </form>
 
         {/* Trust signals */}
-        <div className="flex items-center justify-between mt-3 pt-3 md:mt-5 md:pt-5 border-t border-gray-100">
+        <div className="flex items-center justify-between mt-3 pt-3 md:mt-4 md:pt-4 border-t border-gray-100">
           {[tr.trust1, tr.trust2, tr.trust3].map((item) => (
             <div key={item} className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-[#C7A348] flex-shrink-0" />

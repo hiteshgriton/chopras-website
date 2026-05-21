@@ -195,16 +195,26 @@ export default function BookingInquiryForm({ locale }: Props) {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center text-center py-12 px-8">
-        <div className="w-16 h-16 rounded-full bg-[#D4AF37]/10 flex items-center justify-center mb-6 ring-2 ring-[#C7A348]/30">
-          <CheckCircle className="w-8 h-8 text-[#C7A348]" />
+        {/* Checkmark circle — navy ring for contrast */}
+        <div className="w-16 h-16 rounded-full bg-[#1B2B5E]/8 ring-4 ring-[#1B2B5E]/12 flex items-center justify-center mb-5">
+          <CheckCircle className="w-8 h-8 text-[#1B2B5E]" />
         </div>
-        <p className="font-body text-xs font-bold uppercase tracking-[0.2em] text-[#C7A348] mb-2">
-          {t.successEyebrow}
-        </p>
-        <h3 className="font-heading text-2xl font-semibold text-[#1B2B5E] mb-4">
+
+        {/* Badge pill — navy text, high contrast */}
+        <div className="inline-flex items-center gap-2 bg-[#1B2B5E]/8 border border-[#1B2B5E]/15 rounded-full px-4 py-1.5 mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C7A348] flex-shrink-0" />
+          <span className="font-body text-[11px] font-bold uppercase tracking-[0.15em] text-[#1B2B5E]">
+            {t.successEyebrow}
+          </span>
+        </div>
+
+        {/* Heading — near-black, bold */}
+        <h3 className="font-heading text-3xl font-bold text-gray-900 mb-4">
           {t.successHeading}
         </h3>
-        <p className="font-body text-gray-600 text-base leading-relaxed max-w-md">
+
+        {/* Body — dark gray */}
+        <p className="font-body text-gray-700 text-base leading-relaxed max-w-md">
           {t.successBody}
         </p>
       </div>
