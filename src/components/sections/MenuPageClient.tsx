@@ -160,9 +160,10 @@ function DishGrid({ dishes }: { dishes: MenuItem[] }) {
 interface MenuPageClientProps {
   categories?: MenuCategoryEntry[]
   items?: MenuItem[]
+  locale?: string
 }
 
-export default function MenuPageClient({ categories, items }: MenuPageClientProps) {
+export default function MenuPageClient({ categories, items, locale }: MenuPageClientProps) {
   const activeCategories = categories ?? menuCategories
   const activeItems = items ?? menuItems
   const [activeCategory, setActiveCategory] = useState<string>(activeCategories[0].id)
@@ -291,6 +292,13 @@ export default function MenuPageClient({ categories, items }: MenuPageClientProp
                 >
                   {category.label}
                 </h2>
+                {category.id === 'vegan' && (
+                  <p className="font-body text-[#1A1A1A]/60 text-base mt-2">
+                    {locale === 'nl'
+                      ? 'Veganistische opties beschikbaar voor de volgende gerechten'
+                      : 'Vegan options available for the following dishes'}
+                  </p>
+                )}
                 <div className="border-b-2 border-[#D4AF37] w-16 mt-4" />
               </div>
 

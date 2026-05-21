@@ -154,7 +154,7 @@ export default function LocaleMenuPage({ params }: Props) {
       </div>
 
       {/* INTERACTIVE MENU */}
-      <MenuPageClient />
+      <MenuPageClient locale={locale} />
 
       {/* SEO COPY — MENU OVERVIEW */}
       <section className="bg-[#F7F8FC] py-16 md:py-24 px-6 md:px-16">

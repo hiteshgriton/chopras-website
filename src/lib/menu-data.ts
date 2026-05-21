@@ -1071,7 +1071,7 @@ export const menuItems: MenuItem[] = [
     price: 2,
     category: 'rice-sides',
     dietary: ['vegan', 'halal'],
-    image: '',
+    image: '/images/dishes/mint-chutney.webp',
     description: 'Freshly blended green mint and coriander chutney. A cooling Indian condiment at Chopras Indian Restaurant Den Haag.',
   },
   {
@@ -1080,7 +1080,7 @@ export const menuItems: MenuItem[] = [
     price: 2,
     category: 'rice-sides',
     dietary: ['vegan', 'halal'],
-    image: '',
+    image: '/images/dishes/tamarind-chutney.webp',
     description: 'Sweet and tangy tamarind chutney with warming spices. An authentic Indian condiment served in Den Haag.',
   },
   {
@@ -1089,7 +1089,7 @@ export const menuItems: MenuItem[] = [
     price: 2,
     category: 'rice-sides',
     dietary: ['vegan', 'halal'],
-    image: '',
+    image: '/images/dishes/vinegar-onion.webp',
     description: 'Sharp pickled onions in vinegar - a tangy, palate-cleansing side at Chopras Indian Restaurant Den Haag.',
   },
 
@@ -1172,7 +1172,7 @@ export const menuItems: MenuItem[] = [
     price: 5,
     category: 'desserts',
     dietary: ['veg', 'halal'],
-    image: '',
+    image: '/images/dishes/ice-cream-vanilla.webp',
     description: 'Classic creamy vanilla ice cream - a sweet, light dessert at Chopras Indian Restaurant Den Haag.',
   },
   {
@@ -1181,7 +1181,7 @@ export const menuItems: MenuItem[] = [
     price: 5,
     category: 'desserts',
     dietary: ['veg', 'halal'],
-    image: '',
+    image: '/images/dishes/ice-cream-chocolate.webp',
     description: 'Rich, velvety chocolate ice cream - a popular and crowd-pleasing dessert at Chopras Indian Restaurant Den Haag.',
   },
   {
@@ -1190,7 +1190,7 @@ export const menuItems: MenuItem[] = [
     price: 5,
     category: 'desserts',
     dietary: ['veg', 'halal'],
-    image: '',
+    image: '/images/dishes/ice-cream-strawberry.webp',
     description: 'Fresh, vibrant strawberry ice cream - a sweet and fruity finish at Chopras Indian Restaurant Den Haag.',
   },
 
@@ -1282,7 +1282,7 @@ export const menuItems: MenuItem[] = [
     category: 'drinks',
     dietary: ['vegan', 'halal'],
     image: '/images/dishes/Thumps-Up-Den-Haag.avif',
-    description: 'India iconic bold and caramel-rich cola - an authentic Indian drink experience at Chopras Indian Restaurant Den Haag.',
+    description: 'The iconic Indian cola - bolder and more carbonated than Coca-Cola. India\'s original soft drink, served at Chopras Indian Restaurant Den Haag.',
     isDrink: true,
   },
   {
@@ -1411,7 +1411,7 @@ export const menuItems: MenuItem[] = [
     price: 5,
     category: 'drinks',
     dietary: ['veg', 'halal'],
-    image: '',
+    image: '/images/dishes/iced-coffee.webp',
     description: 'Chilled brewed coffee over ice - a smooth and refreshing drink at Chopras Indian Restaurant Den Haag.',
     isDrink: true,
   },
@@ -1451,7 +1451,7 @@ export const menuItems: MenuItem[] = [
     price: 3.5,
     category: 'drinks',
     dietary: ['veg', 'halal'],
-    image: '',
+    image: '/images/dishes/green-tea.webp',
     description: 'Delicate, light and calming green tea brewed fresh and served warm at Chopras Indian Restaurant Den Haag.',
     isDrink: true,
   },

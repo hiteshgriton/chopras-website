@@ -307,6 +307,9 @@ export default function HalalMenuPage({ params }: Props) {
               </>
             )}
           </p>
+          <p className="font-body text-[#1B2B5E] font-semibold text-base uppercase tracking-widest mb-6">
+            {isNl ? 'Halal opties beschikbaar voor de volgende gerechten' : 'Halal options available for the following dishes'}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {dishCategories.map((item) => (
               <div key={item.title} className="bg-white rounded-xl p-6 border-l-4 border-[#D4AF37]">

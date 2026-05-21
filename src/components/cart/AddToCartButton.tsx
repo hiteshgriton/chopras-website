@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Plus, Minus, CheckCircle } from 'lucide-react'
 import { useCartStore, type CartItem } from '@/store/cartStore'
 
@@ -10,9 +10,12 @@ interface AddToCartButtonProps {
 
 export default function AddToCartButton({ dish }: AddToCartButtonProps) {
   const [justAdded, setJustAdded] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { items, addItem, updateQuantity } = useCartStore()
 
-  const cartItem = items.find((i) => i.id === dish.id)
+  useEffect(() => { setMounted(true) }, [])
+
+  const cartItem = mounted ? items.find((i) => i.id === dish.id) : undefined
   const quantity = cartItem?.quantity ?? 0
 
   function handleAdd() {
