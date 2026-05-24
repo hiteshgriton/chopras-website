@@ -107,7 +107,11 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     question: "How can I reach Chopras Indian Restaurant by public transport?",
-    answer: "Chopras Indian Restaurant at Leyweg 986, Den Haag is accessible by tram and bus via stops near Leyweg. The location is well-connected to the Den Haag public transport network."
+    answer: "Chopras Indian Restaurant at Leyweg 986, Den Haag is accessible by tram and bus via stops near Leyweg. Tram line 2 stops directly at the Leyweg stop, a short walk from the restaurant entrance. The location is well-connected to the Den Haag public transport network."
+  },
+  {
+    question: "Is there parking near Chopras Indian Restaurant in Den Haag?",
+    answer: "Paid parking is available in the surrounding area near Leyweg 986, Den Haag. There is no on-site car park at the restaurant. The easiest way to visit without parking concerns is by tram line 2, which stops directly at the Leyweg stop - a short walk from the restaurant entrance."
   },
   {
     question: "What landmarks or attractions are nearby?",
@@ -125,7 +129,7 @@ export const homeFaqs: FaqItem[] = [
 
 export const homeFaqsNl: FaqItem[] = [
   {
-    question: "Wat is het beste Indiaase restaurant in Den Haag?",
+    question: "Wat is het beste Indiase restaurant in Den Haag?",
     answer: "Chopras Indian Restaurant wordt sterk beoordeeld op Google, Tripadvisor en TheFork onder Indiase restaurants in Den Haag. Gelegen op Leyweg 986, serveren wij authentiek Noord-Indiaas eten, halal gerechten, vegetarische opties, veganistische gerechten en Indiaas street food dagelijks vers bereid."
   },
   {
@@ -134,11 +138,11 @@ export const homeFaqsNl: FaqItem[] = [
   },
   {
     question: "Is er een halal Indiaas restaurant in Den Haag?",
-    answer: "Ja. Chopras Indian Restaurant serveert een volledig halal menu. Al het vlees is halal gecertificeerd en wij bieden een breed aanbod van halal Indiaase gerechten waaronder biryani, tandoori en curry."
+    answer: "Ja. Chopras Indian Restaurant serveert een volledig halal menu. Al het vlees is halal gecertificeerd en wij bieden een breed aanbod van halal Indiase gerechten waaronder biryani, tandoori en curry."
   },
   {
-    question: "Welk Indiaas restaurant in Den Haag is vegetarier-vriendelijk?",
-    answer: "Chopras Indian Restaurant is een van Den Haag's meest vegetarier- en veganist-vriendelijke Indiaase restaurants met een speciale sectie op ons menu waaronder chaat, dal makhani, paneergerechten, soya chaap en meer."
+    question: "Welk Indiaas restaurant in Den Haag is vegetariervriendelijk?",
+    answer: "Chopras Indian Restaurant is een van de meest vegetarier- en veganistenvriendelijke Indiase restaurants in Den Haag met een speciale sectie op ons menu waaronder chaat, dal makhani, paneergerechten, soya chaap en meer."
   },
   {
     question: "Waar kan ik Indiaas catering boeken voor mijn evenement in Den Haag?",
@@ -154,7 +158,99 @@ export const homeFaqsNl: FaqItem[] = [
   },
   {
     question: "Is er een romantisch Indiaas restaurant in Den Haag voor een date night?",
-    answer: "Chopras Indian Restaurant biedt een warme, elegante eetsfeer perfect voor dates, jubileumdiners en romantische avonden in Den Haag. Reserveer je tafel via onze contactpagina."
+    answer: "Chopras Indian Restaurant biedt een warme, elegante eetsfeer perfect voor dates, jubileumdiners en romantische avonden in Den Haag. Reserveer uw tafel via onze contactpagina."
+  },
+  {
+    question: "Heeft u glutenvrije of allergeenvriendelijke opties?",
+    answer: "Ja. Chopras Indian Restaurant heeft van nature glutenvrije gerechten, waaronder rijstgerechten, dal, gemengde groentecurries en de meeste chaatsnacks. Informeer het personeel bij het bestellen over eventuele allergieën zodat zij u naar veilige opties kunnen begeleiden."
+  },
+  {
+    question: "Hoe pittig is het eten en kan het pittigheidsgehalte worden aangepast?",
+    answer: "Chopras Indian Restaurant bereidt eten met authentieke Indiase kruidenniveaus. Gerechten kunnen worden aangepast van mild tot extra pittig naar uw voorkeur. Informeer uw bediende bij het plaatsen van uw bestelling."
+  },
+  {
+    question: "Wat is het kenmerkende gerecht dat ik moet proberen?",
+    answer: "De kenmerkende gerechten van Chopras zijn Butter Chicken, langzaam gestoofd in een romige tomatensaus met traditionele kruiden, en Chopras Special Paneer in een rijke Noord-Indiase saus. Beide behoren consequent tot de meest bestelde gerechten in Den Haag."
+  },
+  {
+    question: "Wat zijn de meest populaire gerechten bij Chopras Indian Restaurant?",
+    answer: "De meest populaire gerechten bij Chopras Indian Restaurant zijn Butter Chicken, Dal Makhani, Mutton Rogan Josh, Lamsbiryani, Paneer Tikka, Tandoori Chicken en Pani Puri. Deze worden geliefd vanwege authentieke Noord-Indiase smaken en royale porties."
+  },
+  {
+    question: "Biedt u een kindermenu of kindvriendelijke gerechten aan?",
+    answer: "Ja. Chopras Indian Restaurant heeft een speciaal Kindermenu met milde curries, naan, rijst, friet, Vegetarische Noodles en Kipnuggets, plus een verrassingscadeau voor kinderen. Butter Chicken en Paneer Tikka zijn vaste favorieten bij de jongste gasten."
+  },
+  {
+    question: "Kan ik online een tafel reserveren bij Chopras Indian Restaurant?",
+    answer: "Ja. Tafels kunnen online worden gereserveerd via chopras.nl/contact of door te bellen naar +31 6 30645930. Vooraf boeken wordt sterk aanbevolen voor weekenden en speciale culturele evenementen."
+  },
+  {
+    question: "Accepteert u bezoekers zonder reservering?",
+    answer: "Ja. Chopras Indian Restaurant verwelkomt gasten zonder reservering. Vooraf boeken wordt aanbevolen tijdens weekenden, festivals en speciale evenementen om een tafel en een prettige eetervaring in Den Haag te garanderen."
+  },
+  {
+    question: "Is er een kledingvoorschrift bij Chopras Indian Restaurant?",
+    answer: "Er is geen strikt kledingvoorschrift bij Chopras Indian Restaurant. Gasten zijn welkom om etnische kleding te dragen tijdens culturele evenementen en festivals. Casual kleding is elke dag welkom."
+  },
+  {
+    question: "Hoe lang is de wachttijd tijdens drukke uren?",
+    answer: "Tijdens weekenden en drukke uren raadt Chopras Indian Restaurant aan om online een tafel te boeken om wachten te vermijden. Gasten zonder reservering worden zo snel mogelijk geplaatst op basis van beschikbaarheid."
+  },
+  {
+    question: "Wat zijn de gemiddelde kosten voor een maaltijd bij Chopras Indian Restaurant?",
+    answer: "Een gemiddelde maaltijd bij Chopras Indian Restaurant kost tussen EUR 20 en EUR 30 per persoon, inclusief een voorgerecht, hoofdgerecht en drank. Porties zijn royaal en de kwaliteit weerspiegelt authentiek Noord-Indiaas koken."
+  },
+  {
+    question: "Welke betaalmethoden accepteert Chopras Indian Restaurant?",
+    answer: "Chopras Indian Restaurant accepteert contant geld, betaalpassen, creditcards (Visa, Mastercard, American Express) en contactloze betalingen voor zowel dine-in als afhaalbestellingen in Den Haag."
+  },
+  {
+    question: "Biedt u speciale kortingen of aanbiedingen aan?",
+    answer: "Ja. Chopras Indian Restaurant biedt festivalspecials, seizoensgebonden aanbiedingen en loyaliteitsbeloningen het hele jaar door. Volg Chopras op sociale media of schrijf u in voor de nieuwsbrief voor de nieuwste aanbiedingen in Den Haag."
+  },
+  {
+    question: "Heeft u een loyaliteits- of lidmaatschapsprogramma?",
+    answer: "Ja. Chopras Indian Restaurant beloont vaste gasten via een loyaliteitsprogramma met exclusieve kortingen, speciale aanbiedingen en ledenvoordelen. Vraag het personeel om details bij een bezoek aan het restaurant in Den Haag."
+  },
+  {
+    question: "Gebruikt u authentieke Indiase specerijen in uw recepten?",
+    answer: "Ja. Chopras Indian Restaurant gebruikt premium specerijen die rechtstreeks uit India worden ingevoerd en in huis vers worden gemalen. Deze aanpak zorgt voor authentieke Noord-Indiase smaken die Chopras onderscheiden van andere restaurants in Den Haag."
+  },
+  {
+    question: "Viert u Indiase culturele festivals zoals Diwali en Karwa Chauth?",
+    answer: "Ja. Chopras Indian Restaurant organiseert Diwali, Holi, Karwa Chauth, Eid en Ramadan met speciale menu's, thematische decoraties en community-entertainment. Familie- en gemeenschapsevenementen worden het hele jaar door regelmatig gehouden in Den Haag."
+  },
+  {
+    question: "Kunt u voldoen aan dieetwensen zoals veganistisch, zuivelvrij of glutenvrij?",
+    answer: "Ja. Chopras Indian Restaurant voldoet aan veganistische, vegetarische, zuivelvrije en glutenvrije dieetwensen. Informeer het personeel bij het bestellen over eventuele beperkingen en zij begeleiden u naar geschikte veilige opties."
+  },
+  {
+    question: "Gebruikt u een traditionele Tandoor-kleioven?",
+    answer: "Ja. Chopras Indian Restaurant gebruikt een traditionele Tandoor-kleioven voor het bereiden van naanbrood, sappige kebabs en gemarineerd vlees. Tandoor-koken produceert de authentieke rokerige smaak van echte Noord-Indiase keuken."
+  },
+  {
+    question: "Wat is het exacte adres van Chopras Indian Restaurant?",
+    answer: "Chopras Indian Restaurant bevindt zich op Leyweg 986, 2545 GW Den Haag, Nederland. GPS-coördinaten: 52.04874, 4.27684. Het restaurant is op loopafstand van Winkelcentrum Leyweg."
+  },
+  {
+    question: "Hoe kan ik Chopras Indian Restaurant bereiken met het openbaar vervoer?",
+    answer: "Chopras Indian Restaurant op Leyweg 986, Den Haag is bereikbaar per tram en bus via haltes bij Leyweg. Tramlijn 2 stopt direct bij de halte Leyweg, op enkele stappen van de ingang. De locatie is goed verbonden met het openbaar vervoersnetwerk van Den Haag."
+  },
+  {
+    question: "Is er parkeergelegenheid bij Chopras Indian Restaurant in Den Haag?",
+    answer: "Betaald parkeren is beschikbaar in de omgeving van Leyweg 986, Den Haag. Er is geen parkeerterrein direct bij het restaurant. De makkelijkste manier om Chopras te bereiken is via tramlijn 2, die direct stopt bij de halte Leyweg - op enkele stappen van de restaurantingang."
+  },
+  {
+    question: "Welke bezienswaardigheden of attracties zijn er in de buurt?",
+    answer: "Chopras Indian Restaurant bevindt zich in de buurt van Winkelcentrum Leyweg in Den Haag. Het restaurant ligt in de wijk Leyweg, dicht bij parken en bereikbaar vanuit het centrum van Den Haag met het openbaar vervoer."
+  },
+  {
+    question: "Wat zijn de openingstijden van Chopras Indian Restaurant?",
+    answer: "Chopras Indian Restaurant is open van dinsdag tot en met zondag van 16:30 tot 22:30 uur. Het restaurant is gesloten op maandag. De laatste keukenbestelling wordt geaccepteerd om 22:00 uur. Tel: +31 6 30645930."
+  },
+  {
+    question: "Hoe kan ik contact opnemen met het restaurant voor vragen of reserveringen?",
+    answer: "Neem contact op met Chopras Indian Restaurant per telefoon op +31 6 30645930, per e-mail op info [at] chopras.nl, of via het contactformulier op chopras.nl/contact. Het personeel is beschikbaar tijdens de openingstijden, dinsdag tot en met zondag."
   },
 ]
 
