@@ -8,36 +8,32 @@ const TO_ADDRESSES = [
   'brianscott05o9@gmail.com',
 ]
 
-const FROM_ADDRESS = 'Chopras Catering <noreply@chopras.nl>'
+const FROM_ADDRESS = 'Chopras Reserveringen <noreply@chopras.nl>'
 
 function buildEmailHtml(fields: {
   name: string
   email: string
   phone: string
   date: string
-  eventType: string
+  time: string
   guests: string
-  venue: string
-  budget?: string
-  message?: string
+  specialRequests?: string
 }): string {
   const rows = [
     { label: 'Name', value: fields.name },
     { label: 'Email', value: `<a href="mailto:${fields.email}" style="color:#C7A348;">${fields.email}</a>` },
     { label: 'Phone', value: fields.phone },
-    { label: 'Event Date', value: fields.date },
-    { label: 'Event Type', value: fields.eventType },
-    { label: 'Guest Count', value: fields.guests },
-    { label: 'Venue / Location', value: fields.venue },
-    ...(fields.budget ? [{ label: 'Budget Range', value: fields.budget }] : []),
-    ...(fields.message ? [{ label: 'Additional Details', value: fields.message.replace(/\n/g, '<br />') }] : []),
+    { label: 'Preferred Date', value: fields.date },
+    { label: 'Preferred Time', value: fields.time },
+    { label: 'Number of Guests', value: fields.guests },
+    ...(fields.specialRequests ? [{ label: 'Special Requests', value: fields.specialRequests }] : []),
   ]
 
   const rowsHtml = rows
     .map(
       ({ label, value }) => `
         <tr>
-          <td style="padding:10px 16px;background:#f7f8fc;font-family:sans-serif;font-size:12px;font-weight:700;color:#1B2B5E;text-transform:uppercase;letter-spacing:0.08em;width:180px;border-bottom:1px solid #eee;vertical-align:top;">${label}</td>
+          <td style="padding:10px 16px;background:#f7f8fc;font-family:sans-serif;font-size:12px;font-weight:700;color:#1B2B5E;text-transform:uppercase;letter-spacing:0.08em;width:180px;border-bottom:1px solid #eee;">${label}</td>
           <td style="padding:10px 16px;font-family:sans-serif;font-size:14px;color:#1A1A1A;border-bottom:1px solid #eee;">${value}</td>
         </tr>`,
     )
@@ -55,9 +51,9 @@ function buildEmailHtml(fields: {
 
           <tr>
             <td style="background:#1B2B5E;padding:28px 32px;">
-              <p style="margin:0;font-family:sans-serif;font-size:11px;font-weight:700;color:#C7A348;text-transform:uppercase;letter-spacing:0.18em;">New Catering Enquiry</p>
-              <h1 style="margin:6px 0 0;font-family:serif;font-size:26px;color:#fff;font-weight:600;">Catering / Event Enquiry</h1>
-              <p style="margin:6px 0 0;font-family:sans-serif;font-size:12px;color:rgba(255,255,255,0.55);">Submitted via Catering Form &bull; Chopras Indian Restaurant Den Haag</p>
+              <p style="margin:0;font-family:sans-serif;font-size:11px;font-weight:700;color:#C7A348;text-transform:uppercase;letter-spacing:0.18em;">New Table Reservation</p>
+              <h1 style="margin:6px 0 0;font-family:serif;font-size:26px;color:#fff;font-weight:600;">Tafelreservering / Table Reservation</h1>
+              <p style="margin:6px 0 0;font-family:sans-serif;font-size:12px;color:rgba(255,255,255,0.55);">Submitted via Reservation Form &bull; Chopras Indian Restaurant Den Haag</p>
             </td>
           </tr>
 
@@ -75,10 +71,10 @@ function buildEmailHtml(fields: {
 
           <tr>
             <td style="padding:20px 32px 32px;">
-              <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;color:#1A1A1A;">Reply directly to this email to send a quote to ${fields.name}. Their address is <strong>${fields.email}</strong>.</p>
-              <a href="mailto:${fields.email}?subject=Re: Catering offerte voor ${encodeURIComponent(fields.eventType)} - Chopras Indian Restaurant"
+              <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;color:#1A1A1A;">Reply directly to this email to confirm the reservation with ${fields.name}. Their address is <strong>${fields.email}</strong>.</p>
+              <a href="mailto:${fields.email}?subject=Re: Tafelreservering bij Chopras - ${encodeURIComponent(fields.date)} om ${encodeURIComponent(fields.time)}"
                  style="display:inline-block;background:#C7A348;color:#1B2B5E;font-family:sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;text-decoration:none;padding:12px 24px;border-radius:8px;">
-                Send Quote to ${fields.name}
+                Confirm Reservation with ${fields.name}
               </a>
             </td>
           </tr>
@@ -101,32 +97,30 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    const { name, email, phone, date, eventType, guests, venue, budget, message } = body as {
+    const { name, email, phone, date, time, guests, specialRequests } = body as {
       name: string
       email: string
       phone: string
       date: string
-      eventType: string
+      time: string
       guests: string
-      venue: string
-      budget?: string
-      message?: string
+      specialRequests?: string
     }
 
-    if (!name || !email || !phone || !date || !eventType || !guests || !venue) {
+    if (!name || !email || !phone || !date || !time || !guests) {
       return Response.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 },
       )
     }
 
-    const html = buildEmailHtml({ name, email, phone, date, eventType, guests, venue, budget, message })
+    const html = buildEmailHtml({ name, email, phone, date, time, guests, specialRequests })
 
     const { error } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: TO_ADDRESSES,
       replyTo: email,
-      subject: `Catering Enquiry: ${eventType} - ${name} (${guests})`,
+      subject: `Tafelreservering: ${name} - ${date} om ${time} (${guests})`,
       html,
     })
 
@@ -140,7 +134,7 @@ export async function POST(request: NextRequest) {
 
     return Response.json({ success: true })
   } catch (err) {
-    console.error('Catering enquiry route error:', err)
+    console.error('Reservation enquiry route error:', err)
     return Response.json(
       { success: false, error: 'Internal server error' },
       { status: 500 },

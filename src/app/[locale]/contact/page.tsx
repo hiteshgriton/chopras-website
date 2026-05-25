@@ -143,7 +143,7 @@ export default function LocaleContactPage({ params }: Props) {
                   ? 'Open dinsdag t/m zondag · 16:30 tot 22:30 · Leyweg 986, Den Haag'
                   : 'Open Tuesday to Sunday · 16:30 to 22:30 · Leyweg 986, Den Haag'}
               </p>
-              <ReservationForm />
+              <ReservationForm locale={locale} />
             </div>
 
             {/* RIGHT  -  Contact Form */}
@@ -183,7 +183,7 @@ export default function LocaleContactPage({ params }: Props) {
                   {isNl ? 'Zakelijke Evenementen' : 'Corporate Events'}
                 </Link>
               </div>
-              <ContactForm />
+              <ContactForm locale={locale} />
             </div>
 
           </div>

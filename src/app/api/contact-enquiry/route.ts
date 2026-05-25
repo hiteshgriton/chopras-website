@@ -8,29 +8,21 @@ const TO_ADDRESSES = [
   'brianscott05o9@gmail.com',
 ]
 
-const FROM_ADDRESS = 'Chopras Catering <noreply@chopras.nl>'
+const FROM_ADDRESS = 'Chopras Contact <noreply@chopras.nl>'
 
 function buildEmailHtml(fields: {
   name: string
   email: string
-  phone: string
-  date: string
-  eventType: string
-  guests: string
-  venue: string
-  budget?: string
-  message?: string
+  phone?: string
+  subject: string
+  message: string
 }): string {
   const rows = [
     { label: 'Name', value: fields.name },
     { label: 'Email', value: `<a href="mailto:${fields.email}" style="color:#C7A348;">${fields.email}</a>` },
-    { label: 'Phone', value: fields.phone },
-    { label: 'Event Date', value: fields.date },
-    { label: 'Event Type', value: fields.eventType },
-    { label: 'Guest Count', value: fields.guests },
-    { label: 'Venue / Location', value: fields.venue },
-    ...(fields.budget ? [{ label: 'Budget Range', value: fields.budget }] : []),
-    ...(fields.message ? [{ label: 'Additional Details', value: fields.message.replace(/\n/g, '<br />') }] : []),
+    ...(fields.phone ? [{ label: 'Phone', value: fields.phone }] : []),
+    { label: 'Subject', value: fields.subject },
+    { label: 'Message', value: fields.message.replace(/\n/g, '<br />') },
   ]
 
   const rowsHtml = rows
@@ -55,9 +47,9 @@ function buildEmailHtml(fields: {
 
           <tr>
             <td style="background:#1B2B5E;padding:28px 32px;">
-              <p style="margin:0;font-family:sans-serif;font-size:11px;font-weight:700;color:#C7A348;text-transform:uppercase;letter-spacing:0.18em;">New Catering Enquiry</p>
-              <h1 style="margin:6px 0 0;font-family:serif;font-size:26px;color:#fff;font-weight:600;">Catering / Event Enquiry</h1>
-              <p style="margin:6px 0 0;font-family:sans-serif;font-size:12px;color:rgba(255,255,255,0.55);">Submitted via Catering Form &bull; Chopras Indian Restaurant Den Haag</p>
+              <p style="margin:0;font-family:sans-serif;font-size:11px;font-weight:700;color:#C7A348;text-transform:uppercase;letter-spacing:0.18em;">New Message</p>
+              <h1 style="margin:6px 0 0;font-family:serif;font-size:26px;color:#fff;font-weight:600;">Contact / General Enquiry</h1>
+              <p style="margin:6px 0 0;font-family:sans-serif;font-size:12px;color:rgba(255,255,255,0.55);">Submitted via Contact Form &bull; Chopras Indian Restaurant Den Haag</p>
             </td>
           </tr>
 
@@ -75,10 +67,10 @@ function buildEmailHtml(fields: {
 
           <tr>
             <td style="padding:20px 32px 32px;">
-              <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;color:#1A1A1A;">Reply directly to this email to send a quote to ${fields.name}. Their address is <strong>${fields.email}</strong>.</p>
-              <a href="mailto:${fields.email}?subject=Re: Catering offerte voor ${encodeURIComponent(fields.eventType)} - Chopras Indian Restaurant"
+              <p style="margin:0 0 12px;font-family:sans-serif;font-size:13px;color:#1A1A1A;">Reply directly to this email to respond to ${fields.name}. Their address is <strong>${fields.email}</strong>.</p>
+              <a href="mailto:${fields.email}?subject=Re: ${encodeURIComponent(fields.subject)} - Chopras Indian Restaurant"
                  style="display:inline-block;background:#C7A348;color:#1B2B5E;font-family:sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;text-decoration:none;padding:12px 24px;border-radius:8px;">
-                Send Quote to ${fields.name}
+                Reply to ${fields.name}
               </a>
             </td>
           </tr>
@@ -101,32 +93,28 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
-    const { name, email, phone, date, eventType, guests, venue, budget, message } = body as {
+    const { name, email, phone, subject, message } = body as {
       name: string
       email: string
-      phone: string
-      date: string
-      eventType: string
-      guests: string
-      venue: string
-      budget?: string
-      message?: string
+      phone?: string
+      subject: string
+      message: string
     }
 
-    if (!name || !email || !phone || !date || !eventType || !guests || !venue) {
+    if (!name || !email || !subject || !message) {
       return Response.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 },
       )
     }
 
-    const html = buildEmailHtml({ name, email, phone, date, eventType, guests, venue, budget, message })
+    const html = buildEmailHtml({ name, email, phone, subject, message })
 
     const { error } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: TO_ADDRESSES,
       replyTo: email,
-      subject: `Catering Enquiry: ${eventType} - ${name} (${guests})`,
+      subject: `Contact: ${subject} - ${name}`,
       html,
     })
 
@@ -140,7 +128,7 @@ export async function POST(request: NextRequest) {
 
     return Response.json({ success: true })
   } catch (err) {
-    console.error('Catering enquiry route error:', err)
+    console.error('Contact enquiry route error:', err)
     return Response.json(
       { success: false, error: 'Internal server error' },
       { status: 500 },

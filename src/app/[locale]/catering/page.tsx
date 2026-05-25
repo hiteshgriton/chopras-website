@@ -754,7 +754,7 @@ export default function LocaleCateringPage({ params }: Props) {
           <p className="text-white/60 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
             {tr.catering.formSub}
           </p>
-          <CateringForm />
+          <CateringForm locale={locale} />
         </div>
       </section>
     </>
