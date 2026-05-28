@@ -338,6 +338,15 @@ export default function Footer({ locale }: { locale: Locale }) {
             <div className="flex items-center gap-6 text-xs font-light text-white/50">
               <Link href={`${base}/privacy-policy`} className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
               <Link href={`${base}/terms`} className="hover:text-white transition-colors duration-300">Terms of Service</Link>
+              <span className="hidden md:block w-px h-3 bg-white/20" />
+              <a
+                href="https://milliongloballeads.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#C7A348] transition-colors duration-300"
+              >
+                Developed by Million Global Leads
+              </a>
             </div>
           </div>
         </div>
